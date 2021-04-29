@@ -1,0 +1,46 @@
+image: node:8.7.0
+
+before_script:
+  - apt-get update -qq && apt-get install
+
+stages:
+  - build
+  - stagging
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+  only:
+    - master
+    - stagging-area
+
+test_stagging:
+  stage: stagging
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=i-say-stag --api-key=$HEROKU_API_KEY
+  only:
+    - stagging-area
+
+deploy_heroku:
+  stage: deploy
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=i-say --api-key=$HEROKU_API_KEY
+  only:
+    - master
