@@ -7,7 +7,7 @@ staging:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=i-say-stag --api-key=${HEROKU_API_KEY}
+    - dpl --provider=heroku --app=i-say-stag --api-key=1c5928f0-2fde-4315-9fa7-8f6968dceef5
   only:
     - stagging-area
   tags:
