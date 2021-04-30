@@ -1,14 +1,46 @@
-stages:
-  - staging
+image: node:8.7.0
 
-staging:
-  stage: staging
+before_script:  
+  - apt-get update -qq && apt-get install
+
+stages:
+  - build
+  - stagging
+  - deploy
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+  only:
+    - master
+    - stagging-area
+
+test_stagging:
+  stage: stagging
+  image: ruby:latest
   script:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=i-say-stag --api-key=1c5928f0-2fde-4315-9fa7-8f6968dceef5
+    - dpl --provider=heroku --app=i-say-stag --api-key=$HEROKU_API_KEY
   only:
     - stagging-area
-  tags:
-    - docker
+
+deploy_heroku:
+  stage: deploy
+  image: ruby:latest
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby-dev
+    - gem install dpl
+    - dpl --provider=heroku --app=wibu-tv-team-b --api-key=$HEROKU_API_KEY
+  only:
+    - master
