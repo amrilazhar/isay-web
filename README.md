@@ -2,50 +2,42 @@
 
 ## Untuk Preview Bisa Akses Di :
 
-- **STAGGING** [I Say Stagging](#)
-- **MASTER/ DEPLOYED** [I Say Deployed](#)
-
-## Pada Folder Structre, Perhatikan Baik-Baik Penempatan :
-
-    1. API
-    2. Components Common/ Pages
-    3. Container Common/ Pages
-    4. Action & Reducer setiap Feature
-    5. Middleware, Store, Event Name, Root Reducer.
+- **STAGGING** [I Say Stagging](i-say-stag.herokuapp.com)
+- **MASTER/ DEPLOYED** [TBA](#)
 
 ## Folder Structure yang Digunakan.
 
     src
-    ├── api                             # Semua API dikumpulkan disini
-        ├── apiHandler.js               # Nanti API dijadikan satu disini
+    ├── components
+        ├── navigation.js
+        ├── footer.js
         └── ...
-    ├── common                          # Components/ container yang tidak terasosiasi dengan page utama/ yang umum dipakai
-        ├── components
+    ├── pages
+        ├── css
+            ├── login.css
+            ├── signup.css
             └── ...
-        └── containers
-            └── ...
-    ├── pages                           # Page utama yang digunakan
-        ├── ThisPage
-            ├── components
-                └── ...
-            └── ThisPageContainers.jsx
+        ├── login.js
+        ├── signup.js
         └── ...
-    ├── states                          # Untuk mengasosiasi setiap state, action, dan reducer
-        ├── ThisFeature
-            ├── ThisFeatureAction.js
-            └── ThisFeatureReducer.js
-        ├── ...
-        ├── eventName.js
-        ├── middleware.js               # Tempat middleware berada
-        └── store.js                    # Tempat store berada
+    ├── redux
+        ├── actions
+            ├── action01.js
+            ├── action02.js
+            └── ...
+        ├── reducers
+            ├── reducer01.js
+            ├── reducer02.js
+            └── ...
+        ├── store.js
+        └── type.js
     ├── utils
-        └── authUtils.js
-    ├── App.js                          # Compilenya di App.js
+        └── ...
+    ├── App.js
     ├── App.test.js
     ├── index.js
-    ├── reducer.js                      # Untuk combine Reducer dari setiap feature
+    ├── reducer.js
     ├── reportWebVitals.js
-    ├── routes.js
     └── setupTests.js
 
 ## CI/CD Structure
@@ -67,3 +59,7 @@
 - Alfian Alfian
 - Tisadini Ossiana
 - Candra Lorensia Ardiyanti
+
+
+
+

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import './css/Signup.css'
+import './css/signup.css'
 
-const Signup = () => {
+function signup() {
   return (
     <div className="signup-container">
       <div className="signup-wrapper">
@@ -29,7 +29,7 @@ const Signup = () => {
               <input type="submit" value="Create an Account" />
             </form>
             <button><img src="https://img.icons8.com/color/50/000000/google-logo.png" alt="Google Logo"/> Signup with Google</button>
-            <p>Already has an account? <Link to="/Login">Login here</Link></p>
+            <p>Already has an account? <Link to="/login">Login here</Link></p>
           </div>
         </div>
       </div>
@@ -37,4 +37,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default signup
