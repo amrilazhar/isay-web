@@ -1,0 +1,128 @@
+.status-submit {
+  padding: 1rem;
+  border: 1.5px solid rgba(183, 183, 183, 1);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.status-submit .user-active-profile {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(138, 98, 251, 1);
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-submit .user-active-profile img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 60%;
+}
+
+.status-submit form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-submit form textarea {
+  resize: none;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 0.2px solid rgba(183, 183, 183, 1);
+  border-radius: 0.5rem;
+}
+
+.status-submit form textarea {
+  width: 80%;
+}
+
+.status-submit form .status-tools {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.status-submit form .status-tools button:first-child {
+  background-color: rgba(138, 98, 251, 1);
+  border: none;
+  border-radius: 1rem;
+  color: white;
+}
+
+.status-submit form .status-tools button img {
+  width: 10px;
+  margin-right: 0.25rem;
+}
+
+.status-submit form .status-tools button {
+  border-radius: 1rem;
+  background-color: white;
+  border: 0.1rem solid rgba(138, 98, 251, 1);
+  box-sizing: border-box;
+  color: rgba(138, 98, 251, 1);
+}
+
+.status-submit form .status-tools input {
+  border: none;
+  border-radius: 0.25rem;
+  background-color: rgba(71, 129, 248, 1);
+  color: white;
+}
+
+.status-submit form .status-tools button,
+.status-submit form .status-tools input {
+  font-weight: 600;
+  margin: 0 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 860px) {
+  .status-submit {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .status-submit form {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+  }
+
+  .status-submit .user-active-profile {
+    margin-right: 1rem;
+  }
+
+  .status-submit form textarea {
+    width: 90%;
+  }
+
+  .status-submit form .status-tools {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+  }
+
+  .status-submit form .status-tools input:last-child {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 1080px) {
+  .status-submit form textarea {
+    width: 93%;
+  }
+}

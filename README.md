@@ -2,7 +2,7 @@
 
 ## Untuk Preview Bisa Akses Di :
 
-- **STAGGING** [I Say Stagging](https://i-say-stag.herokuapp.com/)
+- **STAGGING** [I Say Stagging](i-say-stag.herokuapp.com)
 - **MASTER/ DEPLOYED** [TBA](#)
 
 ## Folder Structure yang Digunakan.
@@ -59,7 +59,3 @@
 - Alfian Alfian
 - Tisadini Ossiana
 - Candra Lorensia Ardiyanti
-
-
-
-

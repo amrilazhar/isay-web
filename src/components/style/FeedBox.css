@@ -1,0 +1,208 @@
+.isay-status-box {
+  border-bottom: 0.25px solid rgba(183, 183, 183, 1);
+  margin-bottom: 1rem;
+}
+
+.isay-status-box .user-status {
+  margin-bottom: 1rem;
+}
+
+.isay-status-box .user-status .upper-prop {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.isay-status-box .user-status .upper-prop .user-image {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(97, 219, 153, 1);
+  border-radius: 20px;
+  margin: 0 1rem 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.isay-status-box .user-status .upper-prop .user-image img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 60%;
+}
+
+.isay-status-box .user-status .upper-prop .name-and-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.isay-status-box .user-status .upper-prop .name-and-time h2 {
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.isay-status-box .user-status .upper-prop .name-and-time p {
+  margin: 0 0 1.5rem 0;
+  font-size: 0.8rem;
+}
+
+.isay-status-box .user-status .upper-prop .status-interest p {
+  padding: 0.6rem;
+  margin: 0 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+  background-color: rgba(138, 98, 251, 1);
+  border-radius: 0.8rem;
+}
+
+.isay-status-box .user-status .upper-prop .location p {
+  margin: 0 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+.isay-status-box .user-status .upper-prop .location img {
+  width: 10px;
+  margin-right: 0.3rem;
+}
+
+.isay-status-box .user-status .lower-prop .image-post {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.isay-status-box .user-status .lower-prop .image-post .image-cont {
+  width: 220px;
+  height: 220px;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.isay-status-box .user-status .lower-prop .image-post .image-cont img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-width: 100%;
+}
+
+.isay-status-box .user-status .lower-prop p {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.isay-status-box .do-at-status {
+  padding: 0.2rem;
+  border: 1.5px solid rgba(183, 183, 183, 1);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.isay-status-box .do-at-status .button-collect {
+  display: flex;
+}
+
+.isay-status-box .do-at-status .button-collect .button {
+  display: flex;
+  margin: 0 0.75rem;
+  align-items: center;
+}
+
+.isay-status-box .do-at-status .button-collect .button img {
+  height: 15px;
+  margin-right: 0.4rem;
+}
+
+.isay-status-box .do-at-status .button-collect p {
+  font-size: 0.8rem;
+  display: inline;
+}
+
+.isay-status-box .do-at-status .button-collect .button p:nth-child(2) {
+  margin-right: 0.4rem;
+}
+
+.isay-status-box .do-at-status .button-collect .button p:nth-child(2) {
+  display: none;
+}
+
+.isay-status-box .do-at-status .comment-expand {
+  padding: 0.5rem;
+  border-top: 0.25px solid rgba(183, 183, 183, 1);
+}
+
+.isay-status-box .do-at-status .comment-expand form textarea {
+  margin: 0.5rem 0;
+  width: 100%;
+  resize: none;
+  padding: 1rem;
+  border: 0.2px solid rgba(183, 183, 183, 1);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+.isay-status-box .do-at-status .comment-expand .comment-box {
+  padding: 1rem 0;
+  border-top: 0.25px solid rgba(183, 183, 183, 1);
+}
+
+.isay-status-box .do-at-status .comment-expand .comment-box .comment-detail {
+  display: flex;
+  justify-content: space-between;
+}
+
+.isay-status-box .do-at-status .comment-expand .comment-box .comment-detail h2 {
+  margin: 0 0 0.25rem 0;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.isay-status-box .do-at-status .comment-expand .comment-box .comment-detail p {
+  margin: 0 0 1.5rem 0;
+  font-size: 0.8rem;
+}
+
+.isay-status-box .do-at-status .comment-expand .comment-box .comment-content p {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: 480px) {
+  .isay-status-box .do-at-status .button-collect .button p:nth-child(2) {
+    display: inline;
+  }
+}
+
+@media screen and (min-width: 540px) {
+  .isay-status-box .user-status .upper-prop .name-and-time {
+    margin-right: 1rem;
+  }
+
+  .isay-status-box .user-status .upper-prop .location {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .isay-status-box .do-at-status .button-collect .button p:nth-child(2) {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .isay-status-box .do-at-status .button-collect .button p:nth-child(2) {
+    display: inline;
+  }
+}

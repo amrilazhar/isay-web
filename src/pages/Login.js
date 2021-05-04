@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import './css/login.css'
+import './style/login.css'
 
-function login() {
+function Login() {
   return (
     <div className="login-container">
       <div className="login-wrapper">
@@ -35,4 +35,4 @@ function login() {
   )
 }
 
-export default login
+export default Login

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import './css/signup.css'
+import './style/signup.css'
 
-function signup() {
+function Signup() {
   return (
     <div className="signup-container">
       <div className="signup-wrapper">
@@ -37,4 +37,4 @@ function signup() {
   )
 }
 
-export default signup
+export default Signup
