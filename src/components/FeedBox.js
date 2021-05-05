@@ -2,6 +2,7 @@ import React from 'react'
 import './style/FeedBox.css'
 
 const FeedBox = () => {
+
   return (
     <div className="isay-status-box">
       <div className="user-status">
