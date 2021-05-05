@@ -11,6 +11,7 @@ import { PrivateRoute } from './redux/PrivateRoute'
 import FeedPage from './pages/FeedPage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import UserPage from './pages/UserPage';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
               <PrivateRoute exact path="/" component={FeedPage} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
+              <PrivateRoute path="/profile" component={UserPage} />
               <Redirect from="*" to="/" />
           </Switch>
       </Router>
