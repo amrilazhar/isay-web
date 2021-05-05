@@ -3,7 +3,7 @@
 ## Untuk Preview Bisa Akses Di :
 
 - **STAGGING** [I Say Stagging](https://i-say-stag.herokuapp.com/)
-- **MASTER/ DEPLOYED** [TBA](#)
+- **MASTER/ DEPLOYED** [TBA](##)
 
 ## Folder Structure yang Digunakan.
 
