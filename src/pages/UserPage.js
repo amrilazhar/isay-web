@@ -7,7 +7,6 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
-import { PrivateRoute } from '../redux/PrivateRoute'
 import UserAct from '../components/UserProfile/UserAct';
 import UserBio from '../components/UserProfile/UserBio'
 import UserPost from '../components/UserProfile/UserPost';

@@ -1,8 +1,9 @@
 import React from 'react'
-import FeedBox from '../components/FeedBox'
-import FilterBox from '../components/FilterBox'
+import FeedBox from '../components/FeedPage/FeedBox'
+import FilterBox from '../components/FeedPage/FilterBox'
+import WriteStatusBox from '../components/FeedPage/WriteStatusBox'
 import Footer from '../components/Footer'
-import WriteStatusBox from '../components/WriteStatusBox'
+
 import './style/FeedPage.css'
 
 const FeedPage = () => {
