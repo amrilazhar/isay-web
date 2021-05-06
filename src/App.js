@@ -12,6 +12,9 @@ import FeedPage from './pages/FeedPage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import UserPage from './pages/UserPage';
+import InputLocation from './pages/SIgnUpQuest/InputLocation';
+import InputInterest from './pages/SIgnUpQuest/InputInterest';
+import InputActivity from './pages/SIgnUpQuest/InputActivity';
 
 
 function App() {
@@ -34,6 +37,9 @@ function App() {
               <PrivateRoute exact path="/" component={FeedPage} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
+              <Route path="/location" component={InputLocation} />
+              <Route path="/interest" component={InputInterest} />
+              <Route path="/activity"component={InputActivity} />
               <PrivateRoute path="/profile" component={UserPage} />
               <Redirect from="*" to="/" />
           </Switch>

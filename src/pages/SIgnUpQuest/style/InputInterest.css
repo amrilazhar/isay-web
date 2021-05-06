@@ -1,0 +1,109 @@
+.background-interest {
+  background-image: url("https://i.ibb.co/Lg01Zy2/group-img-isay-png.png");
+  background-size: cover;
+}
+
+.interest-wrapper {
+  padding: 5rem;
+  box-sizing: border-box;
+}
+
+.interest-container {
+  background: #ffffff;
+  border: 1px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 200px 100px rgba(117, 117, 117, 0.25);
+  border-radius: 5px;
+  line-height: 2em;
+  padding: 4rem;
+  color: #4f4f4f;
+}
+
+.interest-container h3:first-child {
+  font-size: 1.5rem;
+}
+
+.interest-container p:nth-child(2n) {
+  font-size: 0.9rem;
+  margin-bottom: 3rem;
+}
+
+.interest-container h3:nth-child(3) {
+  font-size: 1rem;
+  margin: 2rem 0 0;
+}
+
+.checklist-interest {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  min-height: 15rem;
+  margin-bottom: 1rem;
+}
+
+.information {
+  display: flex;
+  align-items: center;
+}
+
+.information .information-content {
+  margin: 0 !important;
+}
+
+.btn-interest {
+  background-color: #4781f8;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: large;
+  font-weight: 800;
+  border-color: transparent;
+  padding: 0.5rem 4rem;
+  box-sizing: border-box;
+  margin-left: auto;
+}
+
+.btn-interest a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.information-sign {
+  border-radius: 50%;
+  background-color: #4781f8;
+  text-align: center;
+  max-height: 35px;
+  min-width: 30px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.information-content {
+  color: #4f4f4f;
+  padding-left: 1rem;
+  font-size: 15px;
+}
+
+.MuiCheckbox-colorSecondary.Mui-checked {
+  color: #61db99 !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .information .information-content,
+  .information .information-sign {
+    display: none;
+  }
+
+  .btn-interest {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    min-width: 10rem;
+    margin-top: 2rem;
+  }
+
+  .checklist-interest {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: scroll;
+    max-height: 3em;
+  }
+}
