@@ -15,6 +15,7 @@ import UserPage from './pages/UserPage';
 import InputLocation from './pages/SIgnUpQuest/InputLocation';
 import InputInterest from './pages/SIgnUpQuest/InputInterest';
 import InputActivity from './pages/SIgnUpQuest/InputActivity';
+import Notification from './pages/Notification';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
               <Route path="/location" component={InputLocation} />
               <Route path="/interest" component={InputInterest} />
               <Route path="/activity"component={InputActivity} />
+              <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
               <Redirect from="*" to="/" />
           </Switch>

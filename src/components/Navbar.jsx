@@ -1,0 +1,72 @@
+import React, { useState } from "react";
+import HomeIcon from '@material-ui/icons/Home';
+import NotificationsIcon from '@material-ui/icons/Notifications';
+import SmsIcon from '@material-ui/icons/Sms';
+import CloseIcon from '@material-ui/icons/Close';
+import MenuIcon from '@material-ui/icons/Menu';
+import { Link, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./style/Navbar.css"
+import { history } from "../helpers";
+
+const Navbar = () => {
+    const [sideMenu, setSideMenu] = useState(false);
+
+    const handleSideMenu = () => 
+    (setSideMenu(!sideMenu))
+
+    const toProfile = () => (
+        history.push('profile')
+    )
+
+    const toFeed = () => (
+        history.replace('')
+    )
+
+    const toNotif = () => (
+        history.push('notification')
+    )
+
+    return(
+        <Router>
+          <div className="navbar-container">
+            <div className="navbar-wrapper">
+                <div className="nav-logo" onClick={toFeed}>
+                    <img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo"/>
+                </div>
+                <div className="search">
+                    <input type="text" placeholder="#hashtag"/>
+                </div>
+                <ul className={sideMenu? "nav-menu active" : "nav-menu"}>
+                    <li className="nav-item" >
+                        <Link to={'/'} className="nav-links" activeClassName="active">
+                            <HomeIcon/>
+                            <p>Home</p>
+                        </Link>
+                    </li>
+                    <li className="nav-item" >
+                        <div onClick={toNotif} className="nav-links" activeClassName="active" > 
+                            <NotificationsIcon/>
+                            <p>Notifications</p>
+                        </div>
+                    </li>
+                    <li className="nav-item" >
+                        <Link to={'/'} className="nav-links" activeClassName="active" >
+                            <SmsIcon/>
+                            <p>Message</p>
+                        </Link>
+                    </li>
+                </ul>
+                <div className="profile-icon" onClick={toProfile}>
+                    <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="profile-icon"/>
+                </div>
+                <div className="nav-icon" onClick={handleSideMenu}>
+                    {sideMenu ? <CloseIcon/> : <MenuIcon/>}
+                </div>
+            </div>
+        </div>
+      </Router>
+    )
+}
+
+export default Navbar;
