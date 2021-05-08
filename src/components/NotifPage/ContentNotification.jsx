@@ -1,7 +1,7 @@
 import React from "react"
 import "./style/contentNotification.css"
 import { Divider } from "@material-ui/core";
-import Pagination from '@material-ui/lab/Pagination';
+// import Pagination from '@material-ui/lab/Pagination';
 
 
 const ContentNotification = () => {

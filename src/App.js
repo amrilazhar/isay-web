@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
-import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { history } from './helpers/history'
-import { alertActions } from './redux/actions'
+import { alertActions, statusInterest } from './redux/actions'
 import { PrivateRoute } from './redux/PrivateRoute'
 
 
@@ -20,7 +19,7 @@ import Notification from './pages/Notification';
 
 function App() {
 
-  // const alert = useSelector(state => state.alert);
+  const alert = useSelector(state => state.alert);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,6 +29,11 @@ function App() {
       });
   //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // useEffect(() => {
+  //   dispatch(statusInterest.getStatus())
+  // //eslint-disable-next-line react-hooks/exhaustive-deps
+  // },[])
 
   return (
     <div className="app">
@@ -43,6 +47,7 @@ function App() {
               <Route path="/activity"component={InputActivity} />
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
+              <Redirect from="/profile" to="/profile/bio" />
               <Redirect from="*" to="/" />
           </Switch>
       </Router>

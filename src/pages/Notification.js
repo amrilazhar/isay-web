@@ -1,9 +1,10 @@
 import React from "react";
+
 import LeftSide from "../components/NotifPage/LeftSideNotif"
 import ContentNotification from "../components/NotifPage/ContentNotification"
-import "./style/notification.css"
 import Footer from "../components/Footer";
 import Navbar from '../components/Navbar';
+import "./style/notification.css"
 
 const Notification = () => {
     return(

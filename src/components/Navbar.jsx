@@ -1,13 +1,17 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+
+import { history } from "../helpers";
+
 import HomeIcon from '@material-ui/icons/Home';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import SmsIcon from '@material-ui/icons/Sms';
 import CloseIcon from '@material-ui/icons/Close';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link, NavLink } from "react-router-dom";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./style/Navbar.css"
-import { history } from "../helpers";
+
+
 
 const Navbar = () => {
     const [sideMenu, setSideMenu] = useState(false);
@@ -39,7 +43,7 @@ const Navbar = () => {
                 </div>
                 <ul className={sideMenu? "nav-menu active" : "nav-menu"}>
                     <li className="nav-item" >
-                        <Link to={'/'} className="nav-links" activeClassName="active">
+                        <Link to={`/`} className="nav-links" activeClassName="active">
                             <HomeIcon/>
                             <p>Home</p>
                         </Link>
@@ -51,7 +55,7 @@ const Navbar = () => {
                         </div>
                     </li>
                     <li className="nav-item" >
-                        <Link to={'/'} className="nav-links" activeClassName="active" >
+                        <Link to={`/`} className="nav-links" activeClassName="active" >
                             <SmsIcon/>
                             <p>Message</p>
                         </Link>
