@@ -60,14 +60,14 @@ const FeedBox = (proper) => {
             <p>1 hour ago</p>
           </div>
           <div className="status-interest">
-            <p>Personal</p>
+            <p>{card.interest}</p>
           </div>
           <div className="location">
             <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />Jakarta</p>
           </div>
         </div>
         <div className="lower-prop">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eaque officia eligendi, distinctio perferendis odio minima dignissimos adipisci error nam, non libero quae quod, ipsum praesentium dolore consectetur quas aliquam?</p>
+          <p>{card.content}</p>
         </div>
       </div>
       <div className="do-at-status">
