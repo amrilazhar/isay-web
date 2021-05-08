@@ -1,12 +1,7 @@
-import React from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams
-} from "react-router-dom";
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
+
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import UserAct from '../components/UserProfile/UserAct';
@@ -17,9 +12,14 @@ import './style/UserPage.css'
 const UserPage = () => {
 
   let match = useRouteMatch()
+  // const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch
+  // },[])
 
   return (
-    <>
+    <Router>
       <Navbar/>
       <div className="profile-container">
         <div className="profile-wrapping">
@@ -85,7 +85,7 @@ const UserPage = () => {
         </div>
       </div>
       <Footer/>
-    </>
+    </Router>
   )
 }
 
