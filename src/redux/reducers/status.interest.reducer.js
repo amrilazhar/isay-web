@@ -22,7 +22,7 @@ export function statusInterest (state = statusInterestState, action) {
       };
     case statusConstant.GET_STATUS_FAILURE:
       return {
-        // ...state,
+        ...state,
         loading: false,
         error: action.error
       }

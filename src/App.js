@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-do
 
 import { useDispatch, useSelector } from 'react-redux';
 import { history } from './helpers/history'
-import { alertActions, statusInterest } from './redux/actions'
+import { alertActions } from './redux/actions'
 import { PrivateRoute } from './redux/PrivateRoute'
 
 
@@ -24,16 +24,9 @@ function App() {
 
   useEffect(() => {
       history.listen((location, action) => {
-          // clear alert on location change
           dispatch(alertActions.clear());
       });
-  //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // useEffect(() => {
-  //   dispatch(statusInterest.getStatus())
-  // //eslint-disable-next-line react-hooks/exhaustive-deps
-  // },[])
 
   return (
     <div className="app">
@@ -47,7 +40,6 @@ function App() {
               <Route path="/activity"component={InputActivity} />
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
-              <Redirect from="/profile" to="/profile/bio" />
               <Redirect from="*" to="/" />
           </Switch>
       </Router>
