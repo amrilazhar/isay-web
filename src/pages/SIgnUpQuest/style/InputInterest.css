@@ -1,6 +1,7 @@
 .background-interest {
   background-image: url("https://i.ibb.co/Lg01Zy2/group-img-isay-png.png");
   background-size: cover;
+  height: 100vh;
 }
 
 .interest-wrapper {
