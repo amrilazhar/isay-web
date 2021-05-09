@@ -1,0 +1,66 @@
+.topic-container {
+  /* width: 250px; */
+  margin-top: 2rem;
+}
+
+.topic-container .topic-wrapper {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1.5px solid #c9c9c9;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+}
+
+.topic-container .topic-wrapper h3 {
+  color: #4f4f4f;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.topic-container .topic-wrapper p {
+  color: #828282;
+  font-size: 0.7em;
+  line-height: 1rem;
+  text-align: justify;
+}
+
+.topic-container .topic-wrapper ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.topic-container .topic-wrapper ul li {
+  color: #4781f8;
+  line-height: 2.5rem;
+}
+
+.topic-container .topic-wrapper .Button {
+  margin-top: 10px;
+  color: #4781f8;
+  border: 0.13rem solid #4781f8;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  font-size: 0.7rem;
+}
+
+@media screen and (min-width: 420px) {
+  .topic-container {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .topic-container {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .topic-container {
+    width: 100%;
+    margin-right: 2rem;
+  }
+}
