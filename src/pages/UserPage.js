@@ -12,11 +12,6 @@ import './style/UserPage.css'
 const UserPage = () => {
 
   let match = useRouteMatch()
-  // const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   dispatch
-  // },[])
 
   return (
     <Router>

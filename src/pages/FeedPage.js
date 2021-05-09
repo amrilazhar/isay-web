@@ -32,7 +32,11 @@ const FeedPage = () => {
       return (
         <>
         {statusUpdate.status.data.map((user) => (
-          <FeedBox cardy={{name: `${user.owner.name}`}}/>
+          <FeedBox cardy={{
+            name: `${user.owner.name}`,
+            content: `${user.content}`,
+            interest: `${user.interest[0].interest}`
+          }}/>
         ))}
         </>
       )

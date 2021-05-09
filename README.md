@@ -9,34 +9,38 @@
 
     src
     ├── components
-        ├── navigation.js
-        ├── footer.js
-        └── ...
+    |   ├── navigation.js
+    |   ├── footer.js
+    |   └── ...
+    ├── helpers
+    |   ├── auth-header.js
+    |   └── history.js
     ├── pages
-        ├── css
-            ├── login.css
-            ├── signup.css
-            └── ...
-        ├── login.js
-        ├── signup.js
-        └── ...
+    |   ├── css
+    |   |   ├── login.css
+    |   |   ├── signup.css
+    |   |   └── ...
+    |   ├── login.js
+    |   ├── signup.js
+    |   └── ...
     ├── redux
-        ├── actions
-            ├── action01.js
-            ├── action02.js
-            └── ...
-        ├── reducers
-            ├── reducer01.js
-            ├── reducer02.js
-            └── ...
-        ├── store.js
-        └── type.js
-    ├── utils
-        └── ...
+    |   ├── actions
+    |   |   ├── action01.js
+    |   |   ├── action02.js
+    |   |   └── ...
+    |   ├── reducers
+    |   |   ├── reducer01.js
+    |   |   ├── reducer02.js
+    |   |   └── ...
+    |   ├── services
+    |   |   └── user.service.js
+    |   ├── PrivateRoute.js
+    |   ├── store.js
+    |   └── type.js
     ├── App.js
     ├── App.test.js
+    ├── index.css
     ├── index.js
-    ├── reducer.js
     ├── reportWebVitals.js
     └── setupTests.js
 
