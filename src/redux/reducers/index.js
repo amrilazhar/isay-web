@@ -6,6 +6,7 @@ import { users } from './user.reducer';
 import { alert } from './alert.reducer';
 import { statusInterest } from './status.interest.reducer'
 import { inputInterestData } from "./input.interest.reducer";
+import { inputActivityData } from "./input.activity.reducer"
 
 const rootReducer = combineReducers({
     authentication,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
     alert,
     statusInterest,
     inputInterestData,
+    inputActivityData
 });
 
 export default rootReducer;
