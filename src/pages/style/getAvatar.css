@@ -1,0 +1,238 @@
+.main-container{
+    background: url("https://i.ibb.co/Lg01Zy2/group-img-isay-png.png");
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.main-container .main-wrapper{
+    color: #4F4F4F;
+    padding: 10rem;
+    margin: auto;
+}
+
+.main-container .main-wrapper .sub-container{
+    background: white;
+    box-shadow: 0px 200px 100px rgba(117, 117, 117, 0.25);;
+}
+
+.main-container .main-wrapper .sub-container .sub-wrapper{
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 5rem;
+}
+
+.main-container .main-wrapper .sub-container .sub-wrapper .isay-logo img{
+    height: 7rem;
+    transform: translate(-100%, -50%);
+}
+
+/* cool we defined you as... */
+.main-container .main-wrapper .sub-container .sub-wrapper h2{
+    text-align: center;
+    transform: translateY(-4rem);
+}
+
+/* icon avatar and name */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .inside-sub-wrapper .avatar-name-wrapper {
+    display: flex;
+    justify-content: center;
+    transform: translateY(-50%);
+}
+
+/* icon avatar bg */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .inside-sub-wrapper .avatar-name-wrapper .avatar {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    background: #8A62FB;
+    border: 1rem solid #8A62FB;
+    border-radius: 50%;
+    z-index: 900;
+}
+
+/* icon avatar img */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .inside-sub-wrapper .avatar-name-wrapper .avatar img{
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    max-height: 100%;
+}
+
+/* name for avatar */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .inside-sub-wrapper .avatar-name-wrapper p{
+    color: #4781F8;
+    border: 1px solid #4781F8;
+    align-self: center;
+    padding: 0.5rem 3rem 0.5rem 2.5rem;
+    border-radius: 0.5rem;
+    transform: translateX(-15%);
+    z-index: 10;
+}
+
+/* container for you're interested - last paragraph */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container{
+    box-sizing: border-box;
+    box-shadow: 0px 10px 30px rgba(0, 56, 255, 0.15);
+    text-align: center;
+    color: #4F4F4F;
+    padding: 0 10rem 2rem;
+
+}
+
+/* you are intereseted in */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .inside-sub-wrapper .top-text h4{
+    font-size: 18px;
+    transform: translateY(-1.5rem);
+}
+
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .inside-sub-wrapper .top-text p{
+    font-size: 16px;
+}
+
+/* interest icon */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .interest-icon {
+    display: flex;
+    padding: 0 5rem;
+
+}
+
+/* interest icon bg */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .interest-icon .interest-icon-container {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+    background: #FCDA64;
+    border: 1rem solid #FCDA64;
+    border-radius: 50%;
+    margin: auto;
+}
+
+/* interest account img */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .interest-icon .interest-icon-container img {
+    
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    max-height: 100%;
+}
+
+/* interest-text */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .interest-text {
+    display: flex;
+    padding: 0 5rem;
+}
+
+/* last paragraph */
+.main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container .interest-text p{
+    overflow-wrap: break-word;
+    font-size: 15px;
+    font-weight: 600;
+    margin: auto;
+}
+
+
+.main-container .main-wrapper .sub-container .sub-wrapper button{
+    color: white;
+    background-color: #4781F8;
+    border: transparent;
+    font-size: 18px;
+    padding: 0.7rem;
+    width: 15%;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    margin: 2rem 0;
+    align-items: center;
+    align-self:flex-end;
+    width: fit-content;
+}
+
+@media screen and (max-width: 1200px) {
+    .main-container .main-wrapper{
+        padding: 8rem;
+        margin: auto;
+
+    }
+    
+    .main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container  {
+        padding: 0 2rem 2rem;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .main-container .main-wrapper{
+        padding: 6rem;
+        margin: auto;
+
+    }
+    
+    .main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container  {
+        padding: 0 1rem 2rem;
+        margin: auto;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-container .main-wrapper{
+        padding: 2rem 1rem;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        font-size: 15px;
+    }
+
+    .main-container .main-wrapper .sub-container .sub-wrapper .isay-logo img {
+        height: 5rem;
+        transform: translate(-1rem, -2.5em);
+    }
+
+    .main-container .main-wrapper .sub-container .sub-wrapper h2 {
+        text-align: center;
+        transform: translateY(-2rem);
+    }
+
+
+    .main-container .main-wrapper .sub-container .sub-wrapper {
+        padding: 0.5rem;
+    }
+
+    .main-container .main-wrapper .sub-container .sub-wrapper button{
+            width: 100%;
+            margin: 0.5rem 0;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    
+    .main-container .main-wrapper{
+        width: 50%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-container .main-wrapper .sub-container .sub-wrapper .isay-logo img {
+        height: 5rem;
+        transform: none;
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+    }
+
+    .main-container .main-wrapper .sub-container .sub-wrapper .inside-sub-container {
+        padding: 0 1rem;
+        margin-top: 2rem;
+    }
+
+    .main-container .main-wrapper .sub-container .sub-wrapper h2 {
+        text-align: center;
+        transform: none;
+    }
+}

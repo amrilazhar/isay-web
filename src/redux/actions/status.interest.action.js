@@ -5,6 +5,7 @@ import axios from 'axios';
 export const statusInterest = {
   getStatus
 };
+console.log(statusInterest)
 
 function getStatus(status) {
   return dispatch => {
