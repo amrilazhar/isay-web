@@ -1,8 +1,9 @@
-import React, { useEffect } from "react"
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import {Link} from "react-router-dom"
 import "./style/InputInterest.css";
+
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { inputInterestData } from "../../redux/actions";
 
@@ -16,17 +17,17 @@ const InputInterest = () => {
     const inputInterestUpdate = useSelector((state) => state.inputInterestData)
     console.log("ini",inputInterestUpdate)
 
-    const displayCheckBox = () => {
+    const displayInterestCheckBox = () => {
         if (inputInterestUpdate.loading === true) {
             return <div>Loading...</div>
         } else {
             return ( 
                 <>
-                    {inputInterestUpdate.interest.data.map((input, index) => (
+                    {inputInterestUpdate.interest.data.map((input, interest) => (
                         <div>
                             <FormControlLabel 
                                 control={<Checkbox/>}
-                                key= {index}
+                                key= {interest}
                                 label= {input.interest}
                             />
                         </div>
@@ -46,7 +47,7 @@ const InputInterest = () => {
                         <h3>What do you do in your free time?</h3>
                         <p>Avatar that you will get will be choosen based on your answer some of short question below</p>
                         <div className="checklist-interest">
-                            {displayCheckBox()}
+                            {displayInterestCheckBox()}
                         </div>
                         <div className="information">
                             <p className="information-sign">i</p>
