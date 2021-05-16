@@ -21,7 +21,7 @@ export function users(state = {}, action) {
         case userConstants.GETACTIVE_SUCCESS:
             return {
                 loading: false,
-                items: action.users
+                items: action.payload
             };
         case userConstants.GETACTIVE_FAILURE:
             return {

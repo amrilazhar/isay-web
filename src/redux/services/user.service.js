@@ -45,7 +45,7 @@ function getAll() {
     return fetch(`/users`, requestOptions).then(handleResponse);
 }
 
-function getActive() {
+ function getActive() {
     const requestOptions = {
         // method: 'GET',
         headers: authHeader()

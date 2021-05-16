@@ -69,13 +69,18 @@ function getActive (active) {
 
         userService.getActive()
             .then(
-                users => dispatch(success(users)),
-                error => dispatch(failure(error.toString()))
+                users => {
+                    // setTimeout(() => {
+                    dispatch(success(users))
+                    // }, 2500)
+                })
+            .catch(
+                error => {dispatch(failure(error.toString()))}
             );
     };
 
     function request(active) { return { type: userConstants.GETACTIVE_REQUEST, active } }
-    function success(users) { return { type: userConstants.GETACTIVE_SUCCESS, users } }
+    function success(users) { return { type: userConstants.GETACTIVE_SUCCESS, payload: users.data.data } }
     function failure(error) { return { type: userConstants.GETACTIVE_FAILURE, error } }
 }
 

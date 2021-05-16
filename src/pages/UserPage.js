@@ -21,9 +21,12 @@ const UserPage = () => {
 
   const userActive = useSelector ((state) => state.users)
 
-  let match = useRouteMatch()
+  
+  const coba = useSelector ((state) => state.users.items)
 
-  // console.log(userActive.items.data.data.name)
+  console.log(coba?.bio)
+  
+  let match = useRouteMatch()
 
   const userDetail = () => {
     if(userActive.loading){
@@ -39,10 +42,10 @@ const UserPage = () => {
             <div className="profile-image">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
             </div>
-            <h1>{userActive.items.data.data.name}</h1>
+            <h1>{userActive.items?.name}</h1>
             <div className="location">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
-              <p>{userActive.items.data.data.location.city}</p>
+              <p>{userActive.items?.location.city}</p>
             </div>
           </div>
           <button>
