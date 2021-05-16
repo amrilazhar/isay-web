@@ -1,7 +1,7 @@
 .background-location {
   background-image: url("https://i.ibb.co/Lg01Zy2/group-img-isay-png.png");
   background-size: cover;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .location-wrapper {
@@ -78,7 +78,7 @@
   color: #ffffff;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 850px) {
   .location-container {
     text-align: center;
     padding: 2.5rem;
@@ -99,5 +99,38 @@
   .location-line4 {
     text-indent: 0rem;
     font-weight: lighter;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .location-wrapper{
+    padding: 3rem;
+  }
+
+  .location {
+    margin: 0;
+  }
+
+  .btn-location {
+    transform: unset;
+    padding: 0.5rem 4rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .location-wrapper{
+    padding: 2rem;
+  }
+
+  
+}
+@media only screen and (max-width: 250px) {
+  .location-wrapper{
+    padding: 1rem;
+  }
+
+  .btn-location {
+    transform: unset;
+    padding: 0.5rem 2rem;
   }
 }

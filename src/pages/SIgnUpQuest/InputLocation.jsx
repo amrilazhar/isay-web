@@ -7,8 +7,6 @@ import React, { useEffect, useState } from "react"
 import { inputLocationData } from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux';
 import {Link} from "react-router-dom"
-import { Hidden } from '@material-ui/core';
-
 
 const InputLocation = () => {
     const dispatch = useDispatch();

@@ -41,18 +41,23 @@ const InputInterest = () => {
         <>
             <div className="background-interest">
                 <div className="interest-wrapper">
-                    <div className="interest-container">
-                        <h3>Pour your thoughts without fear</h3>
-                        <p>No need to be scared to say your thoughts because you will be annonymous here. However, let them remember you through an <b style={{fontWeight:"bold"}}>Avatar.</b></p>
-                        <h3>What do you do in your free time?</h3>
-                        <p>Avatar that you will get will be choosen based on your answer some of short question below</p>
-                        <div className="checklist-interest">
-                            {displayInterestCheckBox()}
-                        </div>
-                        <div className="information">
-                            <p className="information-sign">i</p>
-                            <p className="information-content">You can choose as much as you want</p>
-                            <Link to="/activity"><button className="btn-interest">Next</button></Link>
+                    <div className="interest-sub-container">
+                        <div className="interest-sub-wrapper">
+                            <h3>Pour your thoughts without fear</h3>
+                            <p>No need to be scared to say your thoughts because you will be annonymous here. However, let them remember you through an <b style={{fontWeight:"bold"}}>Avatar.</b></p>
+                            <h3>What do you do in your free time?</h3>
+                            <p>Avatar that you will get will be choosen based on your answer some of short question below</p>
+                            <div className="checklist-interest">
+                                {displayInterestCheckBox()}
+                            </div>
+                            <div className="information">
+                                <p className="information-sign">i</p>
+                                <p className="information-content">You can choose as much as you want</p>
+                                <div>
+                                    <Link to="/activity"><button className="btn-interest-next">Next</button></Link>
+                                    <Link to="/location"><button className="btn-interest-back">Back</button></Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
