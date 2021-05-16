@@ -51,10 +51,9 @@ function getActive() {
         headers: authHeader()
     };
 
-    const user = localStorage.getItem('user');
-    console.log(user)
+    const user = JSON.parse(localStorage.getItem('user'));
 
-    return (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions).then(handleResponse);
+    return fetch (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions).then(handleResponse);
 }
 
 function getById(id) {

@@ -14,46 +14,45 @@ const UserPage = () => {
 
   const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   dispatch(userActions.getActive())
-  // },[])
+  useEffect(() => {
+    dispatch(userActions.getActive())
+  },[])
 
 
-  // const userActive = useSelector ((state) => state.users)
-  // console.log(userActive)
+  const userActive = useSelector ((state) => state.users)
 
   let match = useRouteMatch()
 
-  // const userDetail = () => {
-  //   if(userActive.loading){
-  //     return (
-  //       <div>
-  //         404
-  //       </div>
-  //     )
-  //   } else {
-  //     return (
-  //       <>
-  //         <div className="relative">
-  //           <div className="profile-image">
-  //             <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
-  //           </div>
-  //           <h1>{userActive.items.data.name}</h1>
-  //           <div className="location">
-  //             <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
-  //             <p>{userActive.items.data.location.city}</p>
-  //           </div>
-  //         </div>
-  //         <button>
-  //           <p>Profile Setting</p>
-  //         </button>
-  //         <button>
-  //           <p>Logout</p>
-  //         </button>
-  //       </>
-  //     )
-  //   }
-  // }
+  const userDetail = () => {
+    if(userActive.loading){
+      return (
+        <div>
+          404
+        </div>
+      )
+    } else {
+      return (
+        <>
+          <div className="relative">
+            <div className="profile-image">
+              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
+            </div>
+            <h1>{userActive.items.data.name}</h1>
+            <div className="location">
+              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
+              <p>{userActive.items.data.location.city}</p>
+            </div>
+          </div>
+          <button>
+            <p>Profile Setting</p>
+          </button>
+          <button>
+            <p>Logout</p>
+          </button>
+        </>
+      )
+    }
+  }
 
 
   return (
@@ -70,7 +69,7 @@ const UserPage = () => {
           <div className="profile-bottom-content">
             {/* Start of Left Content */}
             <div className="profile-left-content">
-              {/* {userDetail()} */}
+              {userDetail()}
             </div>
             {/* End of Left Content */}
             {/* Start of Right Content */}

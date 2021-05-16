@@ -4,7 +4,6 @@ import axios from "axios";
 export const inputInterestData = {
     getInputInterest
 };
-console.log(inputInterestData)
 
 function getInputInterest (interests) {
     return dispatch => {
