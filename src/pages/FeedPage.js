@@ -19,8 +19,6 @@ const FeedPage = () => {
   },[])
 
   const statusUpdate = useSelector ((state) => state.statusInterest)
-  console.log(statusUpdate)
-
 
   const feedBox = () => {
     if (statusUpdate.loading){

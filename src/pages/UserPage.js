@@ -23,6 +23,8 @@ const UserPage = () => {
 
   let match = useRouteMatch()
 
+  // console.log(userActive.items.data.data.name)
+
   const userDetail = () => {
     if(userActive.loading){
       return (
@@ -37,10 +39,10 @@ const UserPage = () => {
             <div className="profile-image">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
             </div>
-            <h1>{userActive.items.data.name}</h1>
+            <h1>{userActive.items.data.data.name}</h1>
             <div className="location">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
-              <p>{userActive.items.data.location.city}</p>
+              <p>{userActive.items.data.data.location.city}</p>
             </div>
           </div>
           <button>

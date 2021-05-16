@@ -63,9 +63,9 @@ function register(user) {
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
 }
 
-function getActive () {
+function getActive (active) {
     return dispatch => {
-        dispatch(request());
+        dispatch(request(active));
 
         userService.getActive()
             .then(
@@ -74,7 +74,7 @@ function getActive () {
             );
     };
 
-    function request() { return { type: userConstants.GETACTIVE_REQUEST } }
+    function request(active) { return { type: userConstants.GETACTIVE_REQUEST, active } }
     function success(users) { return { type: userConstants.GETACTIVE_SUCCESS, users } }
     function failure(error) { return { type: userConstants.GETACTIVE_FAILURE, error } }
 }

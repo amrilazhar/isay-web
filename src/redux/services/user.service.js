@@ -47,13 +47,14 @@ function getAll() {
 
 function getActive() {
     const requestOptions = {
-        method: 'GET',
+        // method: 'GET',
         headers: authHeader()
     };
 
     const user = JSON.parse(localStorage.getItem('user'));
 
-    return fetch (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions).then(handleResponse);
+    return axios .get (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions)
+    // .then(handleResponse);
 }
 
 function getById(id) {
