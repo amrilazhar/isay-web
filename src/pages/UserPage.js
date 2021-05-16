@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import { userActions } from '../redux/actions';
 
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -11,7 +12,49 @@ import './style/UserPage.css'
 
 const UserPage = () => {
 
+  const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch(userActions.getActive())
+  // },[])
+
+
+  // const userActive = useSelector ((state) => state.users)
+  // console.log(userActive)
+
   let match = useRouteMatch()
+
+  // const userDetail = () => {
+  //   if(userActive.loading){
+  //     return (
+  //       <div>
+  //         404
+  //       </div>
+  //     )
+  //   } else {
+  //     return (
+  //       <>
+  //         <div className="relative">
+  //           <div className="profile-image">
+  //             <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
+  //           </div>
+  //           <h1>{userActive.items.data.name}</h1>
+  //           <div className="location">
+  //             <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
+  //             <p>{userActive.items.data.location.city}</p>
+  //           </div>
+  //         </div>
+  //         <button>
+  //           <p>Profile Setting</p>
+  //         </button>
+  //         <button>
+  //           <p>Logout</p>
+  //         </button>
+  //       </>
+  //     )
+  //   }
+  // }
+
 
   return (
     <Router>
@@ -27,19 +70,7 @@ const UserPage = () => {
           <div className="profile-bottom-content">
             {/* Start of Left Content */}
             <div className="profile-left-content">
-              <div className="relative">
-                <div className="profile-image">
-                  <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
-                </div>
-                <h1>Rafflesia Arnoldi</h1>
-                <div className="location">
-                  <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
-                  <p>Jakarta</p>
-                </div>
-              </div>
-              <button>
-                <p>Talk with anonymous</p>
-              </button>
+              {/* {userDetail()} */}
             </div>
             {/* End of Left Content */}
             {/* Start of Right Content */}

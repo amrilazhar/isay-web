@@ -9,6 +9,7 @@ export const userActions = {
     logout,
     register,
     getAll,
+    getActive,
     delete: _delete
 };
 
@@ -60,6 +61,22 @@ function register(user) {
     function request(user) { return { type: userConstants.REGISTER_REQUEST, user } }
     function success(user) { return { type: userConstants.REGISTER_SUCCESS, user } }
     function failure(error) { return { type: userConstants.REGISTER_FAILURE, error } }
+}
+
+function getActive () {
+    return dispatch => {
+        dispatch(request());
+
+        userService.getActive()
+            .then(
+                users => dispatch(success(users)),
+                error => dispatch(failure(error.toString()))
+            );
+    };
+
+    function request() { return { type: userConstants.GETACTIVE_REQUEST } }
+    function success(users) { return { type: userConstants.GETACTIVE_SUCCESS, users } }
+    function failure(error) { return { type: userConstants.GETACTIVE_FAILURE, error } }
 }
 
 function getAll() {
