@@ -35,7 +35,7 @@
 }
 
 .signup-container .signup-wrapper .left-content-signup .download-button {
-  display: flex;
+  display: none;
   justify-content: center;
   padding-bottom: 1rem;
   box-sizing: border-box;
@@ -208,6 +208,7 @@
   }
 
   .signup-container .signup-wrapper .left-content-signup .download-button {
+    display: flex;
     justify-content: flex-end;
   }
 

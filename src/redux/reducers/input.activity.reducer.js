@@ -22,8 +22,8 @@ export function inputActivityData (state = inputActivityState, action) {
         case inputActivityConstant.GET_INPUT_ACTIVITY_FAILURE:
             return{
                 ...state,
-        loading: false,
-        error: action.error
+                loading: false,
+                error: action.error
       }
         default:
             return state

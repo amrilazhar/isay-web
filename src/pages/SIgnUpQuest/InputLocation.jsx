@@ -1,11 +1,48 @@
-import React from "react"
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import TextField from '@material-ui/core/TextField';
-import { InputAdornment } from "@material-ui/core";
-import {Link} from "react-router-dom"
 import "./style/InputLocation.css";
+import { Autocomplete } from '@material-ui/lab';
+
+import React, { useEffect, useState } from "react"
+import { inputLocationData } from '../../redux/actions'
+import { useDispatch, useSelector } from 'react-redux';
+import {Link} from "react-router-dom"
 
 const InputLocation = () => {
+    const dispatch = useDispatch();
+    // const [display, setDisplay] = useState(false)
+    // const [inputValue, setInputValue] = useState('')
+
+    useEffect (() => {
+        dispatch(inputLocationData.getInputLocation())
+    },[]) 
+
+    const inputLocationUpdate = useSelector((state) => state.inputLocationData)
+    console.log('ini', inputLocationUpdate)
+
+    const displayLocationData = () => {
+        if (inputLocationUpdate === true) {
+            return <div>Not Found</div>
+        } else {
+            return (
+                <>
+                    <Autocomplete
+                        id="combo-box-demo"
+                        options= {inputLocationUpdate.locations.data}
+                        value = {inputLocationUpdate.locations.data}
+                        autoHighlight= {true}
+                        noOptionsText = 'Not Found'
+                        fullWidth= {true}
+                        popupIcon= {<LocationOnIcon/>}
+                        getOptionLabel= {(input) => `${input.province}, ${input.city_type} ${input.city}, ${input.country}`}
+                        renderInput= {(params) => <TextField {...params} variant="outlined" label="Type a city's name"/>}
+                    />
+                </>
+            )
+            // <LocationOnIcon color="disabled"/>
+
+    }
+}
     return (
         <div className="background-location">
             <div className="location-wrapper">
@@ -22,14 +59,7 @@ const InputLocation = () => {
                     </div>
                     <p className="location-line4" >Let people find your great thoughts</p>
                     <div className="location">
-                        <TextField id="outlined-basic" placeholder="Type a city's name" variant="outlined"
-                        InputProps={{
-                            startAdornment: <InputAdornment position="start">
-                                <LocationOnIcon color="disabled"/>
-                            </InputAdornment>,
-                            }}
-                        style={{width: "80%", transform: "translateY(4rem)"}} 
-                        />
+                        {displayLocationData()}
                         <button className="btn-location" ><Link to="/interest">Next</Link></button>
                     </div>
                 </div>

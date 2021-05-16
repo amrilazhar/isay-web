@@ -1,7 +1,7 @@
 import React from "react"
 import "./style/contentNotification.css"
 import { Divider } from "@material-ui/core";
-// import Pagination from '@material-ui/lab/Pagination';
+import Pagination from '@material-ui/lab/Pagination';
 
 
 const ContentNotification = () => {
@@ -153,7 +153,7 @@ const ContentNotification = () => {
                 </div>
             </div>
         </div>
-        {/* <Pagination count={5} defaultPage={1} color="primary" className="Pagination"/> */}
+        <Pagination count={5} defaultPage={1} color="primary" className="notification-pagination"/>
         </>
     )
 }

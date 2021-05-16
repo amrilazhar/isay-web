@@ -35,7 +35,7 @@
 }
 
 .login-container .login-wrapper .left-content-login .download-button {
-  display: flex;
+  display: none;
   justify-content: center;
   padding-bottom: 1rem;
   box-sizing: border-box;
@@ -185,6 +185,7 @@
   }
 
   .login-container .login-wrapper .left-content-login .download-button {
+    display: flex;
     justify-content: flex-end;
   }
 

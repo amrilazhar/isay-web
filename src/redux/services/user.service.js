@@ -1,3 +1,4 @@
+import axios from "axios";
 import { authHeader } from "../../helpers";
 
 export const userService = {
@@ -5,6 +6,7 @@ export const userService = {
     logout,
     register,
     getAll,
+    getActive,
     getById,
     update,
     delete: _delete
@@ -17,11 +19,11 @@ function login(email, password) {
         body: JSON.stringify({ email, password })
     };
 
-    return fetch(`/users/authenticate`, requestOptions)
+    return fetch(`https://isay.gabatch11.my.id/user/login/`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('user', JSON.stringify(user.data));
 
             return user;
         });
@@ -38,7 +40,21 @@ function getAll() {
         headers: authHeader()
     };
 
+
+    //BENERIN BRO
     return fetch(`/users`, requestOptions).then(handleResponse);
+}
+
+ function getActive() {
+    const requestOptions = {
+        // method: 'GET',
+        headers: authHeader()
+    };
+
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    return axios .get (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions)
+    // .then(handleResponse);
 }
 
 function getById(id) {
@@ -47,6 +63,8 @@ function getById(id) {
         headers: authHeader()
     };
 
+
+    //BENERIN BRO
     return fetch(`/users/${id}`, requestOptions).then(handleResponse);
 }
 
@@ -57,7 +75,7 @@ function register(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`/users/register`, requestOptions).then(handleResponse);
+    return fetch(`https://isay.gabatch11.my.id/user/signup/`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
@@ -67,6 +85,8 @@ function update(user) {
         body: JSON.stringify(user)
     };
 
+
+    //BENERIN BRO
     return fetch(`/users/${user.id}`, requestOptions).then(handleResponse);;
 }
 
@@ -77,6 +97,8 @@ function _delete(id) {
         headers: authHeader()
     };
 
+
+    //BENERIN BRO
     return fetch(`/users/${id}`, requestOptions).then(handleResponse);
 }
 

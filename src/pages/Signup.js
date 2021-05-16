@@ -9,7 +9,8 @@ function Signup() {
 
     const [user, setUser] = useState({
         email: '',
-        password: ''
+        password: '',
+        confirmPassword: ''
     });
     
     const [submitted, setSubmitted] = useState(false);
@@ -31,7 +32,7 @@ function Signup() {
         e.preventDefault();
 
         setSubmitted(true);
-        if (user.email && user.password) {
+        if (user.email && user.password && user.confirmPassword) {
             dispatch(userActions.register(user));
         }
     }
@@ -58,7 +59,7 @@ function Signup() {
               <label htmlFor="password">Create a Password</label><br />
               <input type="password" name="password" id="password" placeholder="xxxx-xxxx-xxxx" value={user.password} onChange={handleChange}/><br />
               <label htmlFor="password">Confirm your Password</label><br />
-              <input type="password" name="confirmpassword" id="confirmpassword" placeholder="xxxx-xxxx-xxxx" /><br />
+              <input type="password" name="confirmPassword" id="confirmPassword" placeholder="xxxx-xxxx-xxxx" value={user.confirmPassword} onChange={handleChange}/><br />
               <input type="submit" value="Create an Account" />
             </form>
             <button><img src="https://img.icons8.com/color/50/000000/google-logo.png" alt="Google Logo"/> Signup with Google</button>

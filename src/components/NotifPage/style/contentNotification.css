@@ -105,10 +105,10 @@
   font-size: 0.8rem;
 }
 
-.main-container .Pagination {
+.notification-pagination {
   display: flex;
-  justify-content: center;
-  /* padding: 2rem 0 2rem; */
+  justify-content: space-evenly;
+  padding-bottom: 2rem;
 }
 
 @media screen and (min-width: 420px) {
