@@ -62,7 +62,7 @@ const FeedBox = (proper) => {
           <div className="status-interest">
             <p>{card.interest}</p>
           </div>
-          <div className="location">
+          <div className="status-location">
             <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />Jakarta</p>
           </div>
         </div>
