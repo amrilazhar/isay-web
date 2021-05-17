@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import FlashMessage from '../components/FlashMessage';
 import { userActions } from '../redux/actions'
 
 import './style/signup.css'
@@ -37,8 +38,13 @@ function Signup() {
         }
     }
 
+    const alert = useSelector ((state) => state.alert)
+
   return (
     <div className="signup-container">
+      {
+        alert.alert ? <FlashMessage/> : ""
+      }
       <div className="signup-wrapper">
         <div className="left-content-signup">
           <div className="logo">
