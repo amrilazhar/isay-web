@@ -38,9 +38,21 @@ const UserPage = () => {
   const userDetail = () => {
     if(userActive.loading){
       return (
-        <div>
-          404
-        </div>
+        <>
+          <div className="relative">
+            <div className="profile-image-load">
+              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
+            </div>
+            <h1></h1>
+            <div className="location-user-load"></div>
+          </div>
+          <button>
+            <p>Profile Setting</p>
+          </button>
+          <button>
+            <p>Logout</p>
+          </button> 
+        </>
       )
     } else {
       return (
@@ -50,7 +62,7 @@ const UserPage = () => {
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
             </div>
             <h1>{userActive.items?.name}</h1>
-            <div className="location">
+            <div className="location-user">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
               <p>{userActive.items?.location.city}</p>
             </div>
@@ -65,7 +77,6 @@ const UserPage = () => {
       )
     }
   }
-
 
   return (
     <Router>
