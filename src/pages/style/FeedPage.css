@@ -11,9 +11,13 @@
   align-items: center;
 }
 
+.feed-wrapping .right-content {
+  flex-grow: 1;
+}
+
 .feed-wrapping .right-content .right-wrapping .realtime-feed {
   padding: 1rem;
-  border: 1.5px solid rgba(183, 183, 183, 1);
+  border: 2px solid rgba(183, 183, 183, 1);
   border-radius: 0.5rem;
   box-sizing: border-box;
 }
@@ -42,5 +46,117 @@
 @media screen and (min-width: 1080px) {
   .feed-wrapping {
     margin: 2rem 8rem;
+  }
+}
+
+/* LOADING */
+
+.isay-status-box .user-status .upper-prop .user-image-load {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(239, 239, 239);
+  background-image: linear-gradient(
+    89deg,
+    rgb(239, 239, 239),
+    rgb(224, 224, 224)
+  );
+  animation: 4s ease-in-out 1ms infinite normal backwards running
+    animation-loading;
+  border-radius: 20px;
+  margin: 0 1rem 1rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.isay-status-box .user-status .upper-prop .user-image-load img {
+  display: none;
+}
+
+.isay-status-box .user-status .upper-prop .name-and-time-load {
+  width: 5rem;
+  height: 2.5rem;
+  background-color: rgb(239, 239, 239);
+  background-image: linear-gradient(
+    89deg,
+    rgb(239, 239, 239),
+    rgb(224, 224, 224)
+  );
+  animation: 4s ease-in-out 1ms infinite normal backwards running
+    animation-loading;
+  border-radius: 0.8rem;
+  margin: 0 0.5rem 1rem;
+}
+
+.isay-status-box .user-status .upper-prop .status-interest-load {
+  width: 5rem;
+  height: 2.5rem;
+  background-color: rgb(239, 239, 239);
+  background-image: linear-gradient(
+    89deg,
+    rgb(239, 239, 239),
+    rgb(224, 224, 224)
+  );
+  animation: 4s ease-in-out 1ms infinite normal backwards running
+    animation-loading;
+  border-radius: 0.8rem;
+  margin: 0 0.5rem 1rem;
+}
+
+.isay-status-box .user-status .lower-prop-load {
+  border-radius: 0.5rem;
+  height: 2rem;
+  background-color: rgb(239, 239, 239);
+  background-image: linear-gradient(
+    89deg,
+    rgb(239, 239, 239),
+    rgb(224, 224, 224)
+  );
+  animation: 4s ease-in-out 1ms infinite normal backwards running
+    animation-loading;
+  margin-bottom: 1rem;
+}
+
+.isay-status-box .do-at-status-load {
+  border: 2px solid rgba(183, 183, 183, 1);
+  border-radius: 0.5rem;
+  height: 2rem;
+  /* width: 45rem; */
+  background-color: rgb(239, 239, 239);
+  background-image: linear-gradient(
+    89deg,
+    rgb(239, 239, 239),
+    rgb(224, 224, 224)
+  );
+  animation: 4s ease-in-out 1ms infinite normal backwards running
+    animation-loading;
+  margin-bottom: 1rem;
+}
+
+.circle-box-load {
+  display: flex;
+  justify-content: center;
+}
+
+.circle-box-load .circle-load {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 1rem;
+  background-color: rgb(239, 239, 239);
+  background-image: linear-gradient(
+    89deg,
+    rgb(239, 239, 239),
+    rgb(224, 224, 224)
+  );
+  animation: 4s ease-in-out 1ms infinite normal backwards running
+    animation-loading;
+  margin: 0 1rem;
+}
+
+@keyframes animation-loading {
+  0% {
+    background-position: -300px center;
+  }
+  100% {
+    background-position: 300px center;
   }
 }
