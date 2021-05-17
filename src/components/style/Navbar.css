@@ -58,6 +58,7 @@
 .navbar-wrapper .nav-menu .nav-item .nav-links {
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 .navbar-wrapper .nav-menu .nav-item .nav-links p {

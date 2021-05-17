@@ -106,13 +106,14 @@
   .profile-left-content
   button:nth-child(2) {
   color: #4781f8;
-  border: 0.1rem solid #4781f8;
+  border: 0.15rem solid #4781f8;
   background-color: white;
   border-radius: 0.75rem;
   padding: 0 1rem;
   box-sizing: border-box;
   width: 100%;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 }
 
 .profile-wrapping
@@ -126,6 +127,7 @@
   padding: 0 1rem;
   box-sizing: border-box;
   width: 100%;
+  font-weight: bold;
 }
 
 /* End of Left Content */
