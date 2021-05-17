@@ -15,6 +15,7 @@ import InputLocation from './pages/SIgnUpQuest/InputLocation';
 import InputInterest from './pages/SIgnUpQuest/InputInterest';
 import InputActivity from './pages/SIgnUpQuest/InputActivity';
 import Notification from './pages/Notification';
+import GetAvatar from './pages/GetAvatar';
 
 
 function App() {
@@ -37,7 +38,8 @@ function App() {
               <Route path="/signup" component={Signup} />
               <Route path="/location" component={InputLocation} />
               <Route path="/interest" component={InputInterest} />
-              <Route path="/activity"component={InputActivity} />
+              <Route path="/activity" component={InputActivity} />
+              <Route path="/getavatar" component={GetAvatar} />
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
               <Redirect from="*" to="/" />
