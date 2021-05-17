@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import { userActions } from '../redux/actions';
 
+import { history } from "../helpers";
+
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import UserAct from '../components/UserProfile/UserAct';
@@ -28,6 +30,11 @@ const UserPage = () => {
   
   let match = useRouteMatch()
 
+  const logout = () => {
+    dispatch(userActions.logout());
+    history.replace('')
+  }
+
   const userDetail = () => {
     if(userActive.loading){
       return (
@@ -51,7 +58,7 @@ const UserPage = () => {
           <button>
             <p>Profile Setting</p>
           </button>
-          <button>
+          <button onClick={logout}>
             <p>Logout</p>
           </button>
         </>
