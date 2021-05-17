@@ -1,6 +1,7 @@
 import img1 from "../assets/confetti-1.png";
 import img2 from "../assets/confetti-2.png";
 import "./style/getAvatar.css"
+import {Link} from "react-router-dom"
 
 import React from "react";
 
@@ -56,7 +57,7 @@ const GetAvatar = () => {
                                 <h4>Fun fact</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id nisl, tempor dui consequat sit egestas. Dui diam proin tortor quis etiam lacus. Diam velit aliquam aliquam urna sed faucibus.</p>
                         </div>
-                        <button>Devine your Avatar</button>
+                        <Link to="/login"><button>Devine your Avatar</button></Link>
                     </div> 
                 </div>
             </div>
