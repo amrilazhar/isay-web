@@ -101,10 +101,27 @@
   font-size: 0.9rem;
 }
 
-.profile-wrapping .profile-bottom-content .profile-left-content button {
-  color: white;
+.profile-wrapping
+  .profile-bottom-content
+  .profile-left-content
+  button:nth-child(2) {
+  color: #4781f8;
+  border: 0.1rem solid #4781f8;
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-left-content
+  button:nth-child(3) {
+  color: #4781f8;
   border: none;
-  background-color: #4781f8;
+  background-color: white;
   border-radius: 0.75rem;
   padding: 0 1rem;
   box-sizing: border-box;
