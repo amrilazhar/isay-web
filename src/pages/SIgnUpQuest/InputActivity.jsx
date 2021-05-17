@@ -52,7 +52,7 @@ const InputActivity = () => {
                         <p className="information-sign">i</p>
                         <p className="information-content">You can choose as much as you want</p>
                         <div>
-                            <Link to="/#"><button className="btn-activity-next">Next</button></Link>
+                            <Link to="/avatar"><button className="btn-activity-next">Next</button></Link>
                             <Link to="/interest"><button className="btn-activity-back">Back</button></Link>
                         </div>
                     </div>
