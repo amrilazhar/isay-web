@@ -1,0 +1,16 @@
+.message-page-wrapper{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+@media only screen and (min-width: 721px){
+    .message-page-wrapper{
+        flex-direction: row;
+    }
+
+    .message-page-wrapper .content-message-page{
+        margin-left: 2rem;
+    }
+
+}

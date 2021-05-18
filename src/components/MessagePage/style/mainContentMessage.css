@@ -1,0 +1,168 @@
+.main-message-container{
+    border: 1px solid #C9C9C9;
+    width: fit-content;
+    border-radius: 10px;
+
+}
+
+.main-message-container .main-message-wrapper .main-message-head {
+    display: flex;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #C9C9C9;
+}
+
+.main-message-container .main-message-wrapper .main-message-head p:first-child {
+    font-weight: 600;
+    
+}
+
+.main-message-container .main-message-wrapper .main-message-head p:nth-child(2) {
+    margin-left: 1.5rem;
+}
+
+.main-message-container .main-message-wrapper .main-message-head p:last-child{
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.main-message-container .main-message-wrapper .empty-line{
+    height: 10rem;
+    border-bottom: 1px solid #C9C9C9;
+}
+
+
+.main-message-container .main-message-wrapper .each-message-personal-wrapper{
+    padding: 1.2rem;
+    border-bottom: 1px solid #C9C9C9;
+
+} 
+
+.main-message-container .main-message-wrapper .each-message-personal-wrapper .each-message-personal-container{
+    border: 1px solid #C9C9C9;
+    padding: 1.2rem;
+    border-radius: 10px;
+}
+
+.main-message-container .main-message-wrapper .each-message-personal-wrapper .each-message-personal-container .each-message-personal-head{
+    display: flex;
+}
+
+.main-message-container .main-message-wrapper .each-message-personal-wrapper .each-message-personal-container .each-message-personal-head p:last-child{
+    margin-left: auto;
+}
+
+.main-message-container .main-message-wrapper .each-message-public-wrapper{
+    padding: 1.2rem;
+    border-bottom: 1px solid #C9C9C9;
+
+} 
+
+.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head{
+    display: flex;
+    align-items: flex-end;
+    gap: 1.5rem;
+    color: #4F4F4F;
+}
+.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head div{
+    background-color: #8A62FB;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+    border: 0.7rem solid #8A62FB;
+    border-radius: 50%;
+   transform: translateY(1rem);
+
+}
+
+.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head div img{
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    max-height: 100%;
+}
+
+.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head p:nth-child(2){
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head p:last-child{
+    font-weight: 300;
+    font-size: 14px;
+    padding-bottom: 0.3rem;
+}
+
+.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-content{
+    padding-left: 5.5rem;
+    padding-right: 2rem;
+} 
+
+.main-message-container .main-message-wrapper .textarea-wrapper{
+    padding: 1rem;
+}
+
+.main-message-container .main-message-wrapper .textarea-wrapper textarea{
+    resize: none;
+    width: 85%;
+    border-color: #B7B7B7;
+    padding: 1rem;
+}
+
+.main-message-container .main-message-wrapper .textarea-wrapper .message-btn {
+    padding: 1rem 0;
+}
+
+.main-message-container .main-message-wrapper .textarea-wrapper .message-btn .message-btn-upload input{
+    display: none;
+}
+
+.main-message-container .main-message-wrapper .textarea-wrapper .message-btn .message-btn-upload .img-button{
+    color: #8A62FB;
+    background-color: white;
+    border:1px solid #8A62FB;
+    border-radius: 3rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+}
+
+.main-message-container .main-message-wrapper .textarea-wrapper .message-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-message-container .main-message-wrapper .textarea-wrapper .message-btn .message-btn-send button {
+    padding: 0.5rem 1.5rem;
+    color: white;
+    background-color: #4781F8;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: large;
+    border-color: transparent;
+}
+
+.main-message-container .main-message-wrapper .textarea-wrapper .message-btn .message-btn-send button img{
+    margin-left: 5px;
+}
+
+@media only screen and (min-width: 380px){
+.main-message-container .main-message-wrapper .textarea-wrapper textarea {
+        width: 90%;
+    }
+}
+
+@media only screen and (min-width: 500px){
+    .main-message-container .main-message-wrapper .textarea-wrapper textarea {
+            width: 93%;
+        }
+}
+
+@media only screen and (min-width: 800px){
+    .main-message-container .main-message-wrapper .textarea-wrapper textarea {
+            width: 93%;
+        }    
+}
