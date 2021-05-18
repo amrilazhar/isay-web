@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 import './index.css';
 
-configureFakeBackend();
+// configureFakeBackend();
 
 ReactDOM.render(
   <BrowserRouter>

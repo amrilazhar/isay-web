@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom';
+import FlashMessage from '../components/FlashMessage';
 import { userActions } from '../redux/actions'
 
 import './style/login.css'
@@ -40,8 +41,13 @@ function Login() {
       }
   }
 
+  const alert = useSelector ((state) => state.alert)
+
   return (
     <div className="login-container">
+      {
+        alert.alert ? <FlashMessage/> : ""
+      }
       <div className="login-wrapper">
         <div className="left-content-login">
           <div className="logo">

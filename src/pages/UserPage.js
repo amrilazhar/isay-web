@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import { userActions } from '../redux/actions';
 
+import { history } from "../helpers";
+
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import UserAct from '../components/UserProfile/UserAct';
@@ -28,12 +30,29 @@ const UserPage = () => {
   
   let match = useRouteMatch()
 
+  const logout = () => {
+    dispatch(userActions.logout());
+    history.replace('')
+  }
+
   const userDetail = () => {
     if(userActive.loading){
       return (
-        <div>
-          404
-        </div>
+        <>
+          <div className="relative">
+            <div className="profile-image-load">
+              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
+            </div>
+            <h1></h1>
+            <div className="location-user-load"></div>
+          </div>
+          <button>
+            <p>Profile Setting</p>
+          </button>
+          <button>
+            <p>Logout</p>
+          </button> 
+        </>
       )
     } else {
       return (
@@ -43,7 +62,7 @@ const UserPage = () => {
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
             </div>
             <h1>{userActive.items?.name}</h1>
-            <div className="location">
+            <div className="location-user">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
               <p>{userActive.items?.location.city}</p>
             </div>
@@ -51,14 +70,13 @@ const UserPage = () => {
           <button>
             <p>Profile Setting</p>
           </button>
-          <button>
+          <button onClick={logout}>
             <p>Logout</p>
           </button>
         </>
       )
     }
   }
-
 
   return (
     <Router>

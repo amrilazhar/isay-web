@@ -1,5 +1,5 @@
 .isay-status-box {
-  border-bottom: 0.25px solid rgba(183, 183, 183, 1);
+  border-bottom: 2px solid rgba(183, 183, 183, 1);
   margin-bottom: 1rem;
 }
 
@@ -62,12 +62,12 @@
   border-radius: 0.8rem;
 }
 
-.isay-status-box .user-status .upper-prop .location p {
+.isay-status-box .user-status .upper-prop .status-location p {
   margin: 0 0.5rem 1rem;
   font-size: 0.8rem;
 }
 
-.isay-status-box .user-status .upper-prop .location img {
+.isay-status-box .user-status .upper-prop .status-location img {
   width: 10px;
   margin-right: 0.3rem;
 }
@@ -104,7 +104,7 @@
 
 .isay-status-box .do-at-status {
   padding: 0.2rem;
-  border: 1.5px solid rgba(183, 183, 183, 1);
+  border: 2px solid rgba(183, 183, 183, 1);
   border-radius: 0.5rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
@@ -118,6 +118,7 @@
   display: flex;
   margin: 0 0.75rem;
   align-items: center;
+  cursor: pointer;
 }
 
 .isay-status-box .do-at-status .button-collect .button img {
@@ -140,7 +141,7 @@
 
 .isay-status-box .do-at-status .comment-expand {
   padding: 0.5rem;
-  border-top: 0.25px solid rgba(183, 183, 183, 1);
+  border-top: 2px solid rgba(183, 183, 183, 1);
 }
 
 .isay-status-box .do-at-status .comment-expand form textarea {
@@ -148,14 +149,14 @@
   width: 100%;
   resize: none;
   padding: 1rem;
-  border: 0.2px solid rgba(183, 183, 183, 1);
+  border: 2px solid rgba(183, 183, 183, 1);
   border-radius: 0.5rem;
   box-sizing: border-box;
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box {
   padding: 1rem 0;
-  border-top: 0.25px solid rgba(183, 183, 183, 1);
+  border-top: 2px solid rgba(183, 183, 183, 1);
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box .comment-detail {
@@ -190,7 +191,7 @@
     margin-right: 1rem;
   }
 
-  .isay-status-box .user-status .upper-prop .location {
+  .isay-status-box .user-status .upper-prop .status-location {
     margin-left: auto;
   }
 }
