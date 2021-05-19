@@ -40,15 +40,15 @@ function logout() {
     return { type: userConstants.LOGOUT };
 }
 
-function register(user) {
+function register(email, password, confirmPassword, from) {
     return dispatch => {
-        dispatch(request(user));
+        dispatch(request({email}));
 
-        userService.register(user)
+        userService.register(email, password, confirmPassword)
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push('/location');
+                    history.push(from);
                     dispatch(alertActions.success('Registration successful'));
                 },
                 error => {

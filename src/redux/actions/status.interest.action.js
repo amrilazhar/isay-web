@@ -1,6 +1,7 @@
 import { statusConstant } from '../type';
 // import { alertActions } from './alert.actions'
 import axios from 'axios';
+import { authHeader } from "../../helpers";
 
 export const statusInterest = {
   getStatus
@@ -10,8 +11,13 @@ function getStatus(status) {
   return dispatch => {
     dispatch (request(status))
     
+    const requestOptions = {
+      method: 'GET',
+      headers: authHeader()
+    };
+
     axios
-      .get ("https://isay.gabatch11.my.id/status/interest/")
+      .get ("https://isay.gabatch11.my.id/status/interest", requestOptions)
       .then (response => {
         setTimeout(() => {
           dispatch(success(response))

@@ -37,10 +37,10 @@ function App() {
               <PrivateRoute exact path="/" component={FeedPage} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
-              <Route path="/location" component={InputLocation} />
-              <Route path="/interest" component={InputInterest} />
-              <Route path="/activity"component={InputActivity} />
-              <Route path="/avatar" component={GetAvatar} />
+              <PrivateRoute path="/location" component={InputLocation} />
+              <PrivateRoute path="/interest" component={InputInterest} />
+              <PrivateRoute path="/activity"component={InputActivity} />
+              <PrivateRoute path="/avatar" component={GetAvatar} />
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
               <PrivateRoute path="/message" component={Message} />

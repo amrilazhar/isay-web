@@ -31,6 +31,11 @@ const Navbar = () => {
         history.push('notification')
     )
 
+    const toMessage = () => (
+        history.push('message')
+    )
+
+
     return(
         <Router>
           <div className="navbar-container">
@@ -59,10 +64,10 @@ const Navbar = () => {
                         </div>
                     </li>
                     <li className="nav-item" >
-                        <Link to={`/`} className="nav-links" activeClassName="active" >
+                        <div onClick={toMessage} className="nav-links" activeClassName="active" >
                             <SmsIcon/>
                             <p>Message</p>
-                        </Link>
+                        </div>
                     </li>
                 </ul>
                 <div className="profile-icon" onClick={toProfile}>
