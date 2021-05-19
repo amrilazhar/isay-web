@@ -43,11 +43,7 @@ function App() {
               <Route path="/avatar" component={GetAvatar} />
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
-<<<<<<< HEAD
-              <Route path="/message" component={Message} />
-=======
               <PrivateRoute path="/message" component={Message} />
->>>>>>> 4a7b89f6a305ce1a7f918ce3588dc8ab94df39c1
               <Redirect from="*" to="/" />
           </Switch>
       </Router>
