@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import FlashMessage from '../components/FlashMessage';
 import { userActions } from '../redux/actions'
 
@@ -8,7 +8,7 @@ import './style/signup.css'
 
 function Signup() {
 
-    const [user, setUser] = useState({
+    const [inputs, setInputs] = useState({
         email: '',
         password: '',
         confirmPassword: ''
@@ -16,7 +16,9 @@ function Signup() {
     
     const [submitted, setSubmitted] = useState(false);
     const registering = useSelector(state => state.registration.registering);
+    const { email, password, confirmPassword } = inputs;
     const dispatch = useDispatch();
+    const location = useLocation();
 
     // reset login status
     useEffect(() => {
@@ -26,15 +28,16 @@ function Signup() {
 
     function handleChange(e) {
         const { name, value } = e.target;
-        setUser(user => ({ ...user, [name]: value }));
+        setInputs(inputs => ({ ...inputs, [name]: value }));
     }
 
     function handleSubmit(e) {
         e.preventDefault();
 
         setSubmitted(true);
-        if (user.email && user.password && user.confirmPassword) {
-            dispatch(userActions.register(user));
+        if (email && password && confirmPassword) {
+          const { from } = location.state || { from: { pathname: "/location" } };
+          dispatch(userActions.register(email, password, confirmPassword, from));
         }
     }
 
@@ -61,11 +64,11 @@ function Signup() {
             <h2>Sign Up</h2>
             <form name="form" onSubmit={handleSubmit}>
               <label htmlFor="email">Email</label><br />
-              <input type="email" name="email" id="email" placeholder="Type your email" value={user.email} onChange={handleChange}/><br />
+              <input type="email" name="email" id="email" placeholder="Type your email" value={email} onChange={handleChange}/><br />
               <label htmlFor="password">Create a Password</label><br />
-              <input type="password" name="password" id="password" placeholder="xxxx-xxxx-xxxx" value={user.password} onChange={handleChange}/><br />
+              <input type="password" name="password" id="password" placeholder="xxxx-xxxx-xxxx" value={password} onChange={handleChange}/><br />
               <label htmlFor="password">Confirm your Password</label><br />
-              <input type="password" name="confirmPassword" id="confirmPassword" placeholder="xxxx-xxxx-xxxx" value={user.confirmPassword} onChange={handleChange}/><br />
+              <input type="password" name="confirmPassword" id="confirmPassword" placeholder="xxxx-xxxx-xxxx" value={confirmPassword} onChange={handleChange}/><br />
               <input type="submit" value="Create an Account" />
             </form>
             <button><img src="https://img.icons8.com/color/50/000000/google-logo.png" alt="Google Logo"/> Signup with Google</button>

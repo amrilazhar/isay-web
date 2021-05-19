@@ -68,14 +68,21 @@ function getById(id) {
     return fetch(`/users/${id}`, requestOptions).then(handleResponse);
 }
 
-function register(user) {
+function register(email, password, confirmPassword) {
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(user)
+        body: JSON.stringify({email, password, confirmPassword})
     };
 
-    return fetch(`https://isay.gabatch11.my.id/user/signup/`, requestOptions).then(handleResponse);
+    return fetch(`https://isay.gabatch11.my.id/user/signup/`, requestOptions)
+    .then(handleResponse)
+    .then(user => {
+        // store user details and jwt token in local storage to keep user logged in between page refreshes
+        localStorage.setItem('user', JSON.stringify(user.data));
+
+        return user;
+    });
 }
 
 function update(user) {
