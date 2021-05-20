@@ -11,9 +11,7 @@ import FeedPage from './pages/FeedPage';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import UserPage from './pages/UserPage';
-import InputLocation from './pages/SIgnUpQuest/InputLocation';
-import InputInterest from './pages/SIgnUpQuest/InputInterest';
-import InputActivity from './pages/SIgnUpQuest/InputActivity';
+import SignupQuest from "./pages/SignupQuest";
 import Notification from './pages/Notification';
 import GetAvatar from './pages/GetAvatar';
 import Message from './pages/Message';
@@ -37,9 +35,7 @@ function App() {
               <PrivateRoute exact path="/" component={FeedPage} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
-              <PrivateRoute path="/location" component={InputLocation} />
-              <PrivateRoute path="/interest" component={InputInterest} />
-              <PrivateRoute path="/activity"component={InputActivity} />
+              <PrivateRoute path="/signupquest/:id"component={SignupQuest} />
               <PrivateRoute path="/avatar" component={GetAvatar} />
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />

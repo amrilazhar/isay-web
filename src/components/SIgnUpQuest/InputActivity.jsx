@@ -1,6 +1,6 @@
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import {Link} from "react-router-dom"
+import {useHistory} from "react-router-dom"
 import "./style/InputActivity.css";
 
 import React, { useEffect } from "react";
@@ -8,16 +8,27 @@ import { useDispatch, useSelector } from 'react-redux';
 import { inputActivityData } from '../../redux/actions';
 
 
-const InputActivity = () => {
+const InputActivity = ({...props}) => {
+    const {setShowInterest, setShowActivity, createFirstProfile, setCreateFirstProfile} = props;
+    const history = useHistory();
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(inputActivityData.getInputActivity())
-    }, []);
-
     const InputActivityUpdate = useSelector((state) => state.inputActivityData);
     console.log("ini", InputActivityUpdate)
 
+    useEffect(() => {
+        dispatch(inputActivityData.getInputActivity());
+    }, []);
+
+    const handleChangeActivity = (event)=> {
+        setCreateFirstProfile({
+            ...createFirstProfile, 
+            [event.target.name]: [...createFirstProfile.activity, event.target.value]
+        });
+        console.log("eventAct", event.target.value)
+    };
+    console.log("createFirstProfile", createFirstProfile)
+
+    
     const displayActivityCheckBox = () => {
         if (InputActivityUpdate.loading === true) {
             return <div>loading...</div>
@@ -26,9 +37,12 @@ const InputActivity = () => {
                 <>
                     {InputActivityUpdate.activities.data.map((input, activity) =>(
                         <div>
-                            <FormControlLabel control={<Checkbox/> }
-                            key = {activity}
+                            <FormControlLabel 
+                            name="activity"
+                            control={<Checkbox/> }
+                            value = {input["_id"]}
                             label= {input.interest}
+                            onChange={handleChangeActivity}
                             />
                         </div>
                     ))}
@@ -52,8 +66,8 @@ const InputActivity = () => {
                         <p className="information-sign">i</p>
                         <p className="information-content">You can choose as much as you want</p>
                         <div>
-                            <Link to="/avatar"><button className="btn-activity-next">Next</button></Link>
-                            <Link to="/interest"><button className="btn-activity-back">Back</button></Link>
+                            <button className="btn-activity-next" onClick={() => {setShowActivity(false); history.push("/avatar")}}>Next</button>
+                           <button className="btn-activity-back" onClick={() => {setShowInterest(true); setShowActivity(false)}}>Back</button>
                         </div>
                     </div>
                 </div>
