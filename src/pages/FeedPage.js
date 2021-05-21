@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { statusInterest } from '../redux/actions'
+import { statusInterest, userActions } from '../redux/actions'
 
 import Navbar from '../components/Navbar'
 import FilterBox from '../components/FeedPage/FilterBox'
@@ -14,6 +14,7 @@ const FeedPage = () => {
 
   const dispatch = useDispatch()
 
+  //START PROCESS FEED BOX
   useEffect(() => {
     dispatch(statusInterest.getStatus())
   },[])
@@ -87,13 +88,38 @@ const FeedPage = () => {
       )
     }
   }
+  //END PROCESS FEED BOX
+
+  //START PROCESS FILTER BOX
+  useEffect(() => {
+    dispatch(userActions.getActive())
+  },[])
+
+  const userActive = useSelector ((state) => state.users)
+
+  const filterBox = () => {
+    if (userActive.loading){
+      return (
+        <div>404</div>
+      )
+    } else {
+      return (
+        <>
+          <FilterBox filter={{
+            interest: [userActive.items.interest]
+          }}/>
+        </>
+      )
+    }
+  }
+  //END PROCESS FILTER BOX
 
   return (
     <>
     <Navbar/>
     <div className="feed-container">
       <div className="feed-wrapping">
-        <FilterBox/>
+        {filterBox()}
         <div className="right-content">
           <div className="right-wrapping">
             <WriteStatusBox/>

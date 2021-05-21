@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { userActions } from '../../redux/actions'
+
 import './style/FilterBox.css'
 
-const FilterBox = () => {
+const FilterBox = (proper) => {
+      const filter = proper.filter
+      console.log("inifilter", filter.interest[0])
+
+      const mapInterest = () => {
+        if (!filter){
+          return (
+          <div>404</div>
+          )
+        } return filter.interest[0].map (fil =>
+            <div className="choice">
+              <label htmlFor={`${fil.interest.toLowerCase()}`}>{fil.interest}</label>
+              <input type="radio" name="interest" id={`${fil.interest.toLowerCase()}`} defaultValue={`${fil.interest.toLowerCase()}`} />
+            </div>
+          )
+      }
+
   return (
     <div className="left-content">
       <div className="left-wrapping">
@@ -13,7 +32,9 @@ const FilterBox = () => {
               <label htmlFor="allInterest">All my interest</label>
               <input type="radio" name="interest" id="allInterest" defaultValue="allInterest" />
             </div>
-            <div className="choice">
+            {mapInterest()}
+            
+            {/* <div className="choice">
               <label htmlFor="social">Social</label>
               <input type="radio" name="interest" id="social" defaultValue="social" />
             </div>
@@ -28,7 +49,7 @@ const FilterBox = () => {
             <div className="choice">
               <label htmlFor="art">Art</label>
               <input type="radio" name="interest" id="art" defaultValue="art" />
-            </div>
+            </div> */}
             <input type="submit" defaultValue="Update" />
           </form>
         </div>

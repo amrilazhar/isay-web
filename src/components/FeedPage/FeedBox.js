@@ -3,6 +3,7 @@ import './style/FeedBox.css'
 
 const FeedBox = (proper) => {
 
+  //START SHOW AND HIDE COMMENT
   const [show, setShow] = useState(false);
 
   const changeShow = () => {
@@ -45,8 +46,9 @@ const FeedBox = (proper) => {
       )
     } else {return (<div></div>)}
   }
+  //END SHOW AND HIDE COMMENT
   
-  const card = proper.cardy;
+  const card = proper.cardy; //Send Prop to Feed Box
 
   return (
     <div className="isay-status-box">
