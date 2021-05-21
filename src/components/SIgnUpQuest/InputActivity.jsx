@@ -67,7 +67,7 @@ const InputActivity = ({...props}) => {
                         <p className="information-content">You can choose as much as you want</p>
                         <div>
                             <button className="btn-activity-next" onClick={() => {setShowActivity(false); history.push("/avatar")}}>Next</button>
-                           <button className="btn-activity-back" onClick={() => {setShowInterest(true); setShowActivity(false)}}>Back</button>
+                            <button className="btn-activity-back" onClick={() => {setShowInterest(true); setShowActivity(false)}}>Back</button>
                         </div>
                     </div>
                 </div>

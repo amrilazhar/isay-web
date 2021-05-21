@@ -32,7 +32,10 @@ const InputLocation = ({...props}) => {
         const valueloc =  e?.target?.innerText?.split(", ")[1];
         const valueCity = valueloc?.split(" ");
         console.log("valueCity", valueCity );
-        const selectedLoc = (valueCity === undefined)? {_id: "0"} : (valueCity.length < 3)? inputLocationUpdate?.locations?.data?.find(value => value.city === valueCity[1]) : inputLocationUpdate?.locations?.data?.find(value => value.city === valueCity[1].push(valueCity[2])); 
+        const selectedLoc = (valueCity === undefined)?
+            {_id: "0"} : (valueCity.length < 3)?
+                inputLocationUpdate?.locations?.data?.find(value => value.city === valueCity[1])
+                 : inputLocationUpdate?.locations?.data?.find(value => value.city === valueCity.slice(1,valueCity.length).join(" ")); 
         setCreateFirstProfile({...createFirstProfile, location: selectedLoc["_id"]});
         console.log("valueloc2", valueloc);
         console.log("selectedLoc", selectedLoc);

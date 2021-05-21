@@ -13,8 +13,6 @@ const InputInterest = ({...props}) => {
     const dispatch = useDispatch();
     const inputInterestUpdate = useSelector((state) => state.inputInterestData);
     console.log("ini",inputInterestUpdate)
-    // console.log('propsLocation', props.location.state)
-    // console.log('interestValue', value)
     console.log("createFirstProfile", createFirstProfile)
 
     useEffect(() => {
