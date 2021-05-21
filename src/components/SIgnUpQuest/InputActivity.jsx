@@ -3,6 +3,9 @@ import Checkbox from '@material-ui/core/Checkbox';
 import {useHistory} from "react-router-dom"
 import "./style/InputActivity.css";
 
+import { userService } from '../../redux/services/user.service';
+import { alertActions } from '../../redux/actions/alert.actions'
+
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { inputActivityData } from '../../redux/actions';
@@ -14,6 +17,8 @@ const InputActivity = ({...props}) => {
     const dispatch = useDispatch();
     const InputActivityUpdate = useSelector((state) => state.inputActivityData);
     console.log("ini", InputActivityUpdate)
+
+    const { location, activity, interest } = createFirstProfile;
 
     useEffect(() => {
         dispatch(inputActivityData.getInputActivity());
@@ -27,7 +32,34 @@ const InputActivity = ({...props}) => {
         console.log("eventAct", event.target.value)
     };
     console.log("createFirstProfile", createFirstProfile)
+    console.log("location", location)
+    console.log("act", activity)
 
+    function handleSubmit () {
+
+        if(location && activity && interest) {
+            
+            dispatch(request());
+
+            userService.firstCreate(location, activity, interest)
+                .then(
+                    answer => { 
+                        dispatch(success(answer));
+                        setShowActivity(false)
+                        history.push("/avatar");
+                        dispatch(alertActions.success('Registration successful'));
+                    },
+                    error => {
+                        dispatch(failure(error.toString()));
+                        dispatch(alertActions.error(error.toString()));
+                    }
+                );
+            
+            function request() { return { type: "POST_ANSWER_REQUEST" } }
+            function success(answer) { return { type: "POST_ANSWER_SUCCESS", answer } }
+            function failure(error) { return { type: "POST_ANSWER_FAILURE", error } }
+        }
+    }
     
     const displayActivityCheckBox = () => {
         if (InputActivityUpdate.loading === true) {
@@ -66,7 +98,7 @@ const InputActivity = ({...props}) => {
                         <p className="information-sign">i</p>
                         <p className="information-content">You can choose as much as you want</p>
                         <div>
-                            <button className="btn-activity-next" onClick={() => {setShowActivity(false); history.push("/avatar")}}>Next</button>
+                            <button className="btn-activity-next" onClick={() => {handleSubmit()}}>Next</button>
                             <button className="btn-activity-back" onClick={() => {setShowInterest(true); setShowActivity(false)}}>Back</button>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { history } from './helpers/history'
 import { alertActions } from './redux/actions'
 import { PrivateRoute } from './redux/PrivateRoute'
@@ -19,7 +19,6 @@ import Message from './pages/Message';
 
 function App() {
 
-  const alert = useSelector(state => state.alert);
   const dispatch = useDispatch();
 
   useEffect(() => {

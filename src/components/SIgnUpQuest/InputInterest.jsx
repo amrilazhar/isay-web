@@ -3,7 +3,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import {useHistory} from "react-router-dom"
 import "./style/InputInterest.css";
 
-import React, { useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { inputInterestData } from "../../redux/actions";
 

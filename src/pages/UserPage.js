@@ -43,7 +43,7 @@ const UserPage = () => {
             <div className="profile-image-load">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
             </div>
-            <h1></h1>
+            <h1> </h1>
             <div className="location-user-load"></div>
           </div>
           <button>

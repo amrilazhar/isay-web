@@ -1,7 +1,6 @@
 import "./style/mainContentMessage.css";
 import Button from '@material-ui/core/Button';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-import Icon from '@material-ui/core/Icon';
 import sentIcon from "../../assets/sent.jpg"
 
 import React from "react";
