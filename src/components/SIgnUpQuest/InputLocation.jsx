@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import "./style/InputLocation.css";
 import { Autocomplete } from '@material-ui/lab';
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { inputLocationData } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import {  useParams, useHistory } from "react-router-dom";
@@ -40,8 +40,8 @@ const InputLocation = ({...props}) => {
         console.log("valueloc2", valueloc);
         console.log("selectedLoc", selectedLoc);
         console.log("valueCity", valueCity );
+    }
 
-    } 
     console.log("createFirstProfile", createFirstProfile);
     console.log('windows',id);
 
@@ -54,7 +54,7 @@ const InputLocation = ({...props}) => {
                     <Autocomplete
                         key={Date.now}
                         onChange={handleValueLocation}
-                        value = {inputLocationUpdate.locations.data}
+                        value = {inputLocationUpdate?.locations?.data?.value}
                         id="combo-box-demo"
                         options= {inputLocationUpdate?.locations?.data}
                         autoHighlight= {true}
@@ -62,7 +62,11 @@ const InputLocation = ({...props}) => {
                         fullWidth= {true}
                         popupIcon= {<LocationOnIcon/>}
                         getOptionLabel= {(input) => `${input?.province}, ${input?.city_type} ${input?.city}, ${input?.country}`}
-                        renderInput= {(params) => <TextField {...params} variant="outlined" label="Type a city's name"/>}
+                        renderInput= {(params) => <TextField 
+                            {...params} 
+                            variant="outlined" 
+                            label="Type a city's name"
+                        />}
                     />
                 </>
             )
