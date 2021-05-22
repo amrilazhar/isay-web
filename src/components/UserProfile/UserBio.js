@@ -28,7 +28,7 @@ const UserBio = (props) => {
               <div className="interest-list">
                 {(bio.interest[0]) ?
                 <div>{bio.interest[0].map( interest =>
-                <button>{interest.interest}</button>            
+                <button>{interest.interest}</button>
                 )}</div> :
                 <div className="bio-interest-load">
                   <div className="bio-interest-load-content"></div>
