@@ -48,7 +48,7 @@ const FeedBox = (proper) => {
   }
   //END SHOW AND HIDE COMMENT
   
-  const card = proper.cardy; //Send Prop to Feed Box
+  const card = proper.cardy; //Send Prop to Feed Page
 
   return (
     <div className="isay-status-box">

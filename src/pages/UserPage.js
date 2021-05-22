@@ -15,20 +15,13 @@ import './style/UserPage.css'
 const UserPage = () => {
 
   const dispatch = useDispatch()
+  let match = useRouteMatch()
 
   useEffect(() => {
     dispatch(userActions.getActive())
   },[])
 
-
   const userActive = useSelector ((state) => state.users)
-
-  
-  const coba = useSelector ((state) => state.users.items)
-
-  console.log(coba?.bio)
-  
-  let match = useRouteMatch()
 
   const logout = () => {
     dispatch(userActions.logout());
@@ -122,7 +115,11 @@ const UserPage = () => {
                     <UserAct/>
                   </Route>
                   <Route path={`${match.path}`}>
-                    <UserBio/>
+                    <UserBio bio = {{
+                      bio: `${userActive.items?.bio}`,
+                      interest: [userActive.items?.interest]
+                    }}
+                    />
                   </Route>
                 </Switch>
               {/* End Custome Insertion */}
