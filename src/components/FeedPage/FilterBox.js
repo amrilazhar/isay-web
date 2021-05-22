@@ -48,7 +48,13 @@ const FilterBox = (proper) => {
   const mapInterest = () => {
     if (userActive.loading){
       return (
-      <div>406</div>
+        <div className="choice">
+          <div className="waiting">
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+          </div>
+        </div>
       )
     } else {
       return userActive.items?.interest.map (fil =>

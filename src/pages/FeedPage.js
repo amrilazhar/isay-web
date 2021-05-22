@@ -104,7 +104,7 @@ const FeedPage = () => {
   const filterBox = () => {
     if (userActive.loading){
       return (
-        <div>404</div>
+        <FilterBox/>
       )
     } else {
       return (

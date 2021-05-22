@@ -37,6 +37,7 @@
 .profile-wrapping .profile-bottom-content {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 /* Start of Left Content */
