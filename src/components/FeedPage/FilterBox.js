@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { statusInterest, userActions } from '../../redux/actions'
+import { statusInterest } from '../../redux/actions'
 
 
 import './style/FilterBox.css'
@@ -43,8 +43,6 @@ const FilterBox = (proper) => {
   //END GET INTEREST ID TO PARENTS
 
   //START INTEREST USER FOR FILTER
-  const filter = proper.filter
-
   const userActive = useSelector ((state) => state.users)
 
   const mapInterest = () => {
@@ -53,11 +51,6 @@ const FilterBox = (proper) => {
       <div>406</div>
       )
     } else {
-
-      // return (
-      //   <div>202</div>
-      // )
-
       return userActive.items?.interest.map (fil =>
         <div className="choice">
           <label htmlFor={`${fil.interest.toLowerCase()}`}>{fil.interest}</label>
@@ -73,8 +66,6 @@ const FilterBox = (proper) => {
     }
   }
   //END INTEREST USER FOR FILTER
-
-  console.log("apanih",filter)
 
   return (
     <div className="left-content">
