@@ -1,0 +1,300 @@
+.setting-container {
+  max-width: 1360px;
+}
+
+.setting-container .setting-wrapping {
+  padding: 1rem 1rem;
+}
+
+.setting-container .setting-wrapping .setting-left .setting-left-wrapper {
+  background-color: #8a62fb;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 0 0 1rem 1rem;
+  color: white;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 110px;
+  margin: 1.5rem 0 3rem;
+  border: 0.3rem solid white;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo
+  img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 100%;
+}
+
+.setting-container .setting-wrapping .setting-left .setting-left-wrapper h1 {
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .location-setting
+  p {
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.setting-container .setting-wrapping .setting-left .setting-left-wrapper p {
+  font-size: 0.7rem;
+  margin-bottom: 3rem;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .interest {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .interest
+  .interest-box {
+  margin: 0 0.5rem;
+  background-color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: #8a62fb;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .interest
+  .interest-box
+  p {
+  font-size: 0.9rem;
+  line-height: normal;
+  letter-spacing: normal;
+  margin-bottom: 0;
+}
+
+.setting-container .setting-wrapping .setting-right .setting-right-wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .title {
+  padding: 1.5rem 0 2rem;
+  background-image: linear-gradient(#845df0 40%, white 99%);
+  margin-bottom: 1.5rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .title
+  h2 {
+  font-size: 1.3rem;
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form {
+  color: rgb(60, 60, 60);
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  :nth-child(2n-1) {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  :nth-child(2n) {
+  margin-bottom: 1rem;
+  border: 0.13rem solid rgb(52, 35, 53);
+  border-radius: 0.4rem;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  :nth-child(2n):focus {
+  border: 0.13rem solid rgb(160, 85, 163);
+  outline: none;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  .btn {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  .btn
+  button {
+  font-weight: normal;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  .btn
+  input {
+  background-color: #009e74;
+  color: white;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  .btn
+  button,
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  .btn
+  input {
+  border: none;
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-top: 0;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset {
+  max-width: 300px;
+  border: none;
+  font-size: 0.8rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  margin: 3rem auto 2rem;
+  color: white;
+  background-color: brown;
+}
+
+@media screen and (min-width: 600px) {
+  .setting-container .setting-wrapping {
+    display: flex;
+  }
+
+  .setting-container .setting-wrapping .setting-left .setting-left-wrapper {
+    max-width: 385px;
+  }
+
+  .setting-container .setting-wrapping .setting-right .setting-right-wrapper {
+    margin-left: 1rem;
+  }
+
+  .setting-container
+    .setting-wrapping
+    .setting-right
+    .setting-right-wrapper
+    .title {
+    border-radius: 0;
+  }
+}
+
+@media screen and (min-width: 766px) {
+  .setting-container .setting-wrapping .setting-left .setting-left-wrapper {
+    width: 385px;
+  }
+  .setting-container .setting-wrapping .setting-right {
+    width: 100%;
+    min-width: 309px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .setting-container .setting-wrapping {
+    justify-content: center;
+  }
+
+  .setting-container .setting-wrapping .setting-right {
+    width: 507px;
+  }
+}
+
+@media screen and (min-width: 1125px) {
+  .setting-container .setting-wrapping .setting-left .setting-left-wrapper {
+    width: 550px;
+    max-width: none;
+  }
+
+  .setting-container .setting-wrapping .setting-right {
+    width: 540px;
+  }
+}

@@ -61,7 +61,9 @@ const UserPage = () => {
             </div>
           </div>
           <button>
-            <p>Profile Setting</p>
+            <Link to={`/setting`}>
+              <p>Profile Setting</p>
+            </Link>
           </button>
           <button onClick={logout}>
             <p>Logout</p>

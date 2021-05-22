@@ -128,6 +128,15 @@
 .profile-wrapping
   .profile-bottom-content
   .profile-left-content
+  button:nth-child(2)
+  a {
+  text-decoration: none;
+  color: #4781f8;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-left-content
   button:nth-child(3) {
   color: #4781f8;
   border: none;
