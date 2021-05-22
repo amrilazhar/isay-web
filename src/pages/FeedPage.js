@@ -8,6 +8,7 @@ import WriteStatusBox from '../components/FeedPage/WriteStatusBox'
 import FeedBox from '../components/FeedPage/FeedBox'
 import Footer from '../components/Footer'
 import './style/FeedPage.css'
+import { LocalConvenienceStoreOutlined } from '@material-ui/icons'
 
 
 const FeedPage = () => {
@@ -114,15 +115,25 @@ const FeedPage = () => {
         <> 
           <FilterBox
           // filter={{
-          //   interest: [userActive.items.interest]
+          //   interest: [(userActive.items === {})? userActive.items.interest : [{_id:'', category:'topic', interest:'none'}]]
           //   }}
+
+          // filter={{
+          //   interest: userActive.items.interest
+          //   }}
+
           filter={{
-            interest: [[ {
-          _id: '6092b557e957671c70e24277',
-          category: 'topic',
-          interest: 'Business'
-        }]]
+                  interest: [ {
+                _id: '6092b557e957671c70e24277',
+                category: 'topic',
+                interest: 'Business'
+              }]
             }}
+
+          // filter={{
+          //   interest: ngefilter
+          // }}
+
           setParamInterest={setParamInterest}
           paramInterest={paramInterest}
           />
@@ -133,6 +144,7 @@ const FeedPage = () => {
   //END PROCESS FILTER BOX
 
   console.log('iniinterestparamjj', paramInterest)
+  console.log('isian',  userActive.items?.interest)
 
   return (
     <>

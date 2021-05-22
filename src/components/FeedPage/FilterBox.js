@@ -45,12 +45,20 @@ const FilterBox = (proper) => {
   //START INTEREST USER FOR FILTER
   const filter = proper.filter
 
+  const userActive = useSelector ((state) => state.users)
+
   const mapInterest = () => {
-    if (!filter){
+    if (userActive.loading){
       return (
-      <div>404</div>
+      <div>406</div>
       )
-    } return filter.interest[0].map (fil =>
+    } else {
+
+      // return (
+      //   <div>202</div>
+      // )
+
+      return userActive.items?.interest.map (fil =>
         <div className="choice">
           <label htmlFor={`${fil.interest.toLowerCase()}`}>{fil.interest}</label>
           <input
@@ -62,6 +70,7 @@ const FilterBox = (proper) => {
           />
         </div>
       )
+    }
   }
   //END INTEREST USER FOR FILTER
 
