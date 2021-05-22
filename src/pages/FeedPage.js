@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { statusInterest, userActions } from '../redux/actions'
 
@@ -12,11 +12,15 @@ import './style/FeedPage.css'
 
 const FeedPage = () => {
 
+  const [paramInterest, setParamInterest] = useState({
+    param:""})
   const dispatch = useDispatch()
+
+  const{param} = paramInterest
 
   //START PROCESS FEED BOX
   useEffect(() => {
-    dispatch(statusInterest.getStatus())
+    dispatch(statusInterest.getStatus(param))
   },[])
 
   const statusUpdate = useSelector ((state) => state.statusInterest)
@@ -82,7 +86,8 @@ const FeedPage = () => {
             name: `${user.owner.name}`,
             content: `${user.content}`,
             interest: `${user.interest[0].interest}`
-          }}/>
+            }}
+          />
         ))}
         </>
       )
@@ -97,6 +102,8 @@ const FeedPage = () => {
 
   const userActive = useSelector ((state) => state.users)
 
+  console.log("user", userActive)
+
   const filterBox = () => {
     if (userActive.loading){
       return (
@@ -104,15 +111,28 @@ const FeedPage = () => {
       )
     } else {
       return (
-        <>
-          <FilterBox filter={{
-            interest: [userActive.items.interest]
-          }}/>
+        <> 
+          <FilterBox
+          // filter={{
+          //   interest: [userActive.items.interest]
+          //   }}
+          filter={{
+            interest: [[ {
+          _id: '6092b557e957671c70e24277',
+          category: 'topic',
+          interest: 'Business'
+        }]]
+            }}
+          setParamInterest={setParamInterest}
+          paramInterest={paramInterest}
+          />
         </>
       )
     }
   }
   //END PROCESS FILTER BOX
+
+  console.log('iniinterestparamjj', paramInterest)
 
   return (
     <>

@@ -7,17 +7,19 @@ export const statusInterest = {
   getStatus
 };
 
-function getStatus(status) {
+function getStatus(param) {
   return dispatch => {
-    dispatch (request(status))
-    
+    dispatch (request())
+
     const requestOptions = {
       method: 'GET',
       headers: authHeader()
     };
 
+    console.log("diaction",param)
+
     axios
-      .get ("https://isay.gabatch11.my.id/status/interest", requestOptions)
+      .get (`https://isay.gabatch11.my.id/status/interest/${param}`, requestOptions)
       .then (response => {
         setTimeout(() => {
           dispatch(success(response))
@@ -28,7 +30,7 @@ function getStatus(status) {
       })
     }
 
-  function request(status) {return {type: statusConstant.GET_STATUS_REQUEST, status}};
+  function request() {return {type: statusConstant.GET_STATUS_REQUEST}};
   function success(response) {return {type: statusConstant.GET_STATUS_SUCCESS, payload: response.data}}
   function failure(error) {return {type: statusConstant.GET_STATUS_FAILURE, error}}
 }

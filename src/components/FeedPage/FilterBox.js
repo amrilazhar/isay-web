@@ -1,25 +1,71 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { userActions } from '../../redux/actions'
+import { statusInterest, userActions } from '../../redux/actions'
+
 
 import './style/FilterBox.css'
 
 const FilterBox = (proper) => {
-      const filter = proper.filter
-      console.log("inifilter", filter.interest[0])
 
-      const mapInterest = () => {
-        if (!filter){
-          return (
-          <div>404</div>
-          )
-        } return filter.interest[0].map (fil =>
-            <div className="choice">
-              <label htmlFor={`${fil.interest.toLowerCase()}`}>{fil.interest}</label>
-              <input type="radio" name="interest" id={`${fil.interest.toLowerCase()}`} defaultValue={`${fil.interest.toLowerCase()}`} />
-            </div>
-          )
-      }
+  const dispatch = useDispatch()
+
+  //START GET INTEREST ID TO PARENTS
+  const setParamInterest = proper.setParamInterest
+
+  const [bro, setbro] = useState({
+      bro: '',
+  });
+
+  const handleChange = (e) => {
+    setParamInterest ({
+      "param":[e.target.defaultValue]
+    }
+    )
+    setbro ({
+      "bro":[e.target.defaultValue]
+    })
+  }
+
+  async function handleSubmit(e) {
+
+    e.preventDefault();
+
+    setParamInterest ({
+      "param": bro.bro
+    })
+
+    const param  = bro.bro
+
+    dispatch(statusInterest.getStatus(param))
+
+  }
+
+  //END GET INTEREST ID TO PARENTS
+
+  //START INTEREST USER FOR FILTER
+  const filter = proper.filter
+
+  const mapInterest = () => {
+    if (!filter){
+      return (
+      <div>404</div>
+      )
+    } return filter.interest[0].map (fil =>
+        <div className="choice">
+          <label htmlFor={`${fil.interest.toLowerCase()}`}>{fil.interest}</label>
+          <input
+            type="radio"
+            name="interest"
+            id={`${fil.interest.toLowerCase()}`}
+            defaultValue={`${fil._id.toLowerCase()}`}
+            onChange={handleChange}
+          />
+        </div>
+      )
+  }
+  //END INTEREST USER FOR FILTER
+
+  console.log("apanih",filter)
 
   return (
     <div className="left-content">
@@ -27,29 +73,18 @@ const FilterBox = (proper) => {
         <h2>What topic would you like to see?</h2>
         <p>You can only choose one. Go to interest on your profile to add more interest.</p>
         <div className="filter-box">
-          <form action method="get">
+          <form onSubmit={handleSubmit}>
             <div className="choice">
               <label htmlFor="allInterest">All my interest</label>
-              <input type="radio" name="interest" id="allInterest" defaultValue="allInterest" />
+              <input
+                type="radio"
+                name="interest"
+                id="allInterest"
+                defaultValue=""
+                onChange={handleChange}
+              />
             </div>
             {mapInterest()}
-            
-            {/* <div className="choice">
-              <label htmlFor="social">Social</label>
-              <input type="radio" name="interest" id="social" defaultValue="social" />
-            </div>
-            <div className="choice">
-              <label htmlFor="business">Business</label>
-              <input type="radio" name="interest" id="business" defaultValue="business" />
-            </div>
-            <div className="choice">
-              <label htmlFor="politics">Politics</label>
-              <input type="radio" name="interest" id="politics" defaultValue="politics" />
-            </div>
-            <div className="choice">
-              <label htmlFor="art">Art</label>
-              <input type="radio" name="interest" id="art" defaultValue="art" />
-            </div> */}
             <input type="submit" defaultValue="Update" />
           </form>
         </div>
