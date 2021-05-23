@@ -52,7 +52,7 @@
   font-size: 0.8rem;
 }
 
-.isay-status-box .user-status .upper-prop .status-interest p {
+.isay-status-box .user-status .upper-prop .status-interest button {
   padding: 0.6rem;
   margin: 0 0.5rem 1rem;
   font-size: 0.8rem;
@@ -60,6 +60,7 @@
   color: white;
   background-color: rgba(138, 98, 251, 1);
   border-radius: 0.8rem;
+  border: none;
 }
 
 .isay-status-box .user-status .upper-prop .status-location p {
