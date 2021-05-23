@@ -64,7 +64,7 @@ const FeedBox = (proper) => {
               <p>{card.time}</p>
             </div>
             <div className="status-interest">
-              <p>{card.interest}</p>
+              <button>{card.interest}</button>
             </div>
             <div className="status-location">
               <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />Jakarta</p>
