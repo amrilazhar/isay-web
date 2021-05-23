@@ -17,6 +17,8 @@ const InputActivity = ({...props}) => {
     const dispatch = useDispatch();
     const InputActivityUpdate = useSelector((state) => state.inputActivityData);
     console.log("ini", InputActivityUpdate)
+    console.log("createFirstProfile", createFirstProfile)
+
 
     const { location, activity, interest } = createFirstProfile;
 
@@ -25,15 +27,46 @@ const InputActivity = ({...props}) => {
     }, []);
 
     const handleChangeActivity = (event)=> {
-        setCreateFirstProfile({
-            ...createFirstProfile, 
-            [event.target.name]: [...createFirstProfile.activity, event.target.value]
-        });
-        console.log("eventAct", event.target.value)
+            const index = createFirstProfile[event.target.name].indexOf(
+                event.target.value
+              );
+              console.log('index', index)
+          
+              if (event.target.checked && index === -1) {
+                // console.log("eventInter", event.target.value);
+                // console.log(
+                //   "inputInterestUpdate.interest.data",
+                //   inputInterestUpdate.interest.data
+                // );
+          
+                return setCreateFirstProfile({
+                  ...createFirstProfile,
+                  [event.target.name]: [
+                    ...createFirstProfile.activity,
+                    event.target.value,
+                  ],
+                });
+              }
+          
+              if (!event.target.checked && index !== -1) {
+                const newActivity = [...createFirstProfile.activity];
+          
+                newActivity.splice(index, 1);
+          
+                // console.log("eventInter", event.target.value);
+                // console.log(
+                //   "inputInterestUpdate.interest.data",
+                //   inputInterestUpdate.interest.data
+                // );
+          
+                return setCreateFirstProfile({
+                  ...createFirstProfile,
+                  [event.target.name]: [...newActivity],
+                });
+              }
+
     };
-    console.log("createFirstProfile", createFirstProfile)
-    console.log("location", location)
-    console.log("act", activity)
+
 
     function handleSubmit () {
 

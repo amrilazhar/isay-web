@@ -3,7 +3,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import {useHistory} from "react-router-dom"
 import "./style/InputInterest.css";
 
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { inputInterestData } from "../../redux/actions";
 
@@ -12,21 +12,52 @@ const InputInterest = ({...props}) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const inputInterestUpdate = useSelector((state) => state.inputInterestData);
-    console.log("ini",inputInterestUpdate)
-    console.log("createFirstProfile", createFirstProfile)
+    // console.log("ini",inputInterestUpdate)
+    console.log("ini", inputInterestUpdate);
+    console.log("createFirstProfile", createFirstProfile);
 
     useEffect(() => {
         dispatch(inputInterestData.getInputInterest())
     },[])
 
-    const handleChangeInterest = (event) => {
-        setCreateFirstProfile({ 
-            ...createFirstProfile, 
-            [event.target.name]: [...createFirstProfile.interest,
-            event.target.value] });
-
-        console.log("eventInter", event.target.value)
-        console.log("inputInterestUpdate.interest.data", inputInterestUpdate.interest.data)
+    const handleChangeInterest = event => {
+        const index = createFirstProfile[event.target.name].indexOf(
+            event.target.value
+          );
+          console.log('index', index)
+      
+          if (event.target.checked && index === -1) {
+            // console.log("eventInter", event.target.value);
+            // console.log(
+            //   "inputInterestUpdate.interest.data",
+            //   inputInterestUpdate.interest.data
+            // );
+      
+            return setCreateFirstProfile({
+              ...createFirstProfile,
+              [event.target.name]: [
+                ...createFirstProfile.interest,
+                event.target.value,
+              ],
+            });
+          }
+      
+          if (!event.target.checked && index !== -1) {
+            const newInterest = [...createFirstProfile.interest];
+      
+            newInterest.splice(index, 1);
+      
+            // console.log("eventInter", event.target.value);
+            // console.log(
+            //   "inputInterestUpdate.interest.data",
+            //   inputInterestUpdate.interest.data
+            // );
+      
+            return setCreateFirstProfile({
+              ...createFirstProfile,
+              [event.target.name]: [...newInterest],
+            });
+          }
       };
     
     const displayInterestCheckBox = () => {
@@ -39,6 +70,7 @@ const InputInterest = ({...props}) => {
                         <div>
                             <FormControlLabel 
                                 name = "interest"
+                                key = {interest}
                                 control={<Checkbox/>}
                                 label= {input.interest}
                                 value={input["_id"]}

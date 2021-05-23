@@ -17,7 +17,7 @@ const rootReducer = combineReducers({
     statusInterest,
     inputInterestData,
     inputActivityData,
-    inputLocationData
+    inputLocationData,
 });
 
 export default rootReducer;

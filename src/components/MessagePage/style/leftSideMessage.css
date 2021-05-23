@@ -2,7 +2,7 @@
     border: 1px solid #C9C9C9;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    width: fit-content;
+    width: fit-content; 
     overflow: scroll;
     height: 15rem;
 }
