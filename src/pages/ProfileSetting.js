@@ -62,7 +62,7 @@ const ProfileSetting = () => {
             </div>
             <form>
               <label htmlFor="bio">Bio :</label>
-              <input type="text" name="bio" id="bio" placeholder="write your new bio" />
+              <textarea wrap="soft" type="text" name="bio" id="bio" placeholder="write your neew bio" defaultValue={""} />
               <label htmlFor="location">Location :</label>
               <input type="text" name="location" id="location" placeholder="update your location" />
               <div className="btn">
