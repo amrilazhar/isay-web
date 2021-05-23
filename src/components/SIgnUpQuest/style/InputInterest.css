@@ -99,6 +99,32 @@
   .interest-sub-container
   .interest-sub-wrapper
   .information
+  .btn-interest-next:hover,
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .information
+  .btn-interest-back:hover {
+  background-color: rgb(67, 116, 216);
+}
+
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .information
+  .btn-interest-next:active,
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .information
+  .btn-interest-back:active {
+  background-color: rgb(48, 84, 156);
+}
+
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .information
   .information-sign {
   border-radius: 50%;
   background-color: #4781f8;

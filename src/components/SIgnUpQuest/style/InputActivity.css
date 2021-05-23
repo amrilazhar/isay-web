@@ -99,6 +99,32 @@
   .activity-sub-container
   .activity-sub-wrapper
   .information
+  .btn-activity-next:hover,
+.activity-wrapper
+  .activity-sub-container
+  .activity-sub-wrapper
+  .information
+  .btn-activity-back:hover {
+  background-color: rgb(67, 116, 216);
+}
+
+.activity-wrapper
+  .activity-sub-container
+  .activity-sub-wrapper
+  .information
+  .btn-activity-next:active,
+.activity-wrapper
+  .activity-sub-container
+  .activity-sub-wrapper
+  .information
+  .btn-activity-back:active {
+  background-color: rgb(48, 84, 156);
+}
+
+.activity-wrapper
+  .activity-sub-container
+  .activity-sub-wrapper
+  .information
   .information-sign {
   border-radius: 50%;
   background-color: #4781f8;

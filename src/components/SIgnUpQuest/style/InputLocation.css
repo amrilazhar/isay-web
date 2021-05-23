@@ -73,6 +73,14 @@
   box-sizing: border-box;
 }
 
+.btn-location:hover {
+  background-color: rgb(67, 116, 216);
+}
+
+.btn-location:active {
+  background-color: rgb(48, 84, 156);
+}
+
 .btn-location a {
   text-decoration: none;
   color: #ffffff;
