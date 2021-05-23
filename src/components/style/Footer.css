@@ -37,6 +37,11 @@
   font-weight: 700;
   margin-bottom: 1rem;
   display: none;
+  cursor: auto;
+}
+
+.footer-container .footer-wrapping div p {
+  cursor: pointer;
 }
 
 .footer-container .footer-wrapping .left img {

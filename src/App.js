@@ -15,6 +15,7 @@ import SignupQuest from "./pages/SignupQuest";
 import Notification from './pages/Notification';
 import GetAvatar from './pages/GetAvatar';
 import Message from './pages/Message';
+import ProfileSetting from './pages/ProfileSetting'
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
               <PrivateRoute path="/message" component={Message} />
+              <PrivateRoute exact path="/setting" component={ProfileSetting} />
               <Redirect from="*" to="/" />
           </Switch>
       </Router>

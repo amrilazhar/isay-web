@@ -16,10 +16,10 @@
 }
 
 .isay-status-box .user-status .upper-prop .user-image {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background-color: rgba(97, 219, 153, 1);
-  border-radius: 20px;
+  border-radius: 30px;
   margin: 0 1rem 1rem 0;
   position: relative;
   overflow: hidden;
@@ -72,6 +72,10 @@
   margin-right: 0.3rem;
 }
 
+.isay-status-box .user-status .lower-prop {
+  margin: 1rem 0 2rem;
+}
+
 .isay-status-box .user-status .lower-prop .image-post {
   display: flex;
   flex-wrap: wrap;
@@ -100,6 +104,7 @@
 .isay-status-box .user-status .lower-prop p {
   font-size: 0.8rem;
   font-weight: 600;
+  line-height: 1.3rem;
 }
 
 .isay-status-box .do-at-status {
