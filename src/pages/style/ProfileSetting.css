@@ -93,7 +93,6 @@
   border-radius: 1rem;
   color: #4781f8;
   font-weight: bold;
-  cursor: pointer;
   margin-bottom: 1.5rem;
 }
 
@@ -219,6 +218,27 @@
   .setting-right-wrapper
   form
   .btn
+  a:hover {
+  background-color: rgb(194, 191, 191);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  .btn
+  a:active {
+  background-color: rgb(177, 177, 177);
+  color: rgb(73, 73, 73);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  .btn
   input {
   background-color: #009e74;
   color: white;
@@ -234,11 +254,32 @@
   .setting-wrapping
   .setting-right
   .setting-right-wrapper
+  form
+  .btn
+  input:hover {
+  background-color: #058d69;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  .btn
+  input:active {
+  background-color: #0b7055;
+  color: rgb(189, 185, 185);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
   .reset {
   max-width: 300px;
   border: none;
   font-size: 0.8rem;
-  padding: 0.5rem 2rem;
+  padding: 0.8rem 1rem;
   border-radius: 0.5rem;
   margin: 3rem auto 2rem;
   color: white;
@@ -271,7 +312,7 @@
   margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  width: 50%;
   border-radius: 20px;
 }
 
@@ -286,6 +327,8 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  background-color: transparent;
+  border: none;
 }
 
 .setting-container
@@ -305,6 +348,97 @@
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  form
+  :first-child {
+  width: 90%;
+  font-weight: normal;
+  border-radius: 15px;
+  text-align: center;
+  height: 30px;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 0.13rem solid rgb(52, 35, 53);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  form
+  :first-child:focus {
+  border: 0.13rem solid rgb(71, 129, 248);
+  outline: none;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  form
+  :last-child {
+  width: 50%;
+  margin: 0.5rem 0 0;
+  border: none;
+  padding: 0.7rem 0;
+  color: white;
+  background-color: brown;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  form
+  :last-child:hover,
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset:hover {
+  background-color: rgb(141, 42, 42);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  form
+  :last-child:active,
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset:active {
+  background-color: rgb(107, 36, 36);
+  color: rgb(194, 194, 194);
 }
 
 @media screen and (min-width: 600px) {
