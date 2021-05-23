@@ -5,11 +5,10 @@ export const userService = {
     login,
     logout,
     register,
-    getAll,
     getActive,
-    getById,
     update,
     firstCreate,
+    resetPassword,
     delete: _delete
 };
 
@@ -35,17 +34,6 @@ function logout() {
     localStorage.removeItem('user');
 }
 
-function getAll() {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-
-    //BENERIN BRO
-    return fetch(`/users`, requestOptions).then(handleResponse);
-}
-
  function getActive() {
     const requestOptions = {
         headers: authHeader()
@@ -55,17 +43,6 @@ function getAll() {
 
     return axios.get (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions)
     // .then(handleResponse);
-}
-
-function getById(id) {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-
-    //BENERIN BRO
-    return fetch(`/users/${id}`, requestOptions).then(handleResponse);
 }
 
 function register(email, password, confirmPassword) {
@@ -112,7 +89,6 @@ function _delete(id) {
 
 function firstCreate(location, activity, interest) {
 
-    // const locationString = JSON.stringify({location})
     const activityString = JSON.stringify(activity)
     const interestString = JSON.stringify(interest)
 
@@ -120,7 +96,6 @@ function firstCreate(location, activity, interest) {
         method: 'POST',
         headers: { ...authHeader(),
             'Content-Type': 'application/json' },
-        // body: JSON.stringify({ location, activityString, interestString })
         body: JSON.stringify(
         {
             'interest': `${interestString}`,
@@ -129,12 +104,31 @@ function firstCreate(location, activity, interest) {
         })
     };
 
-    console.log('inibody', requestOptions.body)
-
     return fetch(`https://isay.gabatch11.my.id/user/first_profile`, requestOptions)
         .then(handleResponse)
 }
 
+
+
+function resetPassword(emailReset) {
+
+    console.log("sampe sini", emailReset)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { ...authHeader(),
+            'Content-Type': 'application/json' },
+        body:JSON.stringify(
+        {
+            'email': `${emailReset}`,
+        })
+    };
+
+    console.log(requestOptions.body)
+
+    return fetch(`https://isay.gabatch11.my.id/user/reset_password`, requestOptions)
+        .then(handleResponse)
+}
 
 
 function handleResponse(response) {

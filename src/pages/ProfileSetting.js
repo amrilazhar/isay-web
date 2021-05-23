@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -14,8 +14,6 @@ const ProfileSetting = () => {
   },[])
 
   const oldProfile = useSelector ((state) => state.users)
-
-  console.log( "old", oldProfile)
 
   const previewProfile = () => {
     if (oldProfile) {
@@ -45,6 +43,52 @@ const ProfileSetting = () => {
     }
   }
 
+  const [show, setShow] = useState(false)
+  const [email, setEmail] = useState({
+    email:""
+  })
+
+  const emailChange = (e) => {
+    setEmail({
+      "email":[e.target.value]
+    })
+  }
+
+  const submitEmail = (e) => {
+    e.preventDefault()
+    const emailReset = email.email
+    console.log("kirim", emailReset)
+    dispatch(userActions.resetPassword(emailReset))
+  }
+
+  const showModal = () => {
+    if(show === false) {
+      setShow(true)
+    } else {
+      setShow(false)
+    }
+  }
+
+  const modal = () => {
+    if(show === false) {
+      return (<div></div>)
+    } else {
+    return (
+      <div id="resetModal" className="reset-modal">
+        <div className="reset-modal-content">
+          <button onClick={showModal} className="close">&times;</button>
+          <div>
+            <p>Are You Sure?</p>
+            <form onSubmit={submitEmail}>
+              <input type="email" name="email" id="email" placeholder="input your email" defaultValue="" onChange={emailChange}></input>
+              <input type="submit" value="Reset" />
+            </form>
+          </div>
+        </div>
+      </div>
+    )}
+  }
+
   return (
     <>
     <Navbar/>
@@ -72,7 +116,8 @@ const ProfileSetting = () => {
                 <input type="submit" defaultValue="update" />
               </div>
             </form>
-            <button className="reset">Reset Password</button>
+            <button onClick={showModal} className="reset">Reset Password</button>
+            {modal()}
           </div>
         </div>
       </div>

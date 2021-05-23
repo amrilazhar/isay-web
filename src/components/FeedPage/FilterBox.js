@@ -26,6 +26,8 @@ const FilterBox = (proper) => {
     })
   }
 
+  console.log("inibro", bro)
+
   async function handleSubmit(e) {
 
     e.preventDefault();
