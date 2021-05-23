@@ -50,7 +50,6 @@ const FeedBox = (proper) => {
   
   const card = proper.cardy; //Send Prop to Feed Page
 
-
   if (card) {
     return (
       <div className="isay-status-box">
@@ -64,7 +63,7 @@ const FeedBox = (proper) => {
               <p>{card.time}</p>
             </div>
             <div className="status-interest">
-              <button>{card.interest}</button>
+              <button defaultValue={card.interestId}>{card.interest}</button>
             </div>
             <div className="status-location">
               <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />Jakarta</p>

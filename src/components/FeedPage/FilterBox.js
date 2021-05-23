@@ -97,7 +97,7 @@ const FilterBox = (proper) => {
               />
             </div>
             {mapInterest()}
-            <input type="submit" defaultValue="Update" />
+            <input type="submit" value="Update" />
           </form>
         </div>
       </div>
