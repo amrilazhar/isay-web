@@ -77,6 +77,17 @@
   color: rgba(71, 129, 248, 1);
   font-weight: 600;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.left-content .left-wrapping .filter-box form input:hover {
+  background-color: rgba(71, 129, 248, 1);
+  color: white;
+}
+
+.left-content .left-wrapping .filter-box form input:active {
+  background-color: rgb(64, 90, 143);
+  color: rgb(194, 194, 194);
 }
 
 @media screen and (min-width: 600px) {

@@ -40,9 +40,11 @@ const UserPage = () => {
             <h1> </h1>
             <div className="location-user-load"></div>
           </div>
+          <a>
           <button>
             <p>Profile Setting</p>
           </button>
+          </a>
           <button>
             <p>Logout</p>
           </button> 
@@ -61,11 +63,11 @@ const UserPage = () => {
               <p>{userActive.items?.location.city}</p>
             </div>
           </div>
-          <button>
-            <a href="/setting">
+          <a href="/setting">
+            <button>
               <p>Profile Setting</p>
-            </a>
-          </button>
+            </button>
+          </a>
           <button onClick={logout}>
             <p>Logout</p>
           </button>

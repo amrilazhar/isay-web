@@ -110,10 +110,7 @@
   font-size: 0.9rem;
 }
 
-.profile-wrapping
-  .profile-bottom-content
-  .profile-left-content
-  button:nth-child(2) {
+.profile-wrapping .profile-bottom-content .profile-left-content a button {
   color: #4781f8;
   border: 0.15rem solid #4781f8;
   background-color: white;
@@ -123,15 +120,27 @@
   width: 100%;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.profile-wrapping .profile-bottom-content .profile-left-content a button:hover {
+  background-color: rgba(71, 129, 248, 1);
+  color: white;
 }
 
 .profile-wrapping
   .profile-bottom-content
   .profile-left-content
-  button:nth-child(2)
-  a {
+  a
+  button:active {
+  background-color: rgb(64, 90, 143);
+  color: rgb(194, 194, 194);
+}
+
+.profile-wrapping .profile-bottom-content .profile-left-content a {
   text-decoration: none;
   color: #4781f8;
+  transition: 0.3s ease;
 }
 
 .profile-wrapping
@@ -146,6 +155,14 @@
   box-sizing: border-box;
   width: 100%;
   font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-left-content
+  button:nth-child(3):hover {
+  color: rgb(214, 79, 79);
 }
 
 /* End of Left Content */

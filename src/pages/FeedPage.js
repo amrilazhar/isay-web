@@ -36,7 +36,8 @@ const FeedPage = () => {
           <FeedBox cardy={{
             name: `${user.owner.name}`,
             content: `${user.content}`,
-            interest: `${user.interest[0].interest}`
+            interest: `${user.interest[0].interest}`,
+            time: `${user.created_at}`
             }}
           />
         ))}

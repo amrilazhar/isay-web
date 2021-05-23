@@ -61,7 +61,7 @@ const FeedBox = (proper) => {
             </div>
             <div className="name-and-time">
               <h2>{card.name}</h2>
-              <p>1 hour ago</p>
+              <p>{card.time}</p>
             </div>
             <div className="status-interest">
               <p>{card.interest}</p>

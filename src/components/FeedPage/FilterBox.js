@@ -59,10 +59,14 @@ const FilterBox = (proper) => {
     } else {
       return userActive.items?.interest.map (fil =>
         <div className="choice">
-          <label htmlFor={`${fil.interest.toLowerCase()}`}>{fil.interest}</label>
+          <label
+            htmlFor={`${fil.interest.toLowerCase()}`}
+            id={`${fil.interest.toLowerCase()}`}
+          >{fil.interest}</label>
           <input
             type="radio"
             name="interest"
+            for={`${fil.interest.toLowerCase()}`}
             id={`${fil.interest.toLowerCase()}`}
             defaultValue={`${fil._id.toLowerCase()}`}
             onChange={handleChange}
