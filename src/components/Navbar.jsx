@@ -34,7 +34,6 @@ const Navbar = () => {
         history.push('message')
     )
 
-
     return(
         <Router>
           <div className="navbar-container">

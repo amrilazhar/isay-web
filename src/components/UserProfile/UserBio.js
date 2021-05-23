@@ -6,8 +6,6 @@ const UserBio = (props) => {
 
   const bio = props.bio
 
-  console.log( "apa", bio.interest[0])
-
   if (!bio){
       return (
         <div>cannot find</div>

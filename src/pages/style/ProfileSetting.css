@@ -7,7 +7,7 @@
 }
 
 .setting-container .setting-wrapping .setting-left .setting-left-wrapper {
-  background-color: #8a62fb;
+  background-color: #4781f8;
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@
   left: -9999px;
   right: -9999px;
   margin: auto;
-  max-height: 100%;
+  max-height: 70%;
 }
 
 .setting-container .setting-wrapping .setting-left .setting-left-wrapper h1 {
@@ -88,7 +88,7 @@
   background-color: white;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
-  color: #8a62fb;
+  color: #4781f8;
   font-weight: bold;
   cursor: pointer;
 }
@@ -103,7 +103,7 @@
   font-size: 0.9rem;
   line-height: normal;
   letter-spacing: normal;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .setting-container .setting-wrapping .setting-right .setting-right-wrapper {
@@ -118,7 +118,7 @@
   .setting-right-wrapper
   .title {
   padding: 1.5rem 0 2rem;
-  background-image: linear-gradient(#845df0 40%, white 99%);
+  background-image: linear-gradient(#4781f8 40%, white 99%);
   margin-bottom: 1.5rem;
   border-radius: 1rem 1rem 0 0;
 }

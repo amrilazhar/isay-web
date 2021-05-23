@@ -12,7 +12,7 @@ const ProfileSetting = () => {
         <div className="setting-left">
           <div className="setting-left-wrapper">
             <div className="photo">
-              <img src="./Profile.jpg" alt="user" />
+              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="user" />
             </div>
             <h1>Alfian</h1>
             <div className="location-setting">

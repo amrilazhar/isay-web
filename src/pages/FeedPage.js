@@ -27,55 +27,7 @@ const FeedPage = () => {
   const feedBox = () => {
     if (statusUpdate.loading){
       return (
-        <>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
-            </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
-            </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
-            </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        <div className="circle-box-load">
-          <div className="circle-load"></div>
-          <div className="circle-load"></div>
-          <div className="circle-load"></div>
-        </div>
-        </>
+        <FeedBox/>
       )
     } else {
       return (

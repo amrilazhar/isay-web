@@ -10,10 +10,10 @@
 }
 
 .status-submit .user-active-profile {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background-color: rgba(138, 98, 251, 1);
-  border-radius: 20px;
+  border-radius: 30px;
   margin-bottom: 1rem;
   position: relative;
   overflow: hidden;

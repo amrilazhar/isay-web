@@ -11,6 +11,7 @@ import UserAct from '../components/UserProfile/UserAct';
 import UserBio from '../components/UserProfile/UserBio'
 import UserPost from '../components/UserProfile/UserPost';
 import './style/UserPage.css'
+import ProfileSetting from './ProfileSetting';
 
 const UserPage = () => {
 
@@ -61,9 +62,9 @@ const UserPage = () => {
             </div>
           </div>
           <button>
-            <Link to={`/setting`}>
+            <a href="/setting">
               <p>Profile Setting</p>
-            </Link>
+            </a>
           </button>
           <button onClick={logout}>
             <p>Logout</p>

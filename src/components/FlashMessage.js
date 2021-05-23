@@ -13,7 +13,7 @@ const FlashMessage = () => {
   const alert = useSelector ((state) => state.alert)
   console.log(alert)
 
- const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true);
 
   const dispatch = useDispatch();
 
