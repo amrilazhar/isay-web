@@ -121,7 +121,7 @@ const InputActivity = ({...props}) => {
         <div className="activity-wrapper">
             <div className="activity-sub-container">
                 <div className="activity-sub-wrapper">
-                    <h3 >One more step to enter the room.....</h3>
+                    <h2 >One more step to enter the room.....</h2>
                     <h3 >What activity do you always do in a week?</h3>
                     <p >Avatar that you will get will be choosen based on your answer some of short question below</p>
                     <div className="checklist-activity">

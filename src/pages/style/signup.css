@@ -114,6 +114,16 @@
   .right-content-signup
   .login-wrapper
   form
+  input:focus {
+  border: 1px solid rgb(71, 129, 248);
+  outline: none;
+}
+
+.signup-container
+  .signup-wrapper
+  .right-content-signup
+  .login-wrapper
+  form
   input:last-child {
   font-weight: bold;
   padding: 0.75rem 0;
@@ -121,6 +131,25 @@
   background-color: #4681f7ff;
   color: white;
   cursor: pointer;
+}
+
+.signup-container
+  .signup-wrapper
+  .right-content-signup
+  .login-wrapper
+  form
+  input:last-child:hover {
+  background-color: rgb(67, 116, 216);
+}
+
+.signup-container
+  .signup-wrapper
+  .right-content-signup
+  .login-wrapper
+  form
+  input:last-child:active {
+  background-color: rgb(48, 84, 156);
+  color: rgb(168, 164, 164);
 }
 
 .signup-container .signup-wrapper .right-content-signup .login-wrapper button {
@@ -156,6 +185,24 @@
   text-decoration: none;
   color: #4681f7ff;
   font-weight: bold;
+}
+
+.signup-container
+  .signup-wrapper
+  .right-content-signup
+  .login-wrapper
+  p
+  a:hover {
+  color: rgb(67, 116, 216);
+}
+
+.signup-container
+  .signup-wrapper
+  .right-content-signup
+  .login-wrapper
+  p
+  a:active {
+  color: rgb(48, 84, 156);
 }
 
 @media screen and (min-width: 540px) {

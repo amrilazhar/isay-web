@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.interest-wrapper .interest-sub-container{
+.interest-wrapper .interest-sub-container {
   background: #ffffff;
   border: 1px solid #ffffff;
   box-sizing: border-box;
@@ -18,18 +18,42 @@
   color: #4f4f4f;
 }
 
-.interest-wrapper .interest-sub-container .interest-sub-wrapper{
+.interest-wrapper .interest-sub-container .interest-sub-wrapper {
   display: flex;
   flex-direction: column;
   line-height: 2em;
   padding: 4rem;
 }
 
-.interest-wrapper .interest-sub-container .interest-sub-wrapper .checklist-interest {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  min-height: 20rem;
-  margin-bottom: 1rem;
+.interest-wrapper .interest-sub-container .interest-sub-wrapper h2 {
+  margin-bottom: 0.7rem;
+}
+
+.interest-wrapper .interest-sub-container .interest-sub-wrapper p {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.interest-wrapper .interest-sub-container .interest-sub-wrapper h3 {
+  margin-bottom: 0.5rem;
+}
+
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .checklist-interest {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .checklist-interest
+  div {
+  width: 150px;
+  margin: 0.5rem;
 }
 
 .interest-wrapper .interest-sub-container .interest-sub-wrapper .information {
@@ -37,34 +61,45 @@
   align-items: center;
 }
 
-
-.interest-wrapper .interest-sub-container .interest-sub-wrapper .information .btn-interest-next {
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .information
+  .btn-interest-next {
   position: absolute;
-  background-color: #4781f8;
+  background-color: #4681f7ff;
   border-radius: 3px;
-  font-size: large;
-  font-weight: 800;
+  font-size: 1rem;
+  font-weight: bold;
   border-color: transparent;
-  padding: 0.5rem 4rem;
+  padding: 0.75rem 4rem;
   box-sizing: border-box;
   color: #ffffff;
   right: 8rem;
 }
 
-.interest-wrapper .interest-sub-container .interest-sub-wrapper .information .btn-interest-back{
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .information
+  .btn-interest-back {
   position: absolute;
-  background-color: #4781f8;
+  background-color: #4681f7ff;
   border-radius: 3px;
-  font-size: large;
-  font-weight: 800;
+  font-size: 1rem;
+  font-weight: bold;
   border-color: transparent;
-  padding: 0.5rem 3.9rem;
+  padding: 0.75rem 4rem;
   box-sizing: border-box;
   color: #ffffff;
   right: 19rem;
 }
 
-.interest-wrapper .interest-sub-container .interest-sub-wrapper .information .information-sign {
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .information
+  .information-sign {
   border-radius: 50%;
   background-color: #4781f8;
   text-align: center;
@@ -74,7 +109,11 @@
   font-weight: 500;
 }
 
-.interest-wrapper .interest-sub-container .interest-sub-wrapper .information .information-content {
+.interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .information
+  .information-content {
   color: #4f4f4f;
   padding-left: 1rem;
   font-size: 15px;
@@ -86,23 +125,17 @@
 
 /* media query start here */
 @media only screen and (max-width: 1000px) {
-  
   .interest-wrapper .interest-sub-container .interest-sub-wrapper .information {
     margin-right: 21rem;
   }
-
 }
 
 @media only screen and (max-width: 850px) {
-  .interest-wrapper .interest-sub-container .interest-sub-wrapper{
+  .interest-wrapper .interest-sub-container .interest-sub-wrapper {
     padding: 3rem 2rem 5rem;
   }
-  .interest-wrapper .interest-sub-container .interest-sub-wrapper .checklist-interest {
-    display: grid;
-    grid-template-columns: auto auto ;
-  }
 
-  .interest-wrapper .interest-sub-container .interest-sub-wrapper .information{
+  .interest-wrapper .interest-sub-container .interest-sub-wrapper .information {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -110,29 +143,31 @@
     margin-right: 0;
   }
 
-  .interest-wrapper .interest-sub-container .interest-sub-wrapper .information .btn-interest-back {
+  .interest-wrapper
+    .interest-sub-container
+    .interest-sub-wrapper
+    .information
+    .btn-interest-back {
     margin: 2rem auto;
     right: 10rem;
     right: 25%;
     width: 50%;
   }
-  .interest-wrapper .interest-sub-container .interest-sub-wrapper .information .btn-interest-next {
+  .interest-wrapper
+    .interest-sub-container
+    .interest-sub-wrapper
+    .information
+    .btn-interest-next {
     margin: 5rem auto;
     right: 10rem;
     right: 25%;
     width: 50%;
   }
-} 
+}
 
 @media only screen and (max-width: 750px) {
-  
   .interest-wrapper .interest-sub-container .interest-sub-wrapper {
     padding: 0.5rem 2rem 8rem;
     line-height: normal;
   }
-  .interest-wrapper .interest-sub-container .interest-sub-wrapper .checklist-interest {
-    display: grid;
-    grid-template-columns: auto;
-  }
-
 }

@@ -89,7 +89,7 @@ const InputInterest = ({...props}) => {
                 <div className="interest-wrapper">
                     <div className="interest-sub-container">
                         <div className="interest-sub-wrapper">
-                            <h3>Pour your thoughts without fear</h3>
+                            <h2>Pour your thoughts without fear</h2>
                             <p>No need to be scared to say your thoughts because you will be annonymous here. However, let them remember you through an <b style={{fontWeight:"bold"}}>Avatar.</b></p>
                             <h3>What do you do in your free time?</h3>
                             <p>Avatar that you will get will be choosen based on your answer some of short question below</p>
