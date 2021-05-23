@@ -70,9 +70,7 @@ function getActive (active) {
         userService.getActive()
             .then(
                 users => {
-                    // setTimeout(() => {
                     dispatch(success(users))
-                    // }, 2500)
                 })
             .catch(
                 error => {dispatch(failure(error.toString()))}

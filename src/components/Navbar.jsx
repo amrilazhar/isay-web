@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import { history } from "../helpers";
@@ -35,7 +34,6 @@ const Navbar = () => {
         history.push('message')
     )
 
-
     return(
         <Router>
           <div className="navbar-container">
@@ -48,10 +46,6 @@ const Navbar = () => {
                 </div>
                 <ul className={sideMenu? "nav-menu active" : "nav-menu"}>
                     <li className="nav-item" >
-                        {/* <Link to={`/`} className="nav-links" activeClassName="active">
-                            <HomeIcon/>
-                            <p>Home</p>
-                        </Link> */}
                         <div onClick={toFeed} className="nav-links" activeClassName="active" > 
                             <HomeIcon/>
                             <p>Home</p>

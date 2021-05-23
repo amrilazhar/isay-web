@@ -16,7 +16,8 @@ export function users(state = {}, action) {
             };
         case userConstants.GETACTIVE_REQUEST:
             return {
-                loading: true
+                loading: true,
+                items: {}
             };
         case userConstants.GETACTIVE_SUCCESS:
             return {

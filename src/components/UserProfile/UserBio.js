@@ -1,26 +1,44 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './style/UserBio.css'
 
-const UserBio = () => {
-  return (
-    <div className="profile-sizing">
-      <div className="bio">
-        <h2>Bio</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima, cumque. Consequatur explicabo accusantium ex ullam quia magnam autem qui eveniet adipisci nemo quaerat repellendus nam voluptatibus voluptates, minima temporibus rerum! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam ullam corrupti perferendis incidunt unde harum aliquam dolorem enim, optio repellendus sequi asperiores quos error autem veritatis ex facere quod. Esse.</p>
-      </div>
-      <div className="interest">
-        <h2>Interest Topic</h2>
-        <div className="interest-list">
-          <button>Personal</button>
-          <button>Politics</button>
-          <button>Sports</button>
-          <button>Tech</button>
-          <button>Psychology</button>
-          <button>Design</button>
+const UserBio = (props) => {
+
+  const bio = props.bio
+
+  if (!bio){
+      return (
+        <div>cannot find</div>
+      ) 
+    } else {
+      return (
+        <div className="profile-sizing">
+          <div className="bio">
+            <h2>Bio</h2>
+            {/* Kalo bio udah ada isinya, gadi jadi (!bio.bio) */}
+            {(bio.bio) ? <div className="bio-load"></div> :
+              <p>{bio.bio}</p>
+            }
+          </div>
+          <div className="interest">
+            <h2>Interest Topic</h2>
+            <Link>
+              <div className="interest-list">
+                {(bio.interest[0]) ?
+                <div>{bio.interest[0].map( interest =>
+                <button>{interest.interest}</button>
+                )}</div> :
+                <div className="bio-interest-load">
+                  <div className="bio-interest-load-content"></div>
+                  <div className="bio-interest-load-content"></div>
+                  <div className="bio-interest-load-content"></div>
+                </div>}
+              </div>
+            </Link>
+          </div>
         </div>
-      </div>
-    </div>
-  )
+      )
+    }
 }
 
 export default UserBio

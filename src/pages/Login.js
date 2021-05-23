@@ -13,16 +13,12 @@ function Login() {
       password: ''
   });
   
-  const [submitted, setSubmitted] = useState(false);
-  const loggingIn = useSelector(state => state.authentication.loggingIn);
   const { email, password } = inputs;
   const dispatch = useDispatch();
   const location = useLocation();
 
-  // reset login status
   useEffect(() => { 
       dispatch(userActions.logout()); 
-  //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   
   function handleChange(e) {
@@ -33,7 +29,6 @@ function Login() {
   function handleSubmit(e) {
       e.preventDefault();
 
-      setSubmitted(true);
       if (email && password) {
           // get return url from location state or default to home page
           const { from } = location.state || { from: { pathname: "/" } };

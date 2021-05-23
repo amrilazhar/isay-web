@@ -110,6 +110,7 @@
   box-sizing: border-box;
   background-color: #4681f7ff;
   color: white;
+  cursor: pointer;
 }
 
 .login-container .login-wrapper .right-content-login .login-wrapper button {

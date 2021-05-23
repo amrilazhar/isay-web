@@ -14,16 +14,12 @@ function Signup() {
         confirmPassword: ''
     });
     
-    const [submitted, setSubmitted] = useState(false);
-    const registering = useSelector(state => state.registration.registering);
     const { email, password, confirmPassword } = inputs;
     const dispatch = useDispatch();
     const location = useLocation();
 
-    // reset login status
     useEffect(() => {
         dispatch(userActions.logout());
-    //eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     function handleChange(e) {
@@ -34,9 +30,8 @@ function Signup() {
     function handleSubmit(e) {
         e.preventDefault();
 
-        setSubmitted(true);
         if (email && password && confirmPassword) {
-          const { from } = location.state || { from: { pathname: "/location" } };
+          const { from } = location.state || { from: { pathname: "/signupquest/1" } };
           dispatch(userActions.register(email, password, confirmPassword, from));
         }
     }

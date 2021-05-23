@@ -8,7 +8,7 @@ const WriteStatusBox = () => {
         <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
       </div>
       <form action method="post">
-        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about me?" defaultValue={""} />
+        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={""} />
         <div className="status-tools">
           <button>Status</button>
           <button><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/picture_Ooor518Yas.png" alt="Add" /> Image</button>

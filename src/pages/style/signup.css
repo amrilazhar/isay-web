@@ -120,6 +120,7 @@
   box-sizing: border-box;
   background-color: #4681f7ff;
   color: white;
+  cursor: pointer;
 }
 
 .signup-container .signup-wrapper .right-content-signup .login-wrapper button {

@@ -11,24 +11,18 @@ import UserAct from '../components/UserProfile/UserAct';
 import UserBio from '../components/UserProfile/UserBio'
 import UserPost from '../components/UserProfile/UserPost';
 import './style/UserPage.css'
+import ProfileSetting from './ProfileSetting';
 
 const UserPage = () => {
 
   const dispatch = useDispatch()
+  let match = useRouteMatch()
 
   useEffect(() => {
     dispatch(userActions.getActive())
   },[])
 
-
   const userActive = useSelector ((state) => state.users)
-
-  
-  const coba = useSelector ((state) => state.users.items)
-
-  console.log(coba?.bio)
-  
-  let match = useRouteMatch()
 
   const logout = () => {
     dispatch(userActions.logout());
@@ -43,12 +37,14 @@ const UserPage = () => {
             <div className="profile-image-load">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
             </div>
-            <h1></h1>
+            <h1> </h1>
             <div className="location-user-load"></div>
           </div>
+          <a>
           <button>
             <p>Profile Setting</p>
           </button>
+          </a>
           <button>
             <p>Logout</p>
           </button> 
@@ -67,9 +63,11 @@ const UserPage = () => {
               <p>{userActive.items?.location.city}</p>
             </div>
           </div>
-          <button>
-            <p>Profile Setting</p>
-          </button>
+          <a href="/setting">
+            <button>
+              <p>Profile Setting</p>
+            </button>
+          </a>
           <button onClick={logout}>
             <p>Logout</p>
           </button>
@@ -122,7 +120,11 @@ const UserPage = () => {
                     <UserAct/>
                   </Route>
                   <Route path={`${match.path}`}>
-                    <UserBio/>
+                    <UserBio bio = {{
+                      bio: `${userActive.items?.bio}`,
+                      interest: [userActive.items?.interest]
+                    }}
+                    />
                   </Route>
                 </Switch>
               {/* End Custome Insertion */}

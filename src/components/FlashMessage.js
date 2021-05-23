@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert'
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,7 +13,7 @@ const FlashMessage = () => {
   const alert = useSelector ((state) => state.alert)
   console.log(alert)
 
- const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(true);
 
   const dispatch = useDispatch();
 

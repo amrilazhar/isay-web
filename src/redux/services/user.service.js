@@ -9,6 +9,7 @@ export const userService = {
     getActive,
     getById,
     update,
+    firstCreate,
     delete: _delete
 };
 
@@ -47,13 +48,12 @@ function getAll() {
 
  function getActive() {
     const requestOptions = {
-        // method: 'GET',
         headers: authHeader()
     };
 
     const user = JSON.parse(localStorage.getItem('user'));
 
-    return axios .get (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions)
+    return axios.get (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions)
     // .then(handleResponse);
 }
 
@@ -108,6 +108,34 @@ function _delete(id) {
     //BENERIN BRO
     return fetch(`/users/${id}`, requestOptions).then(handleResponse);
 }
+
+
+function firstCreate(location, activity, interest) {
+
+    // const locationString = JSON.stringify({location})
+    const activityString = JSON.stringify(activity)
+    const interestString = JSON.stringify(interest)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { ...authHeader(),
+            'Content-Type': 'application/json' },
+        // body: JSON.stringify({ location, activityString, interestString })
+        body: JSON.stringify(
+        {
+            'interest': `${interestString}`,
+            'location': `${location}`,
+            'activity': `${activityString}`    
+        })
+    };
+
+    console.log('inibody', requestOptions.body)
+
+    return fetch(`https://isay.gabatch11.my.id/user/first_profile`, requestOptions)
+        .then(handleResponse)
+}
+
+
 
 function handleResponse(response) {
     return response.text()
