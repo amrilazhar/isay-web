@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { userActions } from '../../redux/actions'
+import { statusInterest, userActions } from '../../redux/actions'
 import './style/WriteStatusBox.css'
 
 const WriteStatusBox = () => {
@@ -62,13 +62,12 @@ const WriteStatusBox = () => {
   const submitStatus = (e) => {
 
     const interestId = interest?.id
-
-    console.log("dapet id", interestId)
-
     if(content && interestId){
       e.preventDefault()
       dispatch(userActions.postStatus(content, interestId))
     }
+    const param = ""
+    dispatch(statusInterest.getStatus(param))
   }
 
   const [show, setShow] = useState(false)
