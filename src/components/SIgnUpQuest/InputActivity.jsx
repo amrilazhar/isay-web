@@ -96,7 +96,7 @@ const InputActivity = ({...props}) => {
     
     const displayActivityCheckBox = () => {
         if (InputActivityUpdate.loading === true) {
-            return <div>loading...</div>
+            return <h1>loading...</h1>
         } else {
             return (
                 <>
@@ -108,6 +108,7 @@ const InputActivity = ({...props}) => {
                             value = {input["_id"]}
                             label= {input.interest}
                             onChange={handleChangeActivity}
+                            checked={createFirstProfile.activity.some(value => value === input['_id'])}
                             />
                         </div>
                     ))}

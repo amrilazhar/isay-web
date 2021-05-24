@@ -2,8 +2,9 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 import TextField from '@material-ui/core/TextField';
 import "./style/InputLocation.css";
 import { Autocomplete } from '@material-ui/lab';
+import Skeleton from '@material-ui/lab/Skeleton';
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { inputLocationData } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import {  useParams, useHistory } from "react-router-dom";
@@ -14,13 +15,15 @@ const InputLocation = ({...props}) => {
     const inputLocationUpdate = useSelector((state) => state.inputLocationData);
     let {id} = useParams();
     let history = useHistory();
-
+  
+    //switch to interest page
     const handleLocation = () => {
         setShowLocation(false);
         setShowInterest(true);
         history.replace("/signupquest/2");
     }
     
+    //trigger the api and set the refreshed page to location by id
     useEffect (() => {
         dispatch(inputLocationData.getInputLocation());
         if(id === 1) {
@@ -28,6 +31,7 @@ const InputLocation = ({...props}) => {
         }
     },[id]) 
 
+    //set value as location by id
     const handleValueLocation = (e) => {
         const valueloc =  e?.target?.innerText?.split(", ")[1];
         const valueCity = valueloc?.split(" ");
@@ -43,11 +47,11 @@ const InputLocation = ({...props}) => {
     }
 
     console.log("createFirstProfile", createFirstProfile);
-    console.log('windows',id);
+    // console.log('windows',id);
 
     const displayLocationData = () => {
-        if (inputLocationUpdate === true) {
-            return <div>Not Found</div>
+        if (inputLocationUpdate.loading === true) {
+            return <h1>Loading...</h1>
         } else {
             return (
                 <>
@@ -73,29 +77,30 @@ const InputLocation = ({...props}) => {
             // <LocationOnIcon color="disabled"/>
     }
 }
-    return (
-        <div className="background-location">
-            <div className="location-wrapper">
-                <div className= "location-container">
-                    <h1 className="location-line1">
-                        Welcome to i-Say
-                    </h1>
-                    <h3 className="location-line2">
-                        Everyone deserves to be heard, now it's your time
-                    </h3>
-                    <div className="location-line3">
-                        <LocationOnIcon />
-                        <p>Where is the city you live in?</p>
-                    </div>
-                    <p className="location-line4" >Let people find your great thoughts</p>
-                    <div className="location">
-                        {displayLocationData()}
-                        <button className="btn-location" onClick={handleLocation}>Next</button>
+        return (
+            <div className="background-location">
+                <div className="location-wrapper">
+                    <div className= "location-container">
+                        <h1 className="location-line1">
+                            Welcome to i-Say
+                        </h1>
+                        <h3 className="location-line2">
+                            Everyone deserves to be heard, now it's your time
+                        </h3>
+                        <div className="location-line3">
+                            <LocationOnIcon />
+                            <p>Where is the city you live in?</p>
+                        </div>
+                        <p className="location-line4" >Let people find your great thoughts</p>
+                        <div className="location">
+                            {displayLocationData()}
+                            <button className="btn-location" onClick={handleLocation}>Next</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    )
+             </div>
+        )
+    
 }
 
 export default InputLocation;

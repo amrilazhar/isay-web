@@ -11,9 +11,11 @@ function getInputActivity (activities) {
 
         axios.get ("https://isay.gabatch11.my.id/utils/interest/freetime activity")
         .then (response => {
-            dispatch(success(response))
-        })
-        .catch(error => {
+            setTimeout(() => {
+              dispatch(success(response))
+            }, 2500)
+          })
+        .catch((error) => {
             dispatch(failure(error))
         })
     };

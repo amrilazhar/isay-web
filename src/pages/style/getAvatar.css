@@ -104,14 +104,14 @@
   .inside-sub-avatar-wrapper
   .avatar-name-wrapper
   p {
-  color: #4781f8;
-  border: 1px solid #4781f8;
-  align-self: center;
-  padding: 0.7rem 4rem;
-  border-radius: 3rem;
-  transform: translateX(-15%);
-  z-index: 10;
-  font-weight: 600;
+    color: #4781f8;
+    border: 1px solid #4781f8;
+    align-self: center;
+    padding: 1rem 3rem;
+    border-radius: 3rem;
+    transform: translateX(-13%);
+    z-index: 10;
+    font-weight: 600;
 }
 
 /* confetti1 */
@@ -281,24 +281,7 @@
   width: fit-content;
 }
 
-@media screen and (max-width: 1200px) {
-  /* .main-avatar-container .main-avatar-wrapper{
-        padding: 8rem;
-        margin: auto;
-
-    } */
-
-  .main-avatar-container
-    .main-avatar-wrapper
-    .sub-avatar-container
-    .sub-avatar-wrapper
-    .inside-sub-avatar-container {
-    padding: 0 2rem 2rem;
-    /* margin: auto; */
-  }
-}
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 941px) {
   .main-avatar-container .main-avatar-wrapper {
     padding: 6rem 8rem 0;
     margin: auto;

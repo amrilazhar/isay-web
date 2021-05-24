@@ -47,7 +47,7 @@ const InputInterest = ({...props}) => {
       
             newInterest.splice(index, 1);
       
-            // console.log("eventInter", event.target.value);
+            // console.log("eventInter", event);
             // console.log(
             //   "inputInterestUpdate.interest.data",
             //   inputInterestUpdate.interest.data
@@ -62,22 +62,27 @@ const InputInterest = ({...props}) => {
     
     const displayInterestCheckBox = () => {
         if (inputInterestUpdate.loading === true) {
-            return <div>Loading...</div>
+            return <h1>Loading...</h1>
         } else {
             return ( 
                 <>
-                    {inputInterestUpdate.interest.data.map((input, interest) => (
-                        <div>
-                            <FormControlLabel 
-                                name = "interest"
-                                key = {interest}
-                                control={<Checkbox/>}
-                                label= {input.interest}
-                                value={input["_id"]}
-                                onChange={handleChangeInterest}
-                            />
-                        </div>
-                    ))}
+                    {inputInterestUpdate.interest.data.map((input, interest) => {
+                        // console.log('interest', interest)
+                        // console.log('find', createFirstProfile.interest.some(value => value === '6092b557e957671c70e24279'))
+                        return (
+                            <div>
+                                <FormControlLabel 
+                                    name = "interest"
+                                    key = {interest}
+                                    control={<Checkbox/>}
+                                    label= {input.interest}
+                                    value={input["_id"]}
+                                    onChange={handleChangeInterest}
+                                    checked={createFirstProfile.interest.some(value => value === input['_id'])}
+                                />
+                            </div>
+                        )
+                    })}
                 </>           
              )
         }

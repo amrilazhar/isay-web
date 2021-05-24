@@ -4,8 +4,6 @@ import "./style/leftSideMessage.css"
 import SearchIcon from '@material-ui/icons/Search';
 import Input from '@material-ui/core/Input';
 import InputAdornment from '@material-ui/core/InputAdornment';
-// import searchImg from "../../assets/search.jpg"
-
 
 const LeftSideMessage = () => {
     return(

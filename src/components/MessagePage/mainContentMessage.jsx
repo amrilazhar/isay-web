@@ -1,7 +1,7 @@
 import "./style/mainContentMessage.css";
 import Button from '@material-ui/core/Button';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
-import sentIcon from "../../assets/sent.jpg"
+import SendIcon from '@material-ui/icons/Send';
 
 import React from "react";
 
@@ -61,7 +61,7 @@ const MainContentMessage = () => {
                             </label>
                         </div>
                         <div className="message-btn-send">
-                            <button type="submit">Send<img src={sentIcon} alt="icon"/></button>
+                            <button type="submit">Send<img src={<SendIcon/>} alt="icon"/></button>
                         </div>
                     </div>
                 </form>

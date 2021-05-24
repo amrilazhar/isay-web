@@ -11,8 +11,10 @@ function getInputLocation(locations) {
 
         axios.get('https://isay.gabatch11.my.id/utils/location')
         .then (response => {
-            dispatch(success(response))
-        })
+            setTimeout(() => {
+              dispatch(success(response))
+            }, 2500)
+          })
         .catch((error) => {
             dispatch(failure(error))
         })

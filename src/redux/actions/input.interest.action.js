@@ -10,10 +10,12 @@ function getInputInterest (interests) {
         dispatch(request(interests))
 
         axios.get ("https://isay.gabatch11.my.id/utils/interest/topic")
-        .then (response => {
-            dispatch(success(response))
-        })
-        .catch(error => {
+        .then(response => {
+            setTimeout(() => {
+              dispatch(success(response))
+            }, 2500)
+          })
+        .catch((error) => {
             dispatch(failure(error))
         })
     }

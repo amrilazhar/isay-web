@@ -76,10 +76,7 @@ const GetAvatar = () => {
                       </div>
                       <h4>Fun fact</h4>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id
-                        nisl, tempor dui consequat sit egestas. Dui diam proin
-                        tortor quis etiam lacus. Diam velit aliquam aliquam urna sed
-                        faucibus.
+                      {autoGenerateProfile?.items?.funfact?.content}
                       </p>
                     </div>
                     <Link to="/login">
