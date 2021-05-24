@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import './style/FeedBox.css'
 
 const FeedBox = (proper) => {
-
   //START SHOW AND HIDE COMMENT
   const [show, setShow] = useState(false);
 
