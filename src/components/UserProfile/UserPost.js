@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { statusInterest } from '../../redux/actions'
+import './style/UserPost.css'
 
 const UserPost = () => {
 
@@ -15,15 +16,15 @@ const UserPost = () => {
   return (
     <div className="realtime-feed-post">
       {/* Start */}
-      {(statusUpdate.loading)?
+      {(statusUpdate?.loading)?
         <>tida ada</>
         :
-        <> {statusUpdate.status.data.map( status =>
+        <> {statusUpdate?.status?.data?.map( status =>
           <div className="isay-status-box">
             <div className="user-status">
               <div className="upper-prop">
                 <div className="name-and-time">
-                  <h2>{status.owner}</h2>
+                  <h2>{status?.owner?.name}</h2>
                   <p>1 hour ago</p>
                 </div>
                 <div className="status-interest">
