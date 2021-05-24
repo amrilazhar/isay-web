@@ -60,9 +60,14 @@ const WriteStatusBox = () => {
   }
 
   const submitStatus = (e) => {
-    if(content && interest){
+
+    const interestId = interest?.id
+
+    console.log("dapet id", interestId)
+
+    if(content && interestId){
       e.preventDefault()
-      dispatch(userActions.postStatus(content, interest))
+      dispatch(userActions.postStatus(content, interestId))
     }
   }
 

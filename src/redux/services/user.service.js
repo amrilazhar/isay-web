@@ -1,3 +1,4 @@
+import { CollectionsBookmarkOutlined } from "@material-ui/icons";
 import axios from "axios";
 import { authHeader } from "../../helpers";
 
@@ -128,26 +129,28 @@ function resetPassword(emailReset) {
         .then(handleResponse)
 }
 
-function postStatus(content, interest) {
+function postStatus(content, interestId) {
 
     const user = JSON.parse(localStorage.getItem('user'));
 
-    var FormData = require('form-data');
-    var formData = new FormData();
-    formData.append('content', 'bisa yuk');
-    formData.append('owner', '60a77710285fba521debf64e');
-    formData.append('interet', '6092b557e957671c70e24278');
-    
-    console.log(formData)
+
+
+    const formData = new FormData();
+    formData.append('content', `${content}`);
+    formData.append('owner', `${user.id}`);
+    formData.append('interest', `${interestId}`);
+
+    console.log("iniform", formData.get("content"), formData.get("owner"), formData.get("interest"))
 
     const requestOptions = {
         method: 'POST',
-        headers: { ...authHeader(),
-        'Content-Type': 'multipart/form-data' },
+        headers: authHeader(),
+        // headers: { ...authHeader(),
+        // 'Content-Type': 'multipart/form-data;' },
         body: formData
     };
 
-    return fetch(`https://isay.gabatch11.my.id/status/`, requestOptions)
+    return fetch (`https://isay.gabatch11.my.id/status/`, requestOptions)
         .then(handleResponse)
 }
 
