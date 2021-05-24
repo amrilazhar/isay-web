@@ -32,9 +32,7 @@ const FilterBox = (proper) => {
       "param": bro.bro
     })
     const param  = bro.bro
-    console.log("kirim filter", param)
     dispatch(statusInterest.getStatus(param))
-
   }
 
   //END GET INTEREST ID TO PARENTS

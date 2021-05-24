@@ -9,6 +9,7 @@ export const userService = {
     update,
     firstCreate,
     resetPassword,
+    postStatus,
     delete: _delete
 };
 
@@ -111,9 +112,6 @@ function firstCreate(location, activity, interest) {
 
 
 function resetPassword(emailReset) {
-
-    console.log("sampe sini", emailReset)
-
     const requestOptions = {
         method: 'POST',
         headers: { ...authHeader(),
@@ -127,6 +125,29 @@ function resetPassword(emailReset) {
     console.log(requestOptions.body)
 
     return fetch(`https://isay.gabatch11.my.id/user/reset_password`, requestOptions)
+        .then(handleResponse)
+}
+
+function postStatus(content, interest) {
+
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    var FormData = require('form-data');
+    var formData = new FormData();
+    formData.append('content', 'bisa yuk');
+    formData.append('owner', '60a77710285fba521debf64e');
+    formData.append('interet', '6092b557e957671c70e24278');
+    
+    console.log(formData)
+
+    const requestOptions = {
+        method: 'POST',
+        headers: { ...authHeader(),
+        'Content-Type': 'multipart/form-data' },
+        body: formData
+    };
+
+    return fetch(`https://isay.gabatch11.my.id/status/`, requestOptions)
         .then(handleResponse)
 }
 

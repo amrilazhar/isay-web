@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { userActions } from '../../redux/actions'
 import './style/WriteStatusBox.css'
 
 const WriteStatusBox = () => {
 
-  const [files, setFiles] = useState([])
+  const dispatch = useDispatch()
 
+  const [files, setFiles] = useState("")
+  const [content, setContent] = useState("")
   const [interest, setInterest] = useState({
     interest: "Choose Topic",
     id:"",
@@ -16,7 +19,25 @@ const WriteStatusBox = () => {
     setFiles([...files, e.target.files[0]])
   }
 
-  console.log(files)
+  const mapImage = () => {
+    if (files === ""){
+      return (
+        <div className="img-wrapper">
+          <img src={"https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png"}/>
+        </div>
+        )
+    } else {
+      return files?.map( (i, x) =>
+      <div className="img-wrapper">
+        <img src={URL.createObjectURL(files[x])}/>
+      </div>
+        )
+    }
+  }  
+
+  const changeText = (e) => {
+    setContent(e?.target.value)
+  }
 
   const interestClick = (e) => {
     e.preventDefault()
@@ -38,6 +59,13 @@ const WriteStatusBox = () => {
     }
   }
 
+  const submitStatus = (e) => {
+    if(content && interest){
+      e.preventDefault()
+      dispatch(userActions.postStatus(content, interest))
+    }
+  }
+
   const [show, setShow] = useState(false)
 
   const showModal = (e) => {
@@ -56,25 +84,31 @@ const WriteStatusBox = () => {
     return (
       <div id="resetModal" className="reset-modal">
         <div className="reset-modal-content">
-          <button onClick={showModal} className="close">&times;</button>
-          <div>
+          <div className="upper">
             <p>Share your moment to the world!</p>
-          <input
-            type="file"
-            name="file"
-            id="file"
-            className="upload-image"
-            onChange={uploadFile}
-            multiple
-          />
-          <label for="file"><strong>Image</strong></label>
+            <button onClick={showModal} className="close">&times;</button>
+          </div>
+          <div>
+            <input
+              type="file"
+              name="file"
+              id="file"
+              className="upload-image"
+              onChange={uploadFile}
+              multiple
+            />
+            <label for="file"><strong>Choose your best picture</strong></label>
+          </div>
+          <div className="img-container">
+            {mapImage()}
+          </div>
+          <div className="himbau">
+            <p>*get best experience with image at square ratio</p>
           </div>
         </div>
       </div>
     )}
   }
-
-
 
   return (
     <>
@@ -82,8 +116,8 @@ const WriteStatusBox = () => {
       <div className="user-active-profile">
         <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
       </div>
-      <form>
-        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={""} />
+      <form onSubmit={submitStatus}>
+        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={""} onChange={changeText}/>
         <div className="status-tools">
           <button onClick={showModal}>Upload Image</button>
           {modal()}

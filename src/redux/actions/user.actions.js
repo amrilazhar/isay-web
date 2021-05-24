@@ -1,4 +1,4 @@
-import { userConstants } from '../type';
+import { inputInterestConstant, userConstants } from '../type';
 import { userService } from '../services/user.service';
 import { alertActions } from './alert.actions'
 import { history } from '../../helpers'
@@ -10,7 +10,8 @@ export const userActions = {
     register,
     getActive,
     delete: _delete,
-    resetPassword
+    resetPassword,
+    postStatus
 };
 
 function login(email, password, from) {
@@ -113,4 +114,20 @@ function resetPassword(emailReset) {
     function request(emailReset) { return { type: "EMAIL_RESET_LOADING", emailReset} }
     function success(emailReset) { return { type: "EMAIL_RESET_SUCCESS", emailReset } }
     function failure(emailReset, error) { return { type: "EMAIL_RESET_FAILURE", emailReset, error } }
+}
+
+function postStatus(content, interest) {
+    return dispatch => {
+        dispatch(request());
+
+        userService.postStatus(content, interest)
+            .then(
+                content => dispatch(success(content)),
+                error => dispatch(failure(content, error.toString()))
+            );
+    };
+
+    function request(content) { return { type: "POST_STATUS_LOADING", content} }
+    function success(content) { return { type: "POST_STATUS_SUCCESS", content } }
+    function failure(content, error) { return { type: "POST_STATUS_FAILURE", content, error } }
 }
