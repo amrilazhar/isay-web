@@ -38,7 +38,8 @@ const FeedPage = () => {
             content: `${user.content}`,
             interest: `${user.interest[0].interest}`,
             time: `${user.created_at}`,
-            interestId: `${user.interest[0]._id}`
+            interestId: `${user.interest[0]._id}`,
+            location: `${user.owner.location.city}`
             }}
           />
         ))}

@@ -47,7 +47,7 @@ const FeedBox = (proper) => {
     } else {return (<div></div>)}
   }
   //END SHOW AND HIDE COMMENT
-  
+
   const card = proper.cardy; //Send Prop to Feed Page
 
   if (card) {
@@ -63,10 +63,10 @@ const FeedBox = (proper) => {
               <p>{card.time}</p>
             </div>
             <div className="status-interest">
-              <button defaultValue={card.interestId}>{card.interest}</button>
+              <button value={`${card.interestId}`}>{card.interest}</button>
             </div>
             <div className="status-location">
-              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />Jakarta</p>
+              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{card.location}</p>
             </div>
           </div>
           <div className="lower-prop">

@@ -26,19 +26,14 @@ const FilterBox = (proper) => {
     })
   }
 
-  console.log("inibro", bro)
-
   async function handleSubmit(e) {
-
     e.preventDefault();
-
     setParamInterest ({
       "param": bro.bro
     })
-
     const param  = bro.bro
-
-    dispatch(statusInterest.getStatus(param))
+    console.log("kirim filter", param)
+    // dispatch(statusInterest.getStatus(param))
 
   }
 

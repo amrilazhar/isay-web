@@ -61,7 +61,8 @@
   margin-right: 0.25rem;
 }
 
-.status-submit form .status-tools button {
+.status-submit form .status-tools button,
+.status-submit form .status-tools .choose {
   border-radius: 1rem;
   background-color: white;
   border: 0.13rem solid rgba(138, 98, 251, 1);
@@ -69,7 +70,12 @@
   color: rgba(138, 98, 251, 1);
 }
 
-.status-submit form .status-tools input {
+.status-submit form .status-tools .choose {
+  text-align: center;
+  width: 125px;
+}
+
+.status-submit form .status-tools input[type="submit"] {
   border: none;
   border-radius: 0.25rem;
   background-color: #4781f8;
@@ -77,11 +83,11 @@
   cursor: pointer;
 }
 
-.status-submit form .status-tools input:hover {
+.status-submit form .status-tools input[type="submit"]:hover {
   background-color: rgb(74, 118, 207);
 }
 
-.status-submit form .status-tools input:active {
+.status-submit form .status-tools input[type="submit"]:active {
   background-color: rgb(64, 90, 143);
   color: rgb(194, 194, 194);
 }
@@ -99,7 +105,7 @@
   display: inline-block;
 }
 
-.status-submit form .status-tools .interest-dropdown .choose:hover {
+.status-submit form .status-tools .interest-dropdown input:hover {
   border: 0.13rem solid rgb(179, 160, 230);
   color: rgb(179, 160, 230);
 }
