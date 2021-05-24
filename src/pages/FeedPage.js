@@ -8,8 +8,19 @@ import WriteStatusBox from '../components/FeedPage/WriteStatusBox'
 import FeedBox from '../components/FeedPage/FeedBox'
 import Footer from '../components/Footer'
 import './style/FeedPage.css'
+import Pagination from '@material-ui/lab/Pagination'
 
 const FeedPage = () => {
+
+  const [page, setPage] = useState(1)
+
+  const clickPage = (event, value) => {
+    setPage(value)
+    const pagin = page
+    dispatch(statusInterest.getStatus(param, pagin))
+  }
+
+  console.log("inipage",page)
 
   const [paramInterest, setParamInterest] = useState({
     param:""})
@@ -19,7 +30,7 @@ const FeedPage = () => {
 
   //START PROCESS FEED BOX
   useEffect(() => {
-    dispatch(statusInterest.getStatus(param))
+    dispatch(statusInterest.getStatus(param, page))
   },[])
 
   const statusUpdate = useSelector ((state) => state.statusInterest)
@@ -43,6 +54,7 @@ const FeedPage = () => {
             }}
           />
         ))}
+        <Pagination count={`${statusUpdate?.status?.totalPages}`} page={page} color="primary" className="notification-pagination" onChange={clickPage}/>
         </>
       )
     }
@@ -85,7 +97,6 @@ const FeedPage = () => {
             <WriteStatusBox/>
             <div className="realtime-feed">
               {feedBox()}
-              <div className="pagination" />
             </div>
           </div>
         </div>

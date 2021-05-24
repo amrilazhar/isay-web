@@ -1,6 +1,5 @@
 .topic-container {
-  /* width: 250px; */
-  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .topic-container .topic-wrapper {
@@ -8,9 +7,11 @@
   display: flex;
   flex-direction: column;
   background: #ffffff;
-  border: 1.5px solid #c9c9c9;
+  border: 2px solid rgba(183, 183, 183, 1);
   box-sizing: border-box;
   border-radius: 0.5rem;
+  margin-right: 2rem;
+  /* width: 250px; */
 }
 
 .topic-container .topic-wrapper h3 {
@@ -22,8 +23,6 @@
 .topic-container .topic-wrapper p {
   color: #828282;
   font-size: 0.7em;
-  line-height: 1rem;
-  text-align: justify;
 }
 
 .topic-container .topic-wrapper ul {
