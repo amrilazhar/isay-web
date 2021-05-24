@@ -4,10 +4,19 @@ import './style/WriteStatusBox.css'
 
 const WriteStatusBox = () => {
 
+  const [files, setFiles] = useState([])
+
   const [interest, setInterest] = useState({
     interest: "Choose Topic",
-    id:""
+    id:"",
   })
+
+  const uploadFile = (e) => {
+    // e.preventDefault()
+    setFiles([...files, e.target.files[0]])
+  }
+
+  console.log(files)
 
   const interestClick = (e) => {
     e.preventDefault()
@@ -37,7 +46,15 @@ const WriteStatusBox = () => {
       <form>
         <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={""} />
         <div className="status-tools">
-          <button><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/picture_Ooor518Yas.png" alt="Add" /> Image</button>
+          <input
+            type="file"
+            name="file"
+            id="file"
+            className="upload-image"
+            onChange={uploadFile}
+            multiple
+          />
+          <label for="file"><strong>Image</strong></label>
           <div className="interest-dropdown">
             <input className="choose" value={`${interest.interest}`}/>
             <div className="dropdown-content">

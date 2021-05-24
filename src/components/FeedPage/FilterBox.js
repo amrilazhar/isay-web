@@ -33,7 +33,7 @@ const FilterBox = (proper) => {
     })
     const param  = bro.bro
     console.log("kirim filter", param)
-    // dispatch(statusInterest.getStatus(param))
+    dispatch(statusInterest.getStatus(param))
 
   }
 

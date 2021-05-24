@@ -56,9 +56,38 @@
   align-items: center;
 }
 
-.status-submit form .status-tools button img {
-  width: 10px;
-  margin-right: 0.25rem;
+.status-submit form .status-tools .upload-image {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.status-submit form .status-tools .upload-image + label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin: 0 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: white;
+  border: 0.13rem solid rgba(138, 98, 251, 1);
+  box-sizing: border-box;
+  color: rgba(138, 98, 251, 1);
+}
+
+.status-submit form .status-tools .upload-image + label * {
+  pointer-events: none;
+}
+
+.status-submit form .status-tools .upload-image:focus + label,
+.status-submit form .status-tools .upload-image + label:hover {
+  background-color: rgba(138, 98, 251, 1);
+  color: white;
+  outline: none;
 }
 
 .status-submit form .status-tools button,
