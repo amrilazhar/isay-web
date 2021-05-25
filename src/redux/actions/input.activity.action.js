@@ -9,7 +9,7 @@ function getInputActivity (activities) {
     return dispatch => {
         dispatch(request(activities))
 
-        axios.get ("https://isay.gabatch11.my.id/utils/interest/freetime activity")
+        axios.get ("https://isay.gabatch11.my.id/utils/interest/activity")
         .then (response => {
             setTimeout(() => {
               dispatch(success(response))

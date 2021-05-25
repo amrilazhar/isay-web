@@ -3,9 +3,40 @@ import Button from '@material-ui/core/Button';
 import ImageOutlinedIcon from '@material-ui/icons/ImageOutlined';
 import SendIcon from '@material-ui/icons/Send';
 
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
 const MainContentMessage = () => {
+    // const dispatch = useDispatch()
+
+    const [files, setFiles] = useState("")
+    const [chatContent, setChatContent] = useState("")
+
+    const uploadFile = (e) => {
+        e.preventDefault()
+        setFiles([...files, e.target.files[0]])
+      }
+
+      const mapImage = () => {
+        if (files === ""){
+          return (
+            <div>
+              <img src={"https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png"}/>
+            </div> 
+            )
+        } else {
+          return files?.map( (i, x) =>
+          <div>
+            <img src={URL.createObjectURL(files[x])}/>
+          </div>
+            )
+        }
+      }  
+
+      const changeTextContent = (e) => {
+        console.log('e',e)
+        // setChatContent(e?.target.value)
+      }
 
     return(
         <div className="main-message-container">
@@ -42,8 +73,13 @@ const MainContentMessage = () => {
                         </div>
                     </div>   
                 </div>
+                <div className="chat-image-container">
+                    <div>
+                        {mapImage()}
+                    </div>    
+                </div>
                 <form className="textarea-wrapper" method="post">
-                        <textarea wrap="soft" type="text" name="message" id="message" placeholder="Write a message" defaultValue={""}/>
+                    <textarea wrap="soft" type="text" name="message" id="message" placeholder="Write a message" defaultValue={""} onChange={ changeTextContent()}/>
                     <div className="message-btn">
                         <div className="message-btn-upload">
                             <input
@@ -55,13 +91,15 @@ const MainContentMessage = () => {
                             <label htmlFor="contained-button-file">
                                 <Button 
                                 className="img-button"
-                                variant="contained" component="span" startIcon={<ImageOutlinedIcon/>}>
+                                variant="contained" component="span" startIcon={<ImageOutlinedIcon/>}
+                                onChange={uploadFile}
+                                >
                                     Image
                                 </Button>
                             </label>
                         </div>
                         <div className="message-btn-send">
-                            <button type="submit">Send<img src={<SendIcon/>} alt="icon"/></button>
+                        <Button endIcon={<SendIcon>send</SendIcon>}>Send</Button>
                         </div>
                     </div>
                 </form>
