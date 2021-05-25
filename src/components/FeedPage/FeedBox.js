@@ -137,7 +137,7 @@ const FeedBox = (fromFeedPage) => {
   } else {
   return (
       <>
-      {statusUpdate.status.data.map((user) => (
+      {statusUpdate?.status?.data?.map((user) => (
       <div className="isay-status-box">
         <div className="user-status">
           <div className="upper-prop">

@@ -10,35 +10,17 @@ import CloseIcon from '@material-ui/icons/Close';
 import MenuIcon from '@material-ui/icons/Menu';
 import "./style/Navbar.css"
 
-
-
 const Navbar = () => {
     const [sideMenu, setSideMenu] = useState(false);
 
     const handleSideMenu = () => 
     (setSideMenu(!sideMenu))
 
-    const toProfile = () => (
-        history.push('profile')
-    )
-
-    const toFeed = () => (
-        history.replace('')
-    )
-
-    const toNotif = () => (
-        history.push('notification')
-    )
-
-    const toMessage = () => (
-        history.push('message')
-    )
-
     return(
         <Router>
           <div className="navbar-container">
             <div className="navbar-wrapper">
-                <div className="nav-logo" onClick={toFeed}>
+                <div className="nav-logo">
                     <img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo"/>
                 </div>
                 <div className="search">
@@ -46,27 +28,35 @@ const Navbar = () => {
                 </div>
                 <ul className={sideMenu? "nav-menu active" : "nav-menu"}>
                     <li className="nav-item" >
-                        <div onClick={toFeed} className="nav-links" activeClassName="active" > 
+                        <a href="/">
+                        <div className="nav-links" activeClassName="active" > 
                             <HomeIcon/>
                             <p>Home</p>
                         </div>
+                        </a>
                     </li>
                     <li className="nav-item" >
-                        <div onClick={toNotif} className="nav-links" activeClassName="active" > 
-                            <NotificationsIcon/>
-                            <p>Notifications</p>
-                        </div>
+                        <a href="/notification">
+                            <div className="nav-links" activeClassName="active" > 
+                                <NotificationsIcon/>
+                                <p>Notifications</p>
+                            </div>
+                        </a>
                     </li>
                     <li className="nav-item" >
-                        <div onClick={toMessage} className="nav-links" activeClassName="active" >
-                            <SmsIcon/>
-                            <p>Message</p>
-                        </div>
+                        <a href="/message">
+                            <div className="nav-links" activeClassName="active" >
+                                <SmsIcon/>
+                                <p>Message</p>
+                            </div>
+                        </a>
                     </li>
                 </ul>
-                <div className="profile-icon" onClick={toProfile}>
-                    <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="profile-icon"/>
-                </div>
+                <a href="/profile">
+                    <div className="profile-icon">
+                        <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="profile-icon"/>
+                    </div>
+                </a>
                 <div className="nav-icon" onClick={handleSideMenu}>
                     {sideMenu ? <CloseIcon/> : <MenuIcon/>}
                 </div>
