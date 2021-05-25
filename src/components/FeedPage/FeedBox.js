@@ -7,6 +7,7 @@ const FeedBox = (fromFeedPage) => {
   const [show, setShow] = useState(false);
 
   const oldStatus = fromFeedPage.oldStatus
+
   const statusUpdate = useSelector ((state) => state.statusInterest)
 
   console.log("ke component feed", oldStatus)
@@ -75,7 +76,9 @@ const FeedBox = (fromFeedPage) => {
     )
   }
 
-  if (statusUpdate.loading) {
+  console.log("status", oldStatus, "page", statusUpdate?.status.page)
+
+  if (statusUpdate?.loading) {
     if(oldStatus === null) {
     return (
       <>
@@ -84,11 +87,10 @@ const FeedBox = (fromFeedPage) => {
         {loadComponent()}
       </>
     )}
-
     return (
       <>
       {loadComponent()}
-      {oldStatus.map((user) => (
+      {oldStatus?.map((user) => (
       <div className="isay-status-box">
         <div className="user-status">
           <div className="upper-prop">

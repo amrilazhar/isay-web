@@ -17,7 +17,8 @@ const FeedPage = () => {
   const [oldStatus, setOldStatus] = useState(null);
   const [page, setPage] = useState(1)
   const [paramInterest, setParamInterest] = useState({
-    param:""})
+    param:""
+  })
 
   const{param} = paramInterest
 
@@ -54,6 +55,7 @@ const FeedPage = () => {
             <WriteStatusBox
               setPage = {setPage}
               setOldStatus = {setOldStatus}
+              setParamInterest= {setParamInterest}
             />
             <div className="realtime-feed">
               <FeedBox

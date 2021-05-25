@@ -10,6 +10,7 @@ const WriteStatusBox = (fromFeedPage) => {
 
   const setPage = fromFeedPage.setPage
   const setOldStatus = fromFeedPage.setOldStatus
+  const setParamInterest = fromFeedPage.setParamInterest
 
   const [files, setFiles] = useState("")
   const [content, setContent] = useState("")
@@ -68,6 +69,10 @@ const WriteStatusBox = (fromFeedPage) => {
 
     setOldStatus(statusUpdate?.status?.data)
     setPage (1)
+    setParamInterest ({
+      "param": ""
+    })
+
     const pagin = 1
     const interestId = interest?.id
 

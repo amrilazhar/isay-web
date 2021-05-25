@@ -20,9 +20,11 @@ const Navbar = () => {
         <Router>
           <div className="navbar-container">
             <div className="navbar-wrapper">
-                <div className="nav-logo">
-                    <img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo"/>
-                </div>
+                <a href="/">
+                    <div className="nav-logo">
+                        <img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo"/>
+                    </div>
+                </a>
                 <div className="search">
                     <input type="text" placeholder="#hashtag"/>
                 </div>
