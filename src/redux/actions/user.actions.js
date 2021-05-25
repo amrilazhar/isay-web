@@ -1,4 +1,4 @@
-import { inputInterestConstant, userConstants } from '../type';
+import { userConstants } from '../type';
 import { userService } from '../services/user.service';
 import { alertActions } from './alert.actions'
 import { history } from '../../helpers'

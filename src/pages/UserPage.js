@@ -11,7 +11,6 @@ import UserAct from '../components/UserProfile/UserAct';
 import UserBio from '../components/UserProfile/UserBio'
 import UserPost from '../components/UserProfile/UserPost';
 import './style/UserPage.css'
-import ProfileSetting from './ProfileSetting';
 
 const UserPage = () => {
 

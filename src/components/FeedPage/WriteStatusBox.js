@@ -16,8 +16,6 @@ const WriteStatusBox = (proper) => {
     id:"",
   })
 
-  const [defaultStatus, setDefaultStatus] = useState("")
-
   console.log("inicontent",content)
 
   const uploadFile = (e) => {
@@ -29,13 +27,13 @@ const WriteStatusBox = (proper) => {
     if (files === ""){
       return (
         <div className="img-wrapper">
-          <img src={"https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png"}/>
+          <img src={"https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png"} alt={"upload"}/>
         </div>
         )
     } else {
       return files?.map( (i, x) =>
       <div className="img-wrapper">
-        <img src={URL.createObjectURL(files[x])}/>
+        <img src={URL.createObjectURL(files[x])} alt={"upload"}/>
       </div>
         )
     }
@@ -75,10 +73,10 @@ const WriteStatusBox = (proper) => {
       e.preventDefault()
       dispatch(userActions.postStatus(content, interestId))
       e.target.reset()
+      const param = ""
+      dispatch(statusInterest.getStatus(param, pagin))
     }
 
-    const param = ""
-    dispatch(statusInterest.getStatus(param, pagin))
   }
 
   const [show, setShow] = useState(false)
@@ -132,7 +130,7 @@ const WriteStatusBox = (proper) => {
         <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
       </div>
       <form onSubmit={submitStatus}>
-        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={`${defaultStatus}`} onChange={changeText}/>
+        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={""} onChange={changeText}/>
         <div className="status-tools">
           <button className="upload" onClick={showModal}>Upload Image</button>
           {modal()}
