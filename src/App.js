@@ -16,6 +16,7 @@ import Notification from './pages/Notification';
 import GetAvatar from './pages/GetAvatar';
 import Message from './pages/Message';
 import ProfileSetting from './pages/ProfileSetting'
+import OtherUserPage from './pages/OtherUserPage';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
               <PrivateRoute path="/avatar" component={GetAvatar} />
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
+              <PrivateRoute path="/user" component={OtherUserPage} />
               <PrivateRoute path="/message" component={Message} />
               <PrivateRoute path="/setting" component={ProfileSetting} />
               <PrivateRoute path="/" component={FeedPage} />

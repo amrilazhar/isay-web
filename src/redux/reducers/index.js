@@ -7,8 +7,9 @@ import { alert } from './alert.reducer';
 import { statusInterest } from './status.interest.reducer'
 import { statusUser } from './status.user.reducer'
 import { inputInterestData } from "./input.interest.reducer";
-import { inputActivityData } from "./input.activity.reducer"
-import { inputLocationData } from './input.location.reducer'
+import { inputActivityData } from "./input.activity.reducer";
+import { inputLocationData } from './input.location.reducer';
+import { otherUser } from './other.user.reducer';
 
 const rootReducer = combineReducers({
     authentication,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     inputInterestData,
     inputActivityData,
     inputLocationData,
+    otherUser
 });
 
 export default rootReducer;

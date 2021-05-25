@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './style/UserBio.css'
 
-const UserBio = (props) => {
+const UserBio = (dariUserPage) => {
 
-  const bio = props.bio
+  const bio = dariUserPage.bio
 
   if (!bio){
       return (

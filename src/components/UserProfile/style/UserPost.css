@@ -251,7 +251,7 @@
   .do-at-status
   .comment-expand {
   padding: 0.5rem;
-  border-top: 0.25px solid rgba(183, 183, 183, 1);
+  border-top: 0 solid rgba(183, 183, 183, 1);
 }
 
 .profile-wrapping

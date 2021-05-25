@@ -10,8 +10,6 @@ const FeedBox = (fromFeedPage) => {
 
   const statusUpdate = useSelector ((state) => state.statusInterest)
 
-  console.log("ke component feed", oldStatus)
-
   //START SHOW HIDE COMMENT
   const changeShow = () => {
     if (show === false) {

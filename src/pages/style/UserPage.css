@@ -171,6 +171,7 @@
 
 .profile-wrapping .profile-bottom-content .profile-right-content {
   text-align: left;
+  flex-grow: 1;
 }
 
 /* Start of Button Switch */
