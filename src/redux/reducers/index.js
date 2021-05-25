@@ -9,6 +9,7 @@ import { statusUser } from './status.user.reducer'
 import { inputInterestData } from "./input.interest.reducer";
 import { inputActivityData } from "./input.activity.reducer"
 import { inputLocationData } from './input.location.reducer'
+import { firstProfileData } from "./first.profile.reducer"
 
 const rootReducer = combineReducers({
     authentication,
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
     inputInterestData,
     inputActivityData,
     inputLocationData,
+    firstProfileData
 });
 
 export default rootReducer;

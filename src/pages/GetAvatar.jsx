@@ -10,16 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 const GetAvatar = () => {
     const dispatch = useDispatch();
-    const autoGenerateProfile = useSelector((state) => state.users);
+    const autoGenerateProfile = useSelector((state) => state.firstProfileData);
     console.log('autoGenerateProfile', autoGenerateProfile)
 
     useEffect(() => {
         dispatch(userActions.getActive())
     },[])
-
-
-    // autogenerate.data !== {}
-    // console.log('displayAutoProfile', displayAutoProfile())
 
     return (
         <div className="main-avatar-container">
@@ -41,11 +37,11 @@ const GetAvatar = () => {
                         <div className="avatar-name-wrapper">
                           <div className="avatar">
                             <img
-                              src={autoGenerateProfile?.items?.avatar}
+                              src={autoGenerateProfile?.profile?.avatar}
                               alt="avatar"
                             />
                           </div>
-                          <p>{autoGenerateProfile?.items?.name}</p>
+                          <p>{autoGenerateProfile?.profile?.name}</p>
                           <img src={img1} alt="confetti1" className="confetti-1" />
                         </div>
                         <div className="top-text">
@@ -57,8 +53,8 @@ const GetAvatar = () => {
                           <p>You can change your interest later.</p>
                         </div>
                         <div className="interest-icon">
-                          {autoGenerateProfile?.items?.interest &&
-                            autoGenerateProfile?.items?.interest.map((_) => (
+                          {autoGenerateProfile?.profile?.interest &&
+                            autoGenerateProfile?.profile?.interest.map((_) => (
                               <div className="interest-icon-container">
                                 <img
                                   src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png"
@@ -68,15 +64,15 @@ const GetAvatar = () => {
                             ))}
                         </div>
                         <div className="interest-text">
-                          {autoGenerateProfile?.items?.interest &&
-                            autoGenerateProfile?.items?.interest.map((interest) => {
+                          {autoGenerateProfile?.profile?.interest &&
+                            autoGenerateProfile?.profile?.interest.map((interest) => {
                               return <p>{interest.interest}</p>;
                             })}
                         </div>
                       </div>
                       <h4>Fun fact</h4>
                       <p>
-                      {autoGenerateProfile?.items?.funfact?.content}
+                      {autoGenerateProfile?.profile?.funfact?.content}
                       </p>
                     </div>
                     <Link to="/login">

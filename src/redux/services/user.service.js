@@ -105,7 +105,7 @@ function firstCreate(location, activity, interest) {
             'activity': `${activityString}`    
         })
     };
-
+    
     return fetch(`https://isay.gabatch11.my.id/user/first_profile`, requestOptions)
         .then(handleResponse)
 }
