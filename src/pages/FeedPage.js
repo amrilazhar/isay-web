@@ -16,11 +16,11 @@ const FeedPage = () => {
 
   const clickPage = (event, value) => {
     setPage(value)
-    const pagin = page
+    const pagin = value
     dispatch(statusInterest.getStatus(param, pagin))
   }
 
-  console.log("inipage",page)
+  console.log("inipage2",page)
 
   const [paramInterest, setParamInterest] = useState({
     param:""})
@@ -79,6 +79,7 @@ const FeedPage = () => {
           <FilterBox
           setParamInterest={setParamInterest}
           paramInterest={paramInterest}
+          setPage={setPage}
           />
         </>
       )
@@ -94,7 +95,9 @@ const FeedPage = () => {
         {filterBox()}
         <div className="right-content">
           <div className="right-wrapping">
-            <WriteStatusBox/>
+            <WriteStatusBox
+              setPage = {setPage}
+            />
             <div className="realtime-feed">
               {feedBox()}
             </div>

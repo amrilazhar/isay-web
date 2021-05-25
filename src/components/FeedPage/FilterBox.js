@@ -11,6 +11,7 @@ const FilterBox = (proper) => {
 
   //START GET INTEREST ID TO PARENTS
   const setParamInterest = proper.setParamInterest
+  const setPage = proper.setPage
 
   const [bro, setbro] = useState({
       bro: '',
@@ -31,8 +32,10 @@ const FilterBox = (proper) => {
     setParamInterest ({
       "param": bro.bro
     })
+    setPage (1)
     const param  = bro.bro
-    dispatch(statusInterest.getStatus(param))
+    const pagin = 1
+    dispatch(statusInterest.getStatus(param, pagin))
   }
 
   //END GET INTEREST ID TO PARENTS

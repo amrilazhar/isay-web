@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { statusInterest, userActions } from '../../redux/actions'
 import './style/WriteStatusBox.css'
 
-const WriteStatusBox = () => {
+const WriteStatusBox = (proper) => {
 
   const dispatch = useDispatch()
+
+  const setPage = proper.setPage
 
   const [files, setFiles] = useState("")
   const [content, setContent] = useState("")
@@ -13,6 +15,10 @@ const WriteStatusBox = () => {
     interest: "Choose Topic",
     id:"",
   })
+
+  const [defaultStatus, setDefaultStatus] = useState("")
+
+  console.log("inicontent",content)
 
   const uploadFile = (e) => {
     e.preventDefault()
@@ -61,13 +67,18 @@ const WriteStatusBox = () => {
 
   const submitStatus = (e) => {
 
+    setPage (1)
+    const pagin = 1
+
     const interestId = interest?.id
     if(content && interestId){
       e.preventDefault()
       dispatch(userActions.postStatus(content, interestId))
+      e.target.reset()
     }
+
     const param = ""
-    dispatch(statusInterest.getStatus(param))
+    dispatch(statusInterest.getStatus(param, pagin))
   }
 
   const [show, setShow] = useState(false)
@@ -121,12 +132,12 @@ const WriteStatusBox = () => {
         <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
       </div>
       <form onSubmit={submitStatus}>
-        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={""} onChange={changeText}/>
+        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={`${defaultStatus}`} onChange={changeText}/>
         <div className="status-tools">
-          <button onClick={showModal}>Upload Image</button>
+          <button className="upload" onClick={showModal}>Upload Image</button>
           {modal()}
           <div className="interest-dropdown">
-            <input className="choose" value={`${interest.interest}`}/>
+            <input className="choose" value={`${interest.interest}`} disabled/>
             <div className="dropdown-content">
               {listInterest()}
             </div>

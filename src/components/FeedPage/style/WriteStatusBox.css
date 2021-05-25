@@ -100,6 +100,15 @@
   color: rgba(138, 98, 251, 1);
 }
 
+.status-submit form .status-tools .upload:hover {
+  background-color: rgba(138, 98, 251, 1);
+  color: #ffffff;
+}
+.status-submit form .status-tools .upload:active {
+  background-color: rgb(106, 81, 173);
+  color: #ffffff;
+}
+
 .status-submit form .status-tools .choose {
   text-align: center;
   width: 125px;
@@ -115,6 +124,7 @@
 
 .status-submit form .status-tools input[type="submit"]:hover {
   background-color: rgb(74, 118, 207);
+  cursor: pointer;
 }
 
 .status-submit form .status-tools input[type="submit"]:active {
@@ -156,6 +166,24 @@
   border: none;
   border-radius: 1rem;
   color: white;
+}
+
+.status-submit
+  form
+  .status-tools
+  .interest-dropdown
+  .dropdown-content
+  button:hover {
+  background-color: rgb(119, 88, 206);
+}
+
+.status-submit
+  form
+  .status-tools
+  .interest-dropdown
+  .dropdown-content
+  button:active {
+  background-color: rgb(89, 68, 146);
 }
 
 .status-submit form .status-tools .interest-dropdown:hover .dropdown-content {
