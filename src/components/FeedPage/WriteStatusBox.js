@@ -1,13 +1,14 @@
+import { from } from 'form-data'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { statusInterest, userActions } from '../../redux/actions'
 import './style/WriteStatusBox.css'
 
-const WriteStatusBox = (proper) => {
+const WriteStatusBox = (fromFeedPage) => {
 
   const dispatch = useDispatch()
 
-  const setPage = proper.setPage
+  const setPage = fromFeedPage.setPage
 
   const [files, setFiles] = useState("")
   const [content, setContent] = useState("")

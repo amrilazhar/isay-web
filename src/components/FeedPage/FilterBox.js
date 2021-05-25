@@ -5,35 +5,30 @@ import { statusInterest } from '../../redux/actions'
 
 import './style/FilterBox.css'
 
-const FilterBox = (proper) => {
+const FilterBox = (fromFeedPage) => {
 
   const dispatch = useDispatch()
 
-  //START GET INTEREST ID TO PARENTS
-  const setParamInterest = proper.setParamInterest
-  const setPage = proper.setPage
-
-  const [bro, setbro] = useState({
-      bro: '',
+  const setParamInterest = fromFeedPage.setParamInterest
+  const setPage = fromFeedPage.setPage
+  
+  const [getParam, setGetParam] = useState({
+      getParam: '',
   });
 
   const handleChange = (e) => {
-    setParamInterest ({
-      "param":[e.target.defaultValue]
-    }
-    )
-    setbro ({
-      "bro":[e.target.defaultValue]
+    setGetParam ({
+      "getParam":[e.target.defaultValue]
     })
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
     setParamInterest ({
-      "param": bro.bro
+      "param": getParam.getParam
     })
     setPage (1)
-    const param  = bro.bro
+    const param  = getParam.getParam
     const pagin = 1
     dispatch(statusInterest.getStatus(param, pagin))
   }
