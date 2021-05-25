@@ -97,11 +97,6 @@ const FeedBox = (proper) => {
           </div>
           <div className="do-at-status-load"></div>
         </div>
-        <div className="circle-box-load">
-          <div className="circle-load"></div>
-          <div className="circle-load"></div>
-          <div className="circle-load"></div>
-        </div>
         </>
     )
   } else {

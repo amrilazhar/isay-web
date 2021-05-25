@@ -54,7 +54,13 @@ const FeedPage = () => {
             />
             <div className="realtime-feed">
               <FeedBox/>
-              <Pagination count={`${statusUpdate?.status?.totalPages}`} page={page} color="primary" className="notification-pagination" onChange={clickPage}/>
+              {statusUpdate.loading?
+                <div className="circle-box-load">
+                  <div className="circle-load"></div>
+                  <div className="circle-load"></div>
+                  <div className="circle-load"></div>
+                </div>:
+                <Pagination count={`${statusUpdate?.status?.totalPages}`} page={page} color="primary" className="notification-pagination" onChange={clickPage}/>}
             </div>
           </div>
         </div>
