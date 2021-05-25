@@ -3,15 +3,16 @@ import { alertActions } from './alert.actions'
 import { authHeader } from "../../helpers";
 import axios from "axios";
 
-export function otherUser(active) {
+export function otherUser(userId) {
+
     return dispatch => {
-        dispatch(request(active));
+        dispatch(request());
 
         const requestOptions = {
             headers: authHeader()
         };
-
-        return axios.get (`https://isay.gabatch11.my.id/profile/an/60a7aed2285fba521debf652`, requestOptions)
+    console.log("iniid", userId)
+        return axios.get (`https://isay.gabatch11.my.id/profile/an/${userId}`, requestOptions)
             .then(
                 users => {
                     dispatch(success(users))
@@ -21,7 +22,7 @@ export function otherUser(active) {
             );
     };
 
-    function request(active) { return { type: otherUserConstant.OTHER_USER_REQUEST, active } }
+    function request() { return { type: otherUserConstant.OTHER_USER_REQUEST } }
     function success(users) { return { type: otherUserConstant.OTHER_USER_SUCCESS, payload: users.data.data } }
     function failure(error) { return { type: otherUserConstant.OTHER_USER_FAILURE, error } }
 }

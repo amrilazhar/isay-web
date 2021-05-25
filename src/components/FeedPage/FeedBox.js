@@ -6,9 +6,9 @@ const FeedBox = (fromFeedPage) => {
   //START SHOW AND HIDE COMMENT
   const [show, setShow] = useState(false);
 
-  const oldStatus = fromFeedPage.oldStatus
+  const oldStatus = fromFeedPage?.oldStatus
 
-  const statusUpdate = useSelector ((state) => state.statusInterest)
+  const statusUpdate = useSelector ((state) => state?.statusInterest)
 
   //START SHOW HIDE COMMENT
   const changeShow = () => {
@@ -74,8 +74,6 @@ const FeedBox = (fromFeedPage) => {
     )
   }
 
-  console.log("status", oldStatus, "page", statusUpdate?.status.page)
-
   if (statusUpdate?.loading) {
     if(oldStatus === null) {
     return (
@@ -96,18 +94,18 @@ const FeedBox = (fromFeedPage) => {
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
             </div>
             <div className="name-and-time">
-              <h2>{user.owner.name}</h2>
-              <p>{user.creater_at}</p>
+              <h2>{user?.owner?.name}</h2>
+              <p>{user?.creater_at}</p>
             </div>
             <div className="status-interest">
-              <button value={`${user.interest[0]._id}`}>{user.interest[0].interest}</button>
+              <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
             </div>
             <div className="status-location">
-              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{user.owner.location.city}</p>
+              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{user?.owner?.location?.city}</p>
             </div>
           </div>
           <div className="lower-prop">
-            <p>{user.content}</p>
+            <p>{user?.content}</p>
           </div>
         </div>
         <div className="do-at-status">
@@ -145,18 +143,20 @@ const FeedBox = (fromFeedPage) => {
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
             </div>
             <div className="name-and-time">
-              <h2>{user.owner.name}</h2>
-              <p>{user.creater_at}</p>
+              <a href ={`/user/${user?.owner?.id}`}>
+                <h2>{user?.owner?.name}</h2>
+              </a>
+              <p>{user?.creater_at}</p>
             </div>
             <div className="status-interest">
-              <button value={`${user.interest[0]._id}`}>{user.interest[0].interest}</button>
+              <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
             </div>
             <div className="status-location">
-              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{user.owner.location.city}</p>
+              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{user?.owner?.location?.city}</p>
             </div>
           </div>
           <div className="lower-prop">
-            <p>{user.content}</p>
+            <p>{user?.content}</p>
           </div>
         </div>
         <div className="do-at-status">

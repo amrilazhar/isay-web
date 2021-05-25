@@ -64,7 +64,7 @@ const UserPage = () => {
             <h1>{userActive.items?.name}</h1>
             <div className="location-user">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
-              <p>{userActive.items?.location.city}</p>
+              <p>{userActive.items?.location?.city}</p>
             </div>
           </div>
           <a href="/setting">

@@ -39,7 +39,7 @@ function App() {
               <PrivateRoute path="/avatar" component={GetAvatar} />
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
-              <PrivateRoute path="/user" component={OtherUserPage} />
+              <PrivateRoute path="/user/:userId" component={OtherUserPage} />
               <PrivateRoute path="/message" component={Message} />
               <PrivateRoute path="/setting" component={ProfileSetting} />
               <PrivateRoute path="/" component={FeedPage} />

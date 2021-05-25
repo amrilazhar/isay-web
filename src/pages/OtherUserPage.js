@@ -20,20 +20,15 @@ const OtherUserPage = () => {
   let match = useRouteMatch()
 
   useEffect(() => {
-    dispatch(otherUser())
+    dispatch(otherUser(userId))
   },[])
 
   useEffect(() => {
     dispatch(statusInterest.getStatusUser())
   },[])
 
-  const userActive = useSelector ((state) => state?.users)
+  const userActive = useSelector ((state) => state?.otherUser)
   const statusUpdate = useSelector ((state) => state?.statusUser?.status)
-
-  // const logout = () => {
-  //   dispatch(userActions.logout());
-  //   history.replace('')
-  // }
 
   const userDetail = () => {
     if(userActive.loading){
@@ -48,7 +43,7 @@ const OtherUserPage = () => {
           </div>
           <a>
           <button>
-            <p>Profile Setting</p>
+            <p>Talk with annonymous</p>
           </button>
           </a>
           {/* <button>
@@ -69,14 +64,11 @@ const OtherUserPage = () => {
               <p>{userActive.items?.location.city}</p>
             </div>
           </div>
-          <a href="/setting">
+          <a>
             <button>
-              <p>Profile Setting</p>
+              <p>Talk with annonymous</p>
             </button>
           </a>
-          {/* <button onClick={logout}>
-            <p>Logout</p>
-          </button> */}
         </>
       )
     }
