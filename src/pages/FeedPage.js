@@ -23,6 +23,7 @@ const FeedPage = () => {
 
   const clickPage = (event, value) => {
     setPage(value)
+    setOldStatus(null)
     const page = value
     dispatch(statusInterest.getStatus(param, page))
   }
@@ -46,6 +47,7 @@ const FeedPage = () => {
         <FilterBox
           setParamInterest={setParamInterest}
           setPage={setPage}
+          setOldStatus = {setOldStatus}
         />
         <div className="right-content">
           <div className="right-wrapping">

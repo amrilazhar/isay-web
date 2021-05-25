@@ -11,6 +11,7 @@ const FilterBox = (fromFeedPage) => {
 
   const setParamInterest = fromFeedPage.setParamInterest
   const setPage = fromFeedPage.setPage
+  const setOldStatus = fromFeedPage.setOldStatus
   
   const [getParam, setGetParam] = useState({
       getParam: '',
@@ -24,6 +25,7 @@ const FilterBox = (fromFeedPage) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setOldStatus(null)
     setParamInterest ({
       "param": getParam.getParam
     })
