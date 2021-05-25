@@ -54,57 +54,40 @@ const FeedBox = (fromFeedPage) => {
   }
   //END SHOW AND HIDE COMMENT
 
+  const loadComponent = () => {
+    return (
+      <>
+        <div className="isay-status-box">
+          <div className="user-status">
+            <div className="upper-prop">
+              <div className="user-image-load">
+                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
+              </div>
+              <div className="name-and-time-load">
+              </div>
+              <div className="status-interest-load"></div>
+            </div>
+            <div className="lower-prop-load"></div>
+          </div>
+          <div className="do-at-status-load"></div>
+        </div>
+      </>
+    )
+  }
+
   if (statusUpdate.loading) {
     if(oldStatus === null) {
     return (
       <>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
-            </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
-            </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
-            </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        </>
+        {loadComponent()}
+        {loadComponent()}
+        {loadComponent()}
+      </>
     )}
 
     return (
       <>
+      {loadComponent()}
       {oldStatus.map((user) => (
       <div className="isay-status-box">
         <div className="user-status">
