@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux';
 import './style/FeedBox.css'
 
-const FeedBox = (proper) => {
+const FeedBox = (fromFeedPage) => {
   //START SHOW AND HIDE COMMENT
   const [show, setShow] = useState(false);
 
+  const oldStatus = fromFeedPage.oldStatus
+
+  const statusUpdate = useSelector ((state) => state.statusInterest)
+
+  console.log("ke component feed", oldStatus)
+
+  //START SHOW HIDE COMMENT
   const changeShow = () => {
     if (show === false) {
       setShow(true);
@@ -47,10 +55,42 @@ const FeedBox = (proper) => {
   }
   //END SHOW AND HIDE COMMENT
 
-  const card = proper.cardy; //Send Prop to Feed Page
-
-  if (card) {
+  const loadComponent = () => {
     return (
+      <>
+        <div className="isay-status-box">
+          <div className="user-status">
+            <div className="upper-prop">
+              <div className="user-image-load">
+                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
+              </div>
+              <div className="name-and-time-load">
+              </div>
+              <div className="status-interest-load"></div>
+            </div>
+            <div className="lower-prop-load"></div>
+          </div>
+          <div className="do-at-status-load"></div>
+        </div>
+      </>
+    )
+  }
+
+  console.log("status", oldStatus, "page", statusUpdate?.status.page)
+
+  if (statusUpdate?.loading) {
+    if(oldStatus === null) {
+    return (
+      <>
+        {loadComponent()}
+        {loadComponent()}
+        {loadComponent()}
+      </>
+    )}
+    return (
+      <>
+      {loadComponent()}
+      {oldStatus?.map((user) => (
       <div className="isay-status-box">
         <div className="user-status">
           <div className="upper-prop">
@@ -58,18 +98,18 @@ const FeedBox = (proper) => {
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
             </div>
             <div className="name-and-time">
-              <h2>{card.name}</h2>
-              <p>{card.time}</p>
+              <h2>{user.owner.name}</h2>
+              <p>{user.creater_at}</p>
             </div>
             <div className="status-interest">
-              <button value={`${card.interestId}`}>{card.interest}</button>
+              <button value={`${user.interest[0]._id}`}>{user.interest[0].interest}</button>
             </div>
             <div className="status-location">
-              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{card.location}</p>
+              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{user.owner.location.city}</p>
             </div>
           </div>
           <div className="lower-prop">
-            <p>{card.content}</p>
+            <p>{user.content}</p>
           </div>
         </div>
         <div className="do-at-status">
@@ -92,58 +132,57 @@ const FeedBox = (proper) => {
           {CommentExpand()}
         </div>
       </div>
+      ))}
+      </>
     )
+
   } else {
   return (
-        <>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
+      <>
+      {statusUpdate?.status?.data?.map((user) => (
+      <div className="isay-status-box">
+        <div className="user-status">
+          <div className="upper-prop">
+            <div className="user-image">
+              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
             </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
+            <div className="name-and-time">
+              <h2>{user.owner.name}</h2>
+              <p>{user.creater_at}</p>
             </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
+            <div className="status-interest">
+              <button value={`${user.interest[0]._id}`}>{user.interest[0].interest}</button>
             </div>
-            <div className="lower-prop-load"></div>
+            <div className="status-location">
+              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{user.owner.location.city}</p>
+            </div>
           </div>
-          <div className="do-at-status-load"></div>
+          <div className="lower-prop">
+            <p>{user.content}</p>
+          </div>
         </div>
-        <div className="circle-box-load">
-          <div className="circle-load"></div>
-          <div className="circle-load"></div>
-          <div className="circle-load"></div>
+        <div className="do-at-status">
+          <div className="button-collect">
+            <div className="button">
+              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/like_DeUkMSVa0GD.png" alt="Like" />
+              <p>Like</p>
+              <p>(3)</p>
+            </div>
+            <div className="button" onClick={changeShow}>
+              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/comment_pfnyK8aWL.png" alt="Comment" />
+              <p>Comments</p>
+              <p>(15)</p>
+            </div>
+            <div className="button">
+              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/chat_k1YWihxxc.png" alt="PC" />
+              <p>Personal Chat</p>
+            </div>
+          </div>
+          {CommentExpand()}
         </div>
-        </>
+      </div>
+      ))}
+    </>
   )
   }
 }

@@ -1,4 +1,3 @@
-import { CollectionsBookmarkOutlined } from "@material-ui/icons";
 import axios from "axios";
 import { authHeader } from "../../helpers";
 
@@ -145,8 +144,6 @@ function postStatus(content, interestId) {
     const requestOptions = {
         method: 'POST',
         headers: authHeader(),
-        // headers: { ...authHeader(),
-        // 'Content-Type': 'multipart/form-data;' },
         body: formData
     };
 

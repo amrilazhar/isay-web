@@ -12,94 +12,62 @@ import Pagination from '@material-ui/lab/Pagination'
 
 const FeedPage = () => {
 
+  const dispatch = useDispatch()
+
+  const [oldStatus, setOldStatus] = useState(null);
   const [page, setPage] = useState(1)
+  const [paramInterest, setParamInterest] = useState({
+    param:""
+  })
+
+  const{param} = paramInterest
 
   const clickPage = (event, value) => {
     setPage(value)
-    const pagin = value
-    dispatch(statusInterest.getStatus(param, pagin))
+    setOldStatus(null)
+    const page = value
+    dispatch(statusInterest.getStatus(param, page))
   }
-
-  console.log("inipage2",page)
-
-  const [paramInterest, setParamInterest] = useState({
-    param:""})
-  const dispatch = useDispatch()
-
-  const{param} = paramInterest
 
   //START PROCESS FEED BOX
   useEffect(() => {
     dispatch(statusInterest.getStatus(param, page))
   },[])
 
-  const statusUpdate = useSelector ((state) => state.statusInterest)
-
-  const feedBox = () => {
-    if (statusUpdate.loading){
-      return (
-        <FeedBox/>
-      )
-    } else {
-      return (
-        <>
-        {statusUpdate.status.data.map((user) => (
-          <FeedBox cardy={{
-            name: `${user.owner.name}`,
-            content: `${user.content}`,
-            interest: `${user.interest[0].interest}`,
-            time: `${user.created_at}`,
-            interestId: `${user.interest[0]._id}`,
-            location: `${user.owner.location.city}`
-            }}
-          />
-        ))}
-        <Pagination count={`${statusUpdate?.status?.totalPages}`} page={page} color="primary" className="notification-pagination" onChange={clickPage}/>
-        </>
-      )
-    }
-  }
-  //END PROCESS FEED BOX
-
-  //START PROCESS FILTER BOX
   useEffect(() => {
     dispatch(userActions.getActive())
   },[])
 
-  const userActive = useSelector ((state) => state.users)
-
-  const filterBox = () => {
-    if (userActive.loading){
-      return (
-        <FilterBox/>
-      )
-    } else {
-      return (
-        <> 
-          <FilterBox
-          setParamInterest={setParamInterest}
-          paramInterest={paramInterest}
-          setPage={setPage}
-          />
-        </>
-      )
-    }
-  }
-  //END PROCESS FILTER BOX
+  const statusUpdate = useSelector ((state) => state.statusInterest)
 
   return (
     <>
     <Navbar/>
     <div className="feed-container">
       <div className="feed-wrapping">
-        {filterBox()}
+        <FilterBox
+          setParamInterest={setParamInterest}
+          setPage={setPage}
+          setOldStatus = {setOldStatus}
+        />
         <div className="right-content">
           <div className="right-wrapping">
             <WriteStatusBox
               setPage = {setPage}
+              setOldStatus = {setOldStatus}
+              setParamInterest= {setParamInterest}
             />
             <div className="realtime-feed">
-              {feedBox()}
+              <FeedBox
+                oldStatus={oldStatus}
+              />
+              {statusUpdate.loading?
+                <div className="circle-box-load">
+                  <div className="circle-load"></div>
+                  <div className="circle-load"></div>
+                  <div className="circle-load"></div>
+                </div>:
+                <Pagination count={`${statusUpdate?.status?.totalPages}`} page={page} color="primary" className="notification-pagination" onChange={clickPage}/>}
             </div>
           </div>
         </div>

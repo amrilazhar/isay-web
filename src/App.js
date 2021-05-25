@@ -32,7 +32,6 @@ function App() {
     <div className="app">
       <Router history={history}>
           <Switch>
-              <PrivateRoute exact path="/" component={FeedPage} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
               <PrivateRoute path="/signupquest/:id"component={SignupQuest} />
@@ -40,7 +39,8 @@ function App() {
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
               <PrivateRoute path="/message" component={Message} />
-              <PrivateRoute exact path="/setting" component={ProfileSetting} />
+              <PrivateRoute path="/setting" component={ProfileSetting} />
+              <PrivateRoute path="/" component={FeedPage} />
               <Redirect from="*" to="/" />
           </Switch>
       </Router>

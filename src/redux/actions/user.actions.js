@@ -1,4 +1,4 @@
-import { inputInterestConstant, userConstants } from '../type';
+import { userConstants } from '../type';
 import { userService } from '../services/user.service';
 import { alertActions } from './alert.actions'
 import { history } from '../../helpers'
@@ -116,12 +116,12 @@ function resetPassword(emailReset) {
     function failure(emailReset, error) { return { type: "EMAIL_RESET_FAILURE", emailReset, error } }
 }
 
-function postStatus(content, interestId) {
+function postStatus (content, interestId) {
     return dispatch => {
         dispatch(request());
 
         userService.postStatus(content, interestId)
-            .then(
+            .then (
                 content => dispatch(success(content)),
                 error => dispatch(failure(content, error.toString()))
             );
