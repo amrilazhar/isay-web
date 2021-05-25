@@ -9,6 +9,7 @@ const WriteStatusBox = (fromFeedPage) => {
   const dispatch = useDispatch()
 
   const setPage = fromFeedPage.setPage
+  const setOldStatus = fromFeedPage.setOldStatus
 
   const [files, setFiles] = useState("")
   const [content, setContent] = useState("")
@@ -17,7 +18,8 @@ const WriteStatusBox = (fromFeedPage) => {
     id:"",
   })
 
-  console.log("inicontent",content)
+  const statusUpdate = useSelector ((state) => state.statusInterest)
+  const userActive = useSelector ((state) => state.users)
 
   const uploadFile = (e) => {
     e.preventDefault()
@@ -52,8 +54,6 @@ const WriteStatusBox = (fromFeedPage) => {
     })
   }
 
-  const userActive = useSelector ((state) => state.users)
-
   const listInterest = () => {
     if(userActive.loading){
       return(<button>none</button>)
@@ -66,10 +66,11 @@ const WriteStatusBox = (fromFeedPage) => {
 
   const submitStatus = (e) => {
 
+    setOldStatus(statusUpdate?.status?.data)
     setPage (1)
     const pagin = 1
-
     const interestId = interest?.id
+
     if(content && interestId){
       e.preventDefault()
       dispatch(userActions.postStatus(content, interestId))

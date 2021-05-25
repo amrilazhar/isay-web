@@ -14,6 +14,7 @@ const FeedPage = () => {
 
   const dispatch = useDispatch()
 
+  const [oldStatus, setOldStatus] = useState(null);
   const [page, setPage] = useState(1)
   const [paramInterest, setParamInterest] = useState({
     param:""})
@@ -44,16 +45,18 @@ const FeedPage = () => {
       <div className="feed-wrapping">
         <FilterBox
           setParamInterest={setParamInterest}
-          paramInterest={paramInterest}
           setPage={setPage}
         />
         <div className="right-content">
           <div className="right-wrapping">
             <WriteStatusBox
               setPage = {setPage}
+              setOldStatus = {setOldStatus}
             />
             <div className="realtime-feed">
-              <FeedBox/>
+              <FeedBox
+                oldStatus={oldStatus}
+              />
               {statusUpdate.loading?
                 <div className="circle-box-load">
                   <div className="circle-load"></div>
