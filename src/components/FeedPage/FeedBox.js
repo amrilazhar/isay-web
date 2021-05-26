@@ -143,7 +143,7 @@ const FeedBox = (fromFeedPage) => {
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
             </div>
             <div className="name-and-time">
-              <a href ={`/user/${user?.owner?.id}`}>
+              <a href = {`/user/${user?.owner?.id}`}>
                 <h2>{user?.owner?.name}</h2>
               </a>
               <p>{user?.creater_at}</p>

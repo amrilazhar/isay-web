@@ -20,15 +20,15 @@ const OtherUserPage = () => {
   let match = useRouteMatch()
 
   useEffect(() => {
-    dispatch(otherUser(userId))
+    dispatch(otherUser.otherUserProfile(userId))
   },[])
 
   useEffect(() => {
-    dispatch(statusInterest.getStatusUser())
+    dispatch(otherUser.otherUserStatus(userId))
   },[])
 
   const userActive = useSelector ((state) => state?.otherUser)
-  const statusUpdate = useSelector ((state) => state?.statusUser?.status)
+  const statusUpdate = useSelector ((state) => state?.otherUserStatus?.status)
 
   const userDetail = () => {
     if(userActive?.loading){

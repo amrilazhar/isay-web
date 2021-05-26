@@ -58,7 +58,7 @@ const UserPost = (dariUserPage) => {
     <div className="realtime-feed-post">
       {/* Start */}
       {(!post)?
-        <>tida ada</>
+        <div className="post-load"></div>
         :
         <> {post?.map( status =>
           <div className="isay-status-box">
