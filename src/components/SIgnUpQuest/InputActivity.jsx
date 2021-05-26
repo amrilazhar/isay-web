@@ -83,7 +83,10 @@ const InputActivity = ({ ...props }) => {
         return { type: firstProfileConstant.FIRST_PROFILE_REQUEST };
       }
       function success(answer) {
-        return { type: firstProfileConstant.FIRST_PROFILE_SUCCESS, payload:answer.data };
+        return {
+          type: firstProfileConstant.FIRST_PROFILE_SUCCESS,
+          payload: answer.data,
+        };
       }
       function failure(error) {
         return { type: firstProfileConstant.FIRST_PROFILE_FAILURE, error };
@@ -94,7 +97,7 @@ const InputActivity = ({ ...props }) => {
   //set display for checkbox
   const displayActivityCheckBox = () => {
     if (inputActivityUpdate.loading === true) {
-      return <h1>loading...</h1>;
+      return <h1>Loading...</h1>;
     } else {
       return (
         <>
@@ -134,13 +137,12 @@ const InputActivity = ({ ...props }) => {
               {displayActivityCheckBox()}
             </div>
             <div className="information">
-              <p className="information-sign">i</p>
-              <p className="information-content">
-                You can choose as much as you want
-              </p>
-              <div>
+              <div className="activity-info-sign-content">
+                <p>i</p>
+                <p>You can choose as much as you want</p>
+              </div>
+              <div className="btn-activity-next-back">
                 <button
-                  className="btn-activity-next"
                   onClick={() => {
                     handleSubmit();
                   }}
@@ -148,7 +150,6 @@ const InputActivity = ({ ...props }) => {
                   Next
                 </button>
                 <button
-                  className="btn-activity-back"
                   onClick={() => {
                     setShowInterest(true);
                     setShowActivity(false);
