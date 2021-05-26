@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
-import { statusInterest, userActions } from '../redux/actions';
+import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
+import { statusInterest, otherUser } from '../redux/actions';
 
 import { history } from "../helpers";
 
@@ -12,29 +12,26 @@ import UserBio from '../components/UserProfile/UserBio'
 import UserPost from '../components/UserProfile/UserPost';
 import './style/UserPage.css'
 
-const UserPage = () => {
+const OtherUserPage = () => {
+
+  const {userId} = useParams()
 
   const dispatch = useDispatch()
   let match = useRouteMatch()
 
   useEffect(() => {
-    dispatch(userActions.getActive())
+    dispatch(otherUser.otherUserProfile(userId))
   },[])
 
   useEffect(() => {
-    dispatch(statusInterest.getStatusUser())
+    dispatch(otherUser.otherUserStatus(userId))
   },[])
 
-  const userActive = useSelector ((state) => state?.users)
-  const statusUpdate = useSelector ((state) => state?.statusUser?.status)
-
-  const logout = () => {
-    dispatch(userActions.logout());
-    history.replace('')
-  }
+  const userActive = useSelector ((state) => state?.otherUser)
+  const statusUpdate = useSelector ((state) => state?.otherUserStatus?.status)
 
   const userDetail = () => {
-    if(userActive.loading){
+    if(userActive?.loading){
       return (
         <>
           <div className="relative">
@@ -46,12 +43,12 @@ const UserPage = () => {
           </div>
           <a>
           <button>
-            <p>Profile Setting</p>
+            <p>Talk with annonymous</p>
           </button>
           </a>
-          <button>
+          {/* <button>
             <p>Logout</p>
-          </button> 
+          </button>  */}
         </>
       )
     } else {
@@ -67,14 +64,11 @@ const UserPage = () => {
               <p>{userActive.items?.location?.city}</p>
             </div>
           </div>
-          <a href="/setting">
+          <a>
             <button>
-              <p>Profile Setting</p>
+              <p>Talk with annonymous</p>
             </button>
           </a>
-          <button onClick={logout}>
-            <p>Logout</p>
-          </button>
         </>
       )
     }
@@ -87,7 +81,7 @@ const UserPage = () => {
         <div className="profile-wrapping">
           {/* Start of Top Content */}
           <div className="profile-top-content">
-            <img src="https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png" alt="Hero Profile Banner" />
+            <img src="https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_qGauJCjup.png" alt="Hero Profile Banner" />
           </div>
           {/* End of Top Content */}
           {/* Start of Bottom Content */}
@@ -146,4 +140,4 @@ const UserPage = () => {
   )
 }
 
-export default UserPage
+export default OtherUserPage

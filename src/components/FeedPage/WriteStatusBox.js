@@ -8,9 +8,9 @@ const WriteStatusBox = (fromFeedPage) => {
 
   const dispatch = useDispatch()
 
-  const setPage = fromFeedPage.setPage
-  const setOldStatus = fromFeedPage.setOldStatus
-  const setParamInterest = fromFeedPage.setParamInterest
+  const setPage = fromFeedPage?.setPage
+  const setOldStatus = fromFeedPage?.setOldStatus
+  const setParamInterest = fromFeedPage?.setParamInterest
 
   const [files, setFiles] = useState("")
   const [content, setContent] = useState("")
@@ -19,12 +19,12 @@ const WriteStatusBox = (fromFeedPage) => {
     id:"",
   })
 
-  const statusUpdate = useSelector ((state) => state.statusInterest)
-  const userActive = useSelector ((state) => state.users)
+  const statusUpdate = useSelector ((state) => state?.statusInterest)
+  const userActive = useSelector ((state) => state?.users)
 
   const uploadFile = (e) => {
     e.preventDefault()
-    setFiles([...files, e.target.files[0]])
+    setFiles([...files, e?.target?.files[0]])
   }
 
   const mapImage = () => {
@@ -44,7 +44,7 @@ const WriteStatusBox = (fromFeedPage) => {
   }  
 
   const changeText = (e) => {
-    setContent(e?.target.value)
+    setContent(e?.target?.value)
   }
 
   const interestClick = (e) => {
@@ -56,11 +56,11 @@ const WriteStatusBox = (fromFeedPage) => {
   }
 
   const listInterest = () => {
-    if(userActive.loading){
+    if(userActive?.loading){
       return(<button>none</button>)
     } else {
-      return userActive.items?.interest.map (fil =>
-        <button onClick={interestClick} value={`${fil?._id}`}>{fil.interest}</button>
+      return userActive?.items?.interest?.map (fil =>
+        <button onClick={interestClick} value={`${fil?._id}`}>{fil?.interest}</button>
       )
     }
   }
@@ -142,7 +142,7 @@ const WriteStatusBox = (fromFeedPage) => {
           <button className="upload" onClick={showModal}>Upload Image</button>
           {modal()}
           <div className="interest-dropdown">
-            <input className="choose" value={`${interest.interest}`} disabled/>
+            <input className="choose" value={`${interest?.interest}`} disabled/>
             <div className="dropdown-content">
               {listInterest()}
             </div>

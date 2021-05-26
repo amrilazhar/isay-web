@@ -7,8 +7,10 @@ import { alert } from './alert.reducer';
 import { statusInterest } from './status.interest.reducer'
 import { statusUser } from './status.user.reducer'
 import { inputInterestData } from "./input.interest.reducer";
-import { inputActivityData } from "./input.activity.reducer"
-import { inputLocationData } from './input.location.reducer'
+import { inputActivityData } from "./input.activity.reducer";
+import { inputLocationData } from './input.location.reducer';
+import { otherUser } from './other.user.reducer';
+import { otherUserStatus } from './other.user.status.reducer';
 import { firstProfileData } from "./first.profile.reducer"
 
 const rootReducer = combineReducers({
@@ -21,6 +23,8 @@ const rootReducer = combineReducers({
     inputInterestData,
     inputActivityData,
     inputLocationData,
+    otherUser,
+    otherUserStatus,
     firstProfileData
 });
 

@@ -132,8 +132,6 @@ function postStatus(content, interestId) {
 
     const user = JSON.parse(localStorage.getItem('user'));
 
-
-
     const formData = new FormData();
     formData.append('content', `${content}`);
     formData.append('owner', `${user.id}`);
