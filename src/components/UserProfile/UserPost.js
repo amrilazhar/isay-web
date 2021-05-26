@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { statusInterest } from '../../redux/actions'
+import React, { useState } from 'react'
 import './style/UserPost.css'
 
 const UserPost = (dariUserPage) => {
@@ -66,7 +64,7 @@ const UserPost = (dariUserPage) => {
               <div className="upper-prop">
                 <div className="name-and-time">
                   <h2>{status?.owner?.name}</h2>
-                  <p>1 hour ago</p>
+                  <p>{status?.created_at}</p>
                 </div>
                 <div className="status-interest">
                   <p>{status?.interest[0]?.interest}</p>
