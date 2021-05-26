@@ -15,7 +15,7 @@ const UserBio = (dariUserPage) => {
         <div className="profile-sizing">
           <div className="bio">
             <h2>Bio</h2>
-            {(!bio.bio) ? <div className="bio-load"></div> :
+            {(!bio?.bio) ? <div className="bio-load"></div> :
               <p>{bio?.bio}</p>
             }
           </div>

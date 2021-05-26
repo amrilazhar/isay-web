@@ -31,7 +31,7 @@ const OtherUserPage = () => {
   const statusUpdate = useSelector ((state) => state?.statusUser?.status)
 
   const userDetail = () => {
-    if(userActive.loading){
+    if(userActive?.loading){
       return (
         <>
           <div className="relative">
@@ -61,7 +61,7 @@ const OtherUserPage = () => {
             <h1>{userActive.items?.name}</h1>
             <div className="location-user">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
-              <p>{userActive.items?.location.city}</p>
+              <p>{userActive.items?.location?.city}</p>
             </div>
           </div>
           <a>
@@ -81,7 +81,7 @@ const OtherUserPage = () => {
         <div className="profile-wrapping">
           {/* Start of Top Content */}
           <div className="profile-top-content">
-            <img src="https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png" alt="Hero Profile Banner" />
+            <img src="https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_qGauJCjup.png" alt="Hero Profile Banner" />
           </div>
           {/* End of Top Content */}
           {/* Start of Bottom Content */}

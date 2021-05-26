@@ -10,7 +10,7 @@ function Alert(props) {
 
 const FlashMessage = () => {
 
-  const alert = useSelector ((state) => state.alert)
+  const alert = useSelector ((state) => state?.alert)
   console.log(alert)
 
   const [open, setOpen] = useState(true);
@@ -31,7 +31,7 @@ const FlashMessage = () => {
     <div>
       <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error">
-          {alert.message}
+          {alert?.message}
         </Alert>
       </Snackbar>
     </div>

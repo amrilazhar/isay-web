@@ -38,7 +38,7 @@ const FeedPage = () => {
     dispatch(userActions.getActive())
   },[])
 
-  const statusUpdate = useSelector ((state) => state.statusInterest)
+  const statusUpdate = useSelector ((state) => state?.statusInterest)
 
   return (
     <>
@@ -61,7 +61,7 @@ const FeedPage = () => {
               <FeedBox
                 oldStatus={oldStatus}
               />
-              {statusUpdate.loading?
+              {statusUpdate?.loading ?
                 <div className="circle-box-load">
                   <div className="circle-load"></div>
                   <div className="circle-load"></div>

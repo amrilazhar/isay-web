@@ -13,7 +13,7 @@ const ProfileSetting = () => {
     dispatch(userActions.getActive())
   },[])
 
-  const oldProfile = useSelector ((state) => state.users)
+  const oldProfile = useSelector ((state) => state?.users)
 
   const previewProfile = () => {
     if (oldProfile) {
@@ -30,7 +30,7 @@ const ProfileSetting = () => {
         <div className="interest">
           {(oldProfile.items?.interest?.map(interest =>
             <div className="interest-box">
-              <p>{interest.interest}</p>
+              <p>{interest?.interest}</p>
             </div>
           ))}
         </div>
