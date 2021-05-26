@@ -96,7 +96,7 @@ const FeedBox = (fromFeedPage) => {
         <div className="user-status">
           <div className="upper-prop">
             <div className="user-image">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
+              <img src={user?.owner?.avatar} alt="User" />
             </div>
             <div className="name-and-time">
               <a href = {`/user/${user?.owner?.id}`}>
@@ -116,7 +116,9 @@ const FeedBox = (fromFeedPage) => {
           </div>
         </div>
         <CommentBox
-          
+          comment = {user?.comment}
+          likeBy={user?.likeBy}
+          statusId={user?._id}
         />
       </div>
       ))}
