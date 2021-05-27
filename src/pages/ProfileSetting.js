@@ -173,6 +173,21 @@ const ProfileSetting = () => {
     )}
   }
 
+
+  function setTheme (themeName) {
+    localStorage.setItem ('theme', themeName)
+  }
+
+  const toggleTheme = () => {
+    if(localStorage.getItem('theme') === 'dark'){
+      setTheme('light');
+      window.location.reload();
+    } else {
+      setTheme('dark');
+      window.location.reload();
+    }
+  }
+
   return (
     <>
     <Navbar/>
@@ -203,6 +218,7 @@ const ProfileSetting = () => {
             <button onClick={showModalEmailReset} className="reset">Reset Password</button>
             {modalEmailReset()}
             {modalAvatarReset()}
+            <button onClick={toggleTheme} className="reset">Switch Theme</button>            
           </div>
         </div>
       </div>

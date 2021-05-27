@@ -6,6 +6,7 @@ import { history } from './helpers/history'
 import { alertActions } from './redux/actions'
 import { PrivateRoute } from './redux/PrivateRoute'
 
+import "./app.css"
 
 import FeedPage from './pages/FeedPage';
 import Login from './pages/Login';
@@ -23,14 +24,28 @@ function App() {
 
   const dispatch = useDispatch();
 
+  function setTheme (themeName) {
+    localStorage.setItem ('theme', themeName)
+  }
+
+  (function() {
+    if(localStorage.getItem('theme') === 'dark') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  })();
+
   useEffect(() => {
       history.listen((location, action) => {
           dispatch(alertActions.clear());
       });
   }, []);
 
+  const themeUsed = localStorage.getItem('theme')
+
   return (
-    <div className="app">
+    <div className={`app ${themeUsed}`}>
       <Router history={history}>
           <Switch>
               <Route path="/login" component={Login} />
