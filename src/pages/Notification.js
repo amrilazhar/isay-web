@@ -8,7 +8,6 @@ import ContentNotification from "../components/NotifPage/ContentNotification";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { otherUser }from "../redux/actions"
-import { otherUserActivityConstant } from "../redux/type";
 
 const Notification = () => {
     const dispatch = useDispatch();
