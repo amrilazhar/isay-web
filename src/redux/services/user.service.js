@@ -10,6 +10,7 @@ export const userService = {
     firstCreate,
     resetPassword,
     postStatus,
+    like,
     delete: _delete
 };
 
@@ -122,8 +123,6 @@ function resetPassword(emailReset) {
         })
     };
 
-    console.log(requestOptions.body)
-
     return fetch(`https://isay.gabatch11.my.id/user/reset_password`, requestOptions)
         .then(handleResponse)
 }
@@ -146,6 +145,17 @@ function postStatus(content, interestId) {
     };
 
     return fetch (`https://isay.gabatch11.my.id/status/`, requestOptions)
+        .then(handleResponse)
+}
+
+function like(statusId) {
+
+      const requestOptions = {
+          method: 'PUT',
+          headers: authHeader()
+      };
+
+      return fetch(`https://isay.gabatch11.my.id/status/like/${statusId}`, requestOptions)
         .then(handleResponse)
 }
 

@@ -1,7 +1,6 @@
-import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { authHeader } from '../../helpers'
+import { userService } from '../../redux/services/user.service'
 
 const CommentBox = (fromFeedBox) => {
 
@@ -10,6 +9,10 @@ const CommentBox = (fromFeedBox) => {
   const comment = fromFeedBox.comment
   const likeBy = fromFeedBox.likeBy
   const statusId = fromFeedBox.statusId
+
+  const newLike = likeBy.length + 1
+
+  console.log("newLike nih", newLike)
 
   const [show, setShow] = useState(false);
 
@@ -23,24 +26,31 @@ const CommentBox = (fromFeedBox) => {
   }
 
   function statusLike() {
-      console.log(statusId)
-      dispatch (request())
+    if(statusId) {
+    dispatch (requestLike());
 
-      const requestOptions = {
-          method: 'PUT',
-          headers: authHeader()
-      };
-
-      fetch(`https://isay.gabatch11.my.id/status/like/${statusId}`, requestOptions)
-        .then(
-          message => dispatch(success(message)),
-          error => dispatch(failure(error.toString()))
+    userService.like(statusId)
+    .then(
+      (response) => {dispatch(successLike(response))},
+      (error) => {dispatch(failureLike(error.toString()))}
     );
 
-    function request() {return {type: "ADD_LIKE_REQUEST"}};
-    function success(message) {return {type: "ADD_LIKE_SUCCESS", payload: message}}
-    function failure(error) {return {type: "ADD_LIKE_FAILURE", error}}
-  }
+      // dispatch (requestUnlike())
+
+      // fetch(`https://isay.gabatch11.my.id/status/unlike/${statusId}`, requestOptions)
+      //   .then(
+      //     message => dispatch(successUnlike(message)),
+      //     error => dispatch(failureUnlike(error.toString()))
+      // );
+
+    function requestLike() {return {type: "ADD_LIKE_REQUEST"}};
+    function successLike(response) {return {type: "ADD_LIKE_SUCCESS", payload: response}}
+    function failureLike(error) {return {type: "ADD_LIKE_FAILURE", error}}
+
+    function requestUnlike() {return {type: "ADD_UNLIKE_REQUEST"}};
+    function successUnlike(message) {return {type: "ADD_UNLIKE_SUCCESS", payload: message}}
+    function failureUnlike(error) {return {type: "ADD_UNLIKE_FAILURE", error}}
+  }}
 
   const commentExpand = () => {
     if (show === true){

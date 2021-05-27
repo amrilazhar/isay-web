@@ -11,7 +11,8 @@ import { inputActivityData } from "./input.activity.reducer";
 import { inputLocationData } from './input.location.reducer';
 import { otherUser } from './other.user.reducer';
 import { otherUserStatus } from './other.user.status.reducer';
-import { firstProfileData } from "./first.profile.reducer"
+import { firstProfileData } from "./first.profile.reducer";
+import { like } from "./like.reducer";
 
 const rootReducer = combineReducers({
     authentication,
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
     inputLocationData,
     otherUser,
     otherUserStatus,
-    firstProfileData
+    firstProfileData,
+    like
 });
 
 export default rootReducer;

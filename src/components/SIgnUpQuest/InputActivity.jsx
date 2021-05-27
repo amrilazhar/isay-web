@@ -66,7 +66,8 @@ const InputActivity = ({ ...props }) => {
     if (location && activity && interest) {
       dispatch(request());
 
-      userService.firstCreate(location, activity, interest).then(
+      userService.firstCreate(location, activity, interest)
+      .then(
         (answer) => {
           dispatch(success(answer));
           setShowActivity(false);
