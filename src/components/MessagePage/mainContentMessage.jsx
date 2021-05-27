@@ -398,7 +398,10 @@ const MainContentMessage = () => {
 		return (
 			<div className="main-message-container">
 				<div className="main-message-wrapper">
+					{/* Start server after room loaded */}
 					{room.loading ? "" : startServer(room.roomData._id)}
+
+					{/* display receiver message Profile info */}
 					{displayChatName()}
 
 					<div className="content-message-wrapper">

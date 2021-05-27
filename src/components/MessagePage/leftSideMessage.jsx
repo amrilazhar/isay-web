@@ -19,24 +19,34 @@ const LeftSideMessage = () => {
 		return <a href={link}>unknown image</a>;
 	};
 
-    const searchName = (event, value)=>{
-        let searchvalue =event.target.value;
-        let allName = document.querySelectorAll('.search-room-list-name');
-        allName.forEach(item=>{
-            if(item.id.includes(searchvalue)) {
-                item.classList.remove("hide-message-list");
-            } else {
-                item.classList.add("hide-message-list");
-            }
-        })
-        console.log(allName[0], "===============================ALL NAME");
-        console.log(event.target.value, "===============================EVENT");
-    }
+	const searchName = (event, value) => {
+		let searchvalue = event.target.value;
+		let allName = document.querySelectorAll(".search-room-list-name");
+		allName.forEach((item) => {
+			if (
+				item.id
+					.toString()
+					.toLowerCase()
+					.includes(searchvalue.toString().toLowerCase())
+			) {
+				item.classList.remove("hide-message-list");
+			} else {
+				item.classList.add("hide-message-list");
+			}
+		});
+	};
 
 	const displayRoomList = () => {
 		if (!roomList.loading) {
 			return roomList.roomList.map((item) => (
-				<div className="message-list search-room-list-name" id={item.from._id === item.chatOwner ? "search-name"+item.to.name.replace(' ','') : item.from.name.replace(' ','')} >
+				<div
+					className="message-list search-room-list-name"
+					id={
+						item.from._id === item.chatOwner
+							? "search-name" + item.to.name.replace(" ", "")
+							: item.from.name.replace(" ", "")
+					}
+				>
 					<div className="message-head">
 						<div>
 							<img src={item.from.avatar} alt="avatar" />
@@ -48,10 +58,14 @@ const LeftSideMessage = () => {
 					</div>
 					<div className="message-peak">
 						<p>
-							{item.from._id === item.chatOwner ? "You : " : `${item.from.name} : `}
-							{item.message_type === "text"
-								? item.message
-								: displayMessageImageLink(item.message)}
+							<i>
+								{item.from._id === item.chatOwner
+									? "You : "
+									: `${item.from.name} : `}
+								{item.message_type === "text"
+									? item.message
+									: displayMessageImageLink(item.message)}
+							</i>
 						</p>
 					</div>
 				</div>
@@ -68,9 +82,10 @@ const LeftSideMessage = () => {
 			<div className="left-message-wrapper">
 				<div className="search-meassage">
 					<Input
-                        onChange={searchName}
+						onChange={searchName}
 						type="search"
 						fullWidth={true}
+						placeholder="search name..."
 						startAdornment={
 							<InputAdornment position="start">
 								<SearchIcon />
