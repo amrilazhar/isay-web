@@ -6,12 +6,13 @@ import { users } from './user.reducer';
 import { alert } from './alert.reducer';
 import { statusInterest } from './status.interest.reducer'
 import { statusUser } from './status.user.reducer'
-import { inputInterestData } from "./input.interest.reducer";
-import { inputActivityData } from "./input.activity.reducer";
+import { inputInterestData } from './input.interest.reducer';
+import { inputActivityData } from './input.activity.reducer';
 import { inputLocationData } from './input.location.reducer';
 import { otherUser } from './other.user.reducer';
 import { otherUserStatus } from './other.user.status.reducer';
-import { firstProfileData } from "./first.profile.reducer"
+import { otherUserActivity } from './other.user.activity.reducer'
+import { firstProfileData } from './first.profile.reducer';
 
 const rootReducer = combineReducers({
     authentication,
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
     inputLocationData,
     otherUser,
     otherUserStatus,
-    firstProfileData
+    otherUserActivity,
+    firstProfileData,
 });
 
 export default rootReducer;
