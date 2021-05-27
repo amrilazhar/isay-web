@@ -30,7 +30,6 @@ const rootReducer = combineReducers({
     otherUserStatus,
     firstProfileData,
     otherUserActivity,
-    firstProfileData,
     like,
     listAvatar
 });

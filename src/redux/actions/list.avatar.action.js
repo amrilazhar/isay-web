@@ -13,7 +13,7 @@ function listAvatarGet() {
         headers: authHeader()
     };
 
-    axios .get(`https://isay.gabatch11.my.id/profile/avatarList`, requestOptions)
+    axios.get(`https://isay.gabatch11.my.id/profile/avatarList`, requestOptions)
       .then(
           avatar => {
               dispatch(success(avatar))

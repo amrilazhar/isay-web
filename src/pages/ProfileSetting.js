@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
+import { authHeader } from '../helpers'
 import { userActions, listAvatar } from '../redux/actions'
 import './style/ProfileSetting.css'
 
@@ -22,15 +23,29 @@ const ProfileSetting = () => {
 
   const [showModalAvatar, setShowModalAvatar] = useState(false)
   const [avatar, setAvatar] = useState("")
+  console.log(avatar)
 
   const avatarChange = (e) => {
     setAvatar(e.target.value)
   }
 
-  const submitAvatar = (e) => {
-    e.preventDefault()
-    const choosenAvatar = avatar
-    // dispatch(userActions.resetPassword(emailReset))
+  const submitAvatar = () => {
+    dispatch(request(avatar));
+
+    const requestOptions = {
+        method: 'PUT',
+        headers: authHeader()
+    };
+
+    return fetch(`https://isay.gabatch11.my.id/profile/changeAvatar/${avatar}`, requestOptions)
+    .then(
+        user => dispatch(success(avatar)),
+        error => dispatch(failure(avatar, error.toString()))
+    );
+
+    function request(avatar) { return { type: "AVATAR_RESET_LOADING", avatar} }
+    function success(avatar) { return { type: "AVATAR_RESET_SUCCESS", avatar } }
+    function failure(avatar, error) { return { type: "AVATAR_RESET_FAILURE", avatar, error } }
   }
 
   const showModalAvatarChange = () => {
@@ -52,14 +67,28 @@ const ProfileSetting = () => {
           <div>
             <p>Are You Sure?</p>
             <div className="avatar-container">
-                {(getListAvatar?.listAvatar?.map(avatar =>
-                  <button>
+              {(getListAvatar?.listAvatar?.map((avatar, key) =>
+                <>
+                  <input
+                    type="radio"
+                    name="avatar"
+                    for={key}
+                    id={key}
+                    defaultValue={key}
+                    onChange={avatarChange}
+                  />
+                  <label
+                    htmlFor={key}
+                    id={key}
+                  >
                     <div className="avatar-wrap">
                       <img src={avatar} alt="user" />
                     </div>
-                  </button>
-                ))}
+                  </label>
+                </>
+              ))}
             </div>
+            <button onClick={submitAvatar}>Give Me New Avatar</button>
           </div>
         </div>
       </div>
