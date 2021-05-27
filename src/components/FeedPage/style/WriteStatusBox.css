@@ -1,6 +1,6 @@
 .status-submit {
   padding: 1rem;
-  border: 2px solid rgba(183, 183, 183, 1);
+  border: 2px solid var(--border);
   border-radius: 0.5rem;
   box-sizing: border-box;
   display: flex;
@@ -12,7 +12,7 @@
 .status-submit .user-active-profile {
   width: 60px;
   height: 60px;
-  background-color: rgba(138, 98, 251, 1);
+  background-color: var(--mainPurple);
   border-radius: 30px;
   margin-bottom: 1rem;
   position: relative;
@@ -39,13 +39,13 @@
   resize: none;
   margin-bottom: 1rem;
   padding: 1rem;
-  border: 2px solid rgba(183, 183, 183, 1);
+  border: 2px solid var(--border);
   border-radius: 0.5rem;
   width: 80%;
 }
 
 .status-submit form textarea:focus {
-  border: 2px solid rgba(138, 98, 251, 1);
+  border: 2px solid var(--mainPurple);
   outline: none;
 }
 
@@ -73,10 +73,10 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: white;
-  border: 0.13rem solid rgba(138, 98, 251, 1);
+  background-color: var(--white);
+  border: 0.13rem solid var(--mainPurple);
   box-sizing: border-box;
-  color: rgba(138, 98, 251, 1);
+  color: var(--mainPurple);
   transition: 0.3s ease;
 }
 
@@ -86,27 +86,26 @@
 
 .status-submit form .status-tools .upload-image:focus + label,
 .status-submit form .status-tools .upload-image + label:hover {
-  background-color: rgba(138, 98, 251, 1);
-  color: white;
+  background-color: var(--mainPurple);
+  color: var(--white);
   outline: none;
 }
 
 .status-submit form .status-tools button,
 .status-submit form .status-tools .choose {
   border-radius: 1rem;
-  background-color: white;
-  border: 0.13rem solid rgba(138, 98, 251, 1);
+  background-color: var(--white);
+  border: 0.13rem solid var(--mainPurple);
   box-sizing: border-box;
-  color: rgba(138, 98, 251, 1);
+  color: var(--mainPurple);
 }
 
 .status-submit form .status-tools .upload:hover {
-  background-color: rgba(138, 98, 251, 1);
-  color: #ffffff;
+  background-color: var(--mainPurple);
+  color: var(--white);
 }
 .status-submit form .status-tools .upload:active {
-  background-color: rgb(106, 81, 173);
-  color: #ffffff;
+  background-color: var(--tertierPurple);
 }
 
 .status-submit form .status-tools .choose {
@@ -117,19 +116,18 @@
 .status-submit form .status-tools input[type="submit"] {
   border: none;
   border-radius: 0.25rem;
-  background-color: #4781f8;
-  color: white;
+  background-color: var(--mainBlue);
+  color: var(--white);
   cursor: pointer;
 }
 
 .status-submit form .status-tools input[type="submit"]:hover {
-  background-color: rgb(74, 118, 207);
+  background-color: var(--secondBlue);
   cursor: pointer;
 }
 
 .status-submit form .status-tools input[type="submit"]:active {
-  background-color: rgb(64, 90, 143);
-  color: rgb(194, 194, 194);
+  background-color: var(--tertierBlue);
 }
 
 .status-submit form .status-tools button,
@@ -146,26 +144,26 @@
 }
 
 .status-submit form .status-tools .interest-dropdown input:hover {
-  border: 0.13rem solid rgb(179, 160, 230);
-  color: rgb(179, 160, 230);
+  border: 0.13rem solid #b3a0e6;
+  color: #b3a0e6;
 }
 
 .status-submit form .status-tools .interest-dropdown .dropdown-content {
   display: none;
   text-align: center;
   position: absolute;
-  background-color: white;
+  background-color: var(--white);
   padding: 1rem 1rem 0.5rem;
-  border: 2px solid rgba(183, 183, 183, 1);
+  border: 2px solid var(--border);
   border-radius: 0.5rem;
   z-index: 1;
 }
 
 .status-submit form .status-tools .interest-dropdown .dropdown-content button {
-  background-color: rgba(138, 98, 251, 1);
+  background-color: var(--mainPurple);
   border: none;
   border-radius: 1rem;
-  color: white;
+  color: var(--white);
 }
 
 .status-submit
@@ -174,7 +172,7 @@
   .interest-dropdown
   .dropdown-content
   button:hover {
-  background-color: rgb(119, 88, 206);
+  background-color: var(--secondPurple);
 }
 
 .status-submit
@@ -183,7 +181,7 @@
   .interest-dropdown
   .dropdown-content
   button:active {
-  background-color: rgb(89, 68, 146);
+  background-color: var(--tertierPurple);
 }
 
 .status-submit form .status-tools .interest-dropdown:hover .dropdown-content {
@@ -198,16 +196,15 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #00000066;
   transition: 0.3s ease;
 }
 
 .status-submit form .status-tools .reset-modal .reset-modal-content {
-  background-color: #fefefe;
+  background-color: var(--white);
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--border);
   width: 50%;
   border-radius: 10px;
   display: flex;
@@ -223,7 +220,7 @@
 }
 
 .status-submit form .status-tools .reset-modal .reset-modal-content .close {
-  color: #aaa;
+  color: var(--buttonClick);
   font-size: 28px;
   font-weight: bold;
   background-color: transparent;

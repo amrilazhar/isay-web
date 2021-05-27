@@ -380,23 +380,23 @@
   }
 }
 
-@media only screen and (min-width: 1000px){
+@media only screen and (min-width: 1000px) {
   .main-avatar-container .main-avatar-wrapper .isay-logo {
     transform: translate(-5%, 40%);
   }
 
   .main-avatar-container
-  .main-avatar-wrapper
-  .sub-avatar-container
-  .sub-avatar-wrapper
-  .inside-sub-avatar-container
-  .inside-sub-avatar-wrapper
-  .interest-icon {
-  grid-template-columns: auto auto auto auto auto auto;
-}
+    .main-avatar-wrapper
+    .sub-avatar-container
+    .sub-avatar-wrapper
+    .inside-sub-avatar-container
+    .inside-sub-avatar-wrapper
+    .interest-icon {
+    grid-template-columns: auto auto auto auto auto auto;
+  }
 }
 
-@media only screen and (min-width: 1500px){
+@media only screen and (min-width: 1500px) {
   .main-avatar-container .main-avatar-wrapper {
     padding: 1rem 15rem;
   }
@@ -406,17 +406,17 @@
   }
 
   .main-avatar-container
-  .main-avatar-wrapper
-  .sub-avatar-container
-  .sub-avatar-wrapper
-  .inside-sub-avatar-container
-  .inside-sub-avatar-wrapper
-  .interest-icon {
-  grid-template-columns: auto auto auto auto auto auto auto auto;
-}
+    .main-avatar-wrapper
+    .sub-avatar-container
+    .sub-avatar-wrapper
+    .inside-sub-avatar-container
+    .inside-sub-avatar-wrapper
+    .interest-icon {
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+  }
 }
 
-@media only screen and (min-width: 2000px){
+@media only screen and (min-width: 2000px) {
   .main-avatar-container .main-avatar-wrapper .isay-logo {
     transform: translate(-1%, 40%);
   }

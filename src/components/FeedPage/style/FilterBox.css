@@ -5,7 +5,7 @@
 
 .left-content .left-wrapping {
   padding: 1rem;
-  border: 2px solid rgba(183, 183, 183, 1);
+  border: 2px solid var(--border);
   border-radius: 0.5rem;
   box-sizing: border-box;
 }
@@ -48,7 +48,6 @@
   height: 15px;
   margin: 0.25rem;
   border-radius: 7px;
-  background-color: rgb(239, 239, 239);
   background-image: linear-gradient(
     89deg,
     rgb(239, 239, 239),
@@ -71,23 +70,22 @@
   margin-top: 1rem;
   padding: 0.4rem 0;
   box-sizing: border-box;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 0.5rem;
-  border: 0.13rem solid rgba(71, 129, 248, 1);
-  color: rgba(71, 129, 248, 1);
+  border: 0.13rem solid var(--mainBlue);
+  color: var(--mainBlue);
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .left-content .left-wrapping .filter-box form input:hover {
-  background-color: rgba(71, 129, 248, 1);
-  color: white;
+  background-color: var(--mainBlue);
+  color: var(--white);
 }
 
 .left-content .left-wrapping .filter-box form input:active {
-  background-color: rgb(64, 90, 143);
-  color: rgb(194, 194, 194);
+  background-color: var(--tertierBlue);
 }
 
 @media screen and (min-width: 600px) {
