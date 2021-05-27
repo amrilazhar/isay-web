@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
+import { formatRelative, subDays } from 'date-fns'
 import CommentBox from './CommentBox';
 import './style/FeedBox.css'
 
 const FeedBox = (fromFeedPage) => {
   //START SHOW AND HIDE COMMENT
   const oldStatus = fromFeedPage?.oldStatus
-
   const statusUpdate = useSelector ((state) => state?.statusInterest)
+
+  console.log("hari ini", new Date())
 
   //START SHOW HIDE COMMENT
 
@@ -102,7 +104,7 @@ const FeedBox = (fromFeedPage) => {
               <a href = {`/user/${user?.owner?.id}`}>
                 <h2>{user?.owner?.name}</h2>
               </a>
-              <p>{user?.created_at}</p>
+              <p>{formatRelative(new Date(user?.created_at), new Date())}</p>
             </div>
             <div className="status-interest">
               <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>

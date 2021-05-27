@@ -67,7 +67,13 @@ const FeedPage = () => {
                   <div className="circle-load"></div>
                   <div className="circle-load"></div>
                 </div>:
-                <Pagination count={`${statusUpdate?.status?.totalPages}`} page={page} color="primary" className="notification-pagination" onChange={clickPage}/>}
+                <Pagination
+                  count={`${statusUpdate?.status?.totalPages}`}
+                  page={page}
+                  color="primary"
+                  className="notification-pagination" 
+                  onChange={clickPage}
+                />}
             </div>
           </div>
         </div>

@@ -11,6 +11,7 @@ export const userService = {
     resetPassword,
     postStatus,
     like,
+    unlike,
     delete: _delete
 };
 
@@ -159,6 +160,17 @@ function like(statusId) {
         .then(handleResponse)
 }
 
+
+function unlike(statusId) {
+
+      const requestOptions = {
+          method: 'PUT',
+          headers: authHeader()
+      };
+
+      return fetch(`https://isay.gabatch11.my.id/status/unlike/${statusId}`, requestOptions)
+        .then(handleResponse)
+}
 
 function handleResponse(response) {
     return response.text()

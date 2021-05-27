@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { userService } from '../../redux/services/user.service'
 
 const CommentBox = (fromFeedBox) => {
@@ -14,7 +14,10 @@ const CommentBox = (fromFeedBox) => {
 
   console.log("newLike nih", newLike)
 
+  const [theCondition, setTheCondition] = useState(null)
   const [show, setShow] = useState(false);
+
+  const conditionalLike = useSelector((state) => state.like)
 
   const changeShow = () => {
     if (show === false) {
@@ -26,31 +29,28 @@ const CommentBox = (fromFeedBox) => {
   }
 
   function statusLike() {
-    if(statusId) {
-    dispatch (requestLike());
-
-    userService.like(statusId)
-    .then(
-      (response) => {dispatch(successLike(response))},
-      (error) => {dispatch(failureLike(error.toString()))}
-    );
-
-      // dispatch (requestUnlike())
-
-      // fetch(`https://isay.gabatch11.my.id/status/unlike/${statusId}`, requestOptions)
-      //   .then(
-      //     message => dispatch(successUnlike(message)),
-      //     error => dispatch(failureUnlike(error.toString()))
-      // );
+  
+    if(theCondition == `You can't like status twice`) {  
+      dispatch (requestLike())
+      setTheCondition(null)
+      userService.unlike(statusId)
+        .then(
+          message => dispatch(successLike(message)),
+          error => dispatch(failureLike(error.toString()))
+        )
+        } else {
+          dispatch (requestLike());
+          setTheCondition(`You can't like status twice`)
+          userService.like(statusId)
+          .then(
+            (response) => {dispatch(successLike(response))},
+            (error) => {dispatch(failureLike(error.toString()))}
+    )}
 
     function requestLike() {return {type: "ADD_LIKE_REQUEST"}};
     function successLike(response) {return {type: "ADD_LIKE_SUCCESS", payload: response}}
     function failureLike(error) {return {type: "ADD_LIKE_FAILURE", error}}
-
-    function requestUnlike() {return {type: "ADD_UNLIKE_REQUEST"}};
-    function successUnlike(message) {return {type: "ADD_UNLIKE_SUCCESS", payload: message}}
-    function failureUnlike(error) {return {type: "ADD_UNLIKE_FAILURE", error}}
-  }}
+  }
 
   const commentExpand = () => {
     if (show === true){
