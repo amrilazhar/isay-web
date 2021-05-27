@@ -2,7 +2,11 @@
     border: 1px solid #C9C9C9;
     width: fit-content;
     border-radius: 10px;
+}
 
+.main-message-container .main-message-wrapper .content-message-wrapper {
+    overflow : auto;
+    height: 50vh;
 }
 
 .main-message-container .main-message-wrapper .main-message-head {
@@ -28,42 +32,42 @@
 .main-message-container .main-message-wrapper .empty-line{
     height: 10rem;
     border-bottom: 1px solid #C9C9C9;
+    width: 70vw;
 }
 
 
-.main-message-container .main-message-wrapper .each-message-personal-wrapper{
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-personal-wrapper{
     padding: 1.2rem;
     border-bottom: 1px solid #C9C9C9;
-
 } 
 
-.main-message-container .main-message-wrapper .each-message-personal-wrapper .each-message-personal-container{
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-personal-wrapper .each-message-personal-container{
     border: 1px solid #C9C9C9;
     padding: 1.2rem;
     border-radius: 10px;
 }
 
-.main-message-container .main-message-wrapper .each-message-personal-wrapper .each-message-personal-container .each-message-personal-head{
+.main-message-container .main-message-wrapper .content-message-wrapper  .each-message-personal-wrapper .each-message-personal-container .each-message-personal-head{
     display: flex;
 }
 
-.main-message-container .main-message-wrapper .each-message-personal-wrapper .each-message-personal-container .each-message-personal-head p:last-child{
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-personal-wrapper .each-message-personal-container .each-message-personal-head p:last-child{
     margin-left: auto;
 }
 
-.main-message-container .main-message-wrapper .each-message-public-wrapper{
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-public-wrapper{
     padding: 1.2rem;
     border-bottom: 1px solid #C9C9C9;
 
 } 
 
-.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head{
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head{
     display: flex;
     align-items: flex-end;
     gap: 1.5rem;
     color: #4F4F4F;
 }
-.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head div{
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head div{
     background-color: #8A62FB;
     width: 40px;
     height: 40px;
@@ -75,7 +79,7 @@
 
 }
 
-.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head div img{
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head div img{
     position: absolute;
     top: -9999px;
     bottom: -9999px;
@@ -85,18 +89,18 @@
     max-height: 100%;
 }
 
-.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head p:nth-child(2){
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head p:nth-child(2){
     font-weight: 700;
     font-size: 18px;
 }
 
-.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head p:last-child{
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-head p:last-child{
     font-weight: 300;
     font-size: 14px;
     padding-bottom: 0.3rem;
 }
 
-.main-message-container .main-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-content{
+.main-message-container .main-message-wrapper .content-message-wrapper .each-message-public-wrapper .each-message-public-container .each-message-public-content{
     padding-left: 5.5rem;
     padding-right: 2rem;
 } 
@@ -143,6 +147,24 @@
     font-weight: 500;
     font-size: large;
     border-color: transparent;
+}
+
+.main-message-container .main-message-wrapper .content-message-wrapper .btn-load-more button {
+    padding: 0.5rem 1.5rem;
+    color: white;
+    background-color: #8A62FB;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: large;
+    border-color: transparent;
+    width: 95%;
+}
+
+.main-message-container .main-message-wrapper .content-message-wrapper .btn-load-more {
+    justify-content: center;
+    display: flex;
+    margin-top: 0.75rem;
 }
 
 .main-message-container .main-message-wrapper .textarea-wrapper .message-btn .message-btn-send button img{
