@@ -20,12 +20,14 @@ import React from "react";
 const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
 // const SOCKET_SERVER_URL = "http://localhost:3000";
 
-const MainContentMessage = (props) => {
+const MainContentMessage = () => {
 	const [newMessage, setNewMessage] = useState(""); // Message to be sent
 	const [newImages, setNewImages] = useState([]); // Images to be sent
-	const [loadMore, setLoadMore] = useState(false); // Images to be sent
-	const [scrollPos, setScrollPos] = useState(""); // Images to be sent
-	const [scrollActive, setScrollActive] = useState(true); // Images to be sent
+
+	const [loadMore, setLoadMore] = useState(false); // handle scroll
+	const [scrollPos, setScrollPos] = useState(""); // handle scroll
+	const [scrollActive, setScrollActive] = useState(true); // handle scroll
+
 	const [receiverOnlineStatus, setReceiverOnlineStatus] = useState(false);
 	let lastMessage = "";
 	const dispatch = useDispatch();
@@ -152,30 +154,6 @@ const MainContentMessage = (props) => {
 		});
 	};
 
-	//============== Handle Load Older Chat ======================
-	const loadOlderChat = () => {
-		let roomID = room.roomData._id;
-		let getlastMessage =
-			lastMessage === "" ? chatHistory.message[0]._id : lastMessage;
-		setLoadMore(true);
-		setScrollActive(false);
-		setScrollPos(getlastMessage);
-		dispatch(getOlderChatAct(roomID, getlastMessage, olderChat.message));
-	};
-
-	const printOlderChat = () => {
-		if (!olderChat.loading && !chatHistory.loading) {
-			lastMessage =
-				olderChat.message.length > 0
-					? olderChat.message[0]._id
-					: chatHistory.message.length > 0
-					? chatHistory.message[0]._id
-					: "";
-			return displayChatMessage(olderChat.message);
-		}
-	};
-	//============== END Handle Load Older Chat ======================
-
 	//=============== Handle Send Images ========================
 	const encodeBase64 = (file, cb) => {
 		let reader = new FileReader();
@@ -218,10 +196,32 @@ const MainContentMessage = (props) => {
 		socketRef.current.emit(chatConstant.SET_READ_STATUS_MESSAGE_EVENT, {
 			message_id: messageID,
 		});
-		// updateAllReadedStatus([messageID]);
 	};
 	//============= END Handle Read Status ========================
 
+	//============== Handle Load Older Chat ======================
+	const loadOlderChat = () => {
+		let roomID = room.roomData._id;
+		let getlastMessage =
+			lastMessage === "" ? chatHistory.message[0]._id : lastMessage;
+		setLoadMore(true);
+		setScrollActive(false);
+		setScrollPos(getlastMessage);
+		dispatch(getOlderChatAct(roomID, getlastMessage, olderChat.message));
+	};
+
+	const printOlderChat = () => {
+		if (!olderChat.loading && !chatHistory.loading) {
+			lastMessage =
+				olderChat.message.length > 0
+					? olderChat.message[0]._id
+					: chatHistory.message.length > 0
+					? chatHistory.message[0]._id
+					: "";
+			return displayChatMessage(olderChat.message);
+		}
+	};
+	//============== END Handle Load Older Chat ======================
 	//create display chat name
 	const displayChatName = () => {
 		if (!room.loading) {
@@ -275,15 +275,23 @@ const MainContentMessage = (props) => {
 			<div className="each-message-public-wrapper">
 				<div className="each-message-public-container">
 					<div className="each-message-public-head">
+
+						{/* Avatar */}
 						<div>
 							<img src={item.from.avatar ? item.from.avatar : ''} alt="avatar" />
 						</div>
+
+						{/* Nama */}
 						<p>
 							{item.to._id.toString() === receiver.toString()
 								? "You"
 								: item.from.name}
 						</p>
+
+						{/* Tanggal Chat */}
 						<p>{formatRelative(new Date(item.created_at), new Date())}</p>
+
+						{/* Read Status */}
 						{item.to._id === receiver ? (
 							<p>
 								<ChromeReaderModeIcon
@@ -296,6 +304,8 @@ const MainContentMessage = (props) => {
 						) : (
 							""
 						)}
+
+						{/* set read status true */}
 						{item.to._id === receiver
 							? ""
 							: !item.readed
@@ -303,11 +313,14 @@ const MainContentMessage = (props) => {
 							: ""}
 					</div>
 					<div className="each-message-public-content">
+
+						{/* print Message */}
 						{item.message_type == "image" ? (
 							<img width="100%" src={item.message}></img>
 						) : (
 							item.message
 						)}
+
 						{/* set position for scroll after load more clicked */}
 						{scrollPos == item._id ? <div ref={messagesStartRef} /> : ""}
 					</div>
@@ -453,8 +466,6 @@ const MainContentMessage = (props) => {
 									endIcon={<SendIcon>send</SendIcon>}
 								>
 									Send
-									{/* <img src={<SendIcon />} alt="icon" /> */}
-									{/* <SendIcon style={{ marginLeft: "5px", fontSize: "1rem" }} /> */}
 								</button>
 							</div>
 						</div>

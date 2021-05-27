@@ -6,6 +6,12 @@ const roomInitialState = {
 	roomData: null,
 };
 
+const roomListInitialState = {
+	loading: true,
+	error: null,
+	roomList: [],
+};
+
 const chatHistoryInitialState = {
 	loading: true,
 	error: null,
@@ -120,6 +126,36 @@ export const getOlderChat = (state = chatOlderInitialState, action) => {
 				loading: false,
 				error: error,
 				message: [],
+			};
+	}
+};
+
+export const getRoomList = (state = roomListInitialState, action) => {
+	const { type, payload, error } = action;
+	switch (type) {
+		default:
+			return {
+				...state,
+			};
+		case chatConstant.GET_ROOM_LIST_BEGIN:
+			return {
+				...state,
+				loading: true,
+				error: null,
+			};
+		case chatConstant.GET_ROOM_LIST_SUCCESS:
+			return {
+				...state,
+				loading: false,
+				roomList: payload,
+				error: null,
+			};
+		case chatConstant.GET_ROOM_LIST_FAIL:
+			return {
+				...state,
+				loading: false,
+				error: error,
+				roomList: [],
 			};
 	}
 };

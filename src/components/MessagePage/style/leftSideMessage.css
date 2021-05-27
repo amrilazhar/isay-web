@@ -7,6 +7,10 @@
     height: 15rem;
 }
 
+.left-message-container .left-message-wrapper .hide-message-list {
+    display: none;
+}
+
 .left-message-container .left-message-wrapper .search-meassage {
     padding: 1rem;
     border-bottom: 1px solid #C9C9C9;

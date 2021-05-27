@@ -123,3 +123,32 @@ export const readedStatus = (messageID) => (dispatch) => {
 		payload: messageID,
 	});
 };
+
+export const getRoomListAct = () => (dispatch) => {
+	dispatch({
+		type: chatConstant.GET_ROOM_LIST_BEGIN,
+		loading: true,
+		error: null,
+	});
+
+	axios({
+		method: "get",
+		url: SOCKET_SERVER_URL + "/chat/roomList",
+		headers: authHeader(),
+	})
+		.then((res) => {
+			dispatch({
+				type: chatConstant.GET_ROOM_LIST_SUCCESS,
+				loading: false,
+				payload: res.data.data,
+			});
+		})
+
+		.catch((err) =>
+			dispatch({
+				type: chatConstant.GET_ROOM_LIST_FAIL,
+				loading: false,
+				error: err,
+			})
+		);
+};

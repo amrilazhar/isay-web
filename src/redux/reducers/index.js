@@ -15,6 +15,7 @@ import {
 	getChatHistory,
 	setChatMessage,
 	setReadedStatus,
+	getRoomList,
 } from "./chat.reducer";
 
 const rootReducer = combineReducers({
@@ -32,6 +33,7 @@ const rootReducer = combineReducers({
 	setChatMessage,
 	setReadedStatus,
 	getOlderChat,
+	getRoomList,
 });
 
 export default rootReducer;
