@@ -39,6 +39,8 @@
   .setting-left-wrapper
   .photo
   img {
+  transition: 0.5s ease;
+  opacity: 1;
   position: absolute;
   top: -9999px;
   bottom: -9999px;
@@ -46,6 +48,63 @@
   right: -9999px;
   margin: auto;
   max-height: 70%;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo:hover
+  img {
+  opacity: 0.5;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo
+  .photo-overlay {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo:hover
+  .photo-overlay {
+  opacity: 1;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo
+  .photo-overlay
+  .edit-cont {
+  padding: 0.5rem 1rem;
+  background-color: #4781f8;
+  border-radius: 0.5rem;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo
+  .photo-overlay
+  .edit-cont
+  p {
+  margin: 0;
 }
 
 .setting-container .setting-wrapping .setting-left .setting-left-wrapper h1 {

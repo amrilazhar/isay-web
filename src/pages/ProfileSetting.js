@@ -21,12 +21,17 @@ const ProfileSetting = () => {
       <>
         <div className="photo">
           <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="user" />
+          <div className="photo-overlay">
+            <div className="edit-cont">
+              <p>Change Avatar</p>
+            </div>
+          </div>
         </div>
         <h1>{oldProfile.items?.name}</h1>
         <div className="location-setting">
           <p>{oldProfile.items?.location?.city}</p>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid obcaecati, aspernatur nam voluptatibus illo, fugiat assumenda recusandae numquam, voluptas eius enim. Accusamus commodi natus totam laborum quam nemo veritatis maiores?</p>
+        <p>{oldProfile?.items?.bio}</p>
         <div className="interest">
           {(oldProfile.items?.interest?.map(interest =>
             <div className="interest-box">
@@ -57,11 +62,10 @@ const ProfileSetting = () => {
   const submitEmail = (e) => {
     e.preventDefault()
     const emailReset = email.email
-    console.log("kirim", emailReset)
     dispatch(userActions.resetPassword(emailReset))
   }
 
-  const showModal = () => {
+  const showModalEmailReset = () => {
     if(show === false) {
       setShow(true)
     } else {
@@ -69,14 +73,14 @@ const ProfileSetting = () => {
     }
   }
 
-  const modal = () => {
+  const modalEmailReset = () => {
     if(show === false) {
       return (<div></div>)
     } else {
     return (
       <div id="resetModal" className="reset-modal">
         <div className="reset-modal-content">
-          <button onClick={showModal} className="close">&times;</button>
+          <button onClick={showModalEmailReset} className="close">&times;</button>
           <div>
             <p>Are You Sure?</p>
             <form onSubmit={submitEmail}>
@@ -104,6 +108,9 @@ const ProfileSetting = () => {
             <div className="title">
               <h2>Personal Information</h2>
             </div>
+            <div>
+              
+            </div>
             <form>
               <label htmlFor="bio">Bio :</label>
               <textarea wrap="soft" type="text" name="bio" id="bio" placeholder="write your neew bio" defaultValue={""} />
@@ -116,8 +123,8 @@ const ProfileSetting = () => {
                 <input type="submit" defaultValue="update" />
               </div>
             </form>
-            <button onClick={showModal} className="reset">Reset Password</button>
-            {modal()}
+            <button onClick={showModalEmailReset} className="reset">Reset Password</button>
+            {modalEmailReset()}
           </div>
         </div>
       </div>
