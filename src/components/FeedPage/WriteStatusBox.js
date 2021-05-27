@@ -134,7 +134,7 @@ const WriteStatusBox = (fromFeedPage) => {
     <>
     <div className="status-submit">
       <div className="user-active-profile">
-        <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
+        <img src={userActive?.items?.avatar} alt="User" />
       </div>
       <form onSubmit={submitStatus}>
         <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={""} onChange={changeText}/>

@@ -1,3 +1,4 @@
+import { formatRelative } from 'date-fns';
 import React, { useState } from 'react'
 import './style/UserPost.css'
 
@@ -64,7 +65,7 @@ const UserPost = (dariUserPage) => {
               <div className="upper-prop">
                 <div className="name-and-time">
                   <h2>{status?.owner?.name}</h2>
-                  <p>{status?.created_at}</p>
+                  <p>{formatRelative(new Date(status?.created_at), new Date())}</p>
                 </div>
                 <div className="status-interest">
                   <p>{status?.interest[0]?.interest}</p>
