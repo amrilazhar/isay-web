@@ -14,6 +14,7 @@ import { otherUserStatus } from './other.user.status.reducer';
 import { otherUserActivity } from './other.user.activity.reducer'
 import { firstProfileData } from './first.profile.reducer';
 import { like } from "./like.reducer";
+import { listAvatar } from "./list.avatar.reducer";
 
 const rootReducer = combineReducers({
     authentication,
@@ -30,7 +31,8 @@ const rootReducer = combineReducers({
     firstProfileData,
     otherUserActivity,
     firstProfileData,
-    like
+    like,
+    listAvatar
 });
 
 export default rootReducer;

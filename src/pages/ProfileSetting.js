@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import { userActions } from '../redux/actions'
+import { userActions, listAvatar } from '../redux/actions'
 import './style/ProfileSetting.css'
 
 const ProfileSetting = () => {
@@ -13,16 +13,67 @@ const ProfileSetting = () => {
     dispatch(userActions.getActive())
   },[])
 
+  useEffect(() => {
+    dispatch(listAvatar.listAvatarGet())
+  },[])
+
   const oldProfile = useSelector ((state) => state?.users)
+  const getListAvatar = useSelector ((state) => state?.listAvatar)
+
+  const [showModalAvatar, setShowModalAvatar] = useState(false)
+  const [avatar, setAvatar] = useState("")
+
+  const avatarChange = (e) => {
+    setAvatar(e.target.value)
+  }
+
+  const submitAvatar = (e) => {
+    e.preventDefault()
+    const choosenAvatar = avatar
+    // dispatch(userActions.resetPassword(emailReset))
+  }
+
+  const showModalAvatarChange = () => {
+    if(showModalAvatar === false) {
+      setShowModalAvatar(true)
+    } else {
+      setShowModalAvatar(false)
+    }
+  }
+
+  const modalAvatarReset = () => {
+    if(showModalAvatar === false) {
+      return (<div></div>)
+    } else {
+    return (
+      <div id="resetModal" className="reset-modal">
+        <div className="reset-modal-content">
+          <button onClick={showModalAvatarChange} className="close">&times;</button>
+          <div>
+            <p>Are You Sure?</p>
+            <div className="avatar-container">
+                {(getListAvatar?.listAvatar?.map(avatar =>
+                  <button>
+                    <div className="avatar-wrap">
+                      <img src={avatar} alt="user" />
+                    </div>
+                  </button>
+                ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    )}
+  }
 
   const previewProfile = () => {
     if (oldProfile) {
       return (
       <>
         <div className="photo">
-          <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="user" />
+          <img src={oldProfile?.items?.avatar} alt="user" />
           <div className="photo-overlay">
-            <div className="edit-cont">
+            <div className="edit-cont" onClick={showModalAvatarChange}>
               <p>Change Avatar</p>
             </div>
           </div>
@@ -108,9 +159,6 @@ const ProfileSetting = () => {
             <div className="title">
               <h2>Personal Information</h2>
             </div>
-            <div>
-              
-            </div>
             <form>
               <label htmlFor="bio">Bio :</label>
               <textarea wrap="soft" type="text" name="bio" id="bio" placeholder="write your neew bio" defaultValue={""} />
@@ -125,6 +173,7 @@ const ProfileSetting = () => {
             </form>
             <button onClick={showModalEmailReset} className="reset">Reset Password</button>
             {modalEmailReset()}
+            {modalAvatarReset()}
           </div>
         </div>
       </div>

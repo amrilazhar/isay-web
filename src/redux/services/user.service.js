@@ -11,8 +11,7 @@ export const userService = {
     resetPassword,
     postStatus,
     like,
-    unlike,
-    delete: _delete
+    unlike
 };
 
 function login(email, password) {
@@ -77,18 +76,6 @@ function update(user) {
     return fetch(`/users/${user.id}`, requestOptions).then(handleResponse);;
 }
 
-// prefixed function name with underscore because delete is a reserved word in javascript
-function _delete(id) {
-    const requestOptions = {
-        method: 'DELETE',
-        headers: authHeader()
-    };
-
-
-    //BENERIN BRO
-    return fetch(`/users/${id}`, requestOptions).then(handleResponse);
-}
-
 
 function firstCreate(location, activity, interest) {
 
@@ -110,7 +97,6 @@ function firstCreate(location, activity, interest) {
     return fetch(`https://isay.gabatch11.my.id/user/first_profile`, requestOptions)
         .then(handleResponse)
 }
-
 
 
 function resetPassword(emailReset) {
@@ -159,7 +145,6 @@ function like(statusId) {
       return fetch(`https://isay.gabatch11.my.id/status/like/${statusId}`, requestOptions)
         .then(handleResponse)
 }
-
 
 function unlike(statusId) {
 

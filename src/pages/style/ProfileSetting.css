@@ -47,7 +47,7 @@
   left: -9999px;
   right: -9999px;
   margin: auto;
-  max-height: 70%;
+  max-height: 50%;
 }
 
 .setting-container
@@ -91,9 +91,11 @@
   .photo
   .photo-overlay
   .edit-cont {
+  transition: 0.3 ease;
   padding: 0.5rem 1rem;
   background-color: #4781f8;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 .setting-container
@@ -105,6 +107,16 @@
   .edit-cont
   p {
   margin: 0;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo
+  .photo-overlay
+  .edit-cont:hover {
+  background-color: #5271af;
 }
 
 .setting-container .setting-wrapping .setting-left .setting-left-wrapper h1 {
@@ -498,6 +510,67 @@
   .reset:active {
   background-color: rgb(107, 36, 36);
   color: rgb(194, 194, 194);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .avatar-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .avatar-container
+  .avatar-wrap {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  background-color: #4781f8;
+  border-radius: 50px;
+  /* margin: 1.5rem 0 3rem; */
+  border: 0.3rem solid white;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .avatar-container
+  button {
+  border: none;
+  background-color: #ffffff;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .avatar-container
+  .avatar-wrap
+  img {
+  transition: 0.5s ease;
+  opacity: 1;
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 70%;
 }
 
 @media screen and (min-width: 600px) {
