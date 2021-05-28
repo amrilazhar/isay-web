@@ -14,8 +14,6 @@ const CommentMap = (fromCommentBox) => {
 
   const [myComment, setMyComment] =  useState("")
 
-  // console.log("dapet komen", myComment, statusId)
-
   useEffect(() => {
     dispatch(
       async dispatch => {
