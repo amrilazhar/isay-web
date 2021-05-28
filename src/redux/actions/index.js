@@ -7,3 +7,4 @@ export * from './input.location.action';
 export * from './chat.action';
 export * from './other.user.action';
 export * from './list.avatar.action';
+export * from './comment.action';

@@ -1,5 +1,4 @@
 import { statusConstant, statusUserConstant } from '../type';
-// import { alertActions } from './alert.actions'
 import axios from 'axios';
 import { authHeader } from "../../helpers";
 
