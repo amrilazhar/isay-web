@@ -19,8 +19,14 @@ import Message from './pages/Message';
 import ProfileSetting from './pages/ProfileSetting'
 import OtherUserPage from './pages/OtherUserPage';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faComments as fasFaComments, faComment as fasFaComment, faThumbsUp as fasFaThumbsUp} from '@fortawesome/free-solid-svg-icons'
+import { faComments as farFaComments, faComment as farFaComment, faThumbsUp as farFaThumbsUp } from '@fortawesome/free-regular-svg-icons'
+
 
 function App() {
+
+  library.add(fasFaComments, fasFaComment, fasFaThumbsUp, farFaComments, farFaComment, farFaThumbsUp)
 
   const dispatch = useDispatch();
 

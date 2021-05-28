@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userService } from '../../redux/services/user.service'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const CommentBox = (fromFeedBox) => {
 
@@ -91,19 +92,19 @@ const CommentBox = (fromFeedBox) => {
     <div className="do-at-status">
       <div className="button-collect">
         <div className="button" onClick={statusLike}>
-          <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/like_DeUkMSVa0GD.png" alt="Like" />
+          <FontAwesomeIcon  icon={["fas", "thumbs-up"]} size="1x" color="#4f4f4f"/>
           <p>Like</p>
           <p>{`( ${likeBy?.length} )`}</p>
         </div>
         <div className="button" onClick={changeShow}>
-          <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/comment_pfnyK8aWL.png" alt="Comment" />
+          <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>
           <p>Comments</p>
           <p>{`( ${comment?.length} )`}</p>
         </div>
         { (users?.items?._id === ownerId)?
           <div></div>:
           <div className="button">
-            <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/chat_k1YWihxxc.png" alt="PC" />
+            <FontAwesomeIcon icon={["far", "comments"]} size="1x" color="#4f4f4f"/>
             <a href ={`/message?to=${ownerId}`}>
               <p>Personal Chat</p>
             </a>
