@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { formatRelative } from 'date-fns'
 import CommentBox from './CommentBox';
 import './style/FeedBox.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const FeedBox = (fromFeedPage) => {
   //START SHOW AND HIDE COMMENT
@@ -60,7 +61,10 @@ const FeedBox = (fromFeedPage) => {
               <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
             </div>
             <div className="status-location">
-              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{user?.owner?.location?.city}</p>
+              <p>
+                <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
+                {user?.owner?.location?.city}
+              </p>
             </div>
           </div>
           <div className="lower-prop">
@@ -114,7 +118,10 @@ const FeedBox = (fromFeedPage) => {
               <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
             </div>
             <div className="status-location">
-              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />{user?.owner?.location?.city}</p>
+              <p>
+                <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
+                {user?.owner?.location?.city}
+              </p>
             </div>
           </div>
           <div className="lower-prop">

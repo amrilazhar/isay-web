@@ -12,8 +12,6 @@ function getStatus(param, page) {
   return dispatch => {
     dispatch (request())
 
-    console.log("masuk", page)
-
     const requestOptions = {
       method: 'GET',
       headers: authHeader()

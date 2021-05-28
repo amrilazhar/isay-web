@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userService } from '../../redux/services/user.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,14 +12,43 @@ const CommentBox = (fromFeedBox) => {
   const statusId = fromFeedBox.statusId
   const ownerId = fromFeedBox.ownerId
 
-  const newLike = likeBy.length + 1
+  console.log("comment", comment)
 
-  console.log("newLike nih", newLike)
+  const users = useSelector ((state) => state?.users)
 
-  const [theCondition, setTheCondition] = useState(null)
+  const [hadLike, setHadLike] = useState(0)
+
+  useEffect (() => {
+    const checkLike = likeBy.find((e) => e === users?.items?._id)
+    return (checkLike === undefined)?
+    setHadLike(0):setHadLike(1)
+  },[])
+
+    function statusLike() {
+    if(hadLike === 1) {  
+      dispatch (requestLike())
+      setHadLike(0)
+      userService.unlike(statusId)
+        .then(
+          message => dispatch(successLike(message)),
+          error => dispatch(failureLike(error.toString()))
+        )
+        } else {
+          dispatch (requestLike());
+          setHadLike(1)
+          userService.like(statusId)
+          .then(
+            (response) => {dispatch(successLike(response))},
+            (error) => {dispatch(failureLike(error.toString()))}
+        )
+  }
+    
+    function requestLike() {return {type: "ADD_LIKE_REQUEST"}};
+    function successLike(response) {return {type: "ADD_LIKE_SUCCESS", payload: response}}
+    function failureLike(error) {return {type: "ADD_LIKE_FAILURE", error}}
+  }
+
   const [show, setShow] = useState(false);
-
-  const conditionalLike = useSelector((state) => state.like)
 
   const changeShow = () => {
     if (show === false) {
@@ -28,30 +57,6 @@ const CommentBox = (fromFeedBox) => {
     else if (show === true) {
       setShow(false);
     }
-  }
-
-  function statusLike() {
-  
-    if(theCondition == `You can't like status twice`) {  
-      dispatch (requestLike())
-      setTheCondition(null)
-      userService.unlike(statusId)
-        .then(
-          message => dispatch(successLike(message)),
-          error => dispatch(failureLike(error.toString()))
-        )
-        } else {
-          dispatch (requestLike());
-          setTheCondition(`You can't like status twice`)
-          userService.like(statusId)
-          .then(
-            (response) => {dispatch(successLike(response))},
-            (error) => {dispatch(failureLike(error.toString()))}
-    )}
-
-    function requestLike() {return {type: "ADD_LIKE_REQUEST"}};
-    function successLike(response) {return {type: "ADD_LIKE_SUCCESS", payload: response}}
-    function failureLike(error) {return {type: "ADD_LIKE_FAILURE", error}}
   }
 
   const commentExpand = () => {
@@ -86,15 +91,17 @@ const CommentBox = (fromFeedBox) => {
     } return (<div></div>)
   }
 
-  const users = useSelector ((state) => state?.users)
-
   return (
     <div className="do-at-status">
       <div className="button-collect">
         <div className="button" onClick={statusLike}>
-          <FontAwesomeIcon  icon={["fas", "thumbs-up"]} size="1x" color="#4f4f4f"/>
+          {
+            (hadLike === 1)?
+            <FontAwesomeIcon  icon={["fas", "thumbs-up"]} size="1x" color="#4f4f4f"/>:
+            <FontAwesomeIcon  icon={["far", "thumbs-up"]} size="1x" color="#4f4f4f"/>
+          }
           <p>Like</p>
-          <p>{`( ${likeBy?.length} )`}</p>
+          <p>{`( ${likeBy?.length+hadLike} )`}</p>
         </div>
         <div className="button" onClick={changeShow}>
           <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>
