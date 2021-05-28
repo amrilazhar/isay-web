@@ -1,27 +1,26 @@
-import "./style/messagePage.css"
+import "./style/messagePage.css";
 
-import React from "react"
+import React from "react";
 import LeftSideMessage from "../components/MessagePage/leftSideMessage";
 import MainContentMessage from "../components/MessagePage/mainContentMessage";
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
-
-const Message= () => {
-    return (
+const Message = () => {
+  return (
     <>
-    <Navbar />
-        <div className="message-page-wrapper">
-            <div className="left-message-page">
-                <LeftSideMessage />
-            </div>
-            <div className="content-message-page">
-                <MainContentMessage />
-            </div> 
+      <Navbar />
+      <div className="message-page-wrapper">
+        <div className="left-message-page">
+          <LeftSideMessage />
         </div>
-        <Footer />
+        <div className="content-message-page">
+          <MainContentMessage />
+        </div>
+      </div>
+      <Footer />
     </>
-    )
-}
+  );
+};
 
 export default Message;
