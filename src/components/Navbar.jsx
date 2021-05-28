@@ -56,9 +56,15 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <a href="/profile">
-                    <div className="profile-icon">
-                        <img src={user?.items?.avatar} alt="profile-icon"/>:
-                    </div>
+                    { (!user?.items?.avatar)?
+                        <div className="profile-icon-load">
+                            <img src="https://ik.imagekit.io/alfianpur/Final_Project/Grey_VyVyqnF1h1.png" alt="profile-icon"/>
+                        </div>:
+                        <div className="profile-icon">
+                            <img src={user?.items?.avatar} alt="profile-icon"/>
+                        </div>
+                    }
+                    
                 </a>
                 <div className="nav-icon" onClick={handleSideMenu}>
                     {sideMenu ? <CloseIcon/> : <MenuIcon/>}

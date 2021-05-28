@@ -76,7 +76,7 @@ const FeedPage = () => {
                   count={`${statusUpdate?.status?.totalPages}`}
                   page={page}
                   color="primary"
-                  className="notification-pagination" 
+                  className="pagination" 
                   onChange={clickPage}
                 />}
             </div>

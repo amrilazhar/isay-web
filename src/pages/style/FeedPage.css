@@ -22,6 +22,15 @@
   box-sizing: border-box;
 }
 
+.feed-wrapping .right-content .right-wrapping .realtime-feed .pagination {
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  background: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
 @media screen and (min-width: 600px) {
   .feed-wrapping {
     margin: 2rem 2rem;

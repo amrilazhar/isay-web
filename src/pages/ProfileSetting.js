@@ -38,7 +38,7 @@ const ProfileSetting = () => {
         headers: authHeader()
     };
 
-    return fetch(`https://isay.gabatch11.my.id/profile/changeAvatar/${avatar}`, requestOptions)
+    fetch(`https://isay.gabatch11.my.id/profile/changeAvatar/${avatar}`, requestOptions)
     .then(
         avatar => {
           dispatch(success(avatar))
@@ -53,6 +53,10 @@ const ProfileSetting = () => {
     function request(avatar) { return { type: "AVATAR_RESET_LOADING", avatar} }
     function success(avatar) { return { type: "AVATAR_RESET_SUCCESS", avatar } }
     function failure(avatar, error) { return { type: "AVATAR_RESET_FAILURE", avatar, error } }
+
+    setTimeout(() => {
+      dispatch(userActions.getActive())
+    }, 2000)
   }
 
   const showModalAvatarChange = () => {
@@ -103,36 +107,30 @@ const ProfileSetting = () => {
   }
 
   const previewProfile = () => {
-    if (oldProfile) {
-      return (
-      <>
-        <div className="photo">
-          <img src={oldProfile?.items?.avatar} alt="user" />
-          <div className="photo-overlay">
-            <div className="edit-cont" onClick={showModalAvatarChange}>
-              <p>Change Avatar</p>
-            </div>
+    return (
+    <>
+      <div className="photo">
+        <img src={oldProfile?.items?.avatar} alt="user" />
+        <div className="photo-overlay">
+          <div className="edit-cont" onClick={showModalAvatarChange}>
+            <p>Change Avatar</p>
           </div>
         </div>
-        <h1>{oldProfile.items?.name}</h1>
-        <div className="location-setting">
-          <p>{oldProfile.items?.location?.city}</p>
-        </div>
-        <p>{oldProfile?.items?.bio}</p>
-        <div className="interest">
-          {(oldProfile.items?.interest?.map(interest =>
-            <div className="interest-box">
-              <p>{interest?.interest}</p>
-            </div>
-          ))}
-        </div>
-      </>
-      )
-    } else {
-      return (
-        <>404</>
-      )
-    }
+      </div>
+      <h1>{oldProfile.items?.name}</h1>
+      <div className="location-setting">
+        <p>{oldProfile.items?.location?.city}</p>
+      </div>
+      <p>{oldProfile?.items?.bio}</p>
+      <div className="interest">
+        {(oldProfile.items?.interest?.map(interest =>
+          <div className="interest-box">
+            <p>{interest?.interest}</p>
+          </div>
+        ))}
+      </div>
+    </>
+    )
   }
 
   const [show, setShow] = useState(false)

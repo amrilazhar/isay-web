@@ -12,6 +12,10 @@
   text-decoration: none;
 }
 
+.navbar-container .navbar-wrapper :nth-child(4) {
+  margin-left: 1rem;
+}
+
 .navbar-container .navbar-wrapper {
   display: flex;
   justify-content: center;
@@ -35,17 +39,35 @@
   cursor: pointer;
 }
 
-.navbar-wrapper .profile-icon {
-  width: 60px;
-  height: 60px;
+.navbar-wrapper a .profile-icon {
+  width: 50px;
+  height: 50px;
   background-color: rgba(138, 98, 251, 1);
-  border-radius: 30px;
-  margin-bottom: 1rem;
+  border-radius: 25px;
   position: relative;
   overflow: hidden;
 }
 
-.navbar-wrapper .profile-icon img {
+.navbar-wrapper a .profile-icon-load {
+  width: 50px;
+  height: 50px;
+  background-image: linear-gradient(
+    89deg,
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
+  );
+  animation: 4s ease-in-out 1ms infinite normal backwards running
+    animation-loading;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-wrapper a .profile-icon-load img {
+  display: none;
+}
+
+.navbar-wrapper a .profile-icon img {
   position: absolute;
   top: -9999px;
   bottom: -9999px;
@@ -195,11 +217,20 @@
     display: none;
   }
 
-  .navbar-wrapper .profile-icon {
+  .navbar-wrapper a {
     order: -1;
   }
 
-  .navbar-wrapper .profile-icon img {
+  .navbar-wrapper a .profile-icon img {
     margin-left: 0;
+  }
+}
+
+@keyframes animation-loading {
+  0% {
+    background-position: -300px center;
+  }
+  100% {
+    background-position: 300px center;
   }
 }
