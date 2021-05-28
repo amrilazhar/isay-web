@@ -95,6 +95,7 @@ const CommentBox = (fromFeedBox) => {
           <CommentMap
             show={show}
             statusId={statusId}
+            commentLength={comment?.length}
           />:
           <div></div>
       }

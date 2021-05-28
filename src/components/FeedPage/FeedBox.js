@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { formatRelative } from 'date-fns'
 import CommentBox from './CommentBox';
 import './style/FeedBox.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { alertActions } from '../../redux/actions';
+import { authHeader } from '../../helpers';
+import DeleteStatus from './DeleteStatus';
 
 const FeedBox = (fromFeedPage) => {
-  //START SHOW AND HIDE COMMENT
+
   const oldStatus = fromFeedPage?.oldStatus
   const statusUpdate = useSelector ((state) => state?.statusInterest)
   const users = useSelector ((state) => state?.users)
-
-  //START SHOW HIDE COMMENT
 
   const loadComponent = () => {
     return (
@@ -74,17 +75,17 @@ const FeedBox = (fromFeedPage) => {
         <div className="do-at-status">
           <div className="button-collect">
             <div className="button">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/like_DeUkMSVa0GD.png" alt="Like" />
+              <FontAwesomeIcon  icon={["fas", "thumbs-up"]} size="1x" color="#4f4f4f"/>:
               <p>Like</p>
               <p>(3)</p>
             </div>
             <div className="button">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/comment_pfnyK8aWL.png" alt="Comment" />
+              <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>
               <p>Comments</p>
               <p>(15)</p>
             </div>
             <div className="button">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/chat_k1YWihxxc.png" alt="PC" />
+              <FontAwesomeIcon icon={["far", "comments"]} size="1x" color="#4f4f4f"/>
               <p>Personal Chat</p>
             </div>
           </div>
@@ -118,6 +119,12 @@ const FeedBox = (fromFeedPage) => {
               <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
             </div>
             <div className="status-location">
+              { (users?.items?._id === user?.owner?._id)?
+                <DeleteStatus
+                  statusId={user?._id}
+                />:
+                <></>
+              }
               <p>
                 <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
                 {user?.owner?.location?.city}

@@ -121,11 +121,13 @@ function resetPassword(emailReset) {
     function failure(emailReset, error) { return { type: "EMAIL_RESET_FAILURE", emailReset, error } }
 }
 
-function postStatus (content, interestId) {
+function postStatus (content, interestId, files) {
     return dispatch => {
         dispatch(request());
 
-        userService.postStatus(content, interestId)
+        console.log("files sampe", files)
+
+        userService.postStatus(content, interestId, files)
             .then (
                 content => dispatch(success(content)),
                 error => dispatch(failure(content, error.toString()))

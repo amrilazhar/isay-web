@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
-import { otherUser } from '../redux/actions';
+import { otherUser, userActions } from '../redux/actions';
 
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -18,6 +18,10 @@ const OtherUserPage = () => {
   let match = useRouteMatch()
 
   useEffect(() => {
+    dispatch(userActions.getActive())
+  },[])
+
+  useEffect(() => {
     dispatch(otherUser.otherUserProfile(userId))
   },[])
 
@@ -25,11 +29,11 @@ const OtherUserPage = () => {
     dispatch(otherUser.otherUserStatus(userId))
   },[])
 
-  const userActive = useSelector ((state) => state?.otherUser)
+  const userThisPage = useSelector ((state) => state?.otherUser)
   const statusUpdate = useSelector ((state) => state?.otherUserStatus?.status)
 
   const userDetail = () => {
-    if(userActive?.loading){
+    if(userThisPage?.loading){
       return (
         <>
           <div className="relative">
@@ -51,12 +55,12 @@ const OtherUserPage = () => {
         <>
           <div className="relative">
             <div className="profile-image">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
+              <img src={userThisPage.items?.avatar} alt="Profile" />
             </div>
-            <h1>{userActive.items?.name}</h1>
+            <h1>{userThisPage.items?.name}</h1>
             <div className="location-user">
               <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
-              <p>{userActive.items?.location?.city}</p>
+              <p>{userThisPage.items?.location?.city}</p>
             </div>
           </div>
           <a>
@@ -108,8 +112,8 @@ const OtherUserPage = () => {
                   </Route>
                   <Route path={`${match.path}`}>
                     <UserBio bio = {{
-                      bio: `${userActive.items?.bio}`,
-                      interest: [userActive.items?.interest]
+                      bio: `${userThisPage.items?.bio}`,
+                      interest: [userThisPage.items?.interest]
                     }}
                     />
                   </Route>

@@ -11,6 +11,7 @@ const CommentMap = (fromCommentBox) => {
 
   const show = fromCommentBox.show
   const statusId = fromCommentBox.statusId
+  const commentLength = fromCommentBox.commentLength
 
   const [myComment, setMyComment] =  useState("")
 
@@ -35,10 +36,6 @@ const CommentMap = (fromCommentBox) => {
     )
   },[show])
 
-  for (const comment in myComment?.data?.comments) {
-    console.log(`${comment} isinya ${myComment?.data?.comments[comment]?.content}`)
-  }
-
   const displayComment = () => {
     let arrComment = []
 
@@ -56,36 +53,30 @@ const CommentMap = (fromCommentBox) => {
       )
     }
 
-    return arrComment
+    let arrDisplay = arrComment.slice(0,2)
+
+    return arrDisplay
   }
 
   return (
+    (commentLength === 0)? 
+    <div className="comment-expand">
+      <form action method="post">
+        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about me?" defaultValue={""} />
+      </form>
+      <p>BE THE FIRST ONE WHO GIVE A COMMENT</p>
+    </div>
+    :
     <div className="comment-expand">
       <form action method="post">
         <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about me?" defaultValue={""} />
       </form>
       {displayComment()}
-      {/* <div className="comment-box">
-        <div className="comment-detail">
-          <h2>Rafflesia Arnoldi</h2>
-          <p>3h ago</p>
-        </div>
-        <div className="comment-content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam dignissimos, recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic suscipit incidunt quae.</p>
-        </div>
-      </div> */}
-
-      {/* <div className="comment-box">
-        <div className="comment-detail">
-          <h2>Rafflesia Arnoldi</h2>
-          <p>3h ago</p>
-        </div>
-        <div className="comment-content">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam dignissimos,
-            recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic suscipit incidunt quae.
-          </p>
-        </div>
-      </div> */}
+      {
+        (commentLength > 2)?
+        <p>Display More Comment</p>:
+        <div></div>
+      }
     </div>
   )
 }
