@@ -22,11 +22,14 @@ function login(email, password, from) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push(from);
+                    dispatch(alertActions.success('Login successful'));
+                    setTimeout(() => {
+                        history.push(from)
+                    }, 3000)
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch(alertActions.error((error.toString()) === "Validation failed"?"Email and password not accepted":error.toString()));
                 }
             );
     };
@@ -49,12 +52,14 @@ function register(email, password, confirmPassword, from) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push(from);
                     dispatch(alertActions.success('Registration successful'));
+                    setTimeout(() => {
+                        history.push(from)
+                    }, 3000)
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch(alertActions.error((error.toString()) === "Validation failed"?"Email and password not accepted":error.toString()));
                 }
             );
     };
@@ -116,12 +121,12 @@ function resetPassword(emailReset) {
     function failure(emailReset, error) { return { type: "EMAIL_RESET_FAILURE", emailReset, error } }
 }
 
-function postStatus(content, interestId) {
+function postStatus (content, interestId) {
     return dispatch => {
         dispatch(request());
 
         userService.postStatus(content, interestId)
-            .then(
+            .then (
                 content => dispatch(success(content)),
                 error => dispatch(failure(content, error.toString()))
             );

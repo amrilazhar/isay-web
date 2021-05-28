@@ -9,8 +9,9 @@ const FilterBox = (fromFeedPage) => {
 
   const dispatch = useDispatch()
 
-  const setParamInterest = fromFeedPage.setParamInterest
-  const setPage = fromFeedPage.setPage
+  const setParamInterest = fromFeedPage?.setParamInterest
+  const setPage = fromFeedPage?.setPage
+  const setOldStatus = fromFeedPage?.setOldStatus
   
   const [getParam, setGetParam] = useState({
       getParam: '',
@@ -18,17 +19,18 @@ const FilterBox = (fromFeedPage) => {
 
   const handleChange = (e) => {
     setGetParam ({
-      "getParam":[e.target.defaultValue]
+      "getParam":[e?.target?.defaultValue]
     })
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setOldStatus(null)
     setParamInterest ({
-      "param": getParam.getParam
+      "param": getParam?.getParam
     })
     setPage (1)
-    const param  = getParam.getParam
+    const param  = getParam?.getParam
     const pagin = 1
     dispatch(statusInterest.getStatus(param, pagin))
   }
@@ -36,10 +38,10 @@ const FilterBox = (fromFeedPage) => {
   //END GET INTEREST ID TO PARENTS
 
   //START INTEREST USER FOR FILTER
-  const userActive = useSelector ((state) => state.users)
+  const userActive = useSelector ((state) => state?.users)
 
   const mapInterest = () => {
-    if (userActive.loading){
+    if (userActive?.loading){
       return (
         <div className="choice">
           <div className="waiting">
@@ -50,18 +52,18 @@ const FilterBox = (fromFeedPage) => {
         </div>
       )
     } else {
-      return userActive.items?.interest.map (fil =>
+      return userActive?.items?.interest?.map (fil =>
         <div className="choice">
           <label
-            htmlFor={`${fil.interest.toLowerCase()}`}
-            id={`${fil.interest.toLowerCase()}`}
+            htmlFor={`${fil.interest?.toLowerCase()}`}
+            id={`${fil.interest?.toLowerCase()}`}
           >{fil.interest}</label>
           <input
             type="radio"
             name="interest"
-            for={`${fil.interest.toLowerCase()}`}
-            id={`${fil.interest.toLowerCase()}`}
-            defaultValue={`${fil._id.toLowerCase()}`}
+            for={`${fil.interest?.toLowerCase()}`}
+            id={`${fil.interest?.toLowerCase()}`}
+            defaultValue={`${fil._id?.toLowerCase()}`}
             onChange={handleChange}
           />
         </div>

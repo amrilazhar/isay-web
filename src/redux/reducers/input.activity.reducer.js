@@ -2,7 +2,7 @@ import {inputActivityConstant} from '../type';
 
 const inputActivityState = {
     loading : true,
-    activities : [],
+    activity : [],
     error : null
 }
 
@@ -17,7 +17,7 @@ export function inputActivityData (state = inputActivityState, action) {
             return {
                 ...state,
                 loading: false,
-                activities: action.payload
+                activity: action.payload
             }
         case inputActivityConstant.GET_INPUT_ACTIVITY_FAILURE:
             return{

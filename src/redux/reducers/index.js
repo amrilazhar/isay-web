@@ -17,6 +17,12 @@ import {
 	setReadedStatus,
 	getRoomList,
 } from "./chat.reducer";
+import { otherUser } from './other.user.reducer';
+import { otherUserStatus } from './other.user.status.reducer';
+import { otherUserActivity } from './other.user.activity.reducer'
+import { firstProfileData } from './first.profile.reducer';
+import { like } from "./like.reducer";
+import { listAvatar } from "./list.avatar.reducer";
 
 const rootReducer = combineReducers({
 	authentication,
@@ -34,6 +40,12 @@ const rootReducer = combineReducers({
 	setReadedStatus,
 	getOlderChat,
 	getRoomList,
+    otherUser,
+    otherUserStatus,
+    firstProfileData,
+    otherUserActivity,
+    like,
+    listAvatar
 });
 
 export default rootReducer;

@@ -109,6 +109,11 @@
     padding: 1rem;
 }
 
+.main-message-container .main-message-wrapper .chat-image-container img{
+    padding: 1rem 70px 0;
+    height: 5rem;
+}
+
 .main-message-container .main-message-wrapper .textarea-wrapper textarea{
     resize: none;
     width: 85%;
@@ -139,13 +144,13 @@
 }
 
 .main-message-container .main-message-wrapper .textarea-wrapper .message-btn .message-btn-send button {
-    padding: 0.5rem 1.5rem;
+    padding: 0.4rem 1.1rem;
     color: white;
     background-color: #4781F8;
     border-radius: 5px;
     text-align: center;
     font-weight: 500;
-    font-size: large;
+    font-size: medium;
     border-color: transparent;
 }
 
@@ -183,8 +188,26 @@
         }
 }
 
+@media only screen and (min-width: 700px){
+    .main-message-container .main-message-wrapper .textarea-wrapper textarea {
+            width: 90%;
+        }
+}
+
 @media only screen and (min-width: 800px){
     .main-message-container .main-message-wrapper .textarea-wrapper textarea {
-            width: 93%;
+            width: 90%;
+        }    
+}
+
+@media only screen and (min-width: 1000px){
+    .main-message-container .main-message-wrapper .textarea-wrapper textarea {
+            width: 94%;
+        }    
+}
+
+@media only screen and (min-width: 1300px){
+    .main-message-container .main-message-wrapper .textarea-wrapper textarea {
+            width: 95%;
         }    
 }
