@@ -49,6 +49,13 @@
 
 .main-message-container .main-message-wrapper .each-message-personal-wrapper .each-message-personal-container .each-message-personal-head p:last-child{
     margin-left: auto;
+    padding: 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    background-color: rgba(138, 98, 251, 1);
+    border-radius: 0.8rem;
+    border: none;
 }
 
 .main-message-container .main-message-wrapper .each-message-public-wrapper{

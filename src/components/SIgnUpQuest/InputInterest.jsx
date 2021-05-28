@@ -24,7 +24,7 @@ const InputInterest = ({...props}) => {
         const index = createFirstProfile[event.target.name].indexOf(
             event.target.value
           );
-          console.log('index', index)
+          console.log('event', event)
       
           if (event.target.checked && index === -1) {
             // console.log("eventInter", event.target.value);
