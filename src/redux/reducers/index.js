@@ -22,6 +22,7 @@ import { otherUserStatus } from './other.user.status.reducer';
 import { otherUserActivity } from './other.user.activity.reducer'
 import { firstProfileData } from './first.profile.reducer';
 import { like } from "./like.reducer";
+import { notificationData } from './notification.reducer';
 import { listAvatar } from "./list.avatar.reducer";
 import { getComment } from "./comment.reducer";
 
@@ -41,6 +42,7 @@ const rootReducer = combineReducers({
 	otherUserActivity,
 	like,
 	listAvatar,
+	notificationData,
 	getComment,
 	getChatRoom,
 	getChatHistory,

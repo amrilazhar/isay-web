@@ -1,22 +1,15 @@
 import "./style/notification.css"
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import LeftSide from "../components/NotifPage/LeftSideNotif";
 import ContentNotification from "../components/NotifPage/ContentNotification";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { otherUser }from "../redux/actions"
+import Pagination from "@material-ui/lab/Pagination";
 
 const Notification = () => {
-    const dispatch = useDispatch();
-    const otherUserActivityData = useSelector((state) => state.otherUserActivity)
-    console.log('otherUserActivityData', otherUserActivityData)
-
-    useEffect(() => {
-        dispatch(otherUser.otherUserActivity())
-    },[]);
 
     return(
         <>
