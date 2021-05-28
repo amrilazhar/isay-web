@@ -2,41 +2,43 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import FlashMessage from '../components/FlashMessage';
-import { userActions } from '../redux/actions'
+import { alertActions, userActions } from '../redux/actions'
 
 import './style/signup.css'
 
 function Signup() {
 
-    const [inputs, setInputs] = useState({
-        email: '',
-        password: '',
-        confirmPassword: ''
-    });
-    
-    const { email, password, confirmPassword } = inputs;
-    const dispatch = useDispatch();
-    const location = useLocation();
+  const [inputs, setInputs] = useState({
+      email: '',
+      password: '',
+      confirmPassword: ''
+  });
+  
+  const { email, password, confirmPassword } = inputs;
+  const dispatch = useDispatch();
+  const location = useLocation();
 
-    useEffect(() => {
-        dispatch(userActions.logout());
-    }, []);
+  useEffect(() => {
+      dispatch(userActions.logout());
+  }, []);
 
-    function handleChange(e) {
-        const { name, value } = e.target;
-        setInputs(inputs => ({ ...inputs, [name]: value }));
-    }
+  function handleChange(e) {
+      const { name, value } = e.target;
+      setInputs(inputs => ({ ...inputs, [name]: value }));
+  }
 
-    function handleSubmit(e) {
-        e.preventDefault();
+  function handleSubmit(e) {
+      e.preventDefault();
 
-        if (email && password && confirmPassword) {
-          const { from } = location.state || { from: { pathname: "/signupquest/1" } };
-          dispatch(userActions.register(email, password, confirmPassword, from));
-        }
-    }
+      if (email && password && confirmPassword) {
+        const { from } = location.state || { from: { pathname: "/signupquest/1" } };
+        dispatch(userActions.register(email, password, confirmPassword, from));
+      } else {
+        dispatch(alertActions.error("Email and password not accepted"));
+      }
+  }
 
-    const alert = useSelector ((state) => state.alert)
+  const alert = useSelector ((state) => state.alert)
 
   return (
     <div className="signup-container">

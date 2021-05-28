@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import FlashMessage from '../components/FlashMessage'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import { authHeader } from '../helpers'
-import { userActions, listAvatar } from '../redux/actions'
+import { userActions, listAvatar, alertActions } from '../redux/actions'
 import './style/ProfileSetting.css'
 
 const ProfileSetting = () => {
@@ -39,8 +40,14 @@ const ProfileSetting = () => {
 
     return fetch(`https://isay.gabatch11.my.id/profile/changeAvatar/${avatar}`, requestOptions)
     .then(
-        user => dispatch(success(avatar)),
-        error => dispatch(failure(avatar, error.toString()))
+        avatar => {
+          dispatch(success(avatar))
+          dispatch(alertActions.success('Avatar Changed'));
+        },
+        error => {
+          dispatch(failure(avatar, error.toString()))
+          dispatch(alertActions.error(error.toString()));
+        }
     );
 
     function request(avatar) { return { type: "AVATAR_RESET_LOADING", avatar} }
@@ -188,8 +195,13 @@ const ProfileSetting = () => {
     }
   }
 
+  const alert = useSelector ((state) => state.alert)
+
   return (
     <>
+    {
+      alert.alert ? <FlashMessage/> : ""
+    }
     <Navbar/>
     <div className="setting-container">
       <div className="setting-wrapping">

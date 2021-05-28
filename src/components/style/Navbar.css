@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   position: sticky;
-  z-index: 20;
+  z-index: 999;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.5rem 2rem;

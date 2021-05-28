@@ -15,6 +15,7 @@ import Navbar from '../components/Navbar';
 import UserAct from '../components/UserProfile/UserAct';
 import UserBio from '../components/UserProfile/UserBio'
 import UserPost from '../components/UserProfile/UserPost';
+import FlashMessage from '../components/FlashMessage'
 import './style/UserPage.css'
 
 const UserPage = () => {
@@ -90,8 +91,13 @@ const UserPage = () => {
     }
   }
 
+  const alert = useSelector ((state) => state.alert)
+
   return (
     <Router>
+      {
+        alert.alert ? <FlashMessage/> : ""
+      }
       <Navbar/>
       <div className="profile-container">
         <div className="profile-wrapping">

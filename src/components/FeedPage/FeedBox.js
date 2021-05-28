@@ -8,6 +8,7 @@ const FeedBox = (fromFeedPage) => {
   //START SHOW AND HIDE COMMENT
   const oldStatus = fromFeedPage?.oldStatus
   const statusUpdate = useSelector ((state) => state?.statusInterest)
+  const users = useSelector ((state) => state?.users)
 
   //START SHOW HIDE COMMENT
 
@@ -49,7 +50,7 @@ const FeedBox = (fromFeedPage) => {
         <div className="user-status">
           <div className="upper-prop">
             <div className="user-image">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
+              <img src={user?.owner?.avatar} alt="User" />
             </div>
             <div className="name-and-time">
               <h2>{user?.owner?.name}</h2>
@@ -99,10 +100,15 @@ const FeedBox = (fromFeedPage) => {
               <img src={user?.owner?.avatar} alt="User" />
             </div>
             <div className="name-and-time">
-              <a href = {`/user/${user?.owner?.id}`}>
+              <a href = { (users?.items?._id === user?.owner?.id)?`/profile`:`/user/${user?.owner?.id}`}>
                 <h2>{user?.owner?.name}</h2>
               </a>
-              <p>{formatRelative(new Date(user?.created_at), new Date())}</p>
+              <p>
+                { (user?.created_at !== undefined)?
+                  formatRelative(new Date(user?.created_at), new Date()):
+                  user?.created_at
+                }
+              </p>
             </div>
             <div className="status-interest">
               <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
@@ -119,6 +125,7 @@ const FeedBox = (fromFeedPage) => {
           comment = {user?.comment}
           likeBy={user?.likeBy}
           statusId={user?._id}
+          ownerId={user?.owner?._id}
         />
       </div>
       ))}

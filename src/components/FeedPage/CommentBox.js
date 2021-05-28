@@ -9,6 +9,7 @@ const CommentBox = (fromFeedBox) => {
   const comment = fromFeedBox.comment
   const likeBy = fromFeedBox.likeBy
   const statusId = fromFeedBox.statusId
+  const ownerId = fromFeedBox.ownerId
 
   const newLike = likeBy.length + 1
 
@@ -84,6 +85,8 @@ const CommentBox = (fromFeedBox) => {
     } return (<div></div>)
   }
 
+  const users = useSelector ((state) => state?.users)
+
   return (
     <div className="do-at-status">
       <div className="button-collect">
@@ -97,10 +100,15 @@ const CommentBox = (fromFeedBox) => {
           <p>Comments</p>
           <p>{`( ${comment?.length} )`}</p>
         </div>
-        <div className="button">
-          <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/chat_k1YWihxxc.png" alt="PC" />
-          <p>Personal Chat</p>
-        </div>
+        { (users?.items?._id === ownerId)?
+          <div></div>:
+          <div className="button">
+            <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/chat_k1YWihxxc.png" alt="PC" />
+            <a href ={`/message?to=${ownerId}`}>
+              <p>Personal Chat</p>
+            </a>
+          </div>
+        }
       </div>
       {commentExpand()}
     </div>
