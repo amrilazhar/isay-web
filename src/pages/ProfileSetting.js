@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import { userActions } from '../redux/actions'
+import { authHeader } from '../helpers'
+import { userActions, listAvatar } from '../redux/actions'
 import './style/ProfileSetting.css'
 
 const ProfileSetting = () => {
@@ -13,24 +14,108 @@ const ProfileSetting = () => {
     dispatch(userActions.getActive())
   },[])
 
-  const oldProfile = useSelector ((state) => state.users)
+  useEffect(() => {
+    dispatch(listAvatar.listAvatarGet())
+  },[])
+
+  const oldProfile = useSelector ((state) => state?.users)
+  const getListAvatar = useSelector ((state) => state?.listAvatar)
+
+  const [showModalAvatar, setShowModalAvatar] = useState(false)
+  const [avatar, setAvatar] = useState("")
+  console.log(avatar)
+
+  const avatarChange = (e) => {
+    setAvatar(e.target.value)
+  }
+
+  const submitAvatar = () => {
+    dispatch(request(avatar));
+
+    const requestOptions = {
+        method: 'PUT',
+        headers: authHeader()
+    };
+
+    return fetch(`https://isay.gabatch11.my.id/profile/changeAvatar/${avatar}`, requestOptions)
+    .then(
+        user => dispatch(success(avatar)),
+        error => dispatch(failure(avatar, error.toString()))
+    );
+
+    function request(avatar) { return { type: "AVATAR_RESET_LOADING", avatar} }
+    function success(avatar) { return { type: "AVATAR_RESET_SUCCESS", avatar } }
+    function failure(avatar, error) { return { type: "AVATAR_RESET_FAILURE", avatar, error } }
+  }
+
+  const showModalAvatarChange = () => {
+    if(showModalAvatar === false) {
+      setShowModalAvatar(true)
+    } else {
+      setShowModalAvatar(false)
+    }
+  }
+
+  const modalAvatarReset = () => {
+    if(showModalAvatar === false) {
+      return (<div></div>)
+    } else {
+    return (
+      <div id="resetModal" className="reset-modal">
+        <div className="reset-modal-content">
+          <button onClick={showModalAvatarChange} className="close">&times;</button>
+          <div>
+            <p>Are You Sure?</p>
+            <div className="avatar-container">
+              {(getListAvatar?.listAvatar?.map((avatar, key) =>
+                <>
+                  <input
+                    type="radio"
+                    name="avatar"
+                    for={key}
+                    id={key}
+                    defaultValue={key}
+                    onChange={avatarChange}
+                  />
+                  <label
+                    htmlFor={key}
+                    id={key}
+                  >
+                    <div className="avatar-wrap">
+                      <img src={avatar} alt="user" />
+                    </div>
+                  </label>
+                </>
+              ))}
+            </div>
+            <button onClick={submitAvatar}>Give Me New Avatar</button>
+          </div>
+        </div>
+      </div>
+    )}
+  }
 
   const previewProfile = () => {
     if (oldProfile) {
       return (
       <>
         <div className="photo">
-          <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="user" />
+          <img src={oldProfile?.items?.avatar} alt="user" />
+          <div className="photo-overlay">
+            <div className="edit-cont" onClick={showModalAvatarChange}>
+              <p>Change Avatar</p>
+            </div>
+          </div>
         </div>
         <h1>{oldProfile.items?.name}</h1>
         <div className="location-setting">
           <p>{oldProfile.items?.location?.city}</p>
         </div>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid obcaecati, aspernatur nam voluptatibus illo, fugiat assumenda recusandae numquam, voluptas eius enim. Accusamus commodi natus totam laborum quam nemo veritatis maiores?</p>
+        <p>{oldProfile?.items?.bio}</p>
         <div className="interest">
           {(oldProfile.items?.interest?.map(interest =>
             <div className="interest-box">
-              <p>{interest.interest}</p>
+              <p>{interest?.interest}</p>
             </div>
           ))}
         </div>
@@ -57,11 +142,10 @@ const ProfileSetting = () => {
   const submitEmail = (e) => {
     e.preventDefault()
     const emailReset = email.email
-    console.log("kirim", emailReset)
     dispatch(userActions.resetPassword(emailReset))
   }
 
-  const showModal = () => {
+  const showModalEmailReset = () => {
     if(show === false) {
       setShow(true)
     } else {
@@ -69,14 +153,14 @@ const ProfileSetting = () => {
     }
   }
 
-  const modal = () => {
+  const modalEmailReset = () => {
     if(show === false) {
       return (<div></div>)
     } else {
     return (
       <div id="resetModal" className="reset-modal">
         <div className="reset-modal-content">
-          <button onClick={showModal} className="close">&times;</button>
+          <button onClick={showModalEmailReset} className="close">&times;</button>
           <div>
             <p>Are You Sure?</p>
             <form onSubmit={submitEmail}>
@@ -87,6 +171,21 @@ const ProfileSetting = () => {
         </div>
       </div>
     )}
+  }
+
+
+  function setTheme (themeName) {
+    localStorage.setItem ('theme', themeName)
+  }
+
+  const toggleTheme = () => {
+    if(localStorage.getItem('theme') === 'dark'){
+      setTheme('light');
+      window.location.reload();
+    } else {
+      setTheme('dark');
+      window.location.reload();
+    }
   }
 
   return (
@@ -116,8 +215,10 @@ const ProfileSetting = () => {
                 <input type="submit" defaultValue="update" />
               </div>
             </form>
-            <button onClick={showModal} className="reset">Reset Password</button>
-            {modal()}
+            <button onClick={showModalEmailReset} className="reset">Reset Password</button>
+            {modalEmailReset()}
+            {modalAvatarReset()}
+            <button onClick={toggleTheme} className="reset">Switch Theme</button>            
           </div>
         </div>
       </div>

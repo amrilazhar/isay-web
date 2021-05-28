@@ -59,12 +59,35 @@ function Signup() {
             <h2>Sign Up</h2>
             <form name="form" onSubmit={handleSubmit}>
               <label htmlFor="email">Email</label><br />
-              <input type="email" name="email" id="email" placeholder="Type your email" value={email} onChange={handleChange}/><br />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Type your email"
+                value={email}
+                onChange={handleChange}
+              /><br />
               <label htmlFor="password">Create a Password</label><br />
-              <input type="password" name="password" id="password" placeholder="xxxx-xxxx-xxxx" value={password} onChange={handleChange}/><br />
+              <input type="password"
+                name="password"
+                id="password"
+                placeholder="xxxx-xxxx-xxxx"
+                value={password}
+                onChange={handleChange}
+              /><br />
               <label htmlFor="password">Confirm your Password</label><br />
-              <input type="password" name="confirmPassword" id="confirmPassword" placeholder="xxxx-xxxx-xxxx" value={confirmPassword} onChange={handleChange}/><br />
-              <input type="submit" value="Create an Account" />
+              <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                placeholder="xxxx-xxxx-xxxx"
+                value={confirmPassword}
+                onChange={handleChange}
+              /><br />
+              <input
+                type="submit"
+                value="Create an Account"
+              />
             </form>
             <button><img src="https://img.icons8.com/color/50/000000/google-logo.png" alt="Google Logo"/> Signup with Google</button>
             <p>Already has an account? <Link to="/login">Login here</Link></p>

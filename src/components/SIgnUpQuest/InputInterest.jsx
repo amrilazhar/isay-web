@@ -102,11 +102,13 @@ const InputInterest = ({...props}) => {
                                 {displayInterestCheckBox()}
                             </div>
                             <div className="information">
-                                <p className="information-sign">i</p>
-                                <p className="information-content">You can choose as much as you want</p>
-                                <div>
-                                    <button className="btn-interest-next" onClick={() => {setShowActivity(true); setShowInterest(false); history.replace("/signupquest/3")}}>Next</button>
-                                    <button className="btn-interest-back" onClick={() => {setShowLocation(true); setShowInterest(false)}}>Back</button>
+                                <div className="interest-info-sign-content">
+                                    <p>i</p>
+                                    <p>You can choose as much as you want</p>
+                                </div>
+                                <div className="btn-interest-next-back"> 
+                                    <button onClick={() => {setShowActivity(true); setShowInterest(false); history.replace("/signupquest/3")}}>Next</button>
+                                    <button onClick={() => {setShowLocation(true); setShowInterest(false)}}>Back</button>
                                 </div>
                             </div>
                         </div>

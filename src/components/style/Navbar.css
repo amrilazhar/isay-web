@@ -8,6 +8,10 @@
   );
 }
 
+.navbar-container a {
+  text-decoration: none;
+}
+
 .navbar-container .navbar-wrapper {
   display: flex;
   justify-content: center;
@@ -31,14 +35,24 @@
   cursor: pointer;
 }
 
+.navbar-wrapper .profile-icon {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(138, 98, 251, 1);
+  border-radius: 30px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
 .navbar-wrapper .profile-icon img {
-  border: 10px solid #8a62fb;
-  background: #8a62fb;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  cursor: pointer;
-  margin-left: 2rem;
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 60%;
 }
 
 .navbar-wrapper .nav-menu {

@@ -10,7 +10,8 @@ export const userService = {
     firstCreate,
     resetPassword,
     postStatus,
-    delete: _delete
+    like,
+    unlike
 };
 
 function login(email, password) {
@@ -75,18 +76,6 @@ function update(user) {
     return fetch(`/users/${user.id}`, requestOptions).then(handleResponse);;
 }
 
-// prefixed function name with underscore because delete is a reserved word in javascript
-function _delete(id) {
-    const requestOptions = {
-        method: 'DELETE',
-        headers: authHeader()
-    };
-
-
-    //BENERIN BRO
-    return fetch(`/users/${id}`, requestOptions).then(handleResponse);
-}
-
 
 function firstCreate(location, activity, interest) {
 
@@ -104,11 +93,10 @@ function firstCreate(location, activity, interest) {
             'activity': `${activityString}`    
         })
     };
-
+    
     return fetch(`https://isay.gabatch11.my.id/user/first_profile`, requestOptions)
         .then(handleResponse)
 }
-
 
 
 function resetPassword(emailReset) {
@@ -122,8 +110,6 @@ function resetPassword(emailReset) {
         })
     };
 
-    console.log(requestOptions.body)
-
     return fetch(`https://isay.gabatch11.my.id/user/reset_password`, requestOptions)
         .then(handleResponse)
 }
@@ -131,8 +117,6 @@ function resetPassword(emailReset) {
 function postStatus(content, interestId) {
 
     const user = JSON.parse(localStorage.getItem('user'));
-
-
 
     const formData = new FormData();
     formData.append('content', `${content}`);
@@ -151,6 +135,27 @@ function postStatus(content, interestId) {
         .then(handleResponse)
 }
 
+function like(statusId) {
+
+      const requestOptions = {
+          method: 'PUT',
+          headers: authHeader()
+      };
+
+      return fetch(`https://isay.gabatch11.my.id/status/like/${statusId}`, requestOptions)
+        .then(handleResponse)
+}
+
+function unlike(statusId) {
+
+      const requestOptions = {
+          method: 'PUT',
+          headers: authHeader()
+      };
+
+      return fetch(`https://isay.gabatch11.my.id/status/unlike/${statusId}`, requestOptions)
+        .then(handleResponse)
+}
 
 function handleResponse(response) {
     return response.text()

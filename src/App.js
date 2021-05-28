@@ -6,6 +6,7 @@ import { history } from './helpers/history'
 import { alertActions } from './redux/actions'
 import { PrivateRoute } from './redux/PrivateRoute'
 
+import "./app.css"
 
 import FeedPage from './pages/FeedPage';
 import Login from './pages/Login';
@@ -16,11 +17,24 @@ import Notification from './pages/Notification';
 import GetAvatar from './pages/GetAvatar';
 import Message from './pages/Message';
 import ProfileSetting from './pages/ProfileSetting'
+import OtherUserPage from './pages/OtherUserPage';
 
 
 function App() {
 
   const dispatch = useDispatch();
+
+  function setTheme (themeName) {
+    localStorage.setItem ('theme', themeName)
+  }
+
+  (function() {
+    if(localStorage.getItem('theme') === 'dark') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  })();
 
   useEffect(() => {
       history.listen((location, action) => {
@@ -28,19 +42,22 @@ function App() {
       });
   }, []);
 
+  const themeUsed = localStorage.getItem('theme')
+
   return (
-    <div className="app">
+    <div className={`app ${themeUsed}`}>
       <Router history={history}>
           <Switch>
-              <PrivateRoute exact path="/" component={FeedPage} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
               <PrivateRoute path="/signupquest/:id"component={SignupQuest} />
               <PrivateRoute path="/avatar" component={GetAvatar} />
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
+              <PrivateRoute path="/user/:userId" component={OtherUserPage} />
               <PrivateRoute path="/message" component={Message} />
-              <PrivateRoute exact path="/setting" component={ProfileSetting} />
+              <PrivateRoute path="/setting" component={ProfileSetting} />
+              <PrivateRoute path="/" component={FeedPage} />
               <Redirect from="*" to="/" />
           </Switch>
       </Router>
