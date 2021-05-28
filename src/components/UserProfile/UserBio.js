@@ -15,7 +15,8 @@ const UserBio = (dariUserPage) => {
         <div className="profile-sizing">
           <div className="bio">
             <h2>Bio</h2>
-            {(!bio?.bio) ? <div className="bio-load"></div> :
+            {(bio?.bio === "undefined") ? <div className="bio-load"></div> :
+              (bio?.bio === "") ? <p>Your bio still empty, edit it on <a href="/setting"><strong>profile setting</strong></a></p> :
               <p>{bio?.bio}</p>
             }
           </div>
