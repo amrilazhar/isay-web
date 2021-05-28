@@ -275,10 +275,12 @@ const MainContentMessage = () => {
 			<div className="each-message-public-wrapper">
 				<div className="each-message-public-container">
 					<div className="each-message-public-head">
-
 						{/* Avatar */}
 						<div>
-							<img src={item.from.avatar ? item.from.avatar : ''} alt="avatar" />
+							<img
+								src={item.from.avatar ? item.from.avatar : ""}
+								alt="avatar"
+							/>
 						</div>
 
 						{/* Nama */}
@@ -313,7 +315,6 @@ const MainContentMessage = () => {
 							: ""}
 					</div>
 					<div className="each-message-public-content">
-
 						{/* print Message */}
 						{item.message_type == "image" ? (
 							<img width="100%" src={item.message}></img>
@@ -465,8 +466,8 @@ const MainContentMessage = () => {
 							</div>
 							<div className="message-btn-send">
 								<button
-									onClick={handleSendMessage}
 									endIcon={<SendIcon>send</SendIcon>}
+									onClick={handleSendMessage}
 								>
 									Send
 								</button>
