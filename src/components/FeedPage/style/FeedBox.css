@@ -158,6 +158,8 @@
   border: 2px solid var(--border);
   border-radius: 0.5rem;
   box-sizing: border-box;
+  background: transparent;
+  color: var(--text);
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box {

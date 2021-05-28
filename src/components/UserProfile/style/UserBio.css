@@ -41,8 +41,8 @@
   height: 30px;
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;
@@ -72,8 +72,8 @@
   height: 30px;
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;

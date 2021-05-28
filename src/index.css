@@ -30,6 +30,9 @@
   --tertierGreen: #0b7055;
   --tertierBlue: #405a8f;
   --tertierRed: #9b2020;
+
+  --colorLazyPrime: #efefef;
+  --colorLazyDouble: #e0e0e0;
 }
 
 body {

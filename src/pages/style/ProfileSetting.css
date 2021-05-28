@@ -238,11 +238,13 @@
   form
   :nth-child(2n) {
   margin-bottom: 1rem;
-  border: 0.13rem solid var(--tertierPurple);
+  border: 0.13rem solid var(--border);
   border-radius: 0.4rem;
   padding: 6px 12px;
   font-size: 0.8rem;
   resize: none;
+  background: transparent;
+  color: var(--text);
 }
 
 .setting-container
