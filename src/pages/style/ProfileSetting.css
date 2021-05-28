@@ -7,14 +7,14 @@
 }
 
 .setting-container .setting-wrapping .setting-left .setting-left-wrapper {
-  background-color: rgb(71, 129, 248);
+  background-color: var(--mainBlue);
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border-radius: 0 0 1rem 1rem;
-  color: white;
+  color: var(--white);
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
@@ -30,7 +30,7 @@
   overflow: hidden;
   border-radius: 110px;
   margin: 1.5rem 0 3rem;
-  border: 0.3rem solid white;
+  border: 0.3rem solid var(--white);
 }
 
 .setting-container
@@ -39,13 +39,84 @@
   .setting-left-wrapper
   .photo
   img {
+  transition: 0.5s ease;
+  opacity: 1;
   position: absolute;
   top: -9999px;
   bottom: -9999px;
   left: -9999px;
   right: -9999px;
   margin: auto;
-  max-height: 70%;
+  max-height: 50%;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo:hover
+  img {
+  opacity: 0.5;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo
+  .photo-overlay {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo:hover
+  .photo-overlay {
+  opacity: 1;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo
+  .photo-overlay
+  .edit-cont {
+  transition: 0.3 ease;
+  padding: 0.5rem 1rem;
+  background-color: var(--mainBlue);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo
+  .photo-overlay
+  .edit-cont
+  p {
+  margin: 0;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-left
+  .setting-left-wrapper
+  .photo
+  .photo-overlay
+  .edit-cont:hover {
+  background-color: var(--secondBlue);
 }
 
 .setting-container .setting-wrapping .setting-left .setting-left-wrapper h1 {
@@ -88,10 +159,10 @@
   .interest
   .interest-box {
   margin: 0 0.5rem;
-  background-color: white;
+  background-color: var(--white);
   padding: 0.5rem 1rem;
   border-radius: 1rem;
-  color: #4781f8;
+  color: var(--mainBlue);
   font-weight: bold;
   margin-bottom: 1.5rem;
 }
@@ -121,7 +192,7 @@
   .setting-right-wrapper
   .title {
   padding: 1.5rem 0 2rem;
-  background-image: linear-gradient(#4781f8 40%, white 99%);
+  background-image: linear-gradient(var(--mainBlue) 40%, var(--white) 99%);
   margin-bottom: 1.5rem;
   border-radius: 1rem 1rem 0 0;
 }
@@ -134,7 +205,7 @@
   h2 {
   font-size: 1.3rem;
   text-align: center;
-  color: white;
+  color: var(--white);
   margin-bottom: 1rem;
 }
 
@@ -143,7 +214,7 @@
   .setting-right
   .setting-right-wrapper
   form {
-  color: rgb(60, 60, 60);
+  color: var(--text);
   padding: 0 1rem;
   display: flex;
   flex-direction: column;
@@ -167,11 +238,13 @@
   form
   :nth-child(2n) {
   margin-bottom: 1rem;
-  border: 0.13rem solid rgb(52, 35, 53);
+  border: 0.13rem solid var(--border);
   border-radius: 0.4rem;
   padding: 6px 12px;
   font-size: 0.8rem;
   resize: none;
+  background: transparent;
+  color: var(--text);
 }
 
 .setting-container
@@ -180,7 +253,7 @@
   .setting-right-wrapper
   form
   :nth-child(2n):focus {
-  border: 0.13rem solid rgb(71, 129, 248);
+  border: 0.13rem solid var(--mainBlue);
   outline: none;
 }
 
@@ -201,7 +274,7 @@
   form
   .btn
   a {
-  color: black;
+  color: var(--text);
   text-decoration: none;
   font-weight: normal;
   border: none;
@@ -209,7 +282,7 @@
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-top: 0;
-  background-color: rgb(238, 238, 238);
+  background-color: var(--white);
 }
 
 .setting-container
@@ -219,7 +292,7 @@
   form
   .btn
   a:hover {
-  background-color: rgb(194, 191, 191);
+  background-color: var(--whitePeach);
 }
 
 .setting-container
@@ -229,8 +302,7 @@
   form
   .btn
   a:active {
-  background-color: rgb(177, 177, 177);
-  color: rgb(73, 73, 73);
+  background-color: var(--whiteShadow);
 }
 
 .setting-container
@@ -240,8 +312,8 @@
   form
   .btn
   input {
-  background-color: #009e74;
-  color: white;
+  background-color: var(--mainGreen);
+  color: var(--white);
   border: none;
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
@@ -257,7 +329,7 @@
   form
   .btn
   input:hover {
-  background-color: #058d69;
+  background-color: var(--secondGreen);
 }
 
 .setting-container
@@ -267,8 +339,7 @@
   form
   .btn
   input:active {
-  background-color: #0b7055;
-  color: rgb(189, 185, 185);
+  background-color: var(--tertierGreen);
 }
 
 .setting-container
@@ -282,8 +353,8 @@
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
   margin: 3rem auto 2rem;
-  color: white;
-  background-color: brown;
+  color: var(--white);
+  background-color: var(--tertierRed);
 }
 
 .setting-container
@@ -292,14 +363,13 @@
   .setting-right-wrapper
   .reset-modal {
   position: fixed;
-  z-index: 999999;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: #00000066;
 }
 
 .setting-container
@@ -308,10 +378,10 @@
   .setting-right-wrapper
   .reset-modal
   .reset-modal-content {
-  background-color: #fefefe;
+  background-color: var(--white);
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--border);
   width: 50%;
   border-radius: 20px;
 }
@@ -323,7 +393,7 @@
   .reset-modal
   .reset-modal-content
   .close {
-  color: #aaa;
+  color: var(--text);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -345,7 +415,7 @@
   .reset-modal
   .reset-modal-content
   .close:focus {
-  color: black;
+  color: #000000;
   text-decoration: none;
   cursor: pointer;
 }
@@ -377,7 +447,7 @@
   height: 30px;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  border: 0.13rem solid rgb(52, 35, 53);
+  border: 0.13rem solid var(--tertierPurple);
 }
 
 .setting-container
@@ -388,7 +458,7 @@
   .reset-modal-content
   form
   :first-child:focus {
-  border: 0.13rem solid rgb(71, 129, 248);
+  border: 0.13rem solid var(--mainBlue);
   outline: none;
 }
 
@@ -404,8 +474,8 @@
   margin: 0.5rem 0 0;
   border: none;
   padding: 0.7rem 0;
-  color: white;
-  background-color: brown;
+  color: var(--white);
+  background-color: var(--tertierRed);
 }
 
 .setting-container
@@ -421,7 +491,7 @@
   .setting-right
   .setting-right-wrapper
   .reset:hover {
-  background-color: rgb(141, 42, 42);
+  background-color: var(--tertierRed);
 }
 
 .setting-container
@@ -437,8 +507,99 @@
   .setting-right
   .setting-right-wrapper
   .reset:active {
-  background-color: rgb(107, 36, 36);
-  color: rgb(194, 194, 194);
+  background-color: var(--tertierRed);
+  color: var(--white);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .avatar-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .avatar-container
+  [type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .avatar-container
+  label
+  .avatar-wrap {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--mainBlue);
+  border-radius: 20px;
+  border: 0.3rem solid var(--white);
+  cursor: pointer;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .avatar-container
+  label
+  .avatar-wrap
+  img {
+  transition: 0.5s ease;
+  opacity: 1;
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 70%;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .avatar-container
+  [type="radio"]:checked
+  + label
+  .avatar-wrap {
+  background-color: var(--mainGreen);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: 600px) {

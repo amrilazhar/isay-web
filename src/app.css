@@ -1,0 +1,31 @@
+.dark {
+  --white: #000000;
+  --whitePeach: #3d4040;
+  --whiteShadow: #4e4e4e;
+
+  --background: #000000;
+
+  --text: #f3f3f3;
+  --border: #bababa;
+  --buttonClick: #3d3d3d;
+  --shadowBox: #ffffff40;
+
+  --mainPurple: #8a62fb;
+  --mainGreen: #61db99;
+  --mainBlue: #4781f8;
+  --mainRed: #d64f4f;
+
+  --secondPurple: #7758ce;
+  --secondGreen: #058d69;
+  --secondBlue: #4172d3;
+
+  --tertierPurple: #7927a9;
+  --tertierGreen: #0b7055;
+  --tertierBlue: #405a8f;
+  --tertierRed: #9b2020;
+
+  --colorLazyPrime: #101010;
+  --colorLazyDouble: #1f1f1f;
+
+  background-color: var(--background);
+}

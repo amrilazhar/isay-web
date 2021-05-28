@@ -12,12 +12,16 @@
   text-decoration: none;
 }
 
+.navbar-container .navbar-wrapper :nth-child(4) {
+  margin-left: 1rem;
+}
+
 .navbar-container .navbar-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   position: sticky;
-  z-index: 20;
+  z-index: 999;
   font-size: 1rem;
   font-weight: 600;
   padding: 0.5rem 2rem;
@@ -35,14 +39,42 @@
   cursor: pointer;
 }
 
-.navbar-wrapper .profile-icon img {
-  border: 10px solid #8a62fb;
-  background: #8a62fb;
-  border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  cursor: pointer;
-  margin-left: 2rem;
+.navbar-wrapper a .profile-icon {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(138, 98, 251, 1);
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-wrapper a .profile-icon-load {
+  width: 50px;
+  height: 50px;
+  background-image: linear-gradient(
+    89deg,
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
+  );
+  animation: 4s ease-in-out 1ms infinite normal backwards running
+    animation-loading;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-wrapper a .profile-icon-load img {
+  display: none;
+}
+
+.navbar-wrapper a .profile-icon img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 60%;
 }
 
 .navbar-wrapper .nav-menu {
@@ -185,11 +217,20 @@
     display: none;
   }
 
-  .navbar-wrapper .profile-icon {
+  .navbar-wrapper a {
     order: -1;
   }
 
-  .navbar-wrapper .profile-icon img {
+  .navbar-wrapper a .profile-icon img {
     margin-left: 0;
+  }
+}
+
+@keyframes animation-loading {
+  0% {
+    background-position: -300px center;
+  }
+  100% {
+    background-position: 300px center;
   }
 }

@@ -20,9 +20,7 @@ function getInputActivity (activities) {
         })
     };
 
-    function request(activities) {
-        return {type: inputActivityConstant.GET_INPUT_ACTIVITY_REQUEST, activities}
-    };
+    function request(activities) {return {type: inputActivityConstant.GET_INPUT_ACTIVITY_REQUEST, activities}};
     function success(response) {return {type: inputActivityConstant.GET_INPUT_ACTIVITY_SUCCESS, payload: response.data}};
     function failure(error) {return {type: inputActivityConstant.GET_INPUT_ACTIVITY_FAILURE, error}}
 }

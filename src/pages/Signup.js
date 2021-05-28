@@ -2,41 +2,43 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import FlashMessage from '../components/FlashMessage';
-import { userActions } from '../redux/actions'
+import { alertActions, userActions } from '../redux/actions'
 
 import './style/signup.css'
 
 function Signup() {
 
-    const [inputs, setInputs] = useState({
-        email: '',
-        password: '',
-        confirmPassword: ''
-    });
-    
-    const { email, password, confirmPassword } = inputs;
-    const dispatch = useDispatch();
-    const location = useLocation();
+  const [inputs, setInputs] = useState({
+      email: '',
+      password: '',
+      confirmPassword: ''
+  });
+  
+  const { email, password, confirmPassword } = inputs;
+  const dispatch = useDispatch();
+  const location = useLocation();
 
-    useEffect(() => {
-        dispatch(userActions.logout());
-    }, []);
+  useEffect(() => {
+      dispatch(userActions.logout());
+  }, []);
 
-    function handleChange(e) {
-        const { name, value } = e.target;
-        setInputs(inputs => ({ ...inputs, [name]: value }));
-    }
+  function handleChange(e) {
+      const { name, value } = e.target;
+      setInputs(inputs => ({ ...inputs, [name]: value }));
+  }
 
-    function handleSubmit(e) {
-        e.preventDefault();
+  function handleSubmit(e) {
+      e.preventDefault();
 
-        if (email && password && confirmPassword) {
-          const { from } = location.state || { from: { pathname: "/signupquest/1" } };
-          dispatch(userActions.register(email, password, confirmPassword, from));
-        }
-    }
+      if (email && password && confirmPassword) {
+        const { from } = location.state || { from: { pathname: "/signupquest/1" } };
+        dispatch(userActions.register(email, password, confirmPassword, from));
+      } else {
+        dispatch(alertActions.error("Email and password not accepted"));
+      }
+  }
 
-    const alert = useSelector ((state) => state.alert)
+  const alert = useSelector ((state) => state.alert)
 
   return (
     <div className="signup-container">
@@ -59,12 +61,35 @@ function Signup() {
             <h2>Sign Up</h2>
             <form name="form" onSubmit={handleSubmit}>
               <label htmlFor="email">Email</label><br />
-              <input type="email" name="email" id="email" placeholder="Type your email" value={email} onChange={handleChange}/><br />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Type your email"
+                value={email}
+                onChange={handleChange}
+              /><br />
               <label htmlFor="password">Create a Password</label><br />
-              <input type="password" name="password" id="password" placeholder="xxxx-xxxx-xxxx" value={password} onChange={handleChange}/><br />
+              <input type="password"
+                name="password"
+                id="password"
+                placeholder="xxxx-xxxx-xxxx"
+                value={password}
+                onChange={handleChange}
+              /><br />
               <label htmlFor="password">Confirm your Password</label><br />
-              <input type="password" name="confirmPassword" id="confirmPassword" placeholder="xxxx-xxxx-xxxx" value={confirmPassword} onChange={handleChange}/><br />
-              <input type="submit" value="Create an Account" />
+              <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                placeholder="xxxx-xxxx-xxxx"
+                value={confirmPassword}
+                onChange={handleChange}
+              /><br />
+              <input
+                type="submit"
+                value="Create an Account"
+              />
             </form>
             <button><img src="https://img.icons8.com/color/50/000000/google-logo.png" alt="Google Logo"/> Signup with Google</button>
             <p>Already has an account? <Link to="/login">Login here</Link></p>

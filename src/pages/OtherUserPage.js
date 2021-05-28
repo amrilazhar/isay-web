@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from "react-router-dom";
-import { statusInterest, otherUser } from '../redux/actions';
-
-import { history } from "../helpers";
+import { otherUser } from '../redux/actions';
 
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -46,9 +44,6 @@ const OtherUserPage = () => {
             <p>Talk with annonymous</p>
           </button>
           </a>
-          {/* <button>
-            <p>Logout</p>
-          </button>  */}
         </>
       )
     } else {
@@ -79,21 +74,14 @@ const OtherUserPage = () => {
       <Navbar/>
       <div className="profile-container">
         <div className="profile-wrapping">
-          {/* Start of Top Content */}
           <div className="profile-top-content">
             <img src="https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_qGauJCjup.png" alt="Hero Profile Banner" />
           </div>
-          {/* End of Top Content */}
-          {/* Start of Bottom Content */}
           <div className="profile-bottom-content">
-            {/* Start of Left Content */}
             <div className="profile-left-content">
               {userDetail()}
             </div>
-            {/* End of Left Content */}
-            {/* Start of Right Content */}
             <div className="profile-right-content">
-              {/* Start of Button Switch */}
               <div className="switch-page-btn">
                 <div className="menu-item">
                   <Link to={`${match.url}`}>Profile</Link>
@@ -108,8 +96,6 @@ const OtherUserPage = () => {
                   <div className="strip" />
                 </div>
               </div>
-              {/* End of Button Switch */}
-              {/* Start Custome Insertion */}
                 <Switch>
                   <Route path={`${match.path}/post`}>
                     <UserPost post = {
@@ -128,11 +114,8 @@ const OtherUserPage = () => {
                     />
                   </Route>
                 </Switch>
-              {/* End Custome Insertion */}
             </div>
-            {/* End of Right Content */}
           </div>
-          {/* End of Bottom Content */}
         </div>
       </div>
       <Footer/>

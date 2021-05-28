@@ -6,3 +6,5 @@ export * from './input.activity.action';
 export * from './input.location.action';
 export * from './other.user.action';
 export * from './notification.action';
+export * from './chat.action';
+export * from './list.avatar.action';

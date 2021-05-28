@@ -8,11 +8,9 @@ export const statusInterest = {
   getStatusUser
 };
 
-function getStatus(param, pagin) {
+function getStatus(param, page) {
   return dispatch => {
     dispatch (request())
-
-    console.log("masuk", pagin)
 
     const requestOptions = {
       method: 'GET',
@@ -20,7 +18,7 @@ function getStatus(param, pagin) {
     };
 
     axios
-      .get (`https://isay.gabatch11.my.id/status/interest/${param}?page=${pagin}`, requestOptions)
+      .get (`https://isay.gabatch11.my.id/status/interest/${param}?page=${page}`, requestOptions)
       .then (response => {
         setTimeout(() => {
           dispatch(success(response))

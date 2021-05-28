@@ -6,6 +6,7 @@ import { history } from './helpers/history'
 import { alertActions } from './redux/actions'
 import { PrivateRoute } from './redux/PrivateRoute'
 
+import "./app.css"
 
 import FeedPage from './pages/FeedPage';
 import Login from './pages/Login';
@@ -18,10 +19,28 @@ import Message from './pages/Message';
 import ProfileSetting from './pages/ProfileSetting'
 import OtherUserPage from './pages/OtherUserPage';
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faComments as fasFaComments, faComment as fasFaComment, faThumbsUp as fasFaThumbsUp, faMapMarkerAlt as fasFaMapMarkerAlt, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+import { faComments as farFaComments, faComment as farFaComment, faThumbsUp as farFaThumbsUp } from '@fortawesome/free-regular-svg-icons'
+
 
 function App() {
 
+  library.add(fasFaComments, fasFaComment, fasFaThumbsUp, farFaComments, farFaComment, farFaThumbsUp, faMapMarkerAlt)
+
   const dispatch = useDispatch();
+
+  function setTheme (themeName) {
+    localStorage.setItem ('theme', themeName)
+  }
+
+  (function() {
+    if(localStorage.getItem('theme') === 'dark') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  })();
 
   useEffect(() => {
       history.listen((location, action) => {
@@ -29,8 +48,10 @@ function App() {
       });
   }, []);
 
+  const themeUsed = localStorage.getItem('theme')
+
   return (
-    <div className="app">
+    <div className={`app ${themeUsed}`}>
       <Router history={history}>
           <Switch>
               <Route path="/login" component={Login} />

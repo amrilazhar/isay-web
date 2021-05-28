@@ -1,7 +1,7 @@
 import { from } from 'form-data'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { statusInterest, userActions } from '../../redux/actions'
+import { alertActions, statusInterest, userActions } from '../../redux/actions'
 import './style/WriteStatusBox.css'
 
 const WriteStatusBox = (fromFeedPage) => {
@@ -81,8 +81,10 @@ const WriteStatusBox = (fromFeedPage) => {
       dispatch(userActions.postStatus(content, interestId))
       e.target.reset()
       const param = ""
-      dispatch(statusInterest.getStatus(param, pagin))
-    }
+      setTimeout(() => {
+        dispatch(statusInterest.getStatus(param, pagin))
+      }, 2500)
+    } 
 
   }
 
@@ -134,7 +136,7 @@ const WriteStatusBox = (fromFeedPage) => {
     <>
     <div className="status-submit">
       <div className="user-active-profile">
-        <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
+        <img src={userActive?.items?.avatar} alt="User" />
       </div>
       <form onSubmit={submitStatus}>
         <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={""} onChange={changeText}/>

@@ -9,6 +9,7 @@ import FeedBox from '../components/FeedPage/FeedBox'
 import Footer from '../components/Footer'
 import './style/FeedPage.css'
 import Pagination from '@material-ui/lab/Pagination'
+import FlashMessage from '../components/FlashMessage'
 
 const FeedPage = () => {
 
@@ -39,9 +40,13 @@ const FeedPage = () => {
   },[])
 
   const statusUpdate = useSelector ((state) => state?.statusInterest)
+  const alert = useSelector ((state) => state.alert)
 
   return (
     <>
+    {
+      alert.alert ? <FlashMessage/> : ""
+    }
     <Navbar/>
     <div className="feed-container">
       <div className="feed-wrapping">
@@ -67,7 +72,13 @@ const FeedPage = () => {
                   <div className="circle-load"></div>
                   <div className="circle-load"></div>
                 </div>:
-                <Pagination count={`${statusUpdate?.status?.totalPages}`} page={page} color="primary" className="notification-pagination" onChange={clickPage}/>}
+                <Pagination
+                  count={`${statusUpdate?.status?.totalPages}`}
+                  page={page}
+                  color="primary"
+                  className="pagination" 
+                  onChange={clickPage}
+                />}
             </div>
           </div>
         </div>
