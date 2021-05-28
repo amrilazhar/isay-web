@@ -17,17 +17,20 @@ const CommentBox = (fromFeedBox) => {
   const users = useSelector ((state) => state?.users)
 
   const [hadLike, setHadLike] = useState(0)
+  const [likeValue, setLikeValue] = useState(0)
 
   useEffect (() => {
     const checkLike = likeBy.find((e) => e === users?.items?._id)
     return (checkLike === undefined)?
-    setHadLike(0):setHadLike(1)
+            setHadLike(0):
+            setHadLike(1)
   },[])
 
     function statusLike() {
     if(hadLike === 1) {  
       dispatch (requestLike())
       setHadLike(0)
+      setLikeValue(likeValue-1)
       userService.unlike(statusId)
         .then(
           message => dispatch(successLike(message)),
@@ -36,6 +39,7 @@ const CommentBox = (fromFeedBox) => {
         } else {
           dispatch (requestLike());
           setHadLike(1)
+          setLikeValue(likeValue+1)
           userService.like(statusId)
           .then(
             (response) => {dispatch(successLike(response))},
@@ -101,7 +105,7 @@ const CommentBox = (fromFeedBox) => {
             <FontAwesomeIcon  icon={["far", "thumbs-up"]} size="1x" color="#4f4f4f"/>
           }
           <p>Like</p>
-          <p>{`( ${likeBy?.length+hadLike} )`}</p>
+            <p>{`( ${likeBy?.length+likeValue} )`}</p>
         </div>
         <div className="button" onClick={changeShow}>
           <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>
