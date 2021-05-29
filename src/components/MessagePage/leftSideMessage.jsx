@@ -8,7 +8,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import socketIOClient from "socket.io-client";
 import { getRoomListAct } from "../../redux/actions";
-import { Link } from "react-router-dom";
 
 const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
 
@@ -54,10 +53,10 @@ const LeftSideMessage = () => {
 
 	const changeMessageInRoomList = (dataMessage) => {
 		let chatTime = document.querySelector(
-			".room-list-created-at-" + dataMessage.chatMsg_id.chatRoom
+			".room-list-created-at-" + dataMessage.chatRoom
 		);
 		let chatContent = document.querySelector(
-			".room-list-message-" + dataMessage.chatMsg_id.chatRoom
+			".room-list-message-" + dataMessage.chatRoom
 		);
 		chatTime.innerHTML = formatRelative(
 			new Date(dataMessage.created_at),
@@ -67,14 +66,9 @@ const LeftSideMessage = () => {
 			dataMessage.from._id === chatOwnerGlobal ? "You" : dataMessage.from.name;
 
 		chatContent.innerHTML =
-			dataMessage.chatMsg_id.message_type === "text"
-				? `${dispName} : ${dataMessage.chatMsg_id.message.substring(
-						0,
-						15
-				  )}${"..."}`
-				: `${dispName} : ${displayMessageImageLink(
-						dataMessage.chatMsg_id.message
-				  )}`;
+			dataMessage.message_type === "text"
+				? `${dispName} : ${dataMessage.message.substring(0, 15)}${"..."}`
+				: `${dispName} : ${displayMessageImageLink(dataMessage.message)}`;
 	};
 	const startListener = (roomList) => {
 		roomList.forEach((item) => {
