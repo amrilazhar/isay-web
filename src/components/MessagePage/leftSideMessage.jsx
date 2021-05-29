@@ -8,10 +8,26 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import socketIOClient from "socket.io-client";
 import { getRoomListAct } from "../../redux/actions";
+import { Link } from "react-router-dom";
+
+const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
 
 const LeftSideMessage = () => {
 	const dispatch = useDispatch();
+	const socketRef = useRef();
+	const [chatOwnerGlobal, setChatOwnerGlobal] = useState("");
 
+	const startServer = () => {
+		if (socketRef.current === undefined) {
+			// Creates a WebSocket connection
+
+			socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
+				transports: ["websocket"],
+				path: "/socket",
+				upgrade: false,
+			});
+		}
+	};
 	//get room ID
 	const roomList = useSelector((state) => state.getRoomList);
 
@@ -36,45 +52,96 @@ const LeftSideMessage = () => {
 		});
 	};
 
+	const changeMessageInRoomList = (dataMessage) => {
+		let chatTime = document.querySelector(
+			".room-list-created-at-" + dataMessage.chatMsg_id.chatRoom
+		);
+		let chatContent = document.querySelector(
+			".room-list-message-" + dataMessage.chatMsg_id.chatRoom
+		);
+		chatTime.innerHTML = formatRelative(
+			new Date(dataMessage.created_at),
+			new Date()
+		);
+		let dispName =
+			dataMessage.from._id === chatOwnerGlobal ? "You" : dataMessage.from.name;
+
+		chatContent.innerHTML =
+			dataMessage.chatMsg_id.message_type === "text"
+				? `${dispName} : ${dataMessage.chatMsg_id.message.substring(
+						0,
+						15
+				  )}${"..."}`
+				: `${dispName} : ${displayMessageImageLink(
+						dataMessage.chatMsg_id.message
+				  )}`;
+	};
+	const startListener = (roomList) => {
+		roomList.forEach((item) => {
+			if (chatOwnerGlobal !== item.chatOwner.toString()) {
+				setChatOwnerGlobal(item.chatOwner.toString());
+			}
+			socketRef.current.removeAllListeners("chat" + item.chatOwner);
+			// Listens for incoming messages
+			socketRef.current.on("chat:" + item.from._id, changeMessageInRoomList);
+			socketRef.current.on("chat:" + item.to._id, changeMessageInRoomList);
+		});
+	};
+
 	const displayRoomList = () => {
 		if (!roomList.loading) {
+			startListener(roomList.roomList);
 			return roomList.roomList.map((item) => (
-				<div
-					className="message-list search-room-list-name"
-					id={
-						item.from._id === item.chatOwner
-							? "search-name" + item.to.name.replace(" ", "")
-							: item.from.name.replace(" ", "")
-					}
+				<a
+					href={`/message?to=${
+						item.from._id === item.chatOwner ? item.to._id : item.from._id
+					}`}
 				>
-					<div className="message-head">
-						<div>
-							<img src={item.from.avatar} alt="avatar" />
-						</div>
-						<p>
-							{item.from._id === item.chatOwner ? item.to.name : item.from.name}
-						</p>
-						<p>{formatRelative(new Date(item.created_at), new Date())}</p>
-					</div>
-					<div className="message-peak">
-						<p>
-							<i>
+					<div
+						className="message-list search-room-list-name"
+						id={
+							item.from._id === item.chatOwner
+								? "search-name" + item.to.name.replace(" ", "")
+								: item.from.name.replace(" ", "")
+						}
+					>
+						<div className="message-head">
+							<div>
+								<img src={item.from.avatar} alt="avatar" />
+							</div>
+							<p>
 								{item.from._id === item.chatOwner
-									? "You : "
-									: `${item.from.name} : `}
-								{item.message_type === "text"
-									? item.message
-									: displayMessageImageLink(item.message)}
-							</i>
-						</p>
+									? item.to.name
+									: item.from.name}
+							</p>
+							<p className={`room-list-created-at-${item.chatRoom}`}>
+								{formatRelative(new Date(item.created_at), new Date())}
+							</p>
+						</div>
+						<div className="message-peak">
+							<p>
+								<i className={`room-list-message-${item.chatRoom}`}>
+									{item.from._id === item.chatOwner
+										? "You : "
+										: `${item.from.name} : `}
+									{item.message_type === "text"
+										? item.message.substring(0, 15) + "..."
+										: displayMessageImageLink(item.message)}
+								</i>
+							</p>
+						</div>
 					</div>
-				</div>
+				</a>
 			));
 		}
 	};
 
 	useEffect(() => {
 		dispatch(getRoomListAct());
+		startServer();
+		return () => {
+			socketRef.current.disconnect();
+		};
 	}, []);
 
 	return (
