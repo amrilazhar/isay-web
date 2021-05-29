@@ -17,6 +17,7 @@ import UserBio from '../components/UserProfile/UserBio'
 import UserPost from '../components/UserProfile/UserPost';
 import FlashMessage from '../components/FlashMessage'
 import './style/UserPage.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const UserPage = () => {
 
@@ -74,7 +75,7 @@ const UserPage = () => {
             </div>
             <h1>{userActive.items?.name}</h1>
             <div className="location-user">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
+              <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
               <p>{userActive.items?.location?.city}</p>
             </div>
           </div>

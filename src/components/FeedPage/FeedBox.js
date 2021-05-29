@@ -50,13 +50,23 @@ const FeedBox = (fromFeedPage) => {
       {oldStatus?.map((user) => (
       <div className="isay-status-box">
         <div className="user-status">
+          <DeleteStatus
+            statusId={user?._id}
+            ourId={users?.items?._id}
+            statusOwnerId={user?.owner?._id}
+          />
           <div className="upper-prop">
             <div className="user-image">
               <img src={user?.owner?.avatar} alt="User" />
             </div>
             <div className="name-and-time">
               <h2>{user?.owner?.name}</h2>
-              <p>{user?.created_at}</p>
+              <p>
+                { (user?.created_at !== undefined)?
+                  formatRelative(new Date(user?.created_at), new Date()):
+                  user?.created_at
+                }
+              </p>
             </div>
             <div className="status-interest">
               <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
@@ -72,24 +82,12 @@ const FeedBox = (fromFeedPage) => {
             <p>{user?.content}</p>
           </div>
         </div>
-        <div className="do-at-status">
-          <div className="button-collect">
-            <div className="button">
-              <FontAwesomeIcon  icon={["fas", "thumbs-up"]} size="1x" color="#4f4f4f"/>:
-              <p>Like</p>
-              <p>(3)</p>
-            </div>
-            <div className="button">
-              <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>
-              <p>Comments</p>
-              <p>(15)</p>
-            </div>
-            <div className="button">
-              <FontAwesomeIcon icon={["far", "comments"]} size="1x" color="#4f4f4f"/>
-              <p>Personal Chat</p>
-            </div>
-          </div>
-        </div>
+        <CommentBox
+          comment = {user?.comment}
+          likeBy={user?.likeBy}
+          statusId={user?._id}
+          ownerId={user?.owner?._id}
+        />
       </div>
       ))}
       </>
@@ -100,6 +98,11 @@ const FeedBox = (fromFeedPage) => {
       {statusUpdate?.status?.data?.map((user) => (
       <div className="isay-status-box">
         <div className="user-status">
+          <DeleteStatus
+            statusId={user?._id}
+            ourId={users?.items?._id}
+            statusOwnerId={user?.owner?._id}
+          />
           <div className="upper-prop">
             <div className="user-image">
               <img src={user?.owner?.avatar} alt="User" />
@@ -119,12 +122,6 @@ const FeedBox = (fromFeedPage) => {
               <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
             </div>
             <div className="status-location">
-              { (users?.items?._id === user?.owner?._id)?
-                <DeleteStatus
-                  statusId={user?._id}
-                />:
-                <></>
-              }
               <p>
                 <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
                 {user?.owner?.location?.city}

@@ -85,7 +85,7 @@ const WriteStatusBox = (fromFeedPage) => {
       const param = ""
       setTimeout(() => {
         dispatch(statusInterest.getStatus(param, pagin))
-      }, 2500)
+      }, 2000)
     } 
 
   }

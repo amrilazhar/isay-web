@@ -1,10 +1,12 @@
-import axios from 'axios'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { authHeader } from '../../helpers'
+import './style/DeleteStatus.css'
 
 const DeleteStatus = (dariFeedBox) => {
   const statusId = dariFeedBox.statusId
+  const ourId = dariFeedBox.ourId
+  const statusOwnerId = dariFeedBox.statusOwnerId
 
   const dispatch = useDispatch()
 
@@ -28,11 +30,23 @@ const DeleteStatus = (dariFeedBox) => {
   }
 
   return (
-    <button
-      onClick={deleteStatus}
-    >
-      delete
-    </button>
+    <div className="tooltip-wrapper">
+      <div className="tooltip-delete">
+        <div className="tooltip-circle-container">
+          <div className="tooltip-circle-button"></div>
+          <div className="tooltip-circle-button"></div>
+          <div className="tooltip-circle-button"></div>
+        </div>
+        <div className="tooltip-content">
+          <button>Share</button>
+          {
+            (ourId === statusOwnerId)?
+            <button onClick={deleteStatus}>Delete</button>:
+            <></>
+          }
+        </div>
+      </div>
+    </div>
   )
 }
 

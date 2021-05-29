@@ -43,9 +43,9 @@ function logout() {
         headers: authHeader()
     };
 
-    const user = JSON.parse(localStorage.getItem('user'));
+    // const user = JSON.parse(localStorage.getItem('user'));
 
-    return axios.get (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions)
+    return axios.get (`https://isay.gabatch11.my.id/profile/getProfile/`, requestOptions)
     // .then(handleResponse);
 }
 

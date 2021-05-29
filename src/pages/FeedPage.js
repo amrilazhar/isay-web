@@ -30,7 +30,6 @@ const FeedPage = () => {
     dispatch(statusInterest.getStatus(param, page))
   }
 
-  //START PROCESS FEED BOX
   useEffect(() => {
     dispatch(statusInterest.getStatus(param, page))
   },[])
