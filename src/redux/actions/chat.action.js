@@ -47,7 +47,7 @@ export const getChatHistoryAct = (chatRoom) => (dispatch) => {
 
 	axios({
 		method: "get",
-		url: SOCKET_SERVER_URL + `/chat/messageHistory/${chatRoom}?limit=10`,
+		url: SOCKET_SERVER_URL + `/chat/messageHistory/${chatRoom}?limit=30`,
 		headers: authHeader(),
 	})
 		.then((res) => {
@@ -78,7 +78,7 @@ export const getOlderChatAct =
 			method: "get",
 			url:
 				SOCKET_SERVER_URL +
-				`/chat/loadMore?chatRoom=${chatRoom}&lastMessage=${lastMessage}&limit=2`,
+				`/chat/loadMore?chatRoom=${chatRoom}&lastMessage=${lastMessage}&limit=30`,
 			headers: authHeader(),
 		})
 			.then((res) => {

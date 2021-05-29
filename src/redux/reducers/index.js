@@ -23,6 +23,7 @@ import { otherUserActivity } from './other.user.activity.reducer'
 import { firstProfileData } from './first.profile.reducer';
 import { like } from "./like.reducer";
 import { notificationData } from './notification.reducer';
+import { notificationCount } from './notification.count.reducer';
 import { listAvatar } from "./list.avatar.reducer";
 import { getComment } from "./comment.reducer";
 
@@ -50,6 +51,7 @@ const rootReducer = combineReducers({
 	setReadedStatus,
 	getOlderChat,
 	getRoomList,
+	notificationCount,
 });
 
 export default rootReducer;
