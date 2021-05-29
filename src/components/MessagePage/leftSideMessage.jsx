@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import socketIOClient from "socket.io-client";
 import { getRoomListAct } from "../../redux/actions";
-import { chatConstant } from "../../redux/type";
+import { Link } from "react-router-dom";
 
 const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
 
@@ -92,38 +92,46 @@ const LeftSideMessage = () => {
 		if (!roomList.loading) {
 			startListener(roomList.roomList);
 			return roomList.roomList.map((item) => (
-				<div
-					className="message-list search-room-list-name"
-					id={
-						item.from._id === item.chatOwner
-							? "search-name" + item.to.name.replace(" ", "")
-							: item.from.name.replace(" ", "")
-					}
+				<a
+					href={`/message?to=${
+						item.from._id === item.chatOwner ? item.to._id : item.from._id
+					}`}
 				>
-					<div className="message-head">
-						<div>
-							<img src={item.from.avatar} alt="avatar" />
-						</div>
-						<p>
-							{item.from._id === item.chatOwner ? item.to.name : item.from.name}
-						</p>
-						<p className={`room-list-created-at-${item.chatRoom}`}>
-							{formatRelative(new Date(item.created_at), new Date())}
-						</p>
-					</div>
-					<div className="message-peak">
-						<p>
-							<i className={`room-list-message-${item.chatRoom}`}>
+					<div
+						className="message-list search-room-list-name"
+						id={
+							item.from._id === item.chatOwner
+								? "search-name" + item.to.name.replace(" ", "")
+								: item.from.name.replace(" ", "")
+						}
+					>
+						<div className="message-head">
+							<div>
+								<img src={item.from.avatar} alt="avatar" />
+							</div>
+							<p>
 								{item.from._id === item.chatOwner
-									? "You : "
-									: `${item.from.name} : `}
-								{item.message_type === "text"
-									? item.message.substring(0, 15) + "..."
-									: displayMessageImageLink(item.message)}
-							</i>
-						</p>
+									? item.to.name
+									: item.from.name}
+							</p>
+							<p className={`room-list-created-at-${item.chatRoom}`}>
+								{formatRelative(new Date(item.created_at), new Date())}
+							</p>
+						</div>
+						<div className="message-peak">
+							<p>
+								<i className={`room-list-message-${item.chatRoom}`}>
+									{item.from._id === item.chatOwner
+										? "You : "
+										: `${item.from.name} : `}
+									{item.message_type === "text"
+										? item.message.substring(0, 15) + "..."
+										: displayMessageImageLink(item.message)}
+								</i>
+							</p>
+						</div>
 					</div>
-				</div>
+				</a>
 			));
 		}
 	};
