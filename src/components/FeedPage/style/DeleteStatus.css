@@ -29,7 +29,7 @@
   position: absolute;
   z-index: 1;
   top: -5px;
-  right: 110%;
+  right: 90%;
   background-color: var(--mainPurple);
 }
 
@@ -43,4 +43,40 @@
 
 .tooltip-delete:hover .tooltip-content {
   visibility: visible;
+}
+
+.reset-modal {
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #00000066;
+}
+
+.reset-modal .reset-modal-content {
+  background-color: var(--white);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid var(--border);
+  width: 50%;
+  border-radius: 20px;
+}
+
+.reset-modal .reset-modal-content .close {
+  color: var(--text);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+}
+
+.reset-modal .reset-modal-content .close:hover,
+.reset-modal .reset-modal-content .close:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
 }

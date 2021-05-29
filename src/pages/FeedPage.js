@@ -64,6 +64,7 @@ const FeedPage = () => {
             <div className="realtime-feed">
               <FeedBox
                 oldStatus={oldStatus}
+                setOldStatus={setOldStatus}
               />
               {statusUpdate?.loading ?
                 <div className="circle-box-load">

@@ -80,7 +80,7 @@ const WriteStatusBox = (fromFeedPage) => {
 
     if(content && interestId){
       e.preventDefault()
-      dispatch(userActions.postStatus(content, interestId, files))
+      dispatch(userActions.postStatus(content, interestId))
       e.target.reset()
       const param = ""
       setTimeout(() => {
