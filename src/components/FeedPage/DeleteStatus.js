@@ -34,6 +34,11 @@ const DeleteStatus = (dariFeedBox) => {
           }, 2000)
 
           setTimeout(() => {
+            const page = 1
+            dispatch(statusInterest.getStatusUser(page))
+          }, 2000)
+
+          setTimeout(() => {
             setShowModalConfirm(false)
           }, 2000)
         },

@@ -33,7 +33,7 @@ function getStatus(param, page) {
   function failure(error) {return {type: statusConstant.GET_STATUS_FAILURE, error}}
 }
 
-function getStatusUser() {
+function getStatusUser(page) {
   return dispatch => {
     dispatch (request())
 
@@ -43,7 +43,7 @@ function getStatusUser() {
     };
 
     axios
-      .get (`https://isay.gabatch11.my.id/status/users/`, requestOptions)
+      .get (`https://isay.gabatch11.my.id/status/users/?page=${page}`, requestOptions)
       .then (response => {
         setTimeout(() => {
           dispatch(success(response))

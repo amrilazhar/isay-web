@@ -9,6 +9,7 @@ import UserAct from '../components/UserProfile/UserAct';
 import UserBio from '../components/UserProfile/UserBio'
 import UserPost from '../components/UserProfile/UserPost';
 import './style/UserPage.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const OtherUserPage = () => {
 
@@ -26,7 +27,8 @@ const OtherUserPage = () => {
   },[])
 
   useEffect(() => {
-    dispatch(otherUser.otherUserStatus(userId))
+    const page = 1
+    dispatch(otherUser.otherUserStatus(userId, page))
   },[])
 
   const userThisPage = useSelector ((state) => state?.otherUser)
@@ -38,7 +40,7 @@ const OtherUserPage = () => {
         <>
           <div className="relative">
             <div className="profile-image-load">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
+              <img src=" " alt="Profile" />
             </div>
             <h1> </h1>
             <div className="location-user-load"></div>
@@ -59,7 +61,7 @@ const OtherUserPage = () => {
             </div>
             <h1>{userThisPage.items?.name}</h1>
             <div className="location-user">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
+              <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
               <p>{userThisPage.items?.location?.city}</p>
             </div>
           </div>
@@ -113,7 +115,8 @@ const OtherUserPage = () => {
                   <Route path={`${match.path}`}>
                     <UserBio bio = {{
                       bio: `${userThisPage.items?.bio}`,
-                      interest: [userThisPage.items?.interest]
+                      interest: [userThisPage.items?.interest],
+                      id: `${userThisPage.items?._id}`
                     }}
                     />
                   </Route>

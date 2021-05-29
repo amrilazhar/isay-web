@@ -1,15 +1,11 @@
-//Used Library
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
-//Action
 import { statusInterest, userActions } from '../redux/actions';
 
-//Helpers
 import { history } from "../helpers";
 
-//Component and Styling
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import UserAct from '../components/UserProfile/UserAct';
@@ -24,27 +20,23 @@ const UserPage = () => {
   const dispatch = useDispatch()
   let match = useRouteMatch()
 
-  //First get data dispatch
-  //User active data
-    useEffect(() => {
+  useEffect(() => {
       dispatch(userActions.getActive())
     },[])
-  //User active status
-    useEffect(() => {
-      dispatch(statusInterest.getStatusUser())
+
+  useEffect(() => {
+      const page = 1
+      dispatch(statusInterest.getStatusUser(page))
     },[])
 
-  //Selecting user active data and status
   const userActive = useSelector ((state) => state?.users)
   const statusUpdate = useSelector ((state) => state?.statusUser?.status)
 
-  //Logout button
   const logout = () => {
     dispatch(userActions.logout());
     history.replace('')
   }
 
-  //Component left of user detail
   const userDetail = () => {
     if(userActive.loading){
       return (
@@ -137,7 +129,8 @@ const UserPage = () => {
                   <Route path={`${match.path}`}>
                     <UserBio bio = {{
                       bio: `${userActive.items?.bio}`,
-                      interest: [userActive.items?.interest]
+                      interest: [userActive.items?.interest],
+                      id: `${userActive.items?._id}`
                     }}
                     />
                   </Route>

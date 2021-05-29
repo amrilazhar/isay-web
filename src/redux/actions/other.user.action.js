@@ -33,7 +33,7 @@ function otherUserProfile(userId) {
     function failure(error) { return { type: otherUserConstant.OTHER_USER_FAILURE, error } }
 }
 
-function otherUserStatus(userId) {
+function otherUserStatus(userId, page) {
   return dispatch => {
     dispatch (request())
 
@@ -43,7 +43,7 @@ function otherUserStatus(userId) {
     };
 
     axios
-      .get (`https://isay.gabatch11.my.id/profile/an/Post/${userId}`, requestOptions)
+      .get (`https://isay.gabatch11.my.id/profile/an/Post/${userId}?page=${page}`, requestOptions)
       .then (response => {
         setTimeout(() => {
           dispatch(success(response))

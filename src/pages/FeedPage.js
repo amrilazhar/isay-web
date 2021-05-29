@@ -10,6 +10,7 @@ import Footer from '../components/Footer'
 import './style/FeedPage.css'
 import Pagination from '@material-ui/lab/Pagination'
 import FlashMessage from '../components/FlashMessage'
+import { scrollToTop } from '../helpers/scrollToTop'
 
 const FeedPage = () => {
 
@@ -28,6 +29,7 @@ const FeedPage = () => {
     setOldStatus(null)
     const page = value
     dispatch(statusInterest.getStatus(param, page))
+    dispatch(scrollToTop)
   }
 
   useEffect(() => {
