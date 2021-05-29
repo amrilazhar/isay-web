@@ -94,7 +94,7 @@ const MainContentMessage = () => {
 			let stringError = errorFile.join(`\n, `);
 			dispatch(
 				alertActions.error(
-					`This followinf file didn't meet our expectation \n(size < 3MB & file type [jpeg, png, gif, bmp]) \n ${stringError} \n Please Re-Select All of the file again`
+					`This following file didn't meet our expectation \n(size < 3MB & file type [jpeg, png, gif, bmp]), file : \n ${stringError}.\n Please Re-Select All of the file again`
 				)
 			);
 		} else {
