@@ -19,6 +19,8 @@ const WriteStatusBox = (fromFeedPage) => {
     id:"",
   })
 
+  console.log("ini foto", files)
+
   const statusUpdate = useSelector ((state) => state?.statusInterest)
   const userActive = useSelector ((state) => state?.users)
 
@@ -78,7 +80,7 @@ const WriteStatusBox = (fromFeedPage) => {
 
     if(content && interestId){
       e.preventDefault()
-      dispatch(userActions.postStatus(content, interestId))
+      dispatch(userActions.postStatus(content, interestId, files))
       e.target.reset()
       const param = ""
       setTimeout(() => {

@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userService } from '../../redux/services/user.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { commentAction } from '../../redux/actions'
+import CommentMap from './CommentMap'
 
 const CommentBox = (fromFeedBox) => {
 
@@ -12,15 +14,46 @@ const CommentBox = (fromFeedBox) => {
   const statusId = fromFeedBox.statusId
   const ownerId = fromFeedBox.ownerId
 
-  const newLike = likeBy.length + 1
+  const users = useSelector ((state) => state?.users)
 
-  console.log("newLike nih", newLike)
+  const [hadLike, setHadLike] = useState(0)
+  const [likeValue, setLikeValue] = useState(0)
 
-  const [theCondition, setTheCondition] = useState(null)
+  useEffect (() => {
+    const checkLike = likeBy.find((e) => e === users?.items?._id)
+    return (checkLike === undefined)?
+            setHadLike(0):
+            setHadLike(1)
+  },[])
+
+    function statusLike() {
+    if(hadLike === 1) {  
+      dispatch (requestLike())
+      setHadLike(0)
+      setLikeValue(likeValue-1)
+      userService.unlike(statusId)
+        .then(
+          message => dispatch(successLike(message)),
+          error => dispatch(failureLike(error.toString()))
+        )
+        } else {
+          dispatch (requestLike());
+          setHadLike(1)
+          setLikeValue(likeValue+1)
+          userService.like(statusId)
+          .then(
+            (response) => {dispatch(successLike(response))},
+            (error) => {dispatch(failureLike(error.toString()))}
+        )
+  }
+    
+    function requestLike() {return {type: "ADD_LIKE_REQUEST"}};
+    function successLike(response) {return {type: "ADD_LIKE_SUCCESS", payload: response}}
+    function failureLike(error) {return {type: "ADD_LIKE_FAILURE", error}}
+  }
+
   const [show, setShow] = useState(false);
-
-  const conditionalLike = useSelector((state) => state.like)
-
+  
   const changeShow = () => {
     if (show === false) {
       setShow(true);
@@ -29,72 +62,18 @@ const CommentBox = (fromFeedBox) => {
       setShow(false);
     }
   }
-
-  function statusLike() {
   
-    if(theCondition == `You can't like status twice`) {  
-      dispatch (requestLike())
-      setTheCondition(null)
-      userService.unlike(statusId)
-        .then(
-          message => dispatch(successLike(message)),
-          error => dispatch(failureLike(error.toString()))
-        )
-        } else {
-          dispatch (requestLike());
-          setTheCondition(`You can't like status twice`)
-          userService.like(statusId)
-          .then(
-            (response) => {dispatch(successLike(response))},
-            (error) => {dispatch(failureLike(error.toString()))}
-    )}
-
-    function requestLike() {return {type: "ADD_LIKE_REQUEST"}};
-    function successLike(response) {return {type: "ADD_LIKE_SUCCESS", payload: response}}
-    function failureLike(error) {return {type: "ADD_LIKE_FAILURE", error}}
-  }
-
-  const commentExpand = () => {
-    if (show === true){
-      return (
-        <div className="comment-expand">
-          <form action method="post">
-            <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about me?" defaultValue={""} />
-          </form>
-          <div className="comment-box">
-            <div className="comment-detail">
-              <h2>Rafflesia Arnoldi</h2>
-              <p>3h ago</p>
-            </div>
-            <div className="comment-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam dignissimos, recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic suscipit incidunt quae.</p>
-            </div>
-          </div>
-          <div className="comment-box">
-            <div className="comment-detail">
-              <h2>Rafflesia Arnoldi</h2>
-              <p>3h ago</p>
-            </div>
-            <div className="comment-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam dignissimos,
-                recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic suscipit incidunt quae.
-              </p>
-            </div>
-          </div>
-        </div>
-      )
-    } return (<div></div>)
-  }
-
-  const users = useSelector ((state) => state?.users)
-
   return (
     <div className="do-at-status">
       <div className="button-collect">
         <div className="button" onClick={statusLike}>
-          <FontAwesomeIcon  icon={["fas", "thumbs-up"]} size="1x" color="#4f4f4f"/>
+          {
+            (hadLike === 1)?
+            <FontAwesomeIcon  icon={["fas", "thumbs-up"]} size="1x" color="#4f4f4f"/>:
+            <FontAwesomeIcon  icon={["far", "thumbs-up"]} size="1x" color="#4f4f4f"/>
+          }
           <p>Like</p>
-          <p>{`( ${likeBy?.length} )`}</p>
+            <p>{`( ${likeBy?.length+likeValue} )`}</p>
         </div>
         <div className="button" onClick={changeShow}>
           <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>
@@ -111,10 +90,17 @@ const CommentBox = (fromFeedBox) => {
           </div>
         }
       </div>
-      {commentExpand()}
+      {
+        (show === true)?
+          <CommentMap
+            show={show}
+            statusId={statusId}
+            commentLength={comment?.length}
+          />:
+          <div></div>
+      }
     </div>
   )
-
 }
 
 export default CommentBox

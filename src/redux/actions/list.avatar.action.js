@@ -6,21 +6,20 @@ export const listAvatar = {
 };
 
 function listAvatarGet() {
-    return dispatch => {
-        dispatch(request());
+    return async dispatch => {
+    dispatch(request());
 
     const requestOptions = {
         headers: authHeader()
     };
 
-    axios.get(`https://isay.gabatch11.my.id/profile/avatarList`, requestOptions)
-      .then(
-          avatar => {
-              dispatch(success(avatar))
-          })
-      .catch(
-          error => {dispatch(failure(error.toString()))}
-      );
+    try {
+        const avatar = await axios.get(`https://isay.gabatch11.my.id/profile/avatarList`, requestOptions)
+        dispatch(success(avatar))
+    }
+    catch(error){
+        dispatch(failure(error.toString()))
+        }
     };
 
     function request() { return { type: "LIST_AVATAR_REQUEST" } }

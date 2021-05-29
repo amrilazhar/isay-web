@@ -1,5 +1,6 @@
 import { formatRelative } from 'date-fns';
 import React, { useState } from 'react'
+import CommentBox from '../FeedPage/CommentBox';
 import './style/UserPost.css'
 
 const UserPost = (dariUserPage) => {
@@ -75,25 +76,12 @@ const UserPost = (dariUserPage) => {
                 <p>{status?.content}</p>
               </div>
             </div>
-            <div className="do-at-status">
-              <div className="button-collect">
-                <div className="button">
-                  <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/like_DeUkMSVa0GD.png" alt="Like" />
-                  <p>Like</p>
-                  <p>(3)</p>
-                </div>
-                <div className="button" onClick={changeShow}>
-                  <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/comment_pfnyK8aWL.png" alt="Comment" />
-                  <p>Comments</p>
-                  <p>(15)</p>
-                </div>
-                <div className="button">
-                  <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/chat_k1YWihxxc.png" alt="PC" />
-                  <p>Personal Chat</p>
-                </div>
-              </div>
-              {CommentExpand()}
-            </div>
+            <CommentBox
+              comment={status?.comment}
+              likeBy={status?.likeBy}
+              statusId={status?._id}
+              ownerId={status?.owner?._id}
+            />
           </div>)}
         </>
       }

@@ -1,5 +1,4 @@
 import { statusConstant, statusUserConstant } from '../type';
-// import { alertActions } from './alert.actions'
 import axios from 'axios';
 import { authHeader } from "../../helpers";
 
@@ -11,8 +10,6 @@ export const statusInterest = {
 function getStatus(param, page) {
   return dispatch => {
     dispatch (request())
-
-    console.log("masuk", page)
 
     const requestOptions = {
       method: 'GET',
