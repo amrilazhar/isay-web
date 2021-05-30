@@ -5,10 +5,9 @@ import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { formatRelative } from "date-fns";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import socketIOClient from "socket.io-client";
 import { getRoomListAct } from "../../redux/actions";
-import { store } from "../../redux/store";
 import jwt_decode from "jwt-decode";
 import { authHeader } from "../../helpers";
 
@@ -34,7 +33,10 @@ const LeftSideMessage = () => {
 
 			socketRef.current.removeAllListeners("chat:" + decodedToken.profile);
 			// Listens for incoming messages
-			socketRef.current.on("chat:" + decodedToken.profile, changeMessageInRoomList);
+			socketRef.current.on(
+				"chat:" + decodedToken.profile,
+				changeMessageInRoomList
+			);
 		}
 	};
 	//get room ID
@@ -83,7 +85,7 @@ const LeftSideMessage = () => {
 					? `${dispName} : ${dataMessage.message.substring(0, 15)}${"..."}`
 					: `${dispName} : ${displayMessageImageLink(dataMessage.message)}`;
 		} else {
-			dispatch(getRoomListAct())
+			dispatch(getRoomListAct());
 		}
 	};
 
@@ -105,7 +107,14 @@ const LeftSideMessage = () => {
 					>
 						<div className="message-head">
 							<div>
-								<img src={item.from.avatar} alt="avatar" />
+								<img
+									src={
+										item.from._id === item.chatOwner
+											? item.to.avatar
+											: item.from.avatar
+									}
+									alt="avatar"
+								/>
 							</div>
 							<p>
 								{item.from._id === item.chatOwner
