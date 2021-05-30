@@ -20,7 +20,6 @@ import FlashMessage from "../../components/FlashMessage";
 
 import React from "react";
 const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
-// const SOCKET_SERVER_URL = "http://localhost:3000";
 
 const MainContentMessage = () => {
   const [newMessage, setNewMessage] = useState(""); // Message to be sent
