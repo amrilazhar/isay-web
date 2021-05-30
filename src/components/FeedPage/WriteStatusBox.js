@@ -40,6 +40,9 @@ const WriteStatusBox = (fromFeedPage) => {
       return files?.map( (i, x) =>
       <div className="img-wrapper">
         <img src={URL.createObjectURL(files[x])} alt={"upload"}/>
+        {
+          console.log("filesnya ini",URL.createObjectURL(files[x]))
+        }
       </div>
         )
     }
@@ -80,7 +83,7 @@ const WriteStatusBox = (fromFeedPage) => {
 
     if(content && interestId){
       e.preventDefault()
-      dispatch(userActions.postStatus(content, interestId))
+      dispatch(userActions.postStatus(content, interestId, files))
       e.target.reset()
       const param = ""
       setTimeout(() => {

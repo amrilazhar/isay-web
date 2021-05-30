@@ -116,23 +116,33 @@ function resetPassword(emailReset) {
         .then(handleResponse)
 }
 
-function postStatus(content, interestId) {
+function postStatus(content, interestId, files) {
 
     // const user = JSON.parse(localStorage.getItem('user'));
+
+    const images = files.map((i,x) => 
+        URL.createObjectURL(files[x])
+    )
+
+    console.log("images", images)
 
     const formData = new FormData();
     formData.append('content', `${content}`);
     // formData.append('owner', `${user.id}`);
     formData.append('interest', `${interestId}`);
+    // formData.append('media', images[0]);
+    formData.append('media[]', files);
+    // formData.append('media[]', files[1]);
 
-    // if(files){
-    //     if(files.length === 1){
-    //         formData.append('media[]', files[0], 'files01.jpg');
+    // if(images){
+    //     if(images.length === 1){
+    //         formData.append('media', images);
     //     } else {
-    //         formData.append('media[]', files[0], 'files01.jpg');
-    //         formData.append('media[]', files[1], 'files02.jpg');
+    //         formData.append('media', images[0], 'files01.jpg');
+    //         formData.append('media', images[1], 'files02.jpg');
     //     }
     // }
+    console.log("inimedia", formData.get("media[]"))
 
     console.log("iniform", formData.get("content"), formData.get("owner"), formData.get("interest"))
 
