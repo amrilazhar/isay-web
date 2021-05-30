@@ -110,7 +110,7 @@ const ContentNotification = () => {
                         </div>
                       </div>
                       <Divider />
-                      {(data.readed)? "" : notifReaded()}
+                      {(data.readed._id)? "" : notifReaded()}
                     </>
                   )}
                 </>
