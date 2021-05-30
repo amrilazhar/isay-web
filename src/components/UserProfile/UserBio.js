@@ -1,10 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './style/UserBio.css'
 
 const UserBio = (dariUserPage) => {
 
   const bio = dariUserPage.bio
+
+  const ourId = useSelector((state) => state.users?.items?._id)
 
   if (!bio){
       return (
@@ -15,8 +18,15 @@ const UserBio = (dariUserPage) => {
         <div className="profile-sizing">
           <div className="bio">
             <h2>Bio</h2>
-            {(bio?.bio === "undefined") ? <div className="bio-load"></div> :
-              (bio?.bio === "") ? <p>Your bio still empty, edit it on <a href="/setting"><strong>profile setting</strong></a></p> :
+            { (bio?.bio === "undefined") ?
+              <div className="bio-load"></div>
+              :
+              (bio?.bio === "") ?
+              (ourId === bio.id) ?
+              <p>Your bio still empty, edit it on <a href="/setting"><strong>profile setting</strong></a></p>
+              :
+              <p>This user bio is empty</p>
+              :
               <p>{bio?.bio}</p>
             }
           </div>

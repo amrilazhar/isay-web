@@ -43,9 +43,9 @@ function logout() {
         headers: authHeader()
     };
 
-    const user = JSON.parse(localStorage.getItem('user'));
+    // const user = JSON.parse(localStorage.getItem('user'));
 
-    return axios.get (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions)
+    return axios.get (`https://isay.gabatch11.my.id/profile/getProfile`, requestOptions)
     // .then(handleResponse);
 }
 
@@ -122,8 +122,17 @@ function postStatus(content, interestId) {
 
     const formData = new FormData();
     formData.append('content', `${content}`);
-    formData.append('owner', `${user.id}`);
+    // formData.append('owner', `${user.id}`);
     formData.append('interest', `${interestId}`);
+
+    // if(files){
+    //     if(files.length === 1){
+    //         formData.append('media[]', files[0], 'files01.jpg');
+    //     } else {
+    //         formData.append('media[]', files[0], 'files01.jpg');
+    //         formData.append('media[]', files[1], 'files02.jpg');
+    //     }
+    // }
 
     console.log("iniform", formData.get("content"), formData.get("owner"), formData.get("interest"))
 

@@ -10,6 +10,7 @@ import Footer from '../components/Footer'
 import './style/FeedPage.css'
 import Pagination from '@material-ui/lab/Pagination'
 import FlashMessage from '../components/FlashMessage'
+import { scrollToTop } from '../helpers/scrollToTop'
 
 const FeedPage = () => {
 
@@ -28,9 +29,9 @@ const FeedPage = () => {
     setOldStatus(null)
     const page = value
     dispatch(statusInterest.getStatus(param, page))
+    dispatch(scrollToTop)
   }
 
-  //START PROCESS FEED BOX
   useEffect(() => {
     dispatch(statusInterest.getStatus(param, page))
   },[])
@@ -65,6 +66,7 @@ const FeedPage = () => {
             <div className="realtime-feed">
               <FeedBox
                 oldStatus={oldStatus}
+                setOldStatus={setOldStatus}
               />
               {statusUpdate?.loading ?
                 <div className="circle-box-load">

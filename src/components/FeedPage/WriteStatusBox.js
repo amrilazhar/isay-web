@@ -19,6 +19,8 @@ const WriteStatusBox = (fromFeedPage) => {
     id:"",
   })
 
+  console.log("ini foto", files)
+
   const statusUpdate = useSelector ((state) => state?.statusInterest)
   const userActive = useSelector ((state) => state?.users)
 
@@ -83,7 +85,7 @@ const WriteStatusBox = (fromFeedPage) => {
       const param = ""
       setTimeout(() => {
         dispatch(statusInterest.getStatus(param, pagin))
-      }, 2500)
+      }, 2000)
     } 
 
   }

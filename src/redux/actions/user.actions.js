@@ -125,6 +125,8 @@ function postStatus (content, interestId) {
     return dispatch => {
         dispatch(request());
 
+        // console.log("files sampe", files)
+
         userService.postStatus(content, interestId)
             .then (
                 content => dispatch(success(content)),

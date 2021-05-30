@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userService } from '../../redux/services/user.service'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { commentAction } from '../../redux/actions'
+import CommentMap from './CommentMap'
 
 const CommentBox = (fromFeedBox) => {
 
@@ -11,8 +13,6 @@ const CommentBox = (fromFeedBox) => {
   const likeBy = fromFeedBox.likeBy
   const statusId = fromFeedBox.statusId
   const ownerId = fromFeedBox.ownerId
-
-  console.log("comment", comment)
 
   const users = useSelector ((state) => state?.users)
 
@@ -53,7 +53,7 @@ const CommentBox = (fromFeedBox) => {
   }
 
   const [show, setShow] = useState(false);
-
+  
   const changeShow = () => {
     if (show === false) {
       setShow(true);
@@ -62,39 +62,7 @@ const CommentBox = (fromFeedBox) => {
       setShow(false);
     }
   }
-
-  const commentExpand = () => {
-    if (show === true){
-      return (
-        <div className="comment-expand">
-          <form action method="post">
-            <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about me?" defaultValue={""} />
-          </form>
-          <div className="comment-box">
-            <div className="comment-detail">
-              <h2>Rafflesia Arnoldi</h2>
-              <p>3h ago</p>
-            </div>
-            <div className="comment-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam dignissimos, recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic suscipit incidunt quae.</p>
-            </div>
-          </div>
-          <div className="comment-box">
-            <div className="comment-detail">
-              <h2>Rafflesia Arnoldi</h2>
-              <p>3h ago</p>
-            </div>
-            <div className="comment-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam dignissimos,
-                recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic suscipit incidunt quae.
-              </p>
-            </div>
-          </div>
-        </div>
-      )
-    } return (<div></div>)
-  }
-
+  
   return (
     <div className="do-at-status">
       <div className="button-collect">
@@ -122,10 +90,17 @@ const CommentBox = (fromFeedBox) => {
           </div>
         }
       </div>
-      {commentExpand()}
+      {
+        (show === true)?
+          <CommentMap
+            show={show}
+            statusId={statusId}
+            commentLength={comment?.length}
+          />:
+          <div></div>
+      }
     </div>
   )
-
 }
 
 export default CommentBox

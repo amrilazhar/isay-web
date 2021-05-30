@@ -23,7 +23,9 @@ import { otherUserActivity } from './other.user.activity.reducer'
 import { firstProfileData } from './first.profile.reducer';
 import { like } from "./like.reducer";
 import { notificationData } from './notification.reducer';
+import { notificationCount } from './notification.count.reducer';
 import { listAvatar } from "./list.avatar.reducer";
+import { getComment } from "./comment.reducer";
 
 const rootReducer = combineReducers({
 	authentication,
@@ -35,20 +37,21 @@ const rootReducer = combineReducers({
 	inputInterestData,
 	inputActivityData,
 	inputLocationData,
+	otherUser,
+	otherUserStatus,
+	firstProfileData,
+	otherUserActivity,
+	like,
+	listAvatar,
+	notificationData,
+	getComment,
 	getChatRoom,
 	getChatHistory,
 	setChatMessage,
 	setReadedStatus,
 	getOlderChat,
 	getRoomList,
-    otherUser,
-    otherUserStatus,
-    firstProfileData,
-    otherUserActivity,
-    firstProfileData,
-    like,
-    notificationData,
-    listAvatar
+	notificationCount,
 });
 
 export default rootReducer;
