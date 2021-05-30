@@ -84,6 +84,18 @@ const FeedBox = (fromFeedPage) => {
           </div>
           <div className="lower-prop">
             <p>{user?.content}</p>
+            <div className="image-post">
+              {
+                (!user?.media)? <div></div> :
+                <>{
+                  user?.media?.map(media =>(
+                    <div className="image-cont">
+                      <img src={`${media}`} alt="PostMage" />
+                    </div>
+                  ))
+                }</>
+              }
+            </div>
           </div>
         </div>
         <CommentBox
@@ -136,6 +148,18 @@ const FeedBox = (fromFeedPage) => {
           </div>
           <div className="lower-prop">
             <p>{user?.content}</p>
+            <div className="image-post">
+              {
+                (!user?.media)? <div></div> :
+                <>{
+                  user?.media?.map(media =>(
+                    <div className="image-cont">
+                      <img src={`${media}`} alt="PostMage" />
+                    </div>
+                  ))
+                }</>
+              }
+            </div>
           </div>
         </div>
         <CommentBox

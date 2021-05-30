@@ -60,6 +60,18 @@ const UserPost = (dariUserPage) => {
               </div>
               <div className="lower-prop">
                 <p>{status?.content}</p>
+                <div className="image-post">
+                  {
+                    (!status?.media)? <div></div> :
+                    <>{
+                      status?.media?.map(media =>(
+                        <div className="image-cont">
+                          <img src={`${media}`} alt="PostMage" />
+                        </div>
+                      ))
+                    }</>
+                  }
+                </div>
               </div>
             </div>
             <CommentBox
