@@ -7,6 +7,7 @@ import {
 	getChatRoomAct,
 	chatMessageAct,
 	getOlderChatAct,
+	alertActions,
 } from "../../redux/actions";
 import { formatRelative } from "date-fns";
 import { useSelector, useDispatch } from "react-redux";
@@ -15,6 +16,7 @@ import socketIOClient from "socket.io-client";
 import { store } from "../../redux/store";
 import { useLocation } from "react-router-dom";
 import { chatConstant } from "../../redux/type";
+import FlashMessage from "../../components/FlashMessage";
 
 import React from "react";
 const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
@@ -40,6 +42,8 @@ const MainContentMessage = () => {
 	const chatMessage = useSelector((state) => state.setChatMessage.message);
 	//handleOlderChat
 	const olderChat = useSelector((state) => state.getOlderChat);
+	//handle Alert Message
+	const alert = useSelector((state) => state.alert);
 
 	const receiver = useLocation()
 		.search.substring(1)
@@ -62,12 +66,13 @@ const MainContentMessage = () => {
 	};
 	//=========== END Handle Scroll ===================
 
-	const handleNewMessageChange = (event) => {
+  const handleNewMessageChange = (event) => {
 		setNewMessage(event.target.value);
 	};
 
 	const handleNewImagesChange = (event) => {
 		let imgCont = [];
+		let errorFile = [];
 		let fileCont = event.target.files;
 		for (const el of fileCont) {
 			//rules for upload file less than 3MB and type image
@@ -81,10 +86,26 @@ const MainContentMessage = () => {
 				encodeBase64(el, (image) => {
 					imgCont.push(image);
 				});
+			} else {
+				errorFile.push(el.name);
 			}
 		}
-		setNewImages(imgCont);
+		if (errorFile.length > 0) {
+			let stringError = errorFile.join(`\n, `);
+			dispatch(
+				alertActions.error(
+					`This following file didn't meet our expectation \n(size < 3MB & file type [jpeg, png, gif, bmp]), file : \n ${stringError}.\n Please Re-Select All of the file again`
+				)
+			);
+		} else {
+			setNewImages(imgCont);
+		}
 	};
+
+   // =============show image ==========================
+
+
+  // =============end show image=========================
 
 	const handleSendMessage = () => {
 		if (newImages.length > 0) {
@@ -192,7 +213,14 @@ const MainContentMessage = () => {
 		});
 	};
 
-	const setReadStatus = (messageID) => {
+	const setReadStatus = (messageID, chatType, idx) => {
+		if (chatType === "new") {
+			chatMessage[idx].readed = true;
+		} else if (chatType === "history") {
+			chatHistory.message[idx].readed = true;
+		} else if (chatType === "older") {
+			olderChat.message[idx].readed = true;
+		}
 		socketRef.current.emit(chatConstant.SET_READ_STATUS_MESSAGE_EVENT, {
 			message_id: messageID,
 		});
@@ -218,7 +246,7 @@ const MainContentMessage = () => {
 					: chatHistory.message.length > 0
 					? chatHistory.message[0]._id
 					: "";
-			return displayChatMessage(olderChat.message);
+			return displayChatMessage(olderChat.message, "older");
 		}
 	};
 	//============== END Handle Load Older Chat ======================
@@ -270,15 +298,17 @@ const MainContentMessage = () => {
 		return "";
 	};
 
-	const displayChatMessage = (message) => {
+	const displayChatMessage = (message, chatType = "new") => {
 		return message.map((item, i) => (
 			<div className="each-message-public-wrapper">
 				<div className="each-message-public-container">
 					<div className="each-message-public-head">
-
 						{/* Avatar */}
 						<div>
-							<img src={item.from.avatar ? item.from.avatar : ''} alt="avatar" />
+							<img
+								src={item.from.avatar ? item.from.avatar : ""}
+								alt="avatar"
+							/>
 						</div>
 
 						{/* Nama */}
@@ -306,14 +336,13 @@ const MainContentMessage = () => {
 						)}
 
 						{/* set read status true */}
-						{item.to._id === receiver
+						{item.readed === true
 							? ""
-							: !item.readed
-							? setReadStatus(item._id)
-							: ""}
+							: item.to._id === receiver
+							? ""
+							: setReadStatus(item._id, chatType, i)}
 					</div>
 					<div className="each-message-public-content">
-
 						{/* print Message */}
 						{item.message_type == "image" ? (
 							<img width="100%" src={item.message}></img>
@@ -396,85 +425,88 @@ const MainContentMessage = () => {
 		);
 	} else
 		return (
-			<div className="main-message-container">
-				<div className="main-message-wrapper">
-					{/* Start server after room loaded */}
-					{room.loading ? "" : startServer(room.roomData._id)}
+			<>
+				{alert.alert ? <FlashMessage /> : ""}
+				<div className="main-message-container">
+					<div className="main-message-wrapper">
+						{/* Start server after room loaded */}
+						{room.loading ? "" : startServer(room.roomData._id)}
 
-					{/* display receiver message Profile info */}
-					{displayChatName()}
+						{/* display receiver message Profile info */}
+						{displayChatName()}
 
-					<div className="content-message-wrapper">
-						{/* <div className="empty-line"></div> */}
-						{displayLoadMoreButton()}
+						<div className="content-message-wrapper">
+							{/* <div className="empty-line"></div> */}
+							{displayLoadMoreButton()}
 
-						{chatHistory.loading ? (
-							"waiting history chat "
-						) : chatHistory.message.length > 0 ? (
-							""
-						) : (
-							<div className="empty-line"></div>
-						)}
+							{chatHistory.loading ? (
+								"waiting history chat "
+							) : chatHistory.message.length > 0 ? (
+								""
+							) : (
+								<div className="empty-line"></div>
+							)}
 
-						{/* print isi load older chat */}
-						{printOlderChat()}
+							{/* print isi load older chat */}
+							{printOlderChat()}
 
-						{/* display history message */}
-						{chatHistory.loading
-							? "waiting history chat "
-							: displayChatMessage(chatHistory.message)}
+							{/* display history message */}
+							{chatHistory.loading
+								? "waiting history chat "
+								: displayChatMessage(chatHistory.message, "history")}
 
-						{/* display new message entered */}
-						{displayChatMessage(chatMessage)}
+							{/* display new message entered */}
+							{displayChatMessage(chatMessage)}
 
-						<div ref={messagesEndRef}></div>
-					</div>
-					<div className="chat-image-container">
-						<div>{}</div>
-					</div>
-					<div className="textarea-wrapper">
-						<textarea
-							wrap="soft"
-							type="text"
-							name="message"
-							id="message"
-							placeholder="Write a message"
-							defaultValue={""}
-							value={newMessage}
-							onChange={handleNewMessageChange}
-						/>
-						<div className="message-btn">
-							<div className="message-btn-upload">
-								<input
-									accept="image/*"
-									id="contained-button-file"
-									multiple
-									type="file"
-									onChange={handleNewImagesChange}
-								/>
-								<label htmlFor="contained-button-file">
-									<Button
-										className="img-button"
-										variant="contained"
-										component="span"
-										startIcon={<ImageOutlinedIcon />}
+							<div ref={messagesEndRef}></div>
+						</div>
+						<div className="chat-image-container">
+							<div>{}</div>
+						</div>
+						<div className="textarea-wrapper">
+							<textarea
+								wrap="soft"
+								type="text"
+								name="message"
+								id="message"
+								placeholder="Write a message"
+								defaultValue={""}
+								value={newMessage}
+								onChange={handleNewMessageChange}
+							/>
+							<div className="message-btn">
+								<div className="message-btn-upload">
+									<input
+										accept="image/*"
+										id="contained-button-file"
+										multiple
+										type="file"
+										onChange={handleNewImagesChange}
+									/>
+									<label htmlFor="contained-button-file">
+										<Button
+											className="img-button"
+											variant="contained"
+											component="span"
+											startIcon={<ImageOutlinedIcon />}
+										>
+											Image
+										</Button>
+									</label>
+								</div>
+								<div className="message-btn-send">
+									<button
+										endIcon={<SendIcon>send</SendIcon>}
+										onClick={handleSendMessage}
 									>
-										Image
-									</Button>
-								</label>
-							</div>
-							<div className="message-btn-send">
-								<button
-									onClick={handleSendMessage}
-									endIcon={<SendIcon>send</SendIcon>}
-								>
-									Send
-								</button>
+										Send
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</>
 		);
 };
 
