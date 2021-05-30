@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom';
 import FlashMessage from '../components/FlashMessage';
 import { alertActions, userActions } from '../redux/actions'
-
+import { googleClient } from '../helpers/google.client'
+import { GoogleLogin } from "react-google-login";
 import './style/login.css'
 
 function Login() {
@@ -41,6 +42,10 @@ function Login() {
 
   const alert = useSelector ((state) => state.alert)
 
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
+
   return (
     <div className="login-container">
       {
@@ -67,7 +72,16 @@ function Login() {
               <input type="password" name="password" id="password" placeholder="xxxx-xxxx-xxxx" value={password} onChange={handleChange}/><br />
               <input type="submit" value="Login" />
             </form>
-            <button><img src="https://img.icons8.com/color/50/000000/google-logo.png" alt="Google Logo"/>Login with Google</button>
+            <GoogleLogin
+              clientId={googleClient.GOOGLE_CLIENT_ID}
+              render={renderProps => (
+                <button onClick={renderProps.onClick} disabled={renderProps.disabled}><img src="https://img.icons8.com/color/50/000000/google-logo.png" alt="Google Logo"/> Login with Google</button>
+              )}
+              buttonText="Log In"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={'single_host_origin'}
+            />
             <p>New member? <Link to="/signup">Sign Up here</Link></p>
           </div>
         </div>

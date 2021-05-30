@@ -26,7 +26,19 @@ const WriteStatusBox = (fromFeedPage) => {
 
   const uploadFile = (e) => {
     e.preventDefault()
-    setFiles([...files, e?.target?.files[0]])
+
+    if (
+      (e?.target?.files[0].type == "image/jpeg" ||
+        e?.target?.files[0].type == "image/png" ||
+        e?.target?.files[0].type == "image/gif" ||
+        e?.target?.files[0].type == "image/bmp") &&
+      e?.target?.files[0].size / (1024 * 1024) < 1
+    ){
+      setFiles([...files, e?.target?.files[0]])
+    } else {
+      dispatch(alertActions.error("file exciding maximum size"))
+    }
+
   }
 
   const mapImage = () => {
@@ -40,6 +52,9 @@ const WriteStatusBox = (fromFeedPage) => {
       return files?.map( (i, x) =>
       <div className="img-wrapper">
         <img src={URL.createObjectURL(files[x])} alt={"upload"}/>
+        {
+          console.log("filesnya ini",URL.createObjectURL(files[x]))
+        }
       </div>
         )
     }
@@ -80,12 +95,20 @@ const WriteStatusBox = (fromFeedPage) => {
 
     if(content && interestId){
       e.preventDefault()
-      dispatch(userActions.postStatus(content, interestId))
+      dispatch(userActions.postStatus(content, interestId, files))
       e.target.reset()
       const param = ""
-      setTimeout(() => {
-        dispatch(statusInterest.getStatus(param, pagin))
-      }, 2000)
+
+      if (!files){
+        setTimeout(() => {
+          dispatch(statusInterest.getStatus(param, pagin))
+        }, 2500)
+      } else {
+        setTimeout(() => {
+          dispatch(statusInterest.getStatus(param, pagin))
+        }, 5000)
+      }
+
     } 
   }
 
