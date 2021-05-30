@@ -3,7 +3,6 @@ import axios from "axios";
 import { authHeader } from "../../helpers";
 
 const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
-// const SOCKET_SERVER_URL = "http://localhost:3000";
 
 export const getChatRoomAct = (receiver) => (dispatch) => {
 	dispatch({
