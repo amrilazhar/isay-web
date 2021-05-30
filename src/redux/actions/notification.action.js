@@ -4,6 +4,7 @@ import { authHeader } from "../../helpers";
 
 export const notificationData = {
     getNotificationData,
+
 }
 
 function getNotificationData (page, limit) {

@@ -1,6 +1,7 @@
 import React from "react"
 import Button from '@material-ui/core/Button';
 import "./style/leftSide.css"
+import {Link} from "react-router-dom"
 
 const TopicofInterest = () => {
     return(
@@ -16,7 +17,7 @@ const TopicofInterest = () => {
                         <li>#Art</li>
                     </ul>
                 </div>
-                <Button variant="outlined" selected className="Button" >Add more topics</Button>
+                <Link to='/profile'><Button variant="outlined" selected className="Button" >Add more topics</Button></Link>
             </div>
         </div>
     )

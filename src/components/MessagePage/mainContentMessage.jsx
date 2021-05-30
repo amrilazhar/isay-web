@@ -66,7 +66,7 @@ const MainContentMessage = () => {
 	};
 	//=========== END Handle Scroll ===================
 
-	const handleNewMessageChange = (event) => {
+  const handleNewMessageChange = (event) => {
 		setNewMessage(event.target.value);
 	};
 
@@ -101,6 +101,11 @@ const MainContentMessage = () => {
 			setNewImages(imgCont);
 		}
 	};
+
+   // =============show image ==========================
+
+
+  // =============end show image=========================
 
 	const handleSendMessage = () => {
 		if (newImages.length > 0) {
