@@ -67,7 +67,10 @@ const OtherUserPage = () => {
           </div>
           <a>
             <button>
-              <p>Talk with annonymous</p>
+
+              <a href = {`/message?to=${userThisPage?.items?._id}`}>
+                <p>Talk with annonymous</p>
+              </a>
             </button>
           </a>
         </>

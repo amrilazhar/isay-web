@@ -18,6 +18,11 @@ const CommentBox = (fromFeedBox) => {
 
   const [hadLike, setHadLike] = useState(0)
   const [likeValue, setLikeValue] = useState(0)
+  const [commentLength, setCommentLength] = useState(0)
+
+  useEffect (() => {
+    setCommentLength(comment?.length)
+  },[])
 
   useEffect (() => {
     const checkLike = likeBy.find((e) => e === users?.items?._id)
@@ -76,9 +81,14 @@ const CommentBox = (fromFeedBox) => {
             <p>{`( ${likeBy?.length+likeValue} )`}</p>
         </div>
         <div className="button" onClick={changeShow}>
-          <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>
+          {
+            (show === false)?
+            <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>:
+            <FontAwesomeIcon icon={["fas", "comment"]} size="1x" color="#4f4f4f"/>
+
+          }
           <p>Comments</p>
-          <p>{`( ${comment?.length} )`}</p>
+          <p>{`( ${commentLength} )`}</p>
         </div>
         { (users?.items?._id === ownerId)?
           <div></div>:
@@ -95,7 +105,8 @@ const CommentBox = (fromFeedBox) => {
           <CommentMap
             show={show}
             statusId={statusId}
-            commentLength={comment?.length}
+            commentLength={commentLength}
+            setCommentLength={setCommentLength}
           />:
           <div></div>
       }

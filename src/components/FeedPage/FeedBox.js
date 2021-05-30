@@ -14,6 +14,7 @@ const FeedBox = (fromFeedPage) => {
   const statusUpdate = useSelector ((state) => state?.statusInterest)
   const users = useSelector ((state) => state?.users)
   const setOldStatus = fromFeedPage?.setOldStatus
+  const setPage = fromFeedPage?.setPage
 
   const loadComponent = () => {
     return (
@@ -56,6 +57,7 @@ const FeedBox = (fromFeedPage) => {
             ourId={users?.items?._id}
             statusOwnerId={user?.owner?._id}
             setOldStatus={setOldStatus}
+            setPage={setPage}
           />
           <div className="upper-prop">
             <div className="user-image">
@@ -105,6 +107,7 @@ const FeedBox = (fromFeedPage) => {
             ourId={users?.items?._id}
             statusOwnerId={user?.owner?._id}
             setOldStatus={setOldStatus}
+            setPage={setPage}
           />
           <div className="upper-prop">
             <div className="user-image">

@@ -1,6 +1,5 @@
 import "./style/notification.css"
-
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import LeftSide from "../components/NotifPage/LeftSideNotif";
