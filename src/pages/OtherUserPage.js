@@ -113,7 +113,10 @@ const OtherUserPage = () => {
                     />
                   </Route>
                   <Route path={`${match.path}/act`}>
-                    <UserAct/>
+                    <UserAct
+                      userId = {userThisPage.items?._id}
+                      userName = {userThisPage?.items?.name}
+                    />
                   </Route>
                   <Route path={`${match.path}`}>
                     <UserBio bio = {{

@@ -124,7 +124,10 @@ const UserPage = () => {
                     />
                   </Route>
                   <Route path={`${match.path}/act`}>
-                    <UserAct/>
+                    <UserAct
+                      userId = {userActive.items?._id}
+                      userName ={userActive.items?.name}
+                    />
                   </Route>
                   <Route path={`${match.path}`}>
                     <UserBio bio = {{
