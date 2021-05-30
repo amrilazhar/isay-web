@@ -87,7 +87,6 @@ const WriteStatusBox = (fromFeedPage) => {
         dispatch(statusInterest.getStatus(param, pagin))
       }, 2000)
     } 
-
   }
 
   const [show, setShow] = useState(false)
@@ -141,7 +140,15 @@ const WriteStatusBox = (fromFeedPage) => {
         <img src={userActive?.items?.avatar} alt="User" />
       </div>
       <form onSubmit={submitStatus}>
-        <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about the world?" defaultValue={""} onChange={changeText}/>
+        <textarea
+          wrap="soft"
+          type="text"
+          name="status"
+          id="status"
+          placeholder="What do you feel about the world?"
+          defaultValue={""}
+          onChange={changeText}
+        />
         <div className="status-tools">
           <button className="upload" onClick={showModal}>Upload Image</button>
           {modal()}

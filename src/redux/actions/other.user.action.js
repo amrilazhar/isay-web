@@ -1,5 +1,5 @@
 import { otherUserActivityConstant, otherUserConstant } from '../type';
-import { alertActions } from './alert.actions'
+// import { alertActions } from './alert.actions'
 import { authHeader } from "../../helpers";
 import axios from "axios";
 

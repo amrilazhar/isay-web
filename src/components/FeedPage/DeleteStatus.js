@@ -9,6 +9,7 @@ const DeleteStatus = (dariFeedBox) => {
   const ourId = dariFeedBox.ourId
   const statusOwnerId = dariFeedBox.statusOwnerId
   const setOldStatus = dariFeedBox.setOldStatus
+  const setPage = dariFeedBox.setPage
 
   const dispatch = useDispatch()
 
@@ -27,6 +28,7 @@ const DeleteStatus = (dariFeedBox) => {
           dispatch(alertActions.success('Successfully delete your status'));
 
           setOldStatus(null)
+          setPage(1)
           const param = ""
           const pagin = 1
           setTimeout(() => {

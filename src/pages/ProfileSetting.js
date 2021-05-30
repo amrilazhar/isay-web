@@ -24,7 +24,6 @@ const ProfileSetting = () => {
 
   const [showModalAvatar, setShowModalAvatar] = useState(false)
   const [avatar, setAvatar] = useState("")
-  console.log(avatar)
 
   const avatarChange = (e) => {
     setAvatar(e.target.value)

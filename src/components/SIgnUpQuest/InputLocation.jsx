@@ -2,7 +2,7 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import TextField from "@material-ui/core/TextField";
 import "./style/InputLocation.css";
 import { Autocomplete } from "@material-ui/lab";
-import Skeleton from "@material-ui/lab/Skeleton";
+// import Skeleton from "@material-ui/lab/Skeleton";
 
 import React, { useEffect } from "react";
 import { inputLocationData } from "../../redux/actions";

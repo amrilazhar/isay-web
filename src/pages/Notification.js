@@ -1,13 +1,13 @@
 import "./style/notification.css"
 
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 
 import LeftSide from "../components/NotifPage/LeftSideNotif";
 import ContentNotification from "../components/NotifPage/ContentNotification";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import Pagination from "@material-ui/lab/Pagination";
+// import Pagination from "@material-ui/lab/Pagination";
 
 const Notification = () => {
 
