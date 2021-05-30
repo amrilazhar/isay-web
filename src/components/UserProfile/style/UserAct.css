@@ -132,8 +132,49 @@
   .profile-right-content
   .realtime-feed-act
   .isay-status-box
-  .user-status
-  .upper-prop
+  .header-activity
+  .header-line-one {
+  display: flex;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
+  .header-activity
+  .header-line-one
+  :first-child {
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
+  .header-activity
+  .header-line-one
+  :nth-child(2) {
+  font-size: 0.9em;
+  margin: 0 0 0 1rem;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
+  .status-interest {
+  margin-left: auto;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
   .status-interest
   p {
   padding: 0.6rem;
@@ -143,6 +184,17 @@
   color: white;
   background-color: var(--mainPurple);
   border-radius: 0.8rem;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
+  .header-activity
+  :nth-child(2) {
+  font-size: 0.9em;
+  margin-top: 0;
 }
 
 .profile-wrapping
@@ -242,7 +294,7 @@
   border: 1.5px solid var(--border);
   border-radius: 0.5rem;
   box-sizing: border-box;
-  /* margin-bottom: 1rem; */
+  margin-bottom: 0;
 }
 
 .profile-wrapping

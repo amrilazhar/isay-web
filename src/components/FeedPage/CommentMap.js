@@ -1,4 +1,5 @@
 import axios from 'axios'
+import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { authHeader } from '../../helpers'
@@ -50,7 +51,7 @@ const CommentMap = (fromCommentBox) => {
         <div className="comment-box">
           <div className="comment-detail">
             <h2>{myComment?.data?.comments[comment]?.owner?.name}</h2>
-            <p>3h ago</p>
+            <p>{moment(new Date(myComment?.data?.comments[comment]?.created_at)).fromNow()}</p>
           </div>
           <div className="comment-content">
             <p>{myComment?.data?.comments[comment]?.content}</p>

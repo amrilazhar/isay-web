@@ -1,5 +1,6 @@
 import Pagination from '@material-ui/lab/Pagination';
 import { formatRelative } from 'date-fns';
+import moment from 'moment';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
@@ -48,11 +49,12 @@ const UserPost = (dariUserPage) => {
                 ourId={users?.items?._id}
                 statusOwnerId={status?.owner?._id}
                 setOldStatus={setOldStatus}
+                setPage={setPage}
               />
               <div className="upper-prop">
                 <div className="name-and-time">
                   <h2>{status?.owner?.name}</h2>
-                  <p>{formatRelative(new Date(status?.created_at), new Date())}</p>
+                  <p>{moment(new Date(status?.created_at)).fromNow()}</p>
                 </div>
                 <div className="status-interest">
                   <p>{status?.interest[0]?.interest}</p>
