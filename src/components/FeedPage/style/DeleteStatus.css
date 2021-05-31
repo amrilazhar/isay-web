@@ -39,6 +39,7 @@
   padding: 0.2rem 0.4rem;
   border: none;
   border-radius: 0.25rem;
+  color: var(--text);
 }
 
 .tooltip-delete:hover .tooltip-content {
@@ -109,4 +110,10 @@
 
 .reset-modal .reset-modal-content .confirm-button button:active {
   background-color: var(--tertierPurple);
+}
+
+.reset-modal .reset-modal-content .confirm-button .first-btn:hover {
+  background-color: var(--tertierRed);
+  border: 0.15rem solid var(--tertierRed);
+  color: var(--white);
 }

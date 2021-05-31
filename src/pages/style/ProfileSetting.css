@@ -265,6 +265,7 @@
   .btn {
   text-align: center;
   margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .setting-container
@@ -277,12 +278,13 @@
   color: var(--text);
   text-decoration: none;
   font-weight: normal;
-  border: none;
+  border: 0.15rem solid var(--text);
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-top: 0;
-  background-color: var(--white);
+  background-color: transparent;
+  transition: 0.3s ease;
 }
 
 .setting-container
@@ -292,17 +294,8 @@
   form
   .btn
   a:hover {
-  background-color: var(--whitePeach);
-}
-
-.setting-container
-  .setting-wrapping
-  .setting-right
-  .setting-right-wrapper
-  form
-  .btn
-  a:active {
-  background-color: var(--whiteShadow);
+  color: var(--white);
+  background-color: var(--text);
 }
 
 .setting-container
@@ -312,14 +305,15 @@
   form
   .btn
   input {
-  background-color: var(--mainGreen);
-  color: var(--white);
-  border: none;
+  background-color: transparent;
+  color: var(--mainBlue);
+  border: 0.15rem solid var(--mainBlue);
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-top: 0;
   margin-left: 1rem;
+  transition: 0.3s ease;
 }
 
 .setting-container
@@ -329,7 +323,8 @@
   form
   .btn
   input:hover {
-  background-color: var(--secondGreen);
+  background-color: var(--secondBlue);
+  color: var(--white);
 }
 
 .setting-container
@@ -339,7 +334,18 @@
   form
   .btn
   input:active {
-  background-color: var(--tertierGreen);
+  background-color: var(--secondBlue);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 2rem;
+  border-top: 0.15rem solid var(--border);
 }
 
 .setting-container
@@ -352,7 +358,6 @@
   font-size: 0.8rem;
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
-  margin: 3rem auto 2rem;
   color: var(--white);
   background-color: var(--tertierRed);
 }
@@ -379,11 +384,21 @@
   .reset-modal
   .reset-modal-content {
   background-color: var(--white);
-  margin: 15% auto;
+  margin: 3% auto;
   padding: 20px;
   border: 1px solid var(--border);
-  width: 50%;
+  width: 75%;
   border-radius: 20px;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  form {
+  border-bottom: none;
 }
 
 .setting-container
@@ -418,6 +433,57 @@
   color: #000000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .modal-flexin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .modal-flexin
+  button {
+  width: 50%;
+  margin: 1rem auto 0;
+  border-radius: 0.5rem;
+  border: 0.15rem solid var(--mainBlue);
+  background-color: transparent;
+  transition: 0.3s ease;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .modal-flexin
+  button:hover {
+  background-color: var(--mainBlue);
+  color: var(--white);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-modal
+  .reset-modal-content
+  .modal-flexin
+  button:active {
+  background-color: var(--secondBlue);
 }
 
 .setting-container
@@ -632,6 +698,16 @@
   .setting-container .setting-wrapping .setting-right {
     width: 100%;
     min-width: 309px;
+  }
+  .setting-container
+    .setting-wrapping
+    .setting-right
+    .setting-right-wrapper
+    .reset-modal
+    .reset-modal-content
+    .modal-flexin
+    button {
+    width: 25%;
   }
 }
 

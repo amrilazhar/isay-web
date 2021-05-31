@@ -42,7 +42,7 @@ const UserAct = (fromUserPage) => {
     <div className="realtime-feed-act">
 
       {(!dataActivity)?
-        <div>404</div>:
+        <div></div>:
         <>
         {dataActivity?.data?.map(act =>     
           <UserActMap

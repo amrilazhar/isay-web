@@ -73,7 +73,7 @@ const DeleteStatus = (dariFeedBox) => {
           <div>
             <p>Are You Sure Want To Delete Your Status?</p>
             <div className="confirm-button">
-              <button onClick={deleteStatus}>Sure</button>
+              <button className="first-btn" onClick={deleteStatus}>Sure</button>
               <button onClick={showTheModal}>Discard</button>
             </div>
           </div>

@@ -74,7 +74,7 @@ const ProfileSetting = () => {
       <div id="resetModal" className="reset-modal">
         <div className="reset-modal-content">
           <button onClick={showModalAvatarChange} className="close">&times;</button>
-          <div>
+          <div className="modal-flexin">
             <p>Are You Sure?</p>
             <div className="avatar-container">
               {(getListAvatar?.listAvatar?.map((avatar, key) =>
@@ -224,10 +224,14 @@ const ProfileSetting = () => {
                 <input type="submit" defaultValue="update" />
               </div>
             </form>
-            <button onClick={showModalEmailReset} className="reset">Reset Password</button>
+            <div className="reset-btn-wrapper">
+              <button onClick={showModalEmailReset} className="reset">Reset Password</button>
+            </div>
             {modalEmailReset()}
             {modalAvatarReset()}
-            <button onClick={toggleTheme} className="reset">Switch Theme</button>            
+            <div className="reset-btn-wrapper">
+              <button onClick={toggleTheme} className="reset">Switch Theme</button>            
+            </div>
           </div>
         </div>
       </div>
