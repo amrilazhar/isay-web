@@ -72,9 +72,9 @@ const DeleteStatus = (dariFeedBox) => {
           <button onClick={showTheModal} className="close">&times;</button>
           <div>
             <p>Are You Sure Want To Delete Your Status?</p>
-            <div className="Confirm Button">
-              <button onClick={showTheModal}>No</button>
-              <button onClick={deleteStatus}>Yes</button>
+            <div className="confirm-button">
+              <button onClick={deleteStatus}>Sure</button>
+              <button onClick={showTheModal}>Discard</button>
             </div>
           </div>
         </div>
@@ -84,8 +84,8 @@ const DeleteStatus = (dariFeedBox) => {
 
   return (
     <>
-    {modalConfirm()}
     <div className="tooltip-wrapper">
+      {modalConfirm()}
       <div className="tooltip-delete">
         <div className="tooltip-circle-container">
           <div className="tooltip-circle-button"></div>
@@ -93,7 +93,7 @@ const DeleteStatus = (dariFeedBox) => {
           <div className="tooltip-circle-button"></div>
         </div>
         <div className="tooltip-content">
-          <button>Edit</button>
+          <button>Share</button>
           {
             (ourId === statusOwnerId)?
             <button onClick={showTheModal}>Delete</button>:

@@ -46,6 +46,7 @@
   border-radius: 25px;
   position: relative;
   overflow: hidden;
+  border: 0.15rem solid var(--white);
 }
 
 .navbar-wrapper a .profile-icon-load {

@@ -200,11 +200,12 @@
   overflow: auto;
   background-color: #00000066;
   transition: 0.3s ease;
+  overflow: hidden;
 }
 
 .status-submit form .status-tools .reset-modal .reset-modal-content {
   background-color: var(--white);
-  margin: 15% auto;
+  margin: 8% auto;
   padding: 20px;
   border: 1px solid var(--border);
   width: 50%;
