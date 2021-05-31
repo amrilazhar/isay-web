@@ -47,10 +47,10 @@ const ContentNotification = () => {
   }, []);
 
   const notifReaded = (notifID) => {
-    socketRef.current.emit('readNotif', {
+    socketRef.current.emit("readNotif", {
       notif_id: notifID,
     });
-  }
+  };
 
   const notificationUpdate = useSelector((state) => state.notificationData);
   console.log("notificationUpdate", notificationUpdate);
@@ -82,26 +82,38 @@ const ContentNotification = () => {
                     <>
                       <div className="notif-wrapper">
                         <div className="notif-header">
-                          <img src={data.from.avatar} alt="content" />
-                          <h4>{data.from.name}</h4>
-                          <p>{data.type}</p>
-                          <p>
-                            {data?.created_at === undefined
-                              ? "not found"
-                              : convertDate(data?.created_at)}
-                          </p>
+                          <div className="head-upper">
+                            <div className="head-upper-bg">
+                            <img src={data.from.avatar} alt="content" />
+                            </div>
+                            <h4>{data.from.name}</h4>
+                          </div>
+                          <div className="head-bottom">
+                            <p>{data.type}</p>
+                            <p>
+                              {data?.created_at === undefined
+                                ? "not found"
+                                : convertDate(data?.created_at)}
+                            </p>
+                          </div>
                         </div>
                         <div className="sub-container">
                           <div className="sub-wrapper">
                             <div className="sub-header">
-                              <img src={data.to.avatar} alt="sub-content" />
-                              <h4>{data.to.name}</h4>
-                              <p>
-                                {data.status_id?.created_at === undefined
-                                  ? "not found"
-                                  : convertDate(data?.status_id?.created_at)}
-                              </p>
-                              <p>{data.status_id.interest[0].interest}</p>
+                              <div>
+                                <div className="img-sub-notif">
+                                  <img src={data.to.avatar} alt="sub-content" />
+                                </div>
+                                <h4>{data.to.name}</h4>
+                              </div>
+                              <div className="target">
+                                <p>
+                                  {data.status_id?.created_at === undefined
+                                    ? "not found"
+                                    : convertDate(data?.status_id?.created_at)}
+                                </p>
+                                <p>{data.status_id.interest[0].interest}</p>
+                              </div>
                             </div>
                             <div className="sub-content">
                               <p>{data.status_id.content}</p>
@@ -110,7 +122,7 @@ const ContentNotification = () => {
                         </div>
                       </div>
                       <Divider />
-                      {(data.readed._id)? "" : notifReaded()}
+                      {data.readed._id ? "" : notifReaded()}
                     </>
                   )}
                 </>

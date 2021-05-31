@@ -104,20 +104,31 @@ const MainContentMessage = () => {
   };
 
   const mapNotifImage = () => {
-	  if(newImages === []) {
-		return (
-			<div className="notif-img-wrapper">
-			  <img src={"https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png"} alt={"upload"}/>
-			</div>
-			)
-	  } else {
-		  return newImages?.map((index, value) => 
-			<div className="notif-img-wrapper">
-				<img src={URL.createObjectURL(newImages[value])} alt="upload"/>
-			</div>
-		  )
-	  }
-  }
+    if (newImages === []) {
+      return (
+        <div className="notif-img-wrapper">
+          <img
+            src={
+              "https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png"
+            }
+            alt={"upload"}
+          />
+        </div>
+      );
+    } else {
+      return newImages?.map((index, value) => (
+        <div className="notif-img-wrapper">
+          <img
+            src={URL.createObjectURL(newImages[value])}
+            alt="upload"
+          />
+          {console.log(
+            "ini",
+            URL.createObjectURL(newImages[value]))}
+        </div>
+      ));
+    }
+  };
 
   const handleSendMessage = () => {
     if (newImages.length > 0) {
@@ -212,21 +223,23 @@ const MainContentMessage = () => {
               </button>
             </div>
             <div>
+              <input type="file" />
               <input
                 accept="image/*"
-                id="contained-button-file"
+                id="upload-notif-img"
+                className="upload-notif-img"
                 multiple
                 type="file"
                 onChange={handleNewImagesChange}
               />
-              <label htmlFor="contained-button-file"></label>
+              <label htmlFor="upload-notif-img">
+                <strong>Choose your best picture</strong>
+              </label>
             </div>
-			<div className="image-container">
-				{mapNotifImage()}
-			</div>
-			<div className="notif-text">
-				<p>*image(s) size less than 3MB</p>
-			</div>
+            <div className="image-container">{mapNotifImage()}</div>
+            <div className="notif-text">
+              <p>*image(s) size less than 3MB</p>
+            </div>
           </div>
         </div>
       );
@@ -260,10 +273,6 @@ const MainContentMessage = () => {
     });
   };
 
-// ================== Preview Image ===================
-
-
-// ===================== End Preview Image ================
   //=============== END Handle Send Images ========================
 
   //============= Handle Read Status ============================
@@ -527,7 +536,7 @@ const MainContentMessage = () => {
             <div className="chat-image-container">
               <div>{}</div>
             </div>
-            <div className="textarea-wrapper">
+            <form className="textarea-wrapper">
               <textarea
                 wrap="soft"
                 type="text"
@@ -549,7 +558,7 @@ const MainContentMessage = () => {
                   >
                     Image
                   </Button>
-				  {displayModal()}
+                  {displayModal()}
                 </div>
                 <div className="message-btn-send">
                   <button
@@ -560,7 +569,7 @@ const MainContentMessage = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </>
