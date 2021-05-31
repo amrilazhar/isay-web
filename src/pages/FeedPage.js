@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { statusInterest, userActions } from '../redux/actions'
+import { scrollToTop } from '../helpers/scrollToTop'
+import Pagination from '@material-ui/lab/Pagination'
 
 import Navbar from '../components/Navbar'
 import FilterBox from '../components/FeedPage/FilterBox'
 import WriteStatusBox from '../components/FeedPage/WriteStatusBox'
 import FeedBox from '../components/FeedPage/FeedBox'
 import Footer from '../components/Footer'
-import './style/FeedPage.css'
-import Pagination from '@material-ui/lab/Pagination'
 import FlashMessage from '../components/FlashMessage'
-import { scrollToTop } from '../helpers/scrollToTop'
+import './style/FeedPage.css'
 
 const FeedPage = () => {
 

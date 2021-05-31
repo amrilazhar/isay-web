@@ -1,9 +1,11 @@
 import React from 'react'
+import { history } from '../../helpers'
 
 const UserActMap = (fromAct) => {
 
   const userName = fromAct.userName
   const type = fromAct.type
+  const statusId = fromAct.statusId
   const interest = fromAct.interest
   const statusOwner = fromAct.statusOwner
   const avatar = fromAct.avatar
@@ -14,6 +16,10 @@ const UserActMap = (fromAct) => {
   const commentLength = fromAct.commentLength
   const actDate = fromAct.actDate
   const statusDate = fromAct.statusDate
+
+  const singleStatus = () =>{
+    history.replace(`./status/${statusId}`)
+  }
 
   return (
     <div className="isay-status-box">
@@ -27,7 +33,7 @@ const UserActMap = (fromAct) => {
         </div>
         <p>{actDate}</p>
       </div>
-      <div className="isay-status-rec">
+      <div onClick={singleStatus} style={{cursor: "pointer"}} className="isay-status-rec">
         <div className="user-status">
           <div className="upper-prop">
             <div className="user-image">

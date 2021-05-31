@@ -1,4 +1,3 @@
-import { from } from 'form-data'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { alertActions, statusInterest, userActions } from '../../redux/actions'
@@ -19,44 +18,46 @@ const WriteStatusBox = (fromFeedPage) => {
     id:"",
   })
 
-  console.log("ini foto", files)
+  console.log("ini files foto", files)
 
   const statusUpdate = useSelector ((state) => state?.statusInterest)
   const userActive = useSelector ((state) => state?.users)
 
   const uploadFile = (e) => {
     e.preventDefault()
-
     if (
       (e?.target?.files[0].type == "image/jpeg" ||
+        e?.target?.files[0].type == "image/jpg" ||
         e?.target?.files[0].type == "image/png" ||
         e?.target?.files[0].type == "image/gif" ||
         e?.target?.files[0].type == "image/bmp") &&
-      e?.target?.files[0].size / (1024 * 1024) < 1
+      e?.target?.files[0].size / (1024 * 1024) < 1.5
     ){
       setFiles([...files, e?.target?.files[0]])
     } else {
       dispatch(alertActions.error("file exciding maximum size"))
     }
-
   }
+
+const removeFile = (index) => {
+  setFiles(files.filter((i) => i !== index));
+};
 
   const mapImage = () => {
     if (files === ""){
       return (
         <div className="img-wrapper">
-          <img src={"https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png"} alt={"upload"}/>
         </div>
         )
     } else {
       return files?.map( (i, x) =>
-      <div className="img-wrapper">
-        <img src={URL.createObjectURL(files[x])} alt={"upload"}/>
-        {
-          console.log("filesnya ini",URL.createObjectURL(files[x]))
-        }
-      </div>
-        )
+        <div onClick={() => removeFile(i)} className="img-wrapper" style={{cursor:"pointer"}}>
+          <img
+            src={URL.createObjectURL(files[x])}
+            alt={"upload"}
+          />
+        </div>
+      )
     }
   }  
 
