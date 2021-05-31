@@ -22,6 +22,7 @@ import OtherUserPage from './pages/OtherUserPage';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faComments as fasFaComments, faComment as fasFaComment, faThumbsUp as fasFaThumbsUp, faMapMarkerAlt as fasFaMapMarkerAlt, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
 import { faComments as farFaComments, faComment as farFaComment, faThumbsUp as farFaThumbsUp } from '@fortawesome/free-regular-svg-icons'
+import SingleStatus from './pages/SingleStatus';
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
               <PrivateRoute path="/notification" component={Notification} />
               <PrivateRoute path="/profile" component={UserPage} />
               <PrivateRoute path="/user/:userId" component={OtherUserPage} />
+              <PrivateRoute path="/status/:statusId" component={SingleStatus} />
               <PrivateRoute path="/message" component={Message} />
               <PrivateRoute path="/setting" component={ProfileSetting} />
               <PrivateRoute path="/" component={FeedPage} />

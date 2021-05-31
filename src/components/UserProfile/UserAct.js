@@ -13,8 +13,6 @@ const UserAct = (fromUserPage) => {
 
   const [dataActivity, setDataActivity] = useState(null)
 
-  console.log("ini id lek",userId)
-
   const dispatch = useDispatch()
   
   useEffect(() => {
@@ -40,8 +38,6 @@ const UserAct = (fromUserPage) => {
 
   },[])
 
-  console.log("ini act", dataActivity?.data)
-
   return (
     <div className="realtime-feed-act">
 
@@ -52,6 +48,7 @@ const UserAct = (fromUserPage) => {
           <UserActMap
           userName = {userName}
           type = {act.type}
+          statusId = {act.status_id?._id}
           interest = {act.status_id?.interest[0]?.interest}
           statusOwner = {act.status_id?.owner?.name}
           avatar = {act.status_id?.owner?.avatar}
