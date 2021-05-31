@@ -8,9 +8,10 @@ export const userActions = {
     login,
     logout,
     register,
-    getAll,
     getActive,
-    delete: _delete
+    delete: _delete,
+    resetPassword,
+    postStatus
 };
 
 function login(email, password, from) {
@@ -21,11 +22,14 @@ function login(email, password, from) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push(from);
+                    dispatch(alertActions.success('Login successful'));
+                    setTimeout(() => {
+                        history.push(from)
+                    }, 3000)
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch(alertActions.error((error.toString()) === "Validation failed"?"Email and password not accepted":error.toString()));
                 }
             );
     };
@@ -48,12 +52,14 @@ function register(email, password, confirmPassword, from) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    history.push(from);
                     dispatch(alertActions.success('Registration successful'));
+                    setTimeout(() => {
+                        history.push(from)
+                    }, 3000)
                 },
                 error => {
                     dispatch(failure(error.toString()));
-                    dispatch(alertActions.error(error.toString()));
+                    dispatch(alertActions.error((error.toString()) === "Validation failed"?"Email and password not accepted":error.toString()));
                 }
             );
     };
@@ -82,22 +88,6 @@ function getActive (active) {
     function failure(error) { return { type: userConstants.GETACTIVE_FAILURE, error } }
 }
 
-function getAll() {
-    return dispatch => {
-        dispatch(request());
-
-        userService.getAll()
-            .then(
-                users => dispatch(success(users)),
-                error => dispatch(failure(error.toString()))
-            );
-    };
-
-    function request() { return { type: userConstants.GETALL_REQUEST } }
-    function success(users) { return { type: userConstants.GETALL_SUCCESS, users } }
-    function failure(error) { return { type: userConstants.GETALL_FAILURE, error } }
-}
-
 // prefixed function name with underscore because delete is a reserved word in javascript
 function _delete(id) {
     return dispatch => {
@@ -113,4 +103,38 @@ function _delete(id) {
     function request(id) { return { type: userConstants.DELETE_REQUEST, id } }
     function success(id) { return { type: userConstants.DELETE_SUCCESS, id } }
     function failure(id, error) { return { type: userConstants.DELETE_FAILURE, id, error } }
+}
+
+function resetPassword(emailReset) {
+    return dispatch => {
+        dispatch(request(emailReset));
+
+        userService.resetPassword(emailReset)
+            .then(
+                user => dispatch(success(emailReset)),
+                error => dispatch(failure(emailReset, error.toString()))
+            );
+    };
+
+    function request(emailReset) { return { type: "EMAIL_RESET_LOADING", emailReset} }
+    function success(emailReset) { return { type: "EMAIL_RESET_SUCCESS", emailReset } }
+    function failure(emailReset, error) { return { type: "EMAIL_RESET_FAILURE", emailReset, error } }
+}
+
+function postStatus (content, interestId, files) {
+    return dispatch => {
+        dispatch(request());
+
+        // console.log("files sampe", files)
+
+        userService.postStatus(content, interestId, files)
+            .then (
+                content => dispatch(success(content)),
+                error => dispatch(failure(content, error.toString()))
+            );
+    };
+
+    function request(content) { return { type: "POST_STATUS_LOADING", content} }
+    function success(content) { return { type: "POST_STATUS_SUCCESS", content } }
+    function failure(content, error) { return { type: "POST_STATUS_FAILURE", content, error } }
 }

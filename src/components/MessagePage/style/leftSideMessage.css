@@ -2,9 +2,13 @@
     border: 1px solid #C9C9C9;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    width: fit-content;
-    overflow: scroll;
+    width: fit-content; 
+    overflow: auto;
     height: 15rem;
+}
+
+.left-message-container .left-message-wrapper .hide-message-list {
+    display: none;
 }
 
 .left-message-container .left-message-wrapper .search-meassage {
@@ -71,7 +75,7 @@
 
 @media only screen and (min-width: 721px){
     .left-message-container{
-        height: 100vh;
+        height: 80vh;
     }
 
     .left-message-container .left-message-wrapper .message-list {

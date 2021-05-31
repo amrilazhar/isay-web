@@ -1,7 +1,7 @@
 .profile-container {
   max-width: 1366px;
   margin: 0 auto;
-  color: rgba(79, 79, 79, 1);
+  color: var(--text);
 }
 
 .profile-wrapping {
@@ -44,7 +44,7 @@
 
 .profile-wrapping .profile-bottom-content .profile-left-content {
   margin-bottom: 2rem;
-  border: 0.1rem solid #bdbdbd;
+  border: 0.1rem solid var(--border);
   border-radius: 0 0 0.75rem 0.75rem;
   padding: 1rem;
   box-sizing: border-box;
@@ -63,7 +63,7 @@
   width: 120px;
   height: 120px;
   border-radius: 60px;
-  background-color: #61db99;
+  background-color: var(--mainGreen);
   position: relative;
   overflow: hidden;
 }
@@ -79,7 +79,7 @@
   left: -9999px;
   right: -9999px;
   margin: auto;
-  max-height: 60%;
+  max-height: 50%;
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content h1 {
@@ -96,7 +96,7 @@
   .profile-bottom-content
   .profile-left-content
   .location-user
-  img {
+  svg {
   margin-right: 0.5rem;
   width: 10px;
 }
@@ -111,9 +111,9 @@
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content a button {
-  color: #4781f8;
-  border: 0.15rem solid #4781f8;
-  background-color: white;
+  color: var(--mainBlue);
+  border: 0.15rem solid var(--mainBlue);
+  background-color: var(--white);
   border-radius: 0.75rem;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -124,8 +124,8 @@
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content a button:hover {
-  background-color: rgba(71, 129, 248, 1);
-  color: white;
+  background-color: var(--secondBlue);
+  color: var(--white);
 }
 
 .profile-wrapping
@@ -133,13 +133,13 @@
   .profile-left-content
   a
   button:active {
-  background-color: rgb(64, 90, 143);
-  color: rgb(194, 194, 194);
+  background-color: var(--tertierBlue);
+  color: var(--buttonClick);
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content a {
   text-decoration: none;
-  color: #4781f8;
+  color: var(--mainBlue);
   transition: 0.3s ease;
 }
 
@@ -147,9 +147,9 @@
   .profile-bottom-content
   .profile-left-content
   button:nth-child(3) {
-  color: #4781f8;
+  color: var(--mainBlue);
   border: none;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 0.75rem;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -162,7 +162,7 @@
   .profile-bottom-content
   .profile-left-content
   button:nth-child(3):hover {
-  color: rgb(214, 79, 79);
+  color: var(--mainRed);
 }
 
 /* End of Left Content */
@@ -170,7 +170,8 @@
 /* Start of Right Content */
 
 .profile-wrapping .profile-bottom-content .profile-right-content {
-  text-align: center;
+  text-align: left;
+  flex-grow: 1;
 }
 
 /* Start of Button Switch */
@@ -202,7 +203,7 @@
   .menu-item
   a {
   text-decoration: none;
-  color: #b7b7b7;
+  color: var(--text);
   margin-bottom: 0.2em;
   font-weight: 600;
   transition: all 200ms ease;
@@ -214,7 +215,7 @@
   .switch-page-btn
   .menu-item:hover
   a {
-  color: #4781f8;
+  color: var(--mainBlue);
 }
 
 .profile-wrapping
@@ -226,7 +227,7 @@
   width: 100%;
   height: 4px;
   border-radius: 5px;
-  background-color: #4781f8;
+  background-color: var(--mainBlue);
   opacity: 0;
   transition: all 200ms ease;
 }
@@ -307,11 +308,10 @@
   border-radius: 60px;
   position: relative;
   overflow: hidden;
-  background-color: rgb(239, 239, 239);
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;
@@ -332,11 +332,10 @@
   height: 1.75rem;
   width: 6rem;
   border-radius: 1.5rem;
-  background-color: rgb(239, 239, 239);
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;

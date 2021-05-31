@@ -4,133 +4,123 @@
   min-height: 100vh;
 }
 
-.location-wrapper {
-  padding: 5rem;
+.background-location .location-wrapper {
+  /* color: #4f4f4f; */
+  padding: 2rem;
   box-sizing: border-box;
 }
 
-.location-container {
+.background-location .location-wrapper .location-container {
   background: #ffffff;
-  border: 1px solid #ffffff;
+  /* border: 1px solid #ffffff; */
   box-sizing: border-box;
   box-shadow: 1rem 1rem 1rem rgba(117, 117, 117, 0.5);
   border-radius: 5px;
-  text-align: justify;
-  padding: 4rem;
-  line-height: 2em;
-  word-wrap: break-word;
-  word-break: keep-all;
+  /* text-align: justify; */
+  /* word-wrap: break-word;
+  word-break: keep-all; */
 }
 
-.location-line1 {
-  color: #4f4f4f;
-  font-size: 2rem;
-  line-height: 1.5rem;
-  margin-bottom: 1.8rem;
+.background-location .location-wrapper .location-container .location-sub-wrapper{
+  padding: 1.5rem;
+  line-height: 2rem;
 }
 
-.location-line2 {
-  color: #828282;
+.background-location .location-wrapper .location-container .location-sub-wrapper h1 {
+  line-height: 2rem;
+}
+
+.background-location .location-wrapper .location-container .location-sub-wrapper h3 {
   font-weight: lighter;
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  margin-bottom: 3rem;
-}
-
-.location-line3 {
-  color: #4f4f4f;
-  font-size: 1.1rem;
-  display: flex;
-  align-items: center;
-  text-indent: 1rem;
-}
-
-.location-line4 {
-  color: #828282;
   font-size: 1rem;
-  text-indent: 2.4rem;
-  margin-top: 0rem;
+  line-height: 1.5rem;
+  /* margin-bottom: 3rem; */
 }
 
-.location {
+.background-location .location-wrapper .location-container .location-sub-wrapper .location-line3 {
+  color: #4f4f4f;
+  font-size: 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 2rem 5rem 2rem;
 }
 
-.btn-location {
-  background-color: #4781f8;
+.background-location .location-wrapper .location-container .location-sub-wrapper .location-line3 p{
+  padding-left: 1rem;
+}
+
+
+.background-location .location-wrapper .location-container .location-sub-wrapper p{
+  color: #828282;
+  /* font-size: 1rem; */
+  padding-left: 2.5rem;
+  /* margin-top: 0rem;
+  margin-bottom: 4rem; */
+}
+
+.background-location .location-wrapper .location-container .location-sub-wrapper .location-display {
+  padding: 0 2.5rem;
+}
+
+.background-location .location-wrapper .location-container .location-sub-wrapper .btn-location{
+  display: flex;
+  flex-direction: column ;
+  justify-content: center;
+  padding: 0.5rem 2.5rem 1.5rem;
+}
+
+.background-location .location-wrapper .location-container .location-sub-wrapper .btn-location button{
+  background-color: #4681f7ff;
   border-radius: 3px;
   color: #ffffff;
-  font-size: large;
-  font-weight: 800;
+  font-weight: bold;
+  font-size: 1rem;
   border-color: transparent;
-  margin: 2rem 0;
-  transform: translateY(4rem);
-  padding: 0.5rem 6rem;
-  box-sizing: border-box;
+  margin-top: 1rem ;
+  padding: 0.5rem;
 }
 
-.btn-location a {
+.background-location .location-wrapper .location-container .location-sub-wrapper .btn-location button:hover {
+  background-color: rgb(67, 116, 216);
+}
+
+.background-location .location-wrapper .location-container .location-sub-wrapper .btn-location button:active {
+  background-color: rgb(48, 84, 156);
+}
+
+/* .background-location .location-wrapper .location-container .location-sub-wrapper .btn-location button a {
   text-decoration: none;
   color: #ffffff;
-}
+}  */
 
-@media only screen and (max-width: 850px) {
-  .location-container {
-    text-align: center;
+@media only screen and (min-width: 600px) {
+  .background-location .location-wrapper .location-container .location-sub-wrapper .btn-location{
+    padding: 0.5rem 10rem 1.5rem;
+  }
+
+  .background-location .location-wrapper {
+    /* color: #4f4f4f; */
+    padding: 4rem;
+    box-sizing: border-box;
+  }
+
+  .background-location .location-wrapper .location-container .location-sub-wrapper{
     padding: 2.5rem;
-  }
-
-  .location-line1 {
-    font-size: 1.5rem;
-  }
-
-  .location-line2 {
-    font-size: 1.1rem;
-  }
-
-  .location-line3 {
-    justify-content: center;
-  }
-
-  .location-line4 {
-    text-indent: 0rem;
-    font-weight: lighter;
+    line-height: 2rem;
   }
 }
 
-@media only screen and (max-width: 650px) {
-  .location-wrapper{
-    padding: 3rem;
+@media only screen and (min-width: 768px) {
+  .background-location .location-wrapper .location-container .location-sub-wrapper .btn-location{
+    padding: 0.5rem 12rem 1.5rem;
   }
-
-  .location {
-    margin: 0;
-  }
-
-  .btn-location {
-    transform: unset;
-    padding: 0.5rem 4rem;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  .location-wrapper{
-    padding: 2rem;
-  }
-
   
 }
-@media only screen and (max-width: 250px) {
-  .location-wrapper{
-    padding: 1rem;
-  }
 
-  .btn-location {
-    transform: unset;
-    padding: 0.5rem 2rem;
+@media only screen and (min-width: 1024px) {
+  .background-location .location-wrapper .location-container .location-sub-wrapper .btn-location{
+    padding: 0.5rem 20rem 1.5rem;
+    display: flex;
+    max-width: 20rem;
+    margin: 0 auto;
   }
 }

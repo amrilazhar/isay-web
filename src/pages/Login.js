@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom';
 import FlashMessage from '../components/FlashMessage';
-import { userActions } from '../redux/actions'
-
+import { alertActions, userActions } from '../redux/actions'
+import { googleClient } from '../helpers/google.client'
+import { GoogleLogin } from "react-google-login";
 import './style/login.css'
 
 function Login() {
@@ -30,13 +31,20 @@ function Login() {
       e.preventDefault();
 
       if (email && password) {
-          // get return url from location state or default to home page
-          const { from } = location.state || { from: { pathname: "/" } };
-          dispatch(userActions.login(email, password, from));
+        // get return url from location state or default to home page
+        const { from } = location.state || { from: { pathname: "/" } };
+        dispatch(userActions.login(email, password, from));
+      } else {
+        dispatch(alertActions.error("Email and password not accepted"));
       }
+
   }
 
   const alert = useSelector ((state) => state.alert)
+
+  const responseGoogle = (response) => {
+    console.log(response);
+  }
 
   return (
     <div className="login-container">
@@ -59,12 +67,21 @@ function Login() {
             <h2>Login</h2>
             <form name="form" onSubmit={handleSubmit}>
               <label htmlFor="email">Email</label><br />
-              <input type="text" name="email" id="email" placeholder="Type your email" value={email} onChange={handleChange}/><br />
+              <input type="email" name="email" id="email" placeholder="Type your email" value={email} onChange={handleChange}/><br />
               <label htmlFor="password">Password</label><br />
               <input type="password" name="password" id="password" placeholder="xxxx-xxxx-xxxx" value={password} onChange={handleChange}/><br />
               <input type="submit" value="Login" />
             </form>
-            <button><img src="https://img.icons8.com/color/50/000000/google-logo.png" alt="Google Logo"/>Login with Google</button>
+            <GoogleLogin
+              clientId={googleClient.GOOGLE_CLIENT_ID}
+              render={renderProps => (
+                <button onClick={renderProps.onClick} disabled={renderProps.disabled}><img src="https://img.icons8.com/color/50/000000/google-logo.png" alt="Google Logo"/> Login with Google</button>
+              )}
+              buttonText="Log In"
+              onSuccess={responseGoogle}
+              onFailure={responseGoogle}
+              cookiePolicy={'single_host_origin'}
+            />
             <p>New member? <Link to="/signup">Sign Up here</Link></p>
           </div>
         </div>

@@ -5,48 +5,43 @@ import { statusInterest } from '../../redux/actions'
 
 import './style/FilterBox.css'
 
-const FilterBox = (proper) => {
+const FilterBox = (fromFeedPage) => {
 
   const dispatch = useDispatch()
 
-  //START GET INTEREST ID TO PARENTS
-  const setParamInterest = proper.setParamInterest
-
-  const [bro, setbro] = useState({
-      bro: '',
+  const setParamInterest = fromFeedPage?.setParamInterest
+  const setPage = fromFeedPage?.setPage
+  const setOldStatus = fromFeedPage?.setOldStatus
+  
+  const [getParam, setGetParam] = useState({
+      getParam: '',
   });
 
   const handleChange = (e) => {
-    setParamInterest ({
-      "param":[e.target.defaultValue]
-    }
-    )
-    setbro ({
-      "bro":[e.target.defaultValue]
+    setGetParam ({
+      "getParam":[e?.target?.defaultValue]
     })
   }
 
   async function handleSubmit(e) {
-
     e.preventDefault();
-
+    setOldStatus(null)
     setParamInterest ({
-      "param": bro.bro
+      "param": getParam?.getParam
     })
-
-    const param  = bro.bro
-
-    dispatch(statusInterest.getStatus(param))
-
+    setPage (1)
+    const param  = getParam?.getParam
+    const pagin = 1
+    dispatch(statusInterest.getStatus(param, pagin))
   }
 
   //END GET INTEREST ID TO PARENTS
 
   //START INTEREST USER FOR FILTER
-  const userActive = useSelector ((state) => state.users)
+  const userActive = useSelector ((state) => state?.users)
 
   const mapInterest = () => {
-    if (userActive.loading){
+    if (userActive?.loading){
       return (
         <div className="choice">
           <div className="waiting">
@@ -57,18 +52,18 @@ const FilterBox = (proper) => {
         </div>
       )
     } else {
-      return userActive.items?.interest.map (fil =>
+      return userActive?.items?.interest?.map (fil =>
         <div className="choice">
           <label
-            htmlFor={`${fil.interest.toLowerCase()}`}
-            id={`${fil.interest.toLowerCase()}`}
+            htmlFor={`${fil.interest?.toLowerCase()}`}
+            id={`${fil.interest?.toLowerCase()}`}
           >{fil.interest}</label>
           <input
             type="radio"
             name="interest"
-            for={`${fil.interest.toLowerCase()}`}
-            id={`${fil.interest.toLowerCase()}`}
-            defaultValue={`${fil._id.toLowerCase()}`}
+            for={`${fil.interest?.toLowerCase()}`}
+            id={`${fil.interest?.toLowerCase()}`}
+            defaultValue={`${fil._id?.toLowerCase()}`}
             onChange={handleChange}
           />
         </div>
@@ -95,7 +90,7 @@ const FilterBox = (proper) => {
               />
             </div>
             {mapInterest()}
-            <input type="submit" defaultValue="Update" />
+            <input type="submit" value="Update" />
           </form>
         </div>
       </div>

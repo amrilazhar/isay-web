@@ -1,6 +1,6 @@
 .status-submit {
   padding: 1rem;
-  border: 2px solid rgba(183, 183, 183, 1);
+  border: 2px solid var(--border);
   border-radius: 0.5rem;
   box-sizing: border-box;
   display: flex;
@@ -12,7 +12,7 @@
 .status-submit .user-active-profile {
   width: 60px;
   height: 60px;
-  background-color: rgba(138, 98, 251, 1);
+  background-color: var(--mainPurple);
   border-radius: 30px;
   margin-bottom: 1rem;
   position: relative;
@@ -39,13 +39,15 @@
   resize: none;
   margin-bottom: 1rem;
   padding: 1rem;
-  border: 2px solid rgba(183, 183, 183, 1);
+  border: 2px solid var(--border);
   border-radius: 0.5rem;
   width: 80%;
+  background: transparent;
+  color: var(--text);
 }
 
 .status-submit form textarea:focus {
-  border: 2px solid rgba(138, 98, 251, 1);
+  border: 2px solid var(--mainPurple);
   outline: none;
 }
 
@@ -56,32 +58,78 @@
   align-items: center;
 }
 
-.status-submit form .status-tools button:first-child {
-  background-color: rgba(138, 98, 251, 1);
-  border: none;
-  border-radius: 1rem;
-  color: white;
+.status-submit form .status-tools .upload-image {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }
 
-.status-submit form .status-tools button img {
-  width: 10px;
-  margin-right: 0.25rem;
-}
-
-.status-submit form .status-tools button {
-  border-radius: 1rem;
-  background-color: white;
-  border: 0.1rem solid rgba(138, 98, 251, 1);
+.status-submit form .status-tools .upload-image + label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin: 0 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  border: 0.13rem solid var(--mainPurple);
   box-sizing: border-box;
-  color: rgba(138, 98, 251, 1);
+  color: var(--mainPurple);
+  transition: 0.3s ease;
 }
 
-.status-submit form .status-tools input {
+.status-submit form .status-tools .upload-image + label * {
+  pointer-events: none;
+}
+
+.status-submit form .status-tools .upload-image:focus + label,
+.status-submit form .status-tools .upload-image + label:hover {
+  background-color: var(--mainPurple);
+  color: var(--white);
+  outline: none;
+}
+
+.status-submit form .status-tools button,
+.status-submit form .status-tools .choose {
+  border-radius: 1rem;
+  background-color: var(--white);
+  border: 0.13rem solid var(--mainPurple);
+  box-sizing: border-box;
+  color: var(--mainPurple);
+}
+
+.status-submit form .status-tools .upload:hover {
+  background-color: var(--mainPurple);
+  color: var(--white);
+}
+.status-submit form .status-tools .upload:active {
+  background-color: var(--tertierPurple);
+}
+
+.status-submit form .status-tools .choose {
+  text-align: center;
+  width: 125px;
+}
+
+.status-submit form .status-tools input[type="submit"] {
   border: none;
   border-radius: 0.25rem;
-  background-color: rgba(71, 129, 248, 1);
-  color: white;
+  background-color: var(--mainBlue);
+  color: var(--white);
   cursor: pointer;
+}
+
+.status-submit form .status-tools input[type="submit"]:hover {
+  background-color: var(--secondBlue);
+  cursor: pointer;
+}
+
+.status-submit form .status-tools input[type="submit"]:active {
+  background-color: var(--tertierBlue);
 }
 
 .status-submit form .status-tools button,
@@ -90,6 +138,144 @@
   margin: 0 0.5rem 0.5rem;
   padding: 0.5rem 1rem;
   box-sizing: border-box;
+}
+
+.status-submit form .status-tools .interest-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.status-submit form .status-tools .interest-dropdown input:hover {
+  border: 0.13rem solid #b3a0e6;
+  color: #b3a0e6;
+}
+
+.status-submit form .status-tools .interest-dropdown .dropdown-content {
+  display: none;
+  text-align: center;
+  position: absolute;
+  background-color: var(--white);
+  padding: 1rem 1rem 0.5rem;
+  border: 2px solid var(--border);
+  border-radius: 0.5rem;
+  z-index: 1;
+}
+
+.status-submit form .status-tools .interest-dropdown .dropdown-content button {
+  background-color: var(--mainPurple);
+  border: none;
+  border-radius: 1rem;
+  color: var(--white);
+}
+
+.status-submit
+  form
+  .status-tools
+  .interest-dropdown
+  .dropdown-content
+  button:hover {
+  background-color: var(--secondPurple);
+}
+
+.status-submit
+  form
+  .status-tools
+  .interest-dropdown
+  .dropdown-content
+  button:active {
+  background-color: var(--tertierPurple);
+}
+
+.status-submit form .status-tools .interest-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.status-submit form .status-tools .reset-modal {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #00000066;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+.status-submit form .status-tools .reset-modal .reset-modal-content {
+  background-color: var(--white);
+  margin: 8% auto;
+  padding: 20px;
+  border: 1px solid var(--border);
+  width: 50%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-submit form .status-tools .reset-modal .reset-modal-content .upper {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.status-submit form .status-tools .reset-modal .reset-modal-content .close {
+  color: var(--buttonClick);
+  font-size: 28px;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+}
+
+.status-submit
+  form
+  .status-tools
+  .reset-modal
+  .reset-modal-content
+  .img-container {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.status-submit
+  form
+  .status-tools
+  .reset-modal
+  .reset-modal-content
+  .img-container
+  .img-wrapper {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  margin: 0.5rem;
+}
+
+.status-submit
+  form
+  .status-tools
+  .reset-modal
+  .reset-modal-content
+  .img-container
+  .img-wrapper
+  img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-width: 100%;
+}
+
+.status-submit form .status-tools .reset-modal .reset-modal-content .himbau {
+  font-size: 0.8rem;
 }
 
 @media screen and (min-width: 860px) {

@@ -1,7 +1,7 @@
 .feed-container {
   max-width: 1366px;
   margin: 0 auto;
-  color: rgba(79, 79, 79, 1);
+  color: var(--text);
 }
 
 .feed-wrapping {
@@ -17,9 +17,18 @@
 
 .feed-wrapping .right-content .right-wrapping .realtime-feed {
   padding: 1rem;
-  border: 2px solid rgba(183, 183, 183, 1);
+  border: 2px solid var(--border);
   border-radius: 0.5rem;
   box-sizing: border-box;
+}
+
+.feed-wrapping .right-content .right-wrapping .realtime-feed .pagination {
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+  background: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 @media screen and (min-width: 600px) {
@@ -54,11 +63,10 @@
 .isay-status-box .user-status .upper-prop .user-image-load {
   width: 40px;
   height: 40px;
-  background-color: rgb(239, 239, 239);
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;
@@ -75,11 +83,10 @@
 .isay-status-box .user-status .upper-prop .name-and-time-load {
   width: 5rem;
   height: 2.5rem;
-  background-color: rgb(239, 239, 239);
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;
@@ -90,11 +97,10 @@
 .isay-status-box .user-status .upper-prop .status-interest-load {
   width: 5rem;
   height: 2.5rem;
-  background-color: rgb(239, 239, 239);
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;
@@ -105,11 +111,10 @@
 .isay-status-box .user-status .lower-prop-load {
   border-radius: 0.5rem;
   height: 2rem;
-  background-color: rgb(239, 239, 239);
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;
@@ -119,12 +124,10 @@
 .isay-status-box .do-at-status-load {
   border-radius: 0.5rem;
   height: 2rem;
-  /* width: 45rem; */
-  background-color: rgb(239, 239, 239);
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;
@@ -140,11 +143,10 @@
   width: 1rem;
   height: 1rem;
   border-radius: 1rem;
-  background-color: rgb(239, 239, 239);
   background-image: linear-gradient(
     89deg,
-    rgb(239, 239, 239),
-    rgb(224, 224, 224)
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;

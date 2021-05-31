@@ -1,134 +1,70 @@
-import React from 'react'
+import axios from 'axios'
+import moment from 'moment'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { authHeader } from '../../helpers'
 import './style/UserAct.css'
+import UserActMap from './UserActMap'
 
-const UserAct = () => {
+const UserAct = (fromUserPage) => {
+
+  const userId = fromUserPage.userId
+  const userName = fromUserPage.userName
+
+  const [dataActivity, setDataActivity] = useState(null)
+
+  const dispatch = useDispatch()
+  
+  useEffect(() => {
+
+    dispatch ({type: "GET_ACTIVITY_REQUEST"})
+
+    const requestOptions = {
+      method: 'GET',
+      headers: authHeader()
+    };
+
+    axios
+      .get (`https://isay.gabatch11.my.id/profile/an/Activities/${userId}`, requestOptions)
+      .then (response => {
+        setTimeout(() => {
+          dispatch({type: "GET_ACTIVITY_SUCCESS", payload: response.data})
+        }, 2500)
+        setDataActivity(response.data)
+      })
+      .catch(error => {
+        dispatch({type: "GET_ACTIVITY_FAILURE", error})
+      })
+
+  },[])
+
   return (
     <div className="realtime-feed-act">
-      <div className="isay-status-box">
-        <div className="isay-status-rec">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time">
-                <h2>Raflesia Arnoldi</h2>
-                <p>1 hour ago</p>
-              </div>
-              <div className="status-interest">
-                <p>Personal</p>
-              </div>
-              <div className="location">
-                <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />Jakarta</p>
-              </div>
-            </div>
-            <div className="lower-prop">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eaque officia eligendi, distinctio
-                perferendis odio minima dignissimos adipisci error nam, non libero quae quod, ipsum praesentium dolore
-                consectetur quas aliquam?</p>
-            </div>
-          </div>
-          <div className="do-at-status">
-            <div className="button-collect">
-              <div className="button">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/like_DeUkMSVa0GD.png" alt="Like" />
-                <p>Like</p>
-                <p>(3)</p>
-              </div>
-              <div className="button">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/comment_pfnyK8aWL.png" alt="Comment" />
-                <p>Comments</p>
-                <p>(15)</p>
-              </div>
-              <div className="button">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/chat_k1YWihxxc.png" alt="PC" />
-                <p>Personal Chat</p>
-              </div>
-            </div>
-            <div className="comment-expand">
-              <form action method="post">
-                <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about me?" defaultValue={""} />
-              </form>
-              <div className="comment-box">
-                <div className="comment-detail">
-                  <h2>Rafflesia Arnoldi</h2>
-                  <p>3h ago</p>
-                </div>
-                <div className="comment-content">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam
-                    dignissimos, recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic
-                    suscipit incidunt quae.</p>
-                </div>
-              </div>
-              <div className="comment-box">
-                <div className="comment-detail">
-                  <h2>Rafflesia Arnoldi</h2>
-                  <p>3h ago</p>
-                </div>
-                <div className="comment-content">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam
-                    dignissimos,
-                    recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic suscipit
-                    incidunt quae.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="isay-status-box">
-        <div className="user-status">
-          <div className="upper-prop">
-            <div className="user-image">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-            </div>
-            <div className="name-and-time">
-              <h2>Raflesia Arnoldi</h2>
-              <p>1 hour ago</p>
-            </div>
-            <div className="status-interest">
-              <p>Personal</p>
-            </div>
-            <div className="location">
-              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />Jakarta</p>
-            </div>
-          </div>
-          <div className="lower-prop">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo eaque officia eligendi, distinctio
-              perferendis odio minima dignissimos adipisci error nam, non libero quae quod, ipsum praesentium dolore
-              consectetur quas aliquam?</p>
-            <div className="image-post">
-              <div className="image-cont">
-                <img src="https://ik.imagekit.io/alfianpur/Personal_Pages/design_fP0B76kJ-16.jpg" alt="PostMage" />
-              </div>
-              <div className="image-cont">
-                <img src="https://ik.imagekit.io/alfianpur/Personal_Pages/design_fP0B76kJ-16.jpg" alt="PostMage" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="do-at-status">
-          <div className="button-collect">
-            <div className="button">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/like_DeUkMSVa0GD.png" alt="Like" />
-              <p>Like</p>
-              <p>(3)</p>
-            </div>
-            <div className="button">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/comment_pfnyK8aWL.png" alt="Comment" />
-              <p>Comments</p>
-              <p>(15)</p>
-            </div>
-            <div className="button">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/chat_k1YWihxxc.png" alt="PC" />
-              <p>Personal Chat</p>
-            </div>
-          </div>
-          <div className="comments-expand">
-          </div>
-        </div>
-      </div>
+
+      {(!dataActivity)?
+        <div></div>:
+        <>
+        {dataActivity?.data?.map(act =>     
+          <UserActMap
+          userName = {userName}
+          type = {act.type}
+          statusId = {act.status_id?._id}
+          interest = {act.status_id?.interest[0]?.interest}
+          statusOwner = {act.status_id?.owner?.name}
+          avatar = {act.status_id?.owner?.avatar}
+          location = {act.status_id?.owner?.location?.city}
+          content = {act.status_id?.content}
+          media = {act.status_id?.media}
+          likeLength = {act.status_id?.likeBy?.length}
+          commentLength = {act.status_id?.comment?.length}
+          actDate = {moment(new Date(act.created_at)).fromNow()}
+          statusDate = {moment(new Date(act.status_id?.created_at)).fromNow()}
+          />
+          )
+        }
+        </>
+      }
+
       <div className="pagination" />
     </div>
   )

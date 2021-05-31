@@ -1,152 +1,184 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { formatRelative } from 'date-fns'
+import CommentBox from './CommentBox';
 import './style/FeedBox.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { alertActions } from '../../redux/actions';
+import { authHeader } from '../../helpers';
+import DeleteStatus from './DeleteStatus';
+import moment from 'moment';
 
-const FeedBox = (proper) => {
+const FeedBox = (fromFeedPage) => {
 
-  //START SHOW AND HIDE COMMENT
-  const [show, setShow] = useState(false);
+  const oldStatus = fromFeedPage?.oldStatus
+  const statusUpdate = useSelector ((state) => state?.statusInterest)
+  const users = useSelector ((state) => state?.users)
+  const setOldStatus = fromFeedPage?.setOldStatus
+  const setPage = fromFeedPage?.setPage
 
-  const changeShow = () => {
-    if (show === false) {
-      setShow(true);
-    }
-    else if (show === true) {
-      setShow(false);
-    }
+  const loadComponent = () => {
+    return (
+      <>
+        <div className="isay-status-box">
+          <div className="user-status">
+            <div className="upper-prop">
+              <div className="user-image-load">
+                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
+              </div>
+              <div className="name-and-time-load">
+              </div>
+              <div className="status-interest-load"></div>
+            </div>
+            <div className="lower-prop-load"></div>
+          </div>
+          <div className="do-at-status-load"></div>
+        </div>
+      </>
+    )
   }
 
-  const CommentExpand = () => {
-    if (show === true) {
-      return (
-        <div className="comment-expand">
-          <form action method="post">
-            <textarea wrap="soft" type="text" name="status" id="status" placeholder="What do you feel about me?" defaultValue={""} />
-          </form>
-          <div className="comment-box">
-            <div className="comment-detail">
-              <h2>Rafflesia Arnoldi</h2>
-              <p>3h ago</p>
+  if (statusUpdate?.loading) {
+    if(oldStatus === null) {
+    return (
+      <>
+        {loadComponent()}
+        {loadComponent()}
+        {loadComponent()}
+      </>
+    )}
+    return (
+      <>
+      {loadComponent()}
+      {oldStatus?.map((user) => (
+      <div className="isay-status-box">
+        <div className="user-status">
+          <DeleteStatus
+            statusId={user?._id}
+            ourId={users?.items?._id}
+            statusOwnerId={user?.owner?._id}
+            setOldStatus={setOldStatus}
+            setPage={setPage}
+          />
+          <div className="upper-prop">
+            <div className="user-image">
+              <img src={user?.owner?.avatar} alt="User" />
             </div>
-            <div className="comment-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam dignissimos, recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic suscipit incidunt quae.</p>
+            <div className="name-and-time">
+              <h2>{user?.owner?.name}</h2>
+              <p>
+                { (user?.created_at !== undefined)?
+                  moment(new Date(user?.created_at)).fromNow():
+                  user?.created_at
+                }
+              </p>
             </div>
-          </div>
-          <div className="comment-box">
-            <div className="comment-detail">
-              <h2>Rafflesia Arnoldi</h2>
-              <p>3h ago</p>
+            <div className="status-interest">
+              <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
             </div>
-            <div className="comment-content">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quisquam nobis alias natus nam dignissimos,
-                recusandae quasi aspernatur maxime similique molestiae aut magni eius voluptates modi hic suscipit incidunt quae.
+            <div className="status-location">
+              <p>
+                <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
+                {user?.owner?.location?.city}
               </p>
             </div>
           </div>
-        </div>
-      )
-    } else {return (<div></div>)}
-  }
-  //END SHOW AND HIDE COMMENT
-  
-  const card = proper.cardy; //Send Prop to Feed Page
-
-
-  if (card) {
-    return (
-      <div className="isay-status-box">
-        <div className="user-status">
-          <div className="upper-prop">
-            <div className="user-image">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-            </div>
-            <div className="name-and-time">
-              <h2>{card.name}</h2>
-              <p>{card.time}</p>
-            </div>
-            <div className="status-interest">
-              <p>{card.interest}</p>
-            </div>
-            <div className="status-location">
-              <p><img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="Location" />Jakarta</p>
-            </div>
-          </div>
           <div className="lower-prop">
-            <p>{card.content}</p>
-          </div>
-        </div>
-        <div className="do-at-status">
-          <div className="button-collect">
-            <div className="button">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/like_DeUkMSVa0GD.png" alt="Like" />
-              <p>Like</p>
-              <p>(3)</p>
-            </div>
-            <div className="button" onClick={changeShow}>
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/comment_pfnyK8aWL.png" alt="Comment" />
-              <p>Comments</p>
-              <p>(15)</p>
-            </div>
-            <div className="button">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/chat_k1YWihxxc.png" alt="PC" />
-              <p>Personal Chat</p>
+            <p>{user?.content}</p>
+            <div className="image-post">
+              {
+                (!user?.media)? <div></div> :
+                <>{
+                  user?.media?.map(media =>(
+                    <div className="image-cont">
+                      <img src={`${media}`} alt="PostMage" />
+                    </div>
+                  ))
+                }</>
+              }
             </div>
           </div>
-          {CommentExpand()}
         </div>
+        <CommentBox
+          comment = {user?.comment}
+          likeBy={user?.likeBy}
+          statusId={user?._id}
+          ownerId={user?.owner?._id}
+        />
       </div>
+      ))}
+      </>
     )
   } else {
-  return (
+    if(statusUpdate?.status?.data === null) {
+    return (
+      <>
+        <p>There are no people create status on your selected interest, be the first one to create it!</p>
+      </>
+    )}
+    return (
         <>
+        {statusUpdate?.status?.data?.map((user) => (
         <div className="isay-status-box">
           <div className="user-status">
+            <DeleteStatus
+              statusId={user?._id}
+              ourId={users?.items?._id}
+              statusOwnerId={user?.owner?._id}
+              setOldStatus={setOldStatus}
+              setPage={setPage}
+            />
             <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
+              <div className="user-image">
+                <img src={user?.owner?.avatar} alt="User" />
               </div>
-              <div className="name-and-time-load">
+              <div className="name-and-time">
+                <a href = { (users?.items?._id === user?.owner?.id)?`/profile`:`/user/${user?.owner?.id}`}>
+                  <h2>{user?.owner?.name}</h2>
+                </a>
+                <p>
+                  { (user?.created_at !== undefined)?
+                    moment(new Date(user?.created_at)).fromNow():
+                    user?.created_at
+                  }
+                </p>
               </div>
-              <div className="status-interest-load"></div>
+              <div className="status-interest">
+                <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
+              </div>
+              <div className="status-location">
+                <p>
+                  <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
+                  {user?.owner?.location?.city}
+                </p>
+              </div>
             </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
+            <div className="lower-prop">
+              <p>{user?.content}</p>
+              <div className="image-post">
+                {
+                  (!user?.media)? <div></div> :
+                  <>{
+                    user?.media?.map(media =>(
+                      <div className="image-cont">
+                        <img src={`${media}`} alt="PostMage" />
+                      </div>
+                    ))
+                  }</>
+                }
               </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
             </div>
-            <div className="lower-prop-load"></div>
           </div>
-          <div className="do-at-status-load"></div>
+          <CommentBox
+            comment = {user?.comment}
+            likeBy={user?.likeBy}
+            statusId={user?._id}
+            ownerId={user?.owner?._id}
+          />
         </div>
-        <div className="isay-status-box">
-          <div className="user-status">
-            <div className="upper-prop">
-              <div className="user-image-load">
-                <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="User" />
-              </div>
-              <div className="name-and-time-load">
-              </div>
-              <div className="status-interest-load"></div>
-            </div>
-            <div className="lower-prop-load"></div>
-          </div>
-          <div className="do-at-status-load"></div>
-        </div>
-        <div className="circle-box-load">
-          <div className="circle-load"></div>
-          <div className="circle-load"></div>
-          <div className="circle-load"></div>
-        </div>
-        </>
-  )
+        ))}
+      </>
+    )
   }
 }
 

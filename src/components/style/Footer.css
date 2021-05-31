@@ -1,12 +1,12 @@
 .footer-container {
   background: linear-gradient(
     97.94deg,
-    rgba(138, 98, 251, 0.46) -13.16%,
+    #8a62fb -13.16%,
     #4781f8 52.91%,
-    rgba(0, 158, 116, 0.46) 103.6%,
-    rgba(167, 243, 206, 0.96) 123.54%
+    #009e74 103.6%,
+    #a7f3ce 123.54%
   );
-  color: white;
+  color: var(--white);
 }
 
 .footer-container .footer-wrapping {

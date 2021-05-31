@@ -1,5 +1,4 @@
 import { statusConstant, statusUserConstant } from '../type';
-// import { alertActions } from './alert.actions'
 import axios from 'axios';
 import { authHeader } from "../../helpers";
 
@@ -8,7 +7,7 @@ export const statusInterest = {
   getStatusUser
 };
 
-function getStatus(param) {
+function getStatus(param, page) {
   return dispatch => {
     dispatch (request())
 
@@ -18,7 +17,7 @@ function getStatus(param) {
     };
 
     axios
-      .get (`https://isay.gabatch11.my.id/status/interest/${param}`, requestOptions)
+      .get (`https://isay.gabatch11.my.id/status/interest/${param}?page=${page}`, requestOptions)
       .then (response => {
         setTimeout(() => {
           dispatch(success(response))
@@ -34,7 +33,7 @@ function getStatus(param) {
   function failure(error) {return {type: statusConstant.GET_STATUS_FAILURE, error}}
 }
 
-function getStatusUser() {
+function getStatusUser(page) {
   return dispatch => {
     dispatch (request())
 
@@ -44,7 +43,7 @@ function getStatusUser() {
     };
 
     axios
-      .get (`https://isay.gabatch11.my.id/status/users/`, requestOptions)
+      .get (`https://isay.gabatch11.my.id/status/users/?page=${page}`, requestOptions)
       .then (response => {
         setTimeout(() => {
           dispatch(success(response))

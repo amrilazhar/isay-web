@@ -1,0 +1,207 @@
+.single-container {
+  max-width: 1360px;
+  display: flex;
+  justify-content: center;
+}
+
+.single-wrapper {
+  max-width: 890px;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.single-wrapper .top-container {
+  padding: 1rem;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  background-color: rgb(124, 187, 130);
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.single-wrapper .top-container .short-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.single-wrapper .top-container .short-profile .avatar {
+  width: 50px;
+  height: 50px;
+  background-color: purple;
+  border-radius: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.single-wrapper .top-container .short-profile .avatar img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 100%;
+}
+
+.single-wrapper .top-container .short-profile .location {
+  margin-left: auto;
+}
+
+.single-wrapper .top-container .bio {
+  font-size: 0.8rem;
+}
+
+.single-wrapper .bottom-container {
+  font-size: 0.9rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-color: rgb(124, 187, 130);
+  color: white;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-wrapper .bottom-container .left-bottom-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-wrapper .bottom-container .left-bottom-container .content {
+  padding: 1rem;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
+.single-wrapper .bottom-container .left-bottom-container .media {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.single-wrapper .bottom-container .left-bottom-container .media .post-image {
+  width: 200px;
+  height: 200px;
+  background-color: purple;
+  border-radius: 10px;
+  margin: 0 0.5rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.single-wrapper
+  .bottom-container
+  .left-bottom-container
+  .media
+  .post-image
+  img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 100%;
+}
+
+.single-wrapper .bottom-container .right-bottom-container .top-bar {
+  display: flex;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: violet;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.single-wrapper .bottom-container .right-bottom-container .top-bar {
+  justify-content: space-evenly;
+}
+
+.single-wrapper .bottom-container .right-bottom-container .comment-load {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  background-color: violet;
+  border-radius: 0.5rem;
+}
+
+.single-wrapper .bottom-container .right-bottom-container .comment-load form {
+  width: 100%;
+}
+
+.single-wrapper
+  .bottom-container
+  .right-bottom-container
+  .comment-load
+  form
+  textarea {
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  height: 90px;
+}
+
+.single-wrapper
+  .bottom-container
+  .right-bottom-container
+  .comment-load
+  .comment-map {
+  border-top: 0.2rem solid green;
+  border-radius: 0.1rem;
+}
+
+.single-wrapper
+  .bottom-container
+  .right-bottom-container
+  .comment-load
+  .comment-map
+  .identity {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0.5rem;
+}
+
+.single-wrapper
+  .bottom-container
+  .right-bottom-container
+  .comment-load
+  .comment-map
+  .comment {
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 880px) {
+  .single-wrapper .bottom-container {
+    flex-direction: row;
+  }
+
+  .single-wrapper .bottom-container .left-bottom-container {
+    padding-left: 2rem;
+  }
+
+  .single-wrapper .bottom-container .right-bottom-container {
+    max-width: 350px;
+    min-width: 350px;
+    padding-left: 1.5rem;
+    box-sizing: border-box;
+    position: sticky;
+    top: 5rem;
+  }
+
+  .single-wrapper .bottom-container .right-bottom-container .comment-load {
+    max-height: 500px;
+  }
+
+  .single-wrapper
+    .bottom-container
+    .right-bottom-container
+    .comment-load
+    .comment-map-container {
+    overflow: auto;
+    padding-right: 0.5rem;
+  }
+}

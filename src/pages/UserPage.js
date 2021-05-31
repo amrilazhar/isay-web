@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
-import { userActions } from '../redux/actions';
+
+import { statusInterest, userActions } from '../redux/actions';
 
 import { history } from "../helpers";
 
@@ -10,8 +11,9 @@ import Navbar from '../components/Navbar';
 import UserAct from '../components/UserProfile/UserAct';
 import UserBio from '../components/UserProfile/UserBio'
 import UserPost from '../components/UserProfile/UserPost';
+import FlashMessage from '../components/FlashMessage'
 import './style/UserPage.css'
-import ProfileSetting from './ProfileSetting';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const UserPage = () => {
 
@@ -19,10 +21,16 @@ const UserPage = () => {
   let match = useRouteMatch()
 
   useEffect(() => {
-    dispatch(userActions.getActive())
-  },[])
+      dispatch(userActions.getActive())
+    },[])
 
-  const userActive = useSelector ((state) => state.users)
+  useEffect(() => {
+      const page = 1
+      dispatch(statusInterest.getStatusUser(page))
+    },[])
+
+  const userActive = useSelector ((state) => state?.users)
+  const statusUpdate = useSelector ((state) => state?.statusUser?.status)
 
   const logout = () => {
     dispatch(userActions.logout());
@@ -35,7 +43,7 @@ const UserPage = () => {
         <>
           <div className="relative">
             <div className="profile-image-load">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
+              <img src=" " alt="Profile" />
             </div>
             <h1> </h1>
             <div className="location-user-load"></div>
@@ -55,12 +63,12 @@ const UserPage = () => {
         <>
           <div className="relative">
             <div className="profile-image">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/lion__RKncgdq5U.png" alt="Profile" />
+              <img src={userActive.items?.avatar} alt="Profile" />
             </div>
             <h1>{userActive.items?.name}</h1>
             <div className="location-user">
-              <img src="https://ik.imagekit.io/alfianpur/Final_Project/Icon/location_vBwnULTngQ.png" alt="loc" />
-              <p>{userActive.items?.location.city}</p>
+              <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
+              <p>{userActive.items?.location?.city}</p>
             </div>
           </div>
           <a href="/setting">
@@ -76,26 +84,24 @@ const UserPage = () => {
     }
   }
 
+  const alert = useSelector ((state) => state.alert)
+
   return (
     <Router>
+      {
+        alert.alert ? <FlashMessage/> : ""
+      }
       <Navbar/>
       <div className="profile-container">
         <div className="profile-wrapping">
-          {/* Start of Top Content */}
           <div className="profile-top-content">
             <img src="https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png" alt="Hero Profile Banner" />
           </div>
-          {/* End of Top Content */}
-          {/* Start of Bottom Content */}
           <div className="profile-bottom-content">
-            {/* Start of Left Content */}
             <div className="profile-left-content">
               {userDetail()}
             </div>
-            {/* End of Left Content */}
-            {/* Start of Right Content */}
             <div className="profile-right-content">
-              {/* Start of Button Switch */}
               <div className="switch-page-btn">
                 <div className="menu-item">
                   <Link to={`${match.url}`}>Profile</Link>
@@ -110,28 +116,30 @@ const UserPage = () => {
                   <div className="strip" />
                 </div>
               </div>
-              {/* End of Button Switch */}
-              {/* Start Custome Insertion */}
                 <Switch>
                   <Route path={`${match.path}/post`}>
-                    <UserPost/>
+                    <UserPost post = {
+                      statusUpdate
+                    }
+                    />
                   </Route>
                   <Route path={`${match.path}/act`}>
-                    <UserAct/>
+                    <UserAct
+                      userId = {userActive.items?._id}
+                      userName ={userActive.items?.name}
+                    />
                   </Route>
                   <Route path={`${match.path}`}>
                     <UserBio bio = {{
                       bio: `${userActive.items?.bio}`,
-                      interest: [userActive.items?.interest]
+                      interest: [userActive.items?.interest],
+                      id: `${userActive.items?._id}`
                     }}
                     />
                   </Route>
                 </Switch>
-              {/* End Custome Insertion */}
             </div>
-            {/* End of Right Content */}
           </div>
-          {/* End of Bottom Content */}
         </div>
       </div>
       <Footer/>

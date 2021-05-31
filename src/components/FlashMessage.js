@@ -9,29 +9,26 @@ function Alert(props) {
 }
 
 const FlashMessage = () => {
+  
+  const dispatch = useDispatch();
 
-  const alert = useSelector ((state) => state.alert)
-  console.log(alert)
+  const alert = useSelector ((state) => state?.alert)
 
   const [open, setOpen] = useState(true);
-
-  const dispatch = useDispatch();
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
-
     setOpen(false);
-
     dispatch(alertActions.clear())
   };
 
   return (
     <div>
-      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="error">
-          {alert.message}
+      <Snackbar open={open} autoHideDuration={3000} onClose={handleClose} style={{zIndex: 999999}}>
+        <Alert onClose={handleClose} severity={(alert?.type === 'alert-success')?"success":"error"}>
+          {alert?.message}
         </Alert>
       </Snackbar>
     </div>

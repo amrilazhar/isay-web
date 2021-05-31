@@ -5,12 +5,13 @@ export const userService = {
     login,
     logout,
     register,
-    getAll,
     getActive,
-    getById,
     update,
     firstCreate,
-    delete: _delete
+    resetPassword,
+    postStatus,
+    like,
+    unlike
 };
 
 function login(email, password) {
@@ -33,17 +34,8 @@ function login(email, password) {
 function logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
-}
-
-function getAll() {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-
-    //BENERIN BRO
-    return fetch(`/users`, requestOptions).then(handleResponse);
+    localStorage.setItem ('theme', 'light')
+    localStorage.removeItem('theme');
 }
 
  function getActive() {
@@ -51,21 +43,10 @@ function getAll() {
         headers: authHeader()
     };
 
-    const user = JSON.parse(localStorage.getItem('user'));
+    // const user = JSON.parse(localStorage.getItem('user'));
 
-    return axios.get (`https://isay.gabatch11.my.id/profile/getProfile/${user.id}`, requestOptions)
+    return axios.get (`https://isay.gabatch11.my.id/profile/getProfile`, requestOptions)
     // .then(handleResponse);
-}
-
-function getById(id) {
-    const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
-    };
-
-
-    //BENERIN BRO
-    return fetch(`/users/${id}`, requestOptions).then(handleResponse);
 }
 
 function register(email, password, confirmPassword) {
@@ -97,22 +78,9 @@ function update(user) {
     return fetch(`/users/${user.id}`, requestOptions).then(handleResponse);;
 }
 
-// prefixed function name with underscore because delete is a reserved word in javascript
-function _delete(id) {
-    const requestOptions = {
-        method: 'DELETE',
-        headers: authHeader()
-    };
-
-
-    //BENERIN BRO
-    return fetch(`/users/${id}`, requestOptions).then(handleResponse);
-}
-
 
 function firstCreate(location, activity, interest) {
 
-    // const locationString = JSON.stringify({location})
     const activityString = JSON.stringify(activity)
     const interestString = JSON.stringify(interest)
 
@@ -120,7 +88,6 @@ function firstCreate(location, activity, interest) {
         method: 'POST',
         headers: { ...authHeader(),
             'Content-Type': 'application/json' },
-        // body: JSON.stringify({ location, activityString, interestString })
         body: JSON.stringify(
         {
             'interest': `${interestString}`,
@@ -128,14 +95,67 @@ function firstCreate(location, activity, interest) {
             'activity': `${activityString}`    
         })
     };
-
-    console.log('inibody', requestOptions.body)
-
+    
     return fetch(`https://isay.gabatch11.my.id/user/first_profile`, requestOptions)
         .then(handleResponse)
 }
 
 
+function resetPassword(emailReset) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { ...authHeader(),
+            'Content-Type': 'application/json' },
+        body:JSON.stringify(
+        {
+            'email': `${emailReset}`,
+        })
+    };
+
+    return fetch(`https://isay.gabatch11.my.id/user/reset_password`, requestOptions)
+        .then(handleResponse)
+}
+
+function postStatus(content, interestId, files) {
+
+    const formData = new FormData();
+    formData.append('content', `${content}`);
+    formData.append('interest', `${interestId}`);
+    for (const file of files) {
+        formData.append('media', file)
+    }
+
+    const requestOptions = {
+        method: 'POST',
+        headers: authHeader(),
+        body: formData
+    };
+
+    return fetch (`https://isay.gabatch11.my.id/status/`, requestOptions)
+        .then(handleResponse)
+}
+
+function like(statusId) {
+
+      const requestOptions = {
+          method: 'PUT',
+          headers: authHeader()
+      };
+
+      return fetch(`https://isay.gabatch11.my.id/status/like/${statusId}`, requestOptions)
+        .then(handleResponse)
+}
+
+function unlike(statusId) {
+
+      const requestOptions = {
+          method: 'PUT',
+          headers: authHeader()
+      };
+
+      return fetch(`https://isay.gabatch11.my.id/status/unlike/${statusId}`, requestOptions)
+        .then(handleResponse)
+}
 
 function handleResponse(response) {
     return response.text()
