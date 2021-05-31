@@ -22,7 +22,8 @@
 }
 
 .tooltip-delete .tooltip-content {
-  visibility: hidden;
+  /* visibility: hidden; */
+  opacity: 0;
   text-align: center;
   border-radius: 4px;
   padding: 0.5rem 1rem 0;
@@ -31,6 +32,10 @@
   top: -5px;
   right: 70%;
   background-color: var(--mainPurple);
+  transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -webkit-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
 }
 
 .tooltip-delete .tooltip-content button {
@@ -43,7 +48,8 @@
 }
 
 .tooltip-delete:hover .tooltip-content {
-  visibility: visible;
+  /* visibility: visible; */
+  opacity: 1;
 }
 
 .reset-modal {
