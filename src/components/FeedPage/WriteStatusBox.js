@@ -84,6 +84,7 @@ const removeFile = (index) => {
   }
 
   const submitStatus = (e) => {
+    e.preventDefault()
 
     setOldStatus(statusUpdate?.status?.data)
     setPage (1)
@@ -95,7 +96,6 @@ const removeFile = (index) => {
     const interestId = interest?.id
 
     if(content && interestId){
-      e.preventDefault()
       dispatch(userActions.postStatus(content, interestId, files))
       e.target.reset()
       const param = ""
