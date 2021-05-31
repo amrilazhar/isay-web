@@ -87,13 +87,18 @@ const Navbar = () => {
 		} else return 0;
 	};
 
+	const theme = localStorage.getItem('theme')
+
 	return (
 		<Router>
 			<div className="navbar-container">
 				<div className="navbar-wrapper">
 					<a href="/">
 						<div className="nav-logo">
+							{ (theme === "dark")?
+							<img src="https://ik.imagekit.io/alfianpur/Final_Project/Group_1_epmbmXTrw.svg" alt="logo" />:
 							<img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo" />
+							}
 						</div>
 					</a>
 					<div className="search">

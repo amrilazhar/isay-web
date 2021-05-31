@@ -1,13 +1,17 @@
 import React from 'react'
-
 import './style/Footer.css'
 
 const Footer = () => {
+  const theme = localStorage.getItem('theme')
+
   return (
     <div className="footer-container">
       <div className="footer-wrapping">
         <div className="left">
-          <img src="https://i.ibb.co/qsXVjSt/Group-147.png" alt="Logo" />
+          { (theme === "dark")?
+          <img src="https://ik.imagekit.io/alfianpur/Final_Project/Group_1_epmbmXTrw.svg" alt="logo" />:
+          <img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo" />
+          }
         </div>
         <div className="left-middle">
           <p>Menu</p>
