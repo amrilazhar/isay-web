@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { notificationData } from "../../redux/actions";
 import moment from "moment";
 import socketIOClient from "socket.io-client";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 const ContentNotification = () => {
   const dispatch = useDispatch();
@@ -57,7 +58,6 @@ const ContentNotification = () => {
 
   // handle name
   const convertDate = (dates) => {
-    // const newDate = dates.replace(/[a-z]/gi, " ").slice(0, -5);
     const newDate = new Date(dates);
     const today = moment(newDate);
     console.log("today", today.fromNow());
@@ -68,7 +68,413 @@ const ContentNotification = () => {
     <>
       <div className="main-container">
         {notificationUpdate.loading ? (
-          <h3>loading...</h3>
+          <>
+            <div className="notif-container-load">
+              <div className="notif-wrapper-load">
+                <div className="notif-header-load">
+                  <div className="head-upper-load">
+                    <div className="head-upper-bg-load">
+                      <Skeleton
+                        variant="circle"
+                        width={"60px"}
+                        height={"60px"}
+                      />
+                    </div>
+                    <Skeleton
+                      variant="rect"
+                      width={"170px"}
+                      height={"25px"}
+                      style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                    />
+                  </div>
+                  <div className="head-bottom-load">
+                    <Skeleton
+                      variant="rect"
+                      width={"230px"}
+                      height={"25px"}
+                      style={{ margin: 10, borderRadius:"10px" }}
+                    />
+                    <Skeleton
+                      variant="rect"
+                      width={"100px"}
+                      height={"25px"}
+                      style={{ marginLeft: "auto", borderRadius:"10px" }}
+                    />
+                  </div>
+                </div>
+                <div className="sub-container-load">
+                  <div className="sub-wrapper-load">
+                    <div className="sub-header-load">
+                      <div>
+                        <div className="img-sub-notif-load">
+                          <Skeleton
+                            variant="circle"
+                            width={"60px"}
+                            height={"60px"}
+                          />
+                        </div>
+                        <div>
+                          <Skeleton
+                            variant="rect"
+                            width={"160px"}
+                            height={"25px"}
+                            style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                          />
+                        </div>
+                      </div>
+                      <div className="target-load">
+                        <Skeleton
+                          variant="rect"
+                          width={"160px"}
+                          height={"25px"}
+                          style={{ marginLeft: "4.3rem", borderRadius:"10px" }}
+                        />
+                        <Skeleton
+                          variant="rect"
+                          width={"100px"}
+                          height={"25px"}
+                          style={{ marginLeft: "auto", borderRadius:"10px" }}
+                        />
+                      </div>
+                    </div>
+                    <div className="sub-content-load">
+                      <Skeleton
+                        variant="rect"
+                        width="100%"
+                        height="50px"
+                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Divider />
+            </div>
+            <div className="notif-container-load">
+              <div className="notif-wrapper-load">
+                <div className="notif-header-load">
+                  <div className="head-upper-load">
+                    <div className="head-upper-bg-load">
+                      <Skeleton
+                        variant="circle"
+                        width={"60px"}
+                        height={"60px"}
+                      />
+                    </div>
+                    <Skeleton
+                      variant="rect"
+                      width={"170px"}
+                      height={"25px"}
+                      style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                    />
+                  </div>
+                  <div className="head-bottom-load">
+                    <Skeleton
+                      variant="rect"
+                      width={"230px"}
+                      height={"25px"}
+                      style={{ margin: 10, borderRadius:"10px" }}
+                    />
+                    <Skeleton
+                      variant="rect"
+                      width={"100px"}
+                      height={"25px"}
+                      style={{ marginLeft: "auto", borderRadius:"10px" }}
+                    />
+                  </div>
+                </div>
+                <div className="sub-container-load">
+                  <div className="sub-wrapper-load">
+                    <div className="sub-header-load">
+                      <div>
+                        <div className="img-sub-notif-load">
+                          <Skeleton
+                            variant="circle"
+                            width={"60px"}
+                            height={"60px"}
+                          />
+                        </div>
+                        <div>
+                          <Skeleton
+                            variant="rect"
+                            width={"160px"}
+                            height={"25px"}
+                            style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                          />
+                        </div>
+                      </div>
+                      <div className="target-load">
+                        <Skeleton
+                          variant="rect"
+                          width={"160px"}
+                          height={"25px"}
+                          style={{ marginLeft: "4.3rem", borderRadius:"10px"}}
+                        />
+                        <Skeleton
+                          variant="rect"
+                          width={"100px"}
+                          height={"25px"}
+                          style={{ marginLeft: "auto", borderRadius:"10px" }}
+                        />
+                      </div>
+                    </div>
+                    <div className="sub-content-load">
+                      <Skeleton
+                        variant="rect"
+                        width="100%"
+                        height="50px"
+                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Divider />
+            </div>
+            <div className="notif-container-load">
+              <div className="notif-wrapper-load">
+                <div className="notif-header-load">
+                  <div className="head-upper-load">
+                    <div className="head-upper-bg-load">
+                      <Skeleton
+                        variant="circle"
+                        width={"60px"}
+                        height={"60px"}
+                      />
+                    </div>
+                    <Skeleton
+                      variant="rect"
+                      width={"170px"}
+                      height={"25px"}
+                      style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                    />
+                  </div>
+                  <div className="head-bottom-load">
+                    <Skeleton
+                      variant="rect"
+                      width={"230px"}
+                      height={"25px"}
+                      style={{ margin: 10, borderRadius:"10px" }}
+                    />
+                    <Skeleton
+                      variant="rect"
+                      width={"100px"}
+                      height={"25px"}
+                      style={{ marginLeft: "auto", borderRadius:"10px" }}
+                    />
+                  </div>
+                </div>
+                <div className="sub-container-load">
+                  <div className="sub-wrapper-load">
+                    <div className="sub-header-load">
+                      <div>
+                        <div className="img-sub-notif-load">
+                          <Skeleton
+                            variant="circle"
+                            width={"60px"}
+                            height={"60px"}
+                          />
+                        </div>
+                        <div>
+                          <Skeleton
+                            variant="rect"
+                            width={"160px"}
+                            height={"25px"}
+                            style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                          />
+                        </div>
+                      </div>
+                      <div className="target-load">
+                        <Skeleton
+                          variant="rect"
+                          width={"160px"}
+                          height={"25px"}
+                          style={{ marginLeft: "4.3rem", borderRadius:"10px" }}
+                        />
+                        <Skeleton
+                          variant="rect"
+                          width={"100px"}
+                          height={"25px"}
+                          style={{ marginLeft: "auto", borderRadius:"10px" }}
+                        />
+                      </div>
+                    </div>
+                    <div className="sub-content-load">
+                      <Skeleton
+                        variant="rect"
+                        width="100%"
+                        height="50px"
+                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Divider />
+            </div>
+            <div className="notif-container-load">
+              <div className="notif-wrapper-load">
+                <div className="notif-header-load">
+                  <div className="head-upper-load">
+                    <div className="head-upper-bg-load">
+                      <Skeleton
+                        variant="circle"
+                        width={"60px"}
+                        height={"60px"}
+                      />
+                    </div>
+                    <Skeleton
+                      variant="rect"
+                      width={"170px"}
+                      height={"25px"}
+                      style={{ marginTop: 16, marginLeft: 10,borderRadius:"10px" }}
+                    />
+                  </div>
+                  <div className="head-bottom-load">
+                    <Skeleton
+                      variant="rect"
+                      width={"230px"}
+                      height={"25px"}
+                      style={{ margin: 10, borderRadius:"10px" }}
+                    />
+                    <Skeleton
+                      variant="rect"
+                      width={"100px"}
+                      height={"25px"}
+                      style={{ marginLeft: "auto", borderRadius:"10px" }}
+                    />
+                  </div>
+                </div>
+                <div className="sub-container-load">
+                  <div className="sub-wrapper-load">
+                    <div className="sub-header-load">
+                      <div>
+                        <div className="img-sub-notif-load">
+                          <Skeleton
+                            variant="circle"
+                            width={"60px"}
+                            height={"60px"}
+                          />
+                        </div>
+                        <div>
+                          <Skeleton
+                            variant="rect"
+                            width={"160px"}
+                            height={"25px"}
+                            style={{ marginTop: 16, marginLeft: 10,borderRadius:"10px" }}
+                          />
+                        </div>
+                      </div>
+                      <div className="target-load">
+                        <Skeleton
+                          variant="rect"
+                          width={"160px"}
+                          height={"25px"}
+                          style={{ marginLeft: "4.3rem", borderRadius:"10px" }}
+                        />
+                        <Skeleton
+                          variant="rect"
+                          width={"100px"}
+                          height={"25px"}
+                          style={{ marginLeft: "auto", borderRadius:"10px" }}
+                        />
+                      </div>
+                    </div>
+                    <div className="sub-content-load">
+                      <Skeleton
+                        variant="rect"
+                        width="100%"
+                        height="50px"
+                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Divider />
+            </div>
+            <div className="notif-container-load">
+              <div className="notif-wrapper-load">
+                <div className="notif-header-load">
+                  <div className="head-upper-load">
+                    <div className="head-upper-bg-load">
+                      <Skeleton
+                        variant="circle"
+                        width={"60px"}
+                        height={"60px"}
+                      />
+                    </div>
+                    <Skeleton
+                      variant="rect"
+                      width={"170px"}
+                      height={"25px"}
+                      style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                    />
+                  </div>
+                  <div className="head-bottom-load">
+                    <Skeleton
+                      variant="rect"
+                      width={"230px"}
+                      height={"25px"}
+                      style={{ margin: 10, borderRadius:"10px" }}
+                    />
+                    <Skeleton
+                      variant="rect"
+                      width={"100px"}
+                      height={"25px"}
+                      style={{ marginLeft: "auto", borderRadius:"10px" }}
+                    />
+                  </div>
+                </div>
+                <div className="sub-container-load">
+                  <div className="sub-wrapper-load">
+                    <div className="sub-header-load">
+                      <div>
+                        <div className="img-sub-notif-load">
+                          <Skeleton
+                            variant="circle"
+                            width={"60px"}
+                            height={"60px"}
+                          />
+                        </div>
+                        <div>
+                          <Skeleton
+                            variant="rect"
+                            width={"160px"}
+                            height={"25px"}
+                            style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                          />
+                        </div>
+                      </div>
+                      <div className="target-load">
+                        <Skeleton
+                          variant="rect"
+                          width={"160px"}
+                          height={"25px"}
+                          style={{ marginLeft: "4.3rem", borderRadius:"10px" }}
+                        />
+                        <Skeleton
+                          variant="rect"
+                          width={"100px"}
+                          height={"25px"}
+                          style={{ marginLeft: "auto", borderRadius:"10px" }}
+                        />
+                      </div>
+                    </div>
+                    <div className="sub-content-load">
+                      <Skeleton
+                        variant="rect"
+                        width="100%"
+                        height="50px"
+                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <Divider />
+            </div>
+          </>
         ) : notificationUpdate.error ? (
           <h1>Error</h1>
         ) : (
@@ -84,7 +490,7 @@ const ContentNotification = () => {
                         <div className="notif-header">
                           <div className="head-upper">
                             <div className="head-upper-bg">
-                            <img src={data.from.avatar} alt="content" />
+                              <img src={data.from.avatar} alt="content" />
                             </div>
                             <h4>{data.from.name}</h4>
                           </div>

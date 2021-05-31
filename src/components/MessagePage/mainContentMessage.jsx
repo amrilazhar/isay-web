@@ -116,7 +116,7 @@ const MainContentMessage = () => {
         </div>
       );
     } else {
-      return newImages?.map((index, value) => (
+      return newImages?.map((value, index) => (
         <div className="notif-img-wrapper">
           <img
             src={URL.createObjectURL(newImages[value])}
