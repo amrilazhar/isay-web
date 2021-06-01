@@ -128,7 +128,7 @@ const ContentNotification = () => {
                   </div>
                 </div>
               </div>
-              <Divider variant="middle"/>
+              <Divider variant="middle" />
             </div>
             <div className="notif-container-load">
               <div className="notif-wrapper-load">
@@ -198,7 +198,7 @@ const ContentNotification = () => {
                   </div>
                 </div>
               </div>
-              <Divider variant="middle"/>
+              <Divider variant="middle" />
             </div>
             <div className="notif-container-load">
               <div className="notif-wrapper-load">
@@ -323,23 +323,23 @@ const ContentNotification = () => {
                           </div>
                         </div>
                       </div>
-                      <Divider variant="middle"/>
+                      <Divider variant="middle" style={{backgroundColor:'var(--border)', height:'2px'}}/>
                       {data.readed._id ? "" : notifReaded()}
                     </>
                   )}
                 </>
               ))}
             </div>
+            <Pagination
+              onChange={handlePagination}
+              count={`${notificationUpdate?.notification?.totalPages}`}
+              page={page}
+              color="primary"
+              className="notification-pagination"
+            />
           </>
         )}
       </div>
-      <Pagination
-        onChange={handlePagination}
-        count={`${notificationUpdate?.notification?.totalPages}`}
-        page={page}
-        color="primary"
-        className="notification-pagination"
-      />
     </>
   );
 };
