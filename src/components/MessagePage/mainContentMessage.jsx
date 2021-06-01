@@ -24,6 +24,7 @@ const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
 const MainContentMessage = () => {
   const [newMessage, setNewMessage] = useState(""); // Message to be sent
   const [newImages, setNewImages] = useState([]); // Images to be sent
+  const [displayImage, setDisplayImage] = useState([]); // fresh file
 
   const [loadMore, setLoadMore] = useState(false); // handle scroll
   const [scrollPos, setScrollPos] = useState(""); // handle scroll
@@ -69,73 +70,12 @@ const MainContentMessage = () => {
     setNewMessage(event.target.value);
   };
 
-  const handleNewImagesChange = (event) => {
-    let imgCont = [];
-    let errorFile = [];
-    let fileCont = event.target.files;
-    for (const el of fileCont) {
-      //rules for upload file less than 3MB and type image
-      if (
-        (el.type == "image/jpeg" ||
-          el.type == "image/png" ||
-          el.type == "image/gif" ||
-          el.type == "image/bmp") &&
-        el.size / (1024 * 1024) < 3
-      ) {
-        encodeBase64(el, (image) => {
-          imgCont.push(image);
-        });
-      } else {
-        errorFile.push(el.name);
-      }
-    }
-    if (errorFile.length > 0) {
-      let stringError = errorFile.join(`\n, `);
-      dispatch(
-        alertActions.error(
-          `This following file didn't meet our expectation \n(size < 3MB & file type [jpeg, png, gif, bmp]), file : \n ${stringError}.\n Please Re-Select All of the file again`
-        )
-      );
-    } else {
-      setNewImages(imgCont);
-    }
-
-    console.log("target", event.target.files);
-  };
-
-  const mapNotifImage = () => {
-    if (newImages === []) {
-      return (
-        <div className="notif-img-wrapper">
-          <img
-            src={
-              "https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png"
-            }
-            alt={"upload"}
-          />
-        </div>
-      );
-    } else {
-      return newImages?.map((value, index) => (
-        <div className="notif-img-wrapper">
-          <img
-            src={URL.createObjectURL(newImages[value])}
-            alt="upload"
-          />
-          {console.log(
-            "ini",
-            URL.createObjectURL(newImages[value]))}
-        </div>
-      ));
-    }
-  };
-
   const handleSendMessage = () => {
     if (newImages.length > 0) {
       sendImages(newImages);
       setNewImages([]);
-      document.querySelector("#contained-button-file").files = null;
-      document.querySelector("#contained-button-file").value = "";
+      //   document.querySelector("#contained-button-file").files = null;
+      //   document.querySelector("#contained-button-file").value = "";
     }
     if (newMessage !== "") {
       sendMessage(newMessage);
@@ -145,11 +85,6 @@ const MainContentMessage = () => {
 
   const startServer = (room) => {
     if (socketRef.current === undefined) {
-      if (room === "disconnect") {
-        // Destroys the socket reference
-        // when the connection is closed
-        socketRef.current.disconnect();
-      }
       // Creates a WebSocket connection
 
       socketRef.current = socketIOClient(SOCKET_SERVER_URL, {
@@ -184,6 +119,12 @@ const MainContentMessage = () => {
           updateAllReadedStatus([newMessageID]);
         }
       );
+    } else {
+      if (room === "disconnect") {
+        // Destroys the socket reference
+        // when the connection is closed
+        socketRef.current.disconnect();
+      }
     }
   };
 
@@ -213,41 +154,166 @@ const MainContentMessage = () => {
     if (modal === false) {
       return <div></div>;
     } else {
-      return (
-        <div className="notif-modal">
-          <div className="notif-modal-content">
-            <div className="upper">
-              <p>Select your image(s)</p>
-              <button onClick={showModal} className="close-modal">
-                &times;
-              </button>
-            </div>
-            <div>
-              <input type="file" />
-              <input
-                accept="image/*"
-                id="upload-notif-img"
-                className="upload-notif-img"
-                multiple
-                type="file"
-                onChange={handleNewImagesChange}
-              />
-              <label htmlFor="upload-notif-img">
-                <strong>Choose your best picture</strong>
-              </label>
-            </div>
-            <div className="image-container">{mapNotifImage()}</div>
-            <div className="notif-text">
-              <p>*image(s) size less than 3MB</p>
+      if (displayImage.length > 0) {
+        return (
+          <div className="notif-modal">
+            <div className="notif-modal-content">
+              <div className="upper">
+                <p>Select your image(s)</p>
+                <button onClick={showModal} className="close-modal">
+                  &times;
+                </button>
+              </div>
+              <div>
+                <input type="file" />
+                <input
+                  accept="image/*"
+                  id="upload-notif-img"
+                  className="upload-notif-img"
+                  multiple
+                  type="file"
+                  onChange={handleNewImagesChange}
+                />
+                <label htmlFor="upload-notif-img">
+                  <strong>Choose your best picture</strong>
+                </label>
+              </div>
+              <div className="image-container">{mapNotifImage()}</div>
+              <div className="notif-clear-btn">
+                <button
+                  onClick={clearAllImages}
+                >
+                  Clear
+                </button>
+              </div>
+              <div className="notif-text">
+                <p>*image(s) size less than 3MB</p>
+              </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div className="notif-modal">
+            <div className="notif-modal-content">
+              <div className="upper">
+                <p>Select your image(s)</p>
+                <button onClick={showModal} className="close-modal">
+                  &times;
+                </button>
+              </div>
+              <div>
+                <input type="file" />
+                <input
+                  accept="image/*"
+                  id="upload-notif-img"
+                  className="upload-notif-img"
+                  multiple
+                  type="file"
+                  onChange={handleNewImagesChange}
+                />
+                <label htmlFor="upload-notif-img">
+                  <strong>Choose your best picture</strong>
+                </label>
+              </div>
+              <div className="image-container">{mapNotifImage()}</div>
+              <div className="notif-text">
+                <p>*image(s) size less than 3MB</p>
+              </div>
+            </div>
+          </div>
+        );
+      }
     }
   };
   // ============== End Modal Image ==========================
 
+  //=============== Handle clear image button =================
+
+  const clearAllImages = () => {
+    setNewImages([]);
+    setDisplayImage("");
+  };
+
+  //================ End Handle clear image button =============
+
+  //================== Handle preview Image ====================
+
+  const handleNewImagesChange = (event) => {
+    let imgCont = [];
+    let errorFile = [];
+    let fileCont = event.target.files;
+    let fileImg = [];
+    console.log("ini newImage onchange", newImages.length);
+    for (const el of fileCont) {
+      //rules for upload file less than 3MB and type image
+      if (
+        (el.type == "image/jpeg" ||
+          el.type == "image/png" ||
+          el.type == "image/gif" ||
+          el.type == "image/bmp") &&
+        el.size / (1024 * 1024) < 3
+      ) {
+        // eslint-disable-next-line no-unused-expressions
+        fileImg.push(el);
+        encodeBase64(el, (image) => {
+          imgCont.push(image);
+        });
+      } else {
+        errorFile.push(el.name);
+      }
+    }
+    if (errorFile.length > 0) {
+      let stringError = errorFile.join(`\n, `);
+      dispatch(
+        alertActions.error(
+          `This following file didn't meet our expectation \n(size < 3MB & file type [jpeg, png, gif, bmp]), file : \n ${stringError}.\n Please Re-Select All of the file again`
+        )
+      );
+    } else {
+      setNewImages(imgCont);
+      setDisplayImage(fileImg);
+    }
+
+    // console.log("target", event.target.files);
+  };
+
+  console.log("luar fungsi", displayImage.length);
+  const mapNotifImage = () => {
+    console.log("dalam fungsi", displayImage);
+    if (displayImage?.length > 0) {
+      return (
+        <>
+          {displayImage?.map((value, index) => {
+            console.log("value dalam fungsi", value);
+            return (
+              <div className="notif-img-wrapper" key={index}>
+                <img
+                  src={URL.createObjectURL(displayImage[index])}
+                  alt="upload"
+                />
+              </div>
+            );
+          })}
+        </>
+      );
+    } else {
+      return (
+        <div className="notif-img-wrapper">
+          <img
+            src={
+              "https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_HTxe4aLXT.png"
+            }
+            alt={"upload"}
+          />
+        </div>
+      );
+    }
+  };
+
+  //================== end handle preview Image ====================
   //=============== Handle Send Images ========================
+
   const encodeBase64 = (file, cb) => {
     let reader = new FileReader();
     reader.readAsDataURL(file);
@@ -258,6 +324,8 @@ const MainContentMessage = () => {
       console.log("Error: ", error);
     };
   };
+
+  console.log("newImage", newImages);
 
   const sendImages = (messageBody) => {
     setLoadMore(false);
@@ -339,11 +407,13 @@ const MainContentMessage = () => {
         <div className="main-message-head">
           <p>{name}</p>
           <p>
-            {receiverOnlineStatus
-              ? "Online"
-              : onlineStatus
-              ? "Online"
-              : "Offline"}
+            {receiverOnlineStatus === null
+              ? onlineStatus
+                ? "On"
+                : "Off"
+              : receiverOnlineStatus
+              ? "On"
+              : "Off"}
           </p>
           <p>...</p>
         </div>
@@ -561,12 +631,12 @@ const MainContentMessage = () => {
                   {displayModal()}
                 </div>
                 <div className="message-btn-send">
-                  <button
+                  <Button
                     endIcon={<SendIcon>send</SendIcon>}
                     onClick={handleSendMessage}
                   >
                     Send
-                  </button>
+                  </Button>
                 </div>
               </div>
             </form>

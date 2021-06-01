@@ -203,7 +203,7 @@
   .menu-item
   a {
   text-decoration: none;
-  color: var(--buttonClick);
+  color: var(--text);
   margin-bottom: 0.2em;
   font-weight: 600;
   transition: all 200ms ease;

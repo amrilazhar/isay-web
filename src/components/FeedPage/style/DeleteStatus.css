@@ -14,22 +14,22 @@
 }
 
 .tooltip-delete .tooltip-circle-container .tooltip-circle-button {
-  width: 7px;
-  height: 7px;
-  background-color: var(--mainPurple);
+  width: 6px;
+  height: 6px;
+  background-color: var(--text);
   margin: 0 0.1rem;
-  border-radius: 3.5px;
+  border-radius: 3px;
 }
 
 .tooltip-delete .tooltip-content {
   visibility: hidden;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 4px;
   padding: 0.5rem 1rem 0;
   position: absolute;
   z-index: 1;
   top: -5px;
-  right: 90%;
+  right: 70%;
   background-color: var(--mainPurple);
 }
 
@@ -38,7 +38,8 @@
   background-color: var(--white);
   padding: 0.2rem 0.4rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
+  color: var(--text);
 }
 
 .tooltip-delete:hover .tooltip-content {
@@ -61,8 +62,8 @@
   margin: 15% auto;
   padding: 20px;
   border: 1px solid var(--border);
-  width: 50%;
-  border-radius: 20px;
+  width: 70%;
+  border-radius: 10px;
 }
 
 .reset-modal .reset-modal-content .close {
@@ -79,4 +80,40 @@
   color: #000000;
   text-decoration: none;
   cursor: pointer;
+}
+
+.reset-modal .reset-modal-content p {
+  margin-bottom: 2rem;
+}
+
+.reset-modal .reset-modal-content .confirm-button {
+  display: flex;
+  justify-content: center;
+}
+
+.reset-modal .reset-modal-content .confirm-button button {
+  padding: 0.5rem 1rem;
+  box-sizing: border-box;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+  width: 80px;
+  border: 0.15rem solid var(--mainPurple);
+  background-color: transparent;
+  color: var(--text);
+  transition: 0.3s ease;
+}
+
+.reset-modal .reset-modal-content .confirm-button button:hover {
+  background-color: var(--secondPurple);
+  color: var(--white);
+}
+
+.reset-modal .reset-modal-content .confirm-button button:active {
+  background-color: var(--tertierPurple);
+}
+
+.reset-modal .reset-modal-content .confirm-button .first-btn:hover {
+  background-color: var(--tertierRed);
+  border: 0.15rem solid var(--tertierRed);
+  color: var(--white);
 }

@@ -42,12 +42,13 @@ const UserAct = (fromUserPage) => {
     <div className="realtime-feed-act">
 
       {(!dataActivity)?
-        <div>404</div>:
+        <div></div>:
         <>
         {dataActivity?.data?.map(act =>     
           <UserActMap
           userName = {userName}
           type = {act.type}
+          ownerId = {act.status_id?.owner?.id}
           statusId = {act.status_id?._id}
           interest = {act.status_id?.interest[0]?.interest}
           statusOwner = {act.status_id?.owner?.name}

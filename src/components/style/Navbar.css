@@ -1,10 +1,10 @@
 .navbar-container {
   background: linear-gradient(
     97.94deg,
-    rgba(138, 98, 251, 0.46) -13.16%,
+    #8a62fb -13.16%,
     #4781f8 52.91%,
-    rgba(0, 158, 116, 0.46) 103.6%,
-    rgba(167, 243, 206, 0.96) 123.54%
+    #009e74 103.6%,
+    #a7f3ce 123.54%
   );
 }
 
@@ -33,10 +33,16 @@
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-left: 2rem;
+  background-color: var(--white);
+  color: var(--text);
 }
 .navbar-wrapper .nav-logo {
   align-items: center;
   cursor: pointer;
+}
+
+.navbar-wrapper .nav-logo img {
+  width: 130px;
 }
 
 .navbar-wrapper a .profile-icon {
@@ -46,6 +52,7 @@
   border-radius: 25px;
   position: relative;
   overflow: hidden;
+  border: 0.15rem solid var(--white);
 }
 
 .navbar-wrapper a .profile-icon-load {
@@ -91,7 +98,7 @@
 
 .navbar-wrapper .nav-menu .nav-item .nav-links {
   text-decoration: none;
-  color: white;
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -117,7 +124,7 @@
 }
 
 .navbar-wrapper .nav-menu .nav-item:hover:after {
-  background: white;
+  background: var(--white);
   width: 100%;
   border-radius: 2rem;
   margin: auto;
@@ -167,10 +174,10 @@
     transition: all 0.5s ease;
     background: linear-gradient(
       97.94deg,
-      rgba(138, 98, 251, 1) -13.16%,
+      #8a62fb -13.16%,
       #4781f8 52.91%,
-      rgba(0, 158, 116, 1) 103.6%,
-      rgba(167, 243, 206, 1) 123.54%
+      #009e74 103.6%,
+      #a7f3ce 123.54%
     );
   }
 
@@ -181,10 +188,10 @@
     z-index: 1;
     background: linear-gradient(
       97.94deg,
-      rgba(138, 98, 251, 1) -13.16%,
+      #8a62fb -13.16%,
       #4781f8 52.91%,
-      rgba(0, 158, 116, 1) 103.6%,
-      rgba(167, 243, 206, 1) 123.54%
+      #009e74 103.6%,
+      #a7f3ce 123.54%
     );
   }
 
@@ -200,7 +207,7 @@
     display: block;
     cursor: pointer;
     align-items: center;
-    color: white;
+    color: var(--white);
     margin-left: 2rem;
   }
 }

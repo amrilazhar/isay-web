@@ -151,6 +151,7 @@
 }
 
 .isay-status-box .do-at-status .comment-expand form textarea {
+  resize: none;
   margin: 0.5rem 0;
   width: 100%;
   resize: none;
@@ -160,6 +161,50 @@
   box-sizing: border-box;
   background: transparent;
   color: var(--text);
+}
+
+.isay-status-box .do-at-status .comment-expand form textarea:focus {
+  border: 2px solid var(--mainPurple);
+  outline: none;
+}
+
+.isay-status-box .do-at-status .comment-expand .zero-comment {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.isay-status-box .do-at-status .comment-expand .display-more-container {
+  border-top: 0.15rem solid var(--border);
+}
+
+.isay-status-box .do-at-status .comment-expand .display-comment-more {
+  padding: 0.5rem 1rem;
+  border: 0.15rem solid var(--mainPurple);
+  max-width: 150px;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.isay-status-box
+  .do-at-status
+  .comment-expand
+  .display-comment-more
+  .display-more {
+  font-size: 0.8rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.isay-status-box .do-at-status .comment-expand .display-comment-more:hover {
+  background-color: var(--secondPurple);
+  color: var(--white);
+}
+
+.isay-status-box .do-at-status .comment-expand .display-comment-more:active {
+  background-color: var(--tertierPurple);
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box {

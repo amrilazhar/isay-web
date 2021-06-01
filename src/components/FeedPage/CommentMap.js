@@ -119,11 +119,15 @@ const CommentMap = (fromCommentBox) => {
         />
       </form>
       { (commentLength === 0)? 
-        <p>BE THE FIRST ONE WHO GIVE A COMMENT</p>:
+          <p className="zero-comment">BE THE FIRST ONE WHO GIVE A COMMENT</p>:
         <> {displayComment()}
         {
           (commentLength > 2 && lastComment < commentLength-1 )?
-          <p onClick={() => {setLastComment(lastComment+2)}} style={{cursor:"pointer"}} >Display More Comment</p>:
+          <div className="display-more-container">
+            <div className="display-comment-more">
+              <p className="display-more" onClick={() => {setLastComment(lastComment+2)}}>Display More Comment</p>
+            </div>
+          </div>:
           <div></div>
         } </>
       }

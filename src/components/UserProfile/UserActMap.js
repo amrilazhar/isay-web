@@ -5,6 +5,7 @@ const UserActMap = (fromAct) => {
 
   const userName = fromAct.userName
   const type = fromAct.type
+  const ownerId = fromAct.ownerId
   const statusId = fromAct.statusId
   const interest = fromAct.interest
   const statusOwner = fromAct.statusOwner
@@ -18,7 +19,7 @@ const UserActMap = (fromAct) => {
   const statusDate = fromAct.statusDate
 
   const singleStatus = () =>{
-    history.replace(`./status/${statusId}`)
+    history.replace(`./user/${ownerId}`)
   }
 
   return (

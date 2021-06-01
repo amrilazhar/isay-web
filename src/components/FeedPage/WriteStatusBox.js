@@ -56,6 +56,9 @@ const removeFile = (index) => {
             src={URL.createObjectURL(files[x])}
             alt={"upload"}
           />
+          <div className="media-overlay">
+            <p>delete</p>
+          </div>
         </div>
       )
     }
@@ -152,6 +155,7 @@ const removeFile = (index) => {
           <div className="himbau">
             <p>*get best experience with image at square ratio</p>
           </div>
+          <button onClick={showModal}>Done</button>
         </div>
       </div>
     )}

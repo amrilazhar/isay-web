@@ -410,6 +410,26 @@
     outline: none;
   }
 
+  .textarea-wrapper
+  .message-btn
+  .message-btn-upload
+  .notif-modal
+  .notif-modal-content
+  .notif-clear-btn button {
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin: 0 0.5rem 0.5rem;
+    padding: 0.3rem 1rem;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    background-color: var(--white);
+    border: 0.13rem solid var(--mainPurple);
+    box-sizing: border-box;
+    color: var(--mainPurple);
+    transition: 0.3s ease;
+}
+
 
 
 @media only screen and (min-width: 380px) {

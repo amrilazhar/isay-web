@@ -200,11 +200,12 @@
   overflow: auto;
   background-color: #00000066;
   transition: 0.3s ease;
+  overflow: hidden;
 }
 
 .status-submit form .status-tools .reset-modal .reset-modal-content {
   background-color: var(--white);
-  margin: 15% auto;
+  margin: 8% auto;
   padding: 20px;
   border: 1px solid var(--border);
   width: 50%;
@@ -212,6 +213,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.status-submit form .status-tools .reset-modal .reset-modal-content button {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin: 0 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  border: 0.13rem solid var(--mainPurple);
+  box-sizing: border-box;
+  color: var(--mainPurple);
+  transition: 0.3s ease;
+}
+
+.status-submit
+  form
+  .status-tools
+  .reset-modal
+  .reset-modal-content
+  button:hover {
+  background-color: var(--mainPurple);
+  color: var(--white);
+  outline: none;
 }
 
 .status-submit form .status-tools .reset-modal .reset-modal-content .upper {
@@ -223,6 +250,20 @@
 
 .status-submit form .status-tools .reset-modal .reset-modal-content .close {
   color: var(--buttonClick);
+  font-size: 28px;
+  font-weight: bold;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+}
+
+.status-submit
+  form
+  .status-tools
+  .reset-modal
+  .reset-modal-content
+  .close:hover {
+  color: var(--secondButtonClick);
   font-size: 28px;
   font-weight: bold;
   background-color: transparent;
@@ -271,6 +312,60 @@
   right: -9999px;
   margin: auto;
   max-width: 100%;
+  transition: 0.5s ease;
+}
+
+.status-submit
+  form
+  .status-tools
+  .reset-modal
+  .reset-modal-content
+  .img-container
+  .img-wrapper
+  .media-overlay {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.status-submit
+  form
+  .status-tools
+  .reset-modal
+  .reset-modal-content
+  .img-container
+  .img-wrapper:hover
+  .media-overlay {
+  opacity: 1;
+}
+
+.status-submit
+  form
+  .status-tools
+  .reset-modal
+  .reset-modal-content
+  .img-container
+  .img-wrapper:hover
+  img {
+  opacity: 0.5;
+}
+
+.status-submit
+  form
+  .status-tools
+  .reset-modal
+  .reset-modal-content
+  .img-container
+  .img-wrapper
+  .media-overlay
+  p {
+  color: #303030;
+  margin: 0;
 }
 
 .status-submit form .status-tools .reset-modal .reset-modal-content .himbau {

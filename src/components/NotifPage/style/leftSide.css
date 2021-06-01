@@ -54,7 +54,7 @@
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   .topic-container {
     width: 250px;
   }

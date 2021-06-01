@@ -16,16 +16,7 @@ const ContentNotification = () => {
   const socketRef = useRef();
   const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
 
-  //practice berhasil
-  //ask mas amril format waktunya 24 jam kah
-  // const date = "2021-05-28T16:16:00.000Z";
-  // 2021-05-27063639.182
-  // const newDate = date.replace(/[a-z]/gi, " ").slice(0, -5);
-  // const today = moment(newDate);
-  // console.log("today", today.fromNow());
-
   //pagination
-
   const handlePagination = (event, value) => {
     const page = value;
     console.log("page", page);
@@ -76,79 +67,68 @@ const ContentNotification = () => {
                     <div className="head-upper-bg-load">
                       <Skeleton
                         variant="circle"
-                        width={"60px"}
-                        height={"60px"}
+                        className="circle1"
+                        animation="wave"
                       />
                     </div>
                     <Skeleton
                       variant="rect"
-                      width={"170px"}
-                      height={"25px"}
-                      style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                      className="rect1"
+                      animation="wave"
                     />
                   </div>
                   <div className="head-bottom-load">
                     <Skeleton
                       variant="rect"
-                      width={"230px"}
-                      height={"25px"}
-                      style={{ margin: 10, borderRadius:"10px" }}
+                      className="rect2"
+                      animation="wave"
                     />
                     <Skeleton
                       variant="rect"
-                      width={"100px"}
-                      height={"25px"}
-                      style={{ marginLeft: "auto", borderRadius:"10px" }}
+                      className="rect3"
+                      animation="wave"
                     />
                   </div>
                 </div>
                 <div className="sub-container-load">
                   <div className="sub-wrapper-load">
                     <div className="sub-header-load">
-                      <div>
-                        <div className="img-sub-notif-load">
-                          <Skeleton
-                            variant="circle"
-                            width={"60px"}
-                            height={"60px"}
-                          />
-                        </div>
-                        <div>
-                          <Skeleton
-                            variant="rect"
-                            width={"160px"}
-                            height={"25px"}
-                            style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
-                          />
-                        </div>
+                      <div className="img-sub-notif-load">
+                        <Skeleton
+                          variant="circle"
+                          animation="wave"
+                          className="circle2"
+                        />
+                        <Skeleton
+                          variant="rect"
+                          className="rect4"
+                          animation="wave"
+                        />
                       </div>
                       <div className="target-load">
                         <Skeleton
                           variant="rect"
-                          width={"160px"}
-                          height={"25px"}
-                          style={{ marginLeft: "4.3rem", borderRadius:"10px" }}
+                          animation="wave"
+                          className="rect5"
                         />
                         <Skeleton
                           variant="rect"
-                          width={"100px"}
-                          height={"25px"}
-                          style={{ marginLeft: "auto", borderRadius:"10px" }}
+                          animation="wave"
+                          className="rect6"
                         />
                       </div>
                     </div>
                     <div className="sub-content-load">
                       <Skeleton
                         variant="rect"
-                        width="100%"
-                        height="50px"
-                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
+                        animation="wave"
+                        className="rect7"
                       />
                     </div>
                   </div>
                 </div>
               </div>
-              <Divider />
+              <Divider variant="middle"/>
             </div>
             <div className="notif-container-load">
               <div className="notif-wrapper-load">
@@ -157,79 +137,68 @@ const ContentNotification = () => {
                     <div className="head-upper-bg-load">
                       <Skeleton
                         variant="circle"
-                        width={"60px"}
-                        height={"60px"}
+                        className="circle1"
+                        animation="wave"
                       />
                     </div>
                     <Skeleton
                       variant="rect"
-                      width={"170px"}
-                      height={"25px"}
-                      style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                      className="rect1"
+                      animation="wave"
                     />
                   </div>
                   <div className="head-bottom-load">
                     <Skeleton
                       variant="rect"
-                      width={"230px"}
-                      height={"25px"}
-                      style={{ margin: 10, borderRadius:"10px" }}
+                      className="rect2"
+                      animation="wave"
                     />
                     <Skeleton
                       variant="rect"
-                      width={"100px"}
-                      height={"25px"}
-                      style={{ marginLeft: "auto", borderRadius:"10px" }}
+                      className="rect3"
+                      animation="wave"
                     />
                   </div>
                 </div>
                 <div className="sub-container-load">
                   <div className="sub-wrapper-load">
                     <div className="sub-header-load">
-                      <div>
-                        <div className="img-sub-notif-load">
-                          <Skeleton
-                            variant="circle"
-                            width={"60px"}
-                            height={"60px"}
-                          />
-                        </div>
-                        <div>
-                          <Skeleton
-                            variant="rect"
-                            width={"160px"}
-                            height={"25px"}
-                            style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
-                          />
-                        </div>
+                      <div className="img-sub-notif-load">
+                        <Skeleton
+                          variant="circle"
+                          animation="wave"
+                          className="circle2"
+                        />
+                        <Skeleton
+                          variant="rect"
+                          className="rect4"
+                          animation="wave"
+                        />
                       </div>
                       <div className="target-load">
                         <Skeleton
                           variant="rect"
-                          width={"160px"}
-                          height={"25px"}
-                          style={{ marginLeft: "4.3rem", borderRadius:"10px"}}
+                          animation="wave"
+                          className="rect5"
                         />
                         <Skeleton
                           variant="rect"
-                          width={"100px"}
-                          height={"25px"}
-                          style={{ marginLeft: "auto", borderRadius:"10px" }}
+                          animation="wave"
+                          className="rect6"
                         />
                       </div>
                     </div>
                     <div className="sub-content-load">
                       <Skeleton
                         variant="rect"
-                        width="100%"
-                        height="50px"
-                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
+                        animation="wave"
+                        className="rect7"
                       />
                     </div>
                   </div>
                 </div>
               </div>
-              <Divider />
+              <Divider variant="middle"/>
             </div>
             <div className="notif-container-load">
               <div className="notif-wrapper-load">
@@ -238,241 +207,68 @@ const ContentNotification = () => {
                     <div className="head-upper-bg-load">
                       <Skeleton
                         variant="circle"
-                        width={"60px"}
-                        height={"60px"}
+                        className="circle1"
+                        animation="wave"
                       />
                     </div>
                     <Skeleton
                       variant="rect"
-                      width={"170px"}
-                      height={"25px"}
-                      style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
+                      className="rect1"
+                      animation="wave"
                     />
                   </div>
                   <div className="head-bottom-load">
                     <Skeleton
                       variant="rect"
-                      width={"230px"}
-                      height={"25px"}
-                      style={{ margin: 10, borderRadius:"10px" }}
+                      className="rect2"
+                      animation="wave"
                     />
                     <Skeleton
                       variant="rect"
-                      width={"100px"}
-                      height={"25px"}
-                      style={{ marginLeft: "auto", borderRadius:"10px" }}
+                      className="rect3"
+                      animation="wave"
                     />
                   </div>
                 </div>
                 <div className="sub-container-load">
                   <div className="sub-wrapper-load">
                     <div className="sub-header-load">
-                      <div>
-                        <div className="img-sub-notif-load">
-                          <Skeleton
-                            variant="circle"
-                            width={"60px"}
-                            height={"60px"}
-                          />
-                        </div>
-                        <div>
-                          <Skeleton
-                            variant="rect"
-                            width={"160px"}
-                            height={"25px"}
-                            style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
-                          />
-                        </div>
+                      <div className="img-sub-notif-load">
+                        <Skeleton
+                          variant="circle"
+                          animation="wave"
+                          className="circle2"
+                        />
+                        <Skeleton
+                          variant="rect"
+                          className="rect4"
+                          animation="wave"
+                        />
                       </div>
                       <div className="target-load">
                         <Skeleton
                           variant="rect"
-                          width={"160px"}
-                          height={"25px"}
-                          style={{ marginLeft: "4.3rem", borderRadius:"10px" }}
+                          animation="wave"
+                          className="rect5"
                         />
                         <Skeleton
                           variant="rect"
-                          width={"100px"}
-                          height={"25px"}
-                          style={{ marginLeft: "auto", borderRadius:"10px" }}
+                          animation="wave"
+                          className="rect6"
                         />
                       </div>
                     </div>
                     <div className="sub-content-load">
                       <Skeleton
                         variant="rect"
-                        width="100%"
-                        height="50px"
-                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
+                        animation="wave"
+                        className="rect7"
                       />
                     </div>
                   </div>
                 </div>
               </div>
-              <Divider />
-            </div>
-            <div className="notif-container-load">
-              <div className="notif-wrapper-load">
-                <div className="notif-header-load">
-                  <div className="head-upper-load">
-                    <div className="head-upper-bg-load">
-                      <Skeleton
-                        variant="circle"
-                        width={"60px"}
-                        height={"60px"}
-                      />
-                    </div>
-                    <Skeleton
-                      variant="rect"
-                      width={"170px"}
-                      height={"25px"}
-                      style={{ marginTop: 16, marginLeft: 10,borderRadius:"10px" }}
-                    />
-                  </div>
-                  <div className="head-bottom-load">
-                    <Skeleton
-                      variant="rect"
-                      width={"230px"}
-                      height={"25px"}
-                      style={{ margin: 10, borderRadius:"10px" }}
-                    />
-                    <Skeleton
-                      variant="rect"
-                      width={"100px"}
-                      height={"25px"}
-                      style={{ marginLeft: "auto", borderRadius:"10px" }}
-                    />
-                  </div>
-                </div>
-                <div className="sub-container-load">
-                  <div className="sub-wrapper-load">
-                    <div className="sub-header-load">
-                      <div>
-                        <div className="img-sub-notif-load">
-                          <Skeleton
-                            variant="circle"
-                            width={"60px"}
-                            height={"60px"}
-                          />
-                        </div>
-                        <div>
-                          <Skeleton
-                            variant="rect"
-                            width={"160px"}
-                            height={"25px"}
-                            style={{ marginTop: 16, marginLeft: 10,borderRadius:"10px" }}
-                          />
-                        </div>
-                      </div>
-                      <div className="target-load">
-                        <Skeleton
-                          variant="rect"
-                          width={"160px"}
-                          height={"25px"}
-                          style={{ marginLeft: "4.3rem", borderRadius:"10px" }}
-                        />
-                        <Skeleton
-                          variant="rect"
-                          width={"100px"}
-                          height={"25px"}
-                          style={{ marginLeft: "auto", borderRadius:"10px" }}
-                        />
-                      </div>
-                    </div>
-                    <div className="sub-content-load">
-                      <Skeleton
-                        variant="rect"
-                        width="100%"
-                        height="50px"
-                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <Divider />
-            </div>
-            <div className="notif-container-load">
-              <div className="notif-wrapper-load">
-                <div className="notif-header-load">
-                  <div className="head-upper-load">
-                    <div className="head-upper-bg-load">
-                      <Skeleton
-                        variant="circle"
-                        width={"60px"}
-                        height={"60px"}
-                      />
-                    </div>
-                    <Skeleton
-                      variant="rect"
-                      width={"170px"}
-                      height={"25px"}
-                      style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
-                    />
-                  </div>
-                  <div className="head-bottom-load">
-                    <Skeleton
-                      variant="rect"
-                      width={"230px"}
-                      height={"25px"}
-                      style={{ margin: 10, borderRadius:"10px" }}
-                    />
-                    <Skeleton
-                      variant="rect"
-                      width={"100px"}
-                      height={"25px"}
-                      style={{ marginLeft: "auto", borderRadius:"10px" }}
-                    />
-                  </div>
-                </div>
-                <div className="sub-container-load">
-                  <div className="sub-wrapper-load">
-                    <div className="sub-header-load">
-                      <div>
-                        <div className="img-sub-notif-load">
-                          <Skeleton
-                            variant="circle"
-                            width={"60px"}
-                            height={"60px"}
-                          />
-                        </div>
-                        <div>
-                          <Skeleton
-                            variant="rect"
-                            width={"160px"}
-                            height={"25px"}
-                            style={{ marginTop: 16, marginLeft: 10, borderRadius:"10px" }}
-                          />
-                        </div>
-                      </div>
-                      <div className="target-load">
-                        <Skeleton
-                          variant="rect"
-                          width={"160px"}
-                          height={"25px"}
-                          style={{ marginLeft: "4.3rem", borderRadius:"10px" }}
-                        />
-                        <Skeleton
-                          variant="rect"
-                          width={"100px"}
-                          height={"25px"}
-                          style={{ marginLeft: "auto", borderRadius:"10px" }}
-                        />
-                      </div>
-                    </div>
-                    <div className="sub-content-load">
-                      <Skeleton
-                        variant="rect"
-                        width="100%"
-                        height="50px"
-                        style={{ marginTop: "1rem", marginBottom: "1rem", borderRadius:"10px" }}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <Divider />
+              <Divider variant="middle" />
             </div>
           </>
         ) : notificationUpdate.error ? (
@@ -527,7 +323,7 @@ const ContentNotification = () => {
                           </div>
                         </div>
                       </div>
-                      <Divider />
+                      <Divider variant="middle"/>
                       {data.readed._id ? "" : notifReaded()}
                     </>
                   )}

@@ -23,8 +23,8 @@ const Navbar = () => {
 	const [newChatNotif, setNewChatNotif] = useState(0);
 	const [newBasicNotif, setNewBasicNotif] = useState(0);
 	const socketRefNav = useRef();
-    let counterChat = 0;
-    let counterNotif = 0;
+	let counterChat = 0;
+	let counterNotif = 0;
 
 	const handleSideMenu = () => setSideMenu(!sideMenu);
 
@@ -32,8 +32,8 @@ const Navbar = () => {
 	const notificationCountUpdate = useSelector(
 		(state) => state.notificationCount
 	);
-    
-	const startServer = () => {
+
+	const startServer = (action) => {
 		if (socketRefNav.current === undefined) {
 			// Creates a WebSocket connection
 			let token = authHeader().Authorization.replace("Bearer ", "");
@@ -45,25 +45,29 @@ const Navbar = () => {
 				upgrade: false,
 			});
 
-			socketRefNav.current.on("chat:" + decodedToken.profile, (data) => {   
-                counterChat = counterChat + 1;             
+			socketRefNav.current.on("chat:" + decodedToken.profile, (data) => {
+				counterChat = counterChat + 1;
 				setNewChatNotif(counterChat);
 			});
 
 			socketRefNav.current.on("readedChat:" + decodedToken.profile, (data) => {
-                counterChat = counterChat - 1; 
+				counterChat = counterChat - 1;
 				setNewChatNotif(counterChat);
 			});
 
 			socketRefNav.current.on("notif:" + decodedToken.profile, (data) => {
-                counterNotif = counterNotif + 1; 
+				counterNotif = counterNotif + 1;
 				setNewBasicNotif(counterNotif);
 			});
 
 			socketRefNav.current.on("readedNotif:" + decodedToken.profile, (data) => {
-                counterNotif = counterNotif - 1; 
-                setNewBasicNotif(counterNotif);
+				counterNotif = counterNotif - 1;
+				setNewBasicNotif(counterNotif);
 			});
+		} else {
+			if (action === "disconnect") {
+				socketRefNav.current.disconnect();
+			}
 		}
 	};
 
@@ -73,6 +77,9 @@ const Navbar = () => {
 		// if (location.pathname === "/message") {
 		// 	setNewChatNotif(0);
 		// }
+		return () => {
+			startServer("disconnect");
+		};
 	}, []);
 
 	const getInitialCountChat = () => {
@@ -87,13 +94,22 @@ const Navbar = () => {
 		} else return 0;
 	};
 
+	const theme = localStorage.getItem("theme");
+
 	return (
 		<Router>
 			<div className="navbar-container">
 				<div className="navbar-wrapper">
 					<a href="/">
 						<div className="nav-logo">
-							<img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo" />
+							{theme === "dark" ? (
+								<img
+									src="https://ik.imagekit.io/alfianpur/Final_Project/Group_1_epmbmXTrw.svg"
+									alt="logo"
+								/>
+							) : (
+								<img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo" />
+							)}
 						</div>
 					</a>
 					<div className="search">
