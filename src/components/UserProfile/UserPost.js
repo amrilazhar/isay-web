@@ -9,6 +9,8 @@ import { otherUser, statusInterest } from '../../redux/actions';
 import CommentBox from '../FeedPage/CommentBox';
 import DeleteStatus from '../FeedPage/DeleteStatus';
 import './style/UserPost.css'
+import Lightbox from "react-awesome-lightbox";
+import "react-awesome-lightbox/build/style.css";
 
 const UserPost = (dariUserPage) => {
 
@@ -19,6 +21,8 @@ const UserPost = (dariUserPage) => {
   const post = dariUserPage.post.data
   const pageCount = dariUserPage.post.totalPages
   const [oldStatus, setOldStatus] =  useState(null)
+  const [showLight, setShowLight] = useState(false)
+  const [showMed, setShowMed] = useState("")
 
   const [page, setPage] = useState(1)
 
@@ -65,17 +69,27 @@ const UserPost = (dariUserPage) => {
                 <div className="image-post">
                   {
                     (!status?.media)? <div></div> :
-                    <>{
+                    (
                       status?.media?.map(media =>(
                         <div className="image-cont">
-                          <img src={`${media}`} alt="PostMage" />
+                          <img src={`${media}`} alt={`${status?.content}`} style={{cursor:"pointer"}} onClick={() =>
+                            (showLight === false)? (setShowLight(true), setShowMed(media)) : setShowLight(false)
+                          }/>
+                          <div className="media-overlay" style={{cursor:"pointer"}}>
+                            <p style={{fontSize: "1rem", cursor:"pointer"}}>preview</p>
+                          </div>
                         </div>
                       ))
-                    }</>
+                    )
                   }
                 </div>
               </div>
             </div>
+            {
+              showLight === false ? "" :
+              <Lightbox image={showMed} title={`${status?.content}`} onClose={() =>
+                (showLight === false)? setShowLight(true) : setShowLight(false)}></Lightbox>
+            }
             <CommentBox
               comment={status?.comment}
               likeBy={status?.likeBy}
@@ -83,15 +97,17 @@ const UserPost = (dariUserPage) => {
               ownerId={status?.owner?._id}
             />
           </div>)}
+          <div style={{display: "flex", justifyContent:"center"}}>
+            <Pagination
+              count={`${pageCount}`}
+              page={page}
+              color="primary"
+              className="pagination" 
+              onChange={clickPage}
+            />
+          </div>
         </>
       }
-      <Pagination
-        count={`${pageCount}`}
-        page={page}
-        color="primary"
-        className="pagination" 
-        onChange={clickPage}
-      />
     </div>
   )
 }

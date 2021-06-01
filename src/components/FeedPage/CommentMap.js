@@ -104,9 +104,41 @@ const CommentMap = (fromCommentBox) => {
     }
   }
 
+    const submitCommentBtn = (e) => {
+    e.preventDefault()
+    if(contentComment) {
+      dispatch(
+        dispatch => {
+          dispatch ({type: commentConstant.POST_COMMENT_REQUEST})
+
+          const formData = new FormData();
+          formData.append('content', `${contentComment}`);
+          formData.append('status_id', `${statusId}`);
+
+          const requestOptions = {
+            method: 'POST',
+            headers: authHeader(),
+            body: formData
+          };
+
+          fetch (`https://isay.gabatch11.my.id/comment/`, requestOptions)
+
+          .then (
+              content => dispatch({ type: commentConstant.POST_COMMENT_SUCCESS, content }),
+              error => dispatch({ type: commentConstant.POST_COMMENT_FAILURE, error })
+          );
+        }
+      )
+      setTimeout(() => {
+        setNewComment(true)
+      }, 2500)
+      e.target.reset()
+    }
+  }
+
   return (
     <div className="comment-expand">
-      <form>
+      <form onSubmit={submitCommentBtn}>
         <textarea
           wrap="soft"
           type="text"
@@ -117,13 +149,18 @@ const CommentMap = (fromCommentBox) => {
           onChange={changeText}
           onKeyDown={(e) => submitComment(e) }
         />
+        <input type="submit" value="Post"></input>
       </form>
       { (commentLength === 0)? 
-        <p>BE THE FIRST ONE WHO GIVE A COMMENT</p>:
+          <p className="zero-comment">BE THE FIRST ONE WHO GIVE A COMMENT</p>:
         <> {displayComment()}
         {
           (commentLength > 2 && lastComment < commentLength-1 )?
-          <p onClick={() => {setLastComment(lastComment+2)}} style={{cursor:"pointer"}} >Display More Comment</p>:
+          <div className="display-more-container">
+            <div className="display-comment-more">
+              <p className="display-more" onClick={() => {setLastComment(lastComment+2)}}>Display More Comment</p>
+            </div>
+          </div>:
           <div></div>
         } </>
       }

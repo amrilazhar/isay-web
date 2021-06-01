@@ -2,17 +2,16 @@
   background: var(--white);
   border: 2px solid var(--border);
   border-radius: 0.5rem;
-  /* margin: 0 0 2rem; */
   box-sizing: border-box;
-  /* width: 100%; */
 }
 
 .main-container .notif-container {
   color: var(--text);
-  box-sizing: border-box;}
+  box-sizing: border-box;
+}
 
 .notif-container .notif-wrapper {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .notif-container .notif-wrapper .notif-header {
@@ -22,13 +21,13 @@
   text-indent: 0.7rem;
 }
 
-.notif-container .notif-wrapper .notif-header .head-upper{
-  flex: 1 0 33%;
+.notif-container .notif-wrapper .notif-header .head-upper {
+  flex: 1 0 20%;
   display: flex;
   flex-direction: row;
 }
 
-.notif-container .notif-wrapper .notif-header .head-upper .head-upper-bg{
+.notif-container .notif-wrapper .notif-header .head-upper .head-upper-bg {
   background-color: var(--mainGreen);
   width: 40px;
   height: 40px;
@@ -48,18 +47,18 @@
   max-height: 100%;
 }
 
-.notif-container .notif-wrapper .notif-header .head-bottom{
-  flex-basis: 100%; 
+.notif-container .notif-wrapper .notif-header .head-bottom {
+  flex-basis: 100%;
   display: flex;
   align-items: center;
 }
 
-.notif-container .notif-wrapper .notif-header .head-bottom p:first-child{
+.notif-container .notif-wrapper .notif-header .head-bottom p:first-child {
   flex: 1 0 60%;
   font-size: large;
 }
 
-.notif-container .notif-wrapper .notif-header .head-bottom p:last-child{
+.notif-container .notif-wrapper .notif-header .head-bottom p:last-child {
   flex: 1 0 33%;
   font-weight: 600;
   font-size: small;
@@ -70,7 +69,6 @@
   background: var(--background);
   border: 2px solid var(--border);
   border-radius: 0.5rem;
-  /* margin: 0 1rem 0.5rem 4.5rem; */
 }
 
 .notif-container .notif-wrapper .sub-container .sub-wrapper {
@@ -112,33 +110,29 @@
   font-size: 1rem;
   text-indent: 1rem;
   flex: 1 0 33%;
-  /* transform: translateY(15px); */
 }
 
 .notif-container
   .notif-wrapper
   .sub-container
   .sub-wrapper
-  .sub-header .target {
-    flex-basis: 100%; 
-    display: flex;
-    align-items: center;
-    /* margin-top: 5px; */
-  }
+  .sub-header
+  .target {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+}
 
-  .notif-container
-  .notif-wrapper
-  .sub-container
-  .sub-wrapper
-  .sub-header div {
-    display: flex;
-  }
+.notif-container .notif-wrapper .sub-container .sub-wrapper .sub-header div {
+  display: flex;
+}
 
 .notif-container
   .notif-wrapper
   .sub-container
   .sub-wrapper
-  .sub-header .target 
+  .sub-header
+  .target
   p:first-child {
   font-size: 0.8rem;
   flex: 1 1 70%;
@@ -149,7 +143,8 @@
   .notif-wrapper
   .sub-container
   .sub-wrapper
-  .sub-header .target
+  .sub-header
+  .target
   p:last-child {
   font-weight: 600;
   color: var(--white);
@@ -158,7 +153,7 @@
   font-size: small;
   padding: 0.5rem 0;
   text-align: center;
-  flex: 1 1 15%
+  flex: 1 1 15%;
 }
 
 .notif-container .sub-container .sub-wrapper .sub-content {
@@ -179,54 +174,458 @@
 }
 
 @media only screen and (min-width: 375px) {
-  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child{
+  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child {
     flex: 1 0 75%;
   }
 }
 
 @media only screen and (min-width: 425px) {
-  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child{
+  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child {
     flex: 1 0 78%;
   }
 }
 
 @media only screen and (min-width: 600px) {
-  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child{
+  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child {
     flex: 1 0 85%;
+  }
+
+  .main-container {
+    margin-left: 1.5rem;
   }
 }
 
 @media only screen and (min-width: 800px) {
-  .notif-container .notif-wrapper .notif-header{
-    flex-wrap: nowrap;
+  .notif-container .notif-wrapper .notif-header {
+    /* flex-wrap: nowrap; */
     margin-bottom: 15px;
   }
 
-  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child{
+  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child {
     flex: 1 0 70%;
   }
 
-  .notif-container .notif-wrapper .sub-container .sub-wrapper .sub-header {
-    flex-wrap: nowrap;
-  }
-
-  .notif-container .notif-wrapper .sub-container{
+  .notif-container .notif-wrapper .sub-container {
     margin-bottom: 15px;
   }
-  
-  .notif-container .notif-wrapper .sub-container .sub-wrapper{
+
+  .notif-container .notif-wrapper .sub-container .sub-wrapper {
     padding: 0 1.5em;
+  }
+
+  .notif-container .sub-container .sub-wrapper .sub-content p {
+    margin-left: 3.5rem;
   }
 }
 
 @media only screen and (min-width: 900px) {
-  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child{
+  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child {
     flex: 1 0 75%;
   }
 }
 
 @media only screen and (min-width: 1100px) {
-  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child{
-    flex: 1 0 80%;
+  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child {
+    flex: 1 0 70%;
+  }
+  .notif-container .notif-wrapper .notif-header {
+    flex-wrap: nowrap;
+  }
+
+  .notif-container .notif-wrapper .sub-container .sub-wrapper .sub-header {
+    flex-wrap: nowrap;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child {
+    flex: 1 0 78%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .notif-container .notif-wrapper .notif-header .head-bottom p:first-child {
+    flex: 1 0 85%;
+  }
+}
+
+/* LOAD */
+.main-container .notif-container-load {
+  box-sizing: border-box;
+}
+
+.notif-container-load .notif-wrapper-load {
+  padding: 1rem;
+}
+
+.notif-container-load .notif-wrapper-load .notif-header-load {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  text-indent: 0.7rem;
+}
+
+.notif-container-load .notif-wrapper-load .notif-header-load .head-upper-load {
+  flex: 1 0 20%;
+  display: flex;
+  flex-direction: row;
+}
+
+/* target */
+.notif-container-load
+  .notif-wrapper-load
+  .notif-header-load
+  .head-upper-load
+  .head-upper-bg-load
+  .circle1 {
+  width: 50px;
+  height: 50px;
+  height: 3rem;
+}
+
+/* target */
+.notif-container-load
+  .notif-wrapper-load
+  .notif-header-load
+  .head-upper-load
+  .rect1 {
+  box-sizing: border-box;
+  margin: 0.6rem 0.5rem 0;
+  border-radius: 10px;
+  width: 40%;
+  height: 1.5rem;
+}
+
+.notif-container-load .notif-wrapper-load .notif-header-load .head-bottom-load {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* target */
+.notif-container-load
+  .notif-wrapper-load
+  .notif-header-load
+  .head-bottom-load
+  .rect2 {
+  box-sizing: border-box;
+  border-radius: 5rem;
+  margin: 0.7rem;
+  width: 40%;
+  height: 1.5rem;
+}
+
+/* target */
+.notif-container-load
+  .notif-wrapper-load
+  .notif-header-load
+  .head-bottom-load
+  .rect3 {
+  box-sizing: border-box;
+  border-radius: 5rem;
+  width: 15%;
+  margin-left: auto;
+  margin-right: 1rem;
+  height: 1.5rem;
+}
+
+/* target */
+.notif-container-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load
+  .img-sub-notif-load
+  .circle2 {
+  width: 50px;
+  height: 50px;
+  height: 3rem;
+}
+
+/* target */
+.notif-container-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load
+  .img-sub-notif-load
+  .rect4 {
+  box-sizing: border-box;
+  margin: 0.6rem 0.5rem 0;
+  border-radius: 10px;
+  width: 7rem;
+  height: 1.5rem;
+}
+
+/* target */
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load
+  .target-load
+  .rect5 {
+  box-sizing: border-box;
+  border-radius: 5rem;
+  margin: 0.7rem;
+  width: 30%;
+  height: 1.5rem;
+}
+
+/* target */
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load
+  .target-load
+  .rect6 {
+  box-sizing: border-box;
+  border-radius: 5rem;
+  width: 20%;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  height: 1.5rem;
+}
+
+/* target */
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-content-load
+  .rect7 {
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  width: 95%;
+  height: 3rem;
+  margin-bottom: 0.7rem;
+}
+
+.notif-container-load
+  .notif-wrapper-load
+  .notif-header-load
+  .head-bottom-load
+  div:first-child {
+  flex: 1 0 60%;
+}
+
+.notif-container-load
+  .notif-wrapper-load
+  .notif-header-load
+  .head-bottom-load
+  div:last-child {
+  flex: 1 0 33%;
+}
+
+/* sub box */
+.notif-container-load .notif-wrapper-load .sub-container-load {
+  background: var(--background);
+  border: 2px solid var(--border);
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+}
+
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load {
+  padding: 0 0.5rem 0;
+}
+
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load
+  h4 {
+  flex: 1 0 33%;
+}
+
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load
+  .target-load {
+  flex-basis: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load
+  div {
+  display: flex;
+}
+
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load
+  .target-load
+  p:first-child {
+  flex: 1 1 70%;
+}
+
+.notif-container-load
+  .notif-wrapper-load
+  .sub-container-load
+  .sub-wrapper-load
+  .sub-header-load
+  .target-load
+  p:last-child {
+  border-radius: 0.8rem;
+  padding: 0.5rem 0;
+  flex: 1 1 15%;
+}
+
+.notif-container-load .sub-container-load .sub-wrapper-load .sub-content-load {
+  margin-left: 1rem;
+}
+
+.notification-pagination-load {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+}
+
+@media only screen and (min-width: 375px) {
+  .notif-container-load
+    .notif-wrapper-load
+    .notif-header-load
+    .head-bottom-load
+    p:first-child {
+    flex: 1 0 75%;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  .notif-container-load
+    .notif-wrapper-load
+    .notif-header-load
+    .head-bottom-load
+    p:first-child {
+    flex: 1 0 78%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .notif-container-load
+    .notif-wrapper-load
+    .notif-header-load
+    .head-bottom-load
+    p:first-child {
+    flex: 1 0 85%;
+  }
+
+  .main-container-load {
+    margin-left: 1.5rem;
+  }
+
+  .notif-container-load
+    .notif-wrapper-load
+    .sub-container-load
+    .sub-wrapper-load
+    .sub-content-load
+    .rect7 {
+    width: 98%;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .notif-container-load .notif-wrapper-load .notif-header-load {
+    /* flex-wrap: nowrap; */
+    margin-bottom: 15px;
+  }
+
+  .notif-container-load
+    .notif-wrapper-load
+    .notif-header-load
+    .head-bottom-load
+    p:first-child {
+    flex: 1 0 70%;
+  }
+
+  .notif-container-load
+    .notif-wrapper-load
+    .sub-container-load
+    .sub-wrapper-load
+    .sub-header-load {
+    flex-wrap: nowrap;
+  }
+
+  .notif-container-load .notif-wrapper-load .sub-container-load {
+    margin-bottom: 15px;
+  }
+
+  .notif-container-load
+    .notif-wrapper-load
+    .sub-container-load
+    .sub-wrapper-load {
+    padding: 0 1.5em;
+  }
+
+  .notif-container-load
+    .sub-container-load
+    .sub-wrapper-load
+    .sub-content-load
+    p {
+    margin-left: 3.5rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .notif-container-load
+    .notif-wrapper-load
+    .notif-header-load
+    .head-bottom-load
+    p:first-child {
+    flex: 1 0 75%;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .notif-container-load
+    .notif-wrapper-load
+    .notif-header-load
+    .head-bottom-load
+    p:first-child {
+    flex: 1 0 70%;
+  }
+}
+
+@media only screen and (min-width: 1250px) {
+  .notif-container-load
+    .notif-wrapper-load
+    .notif-header-load
+    .head-bottom-load
+    p:first-child {
+    flex: 1 0 78%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .notif-container-load
+    .notif-wrapper-load
+    .notif-header-load
+    .head-bottom-load
+    p:first-child {
+    flex: 1 0 86%;
   }
 }

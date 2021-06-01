@@ -52,7 +52,7 @@ function register(email, password, confirmPassword, from) {
             .then(
                 user => { 
                     dispatch(success(user));
-                    dispatch(alertActions.success('Registration successful'));
+                    dispatch(alertActions.success('Email and account accepted'));
                     setTimeout(() => {
                         history.push(from)
                     }, 3000)

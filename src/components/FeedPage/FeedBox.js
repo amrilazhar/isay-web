@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { formatRelative } from 'date-fns'
+import { useSelector } from 'react-redux';
 import CommentBox from './CommentBox';
 import './style/FeedBox.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { alertActions } from '../../redux/actions';
-import { authHeader } from '../../helpers';
 import DeleteStatus from './DeleteStatus';
 import moment from 'moment';
+import Lightbox from "react-awesome-lightbox";
+import "react-awesome-lightbox/build/style.css";
 
 const FeedBox = (fromFeedPage) => {
 
@@ -16,6 +15,8 @@ const FeedBox = (fromFeedPage) => {
   const users = useSelector ((state) => state?.users)
   const setOldStatus = fromFeedPage?.setOldStatus
   const setPage = fromFeedPage?.setPage
+  const [showLight, setShowLight] = useState(false)
+  const [showMed, setShowMed] = useState("")
 
   const loadComponent = () => {
     return (
@@ -91,7 +92,7 @@ const FeedBox = (fromFeedPage) => {
                 <>{
                   user?.media?.map(media =>(
                     <div className="image-cont">
-                      <img src={`${media}`} alt="PostMage" />
+                      <img src={`${media}`} alt="PostMage"/>
                     </div>
                   ))
                 }</>
@@ -158,17 +159,27 @@ const FeedBox = (fromFeedPage) => {
               <div className="image-post">
                 {
                   (!user?.media)? <div></div> :
-                  <>{
+                  (
                     user?.media?.map(media =>(
                       <div className="image-cont">
-                        <img src={`${media}`} alt="PostMage" />
+                        <img src={`${media}`} alt={`${user?.content}`} style={{cursor:"pointer"}} onClick={() =>
+                          (showLight === false)? (setShowLight(true), setShowMed(media)) : setShowLight(false)
+                        }/>
+                        <div className="media-overlay" style={{cursor:"pointer"}}>
+                          <p style={{fontSize: "1rem", cursor:"pointer"}}>preview</p>
+                        </div>
                       </div>
                     ))
-                  }</>
+                  )
                 }
               </div>
             </div>
           </div>
+          {
+            showLight === false ? "" :
+            <Lightbox image={showMed} title={`${user?.content}`} onClose={() =>
+              (showLight === false)? setShowLight(true) : setShowLight(false)}></Lightbox>
+          }
           <CommentBox
             comment = {user?.comment}
             likeBy={user?.likeBy}

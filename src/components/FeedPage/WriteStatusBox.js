@@ -46,7 +46,7 @@ const removeFile = (index) => {
   const mapImage = () => {
     if (files === ""){
       return (
-        <div className="img-wrapper">
+        <div>
         </div>
         )
     } else {
@@ -56,6 +56,9 @@ const removeFile = (index) => {
             src={URL.createObjectURL(files[x])}
             alt={"upload"}
           />
+          <div className="media-overlay">
+            <p>delete</p>
+          </div>
         </div>
       )
     }
@@ -85,7 +88,6 @@ const removeFile = (index) => {
 
   const submitStatus = (e) => {
     e.preventDefault()
-
     setOldStatus(statusUpdate?.status?.data)
     setPage (1)
     setParamInterest ({
@@ -96,6 +98,7 @@ const removeFile = (index) => {
     const interestId = interest?.id
 
     if(content && interestId){
+      e.preventDefault()
       dispatch(userActions.postStatus(content, interestId, files))
       e.target.reset()
       const param = ""
@@ -110,7 +113,11 @@ const removeFile = (index) => {
         }, 5000)
       }
 
-    } 
+      setFiles("")
+
+    } else {
+      dispatch(alertActions.error("content or interest was empty"))
+    }
   }
 
   const [show, setShow] = useState(false)
@@ -152,6 +159,7 @@ const removeFile = (index) => {
           <div className="himbau">
             <p>*get best experience with image at square ratio</p>
           </div>
+          <button onClick={showModal}>Done</button>
         </div>
       </div>
     )}
@@ -160,9 +168,19 @@ const removeFile = (index) => {
   return (
     <>
     <div className="status-submit">
+      {!userActive?.items?.avatar ? (
+        <div className="profile-icon-load">
+          <img
+            src="https://ik.imagekit.io/alfianpur/Final_Project/Grey_VyVyqnF1h1.png"
+            alt="profile-icon"
+          />
+        </div>
+      )
+        : (
       <div className="user-active-profile">
         <img src={userActive?.items?.avatar} alt="User" />
-      </div>
+      </div>)
+      }
       <form onSubmit={submitStatus}>
         <textarea
           wrap="soft"
@@ -174,7 +192,13 @@ const removeFile = (index) => {
           onChange={changeText}
         />
         <div className="status-tools">
-          <button className="upload" onClick={showModal}>Upload Image</button>
+          <button className="upload" onClick={showModal}>
+            { (files === "" || files.length === 0)?
+              "Upload Image"
+             : 
+              `${files.length} Images` 
+            }
+          </button>
           {modal()}
           <div className="interest-dropdown">
             <input className="choose" value={`${interest?.interest}`} disabled/>

@@ -109,13 +109,18 @@ const ProfileSetting = () => {
     return (
     <>
       <div className="photo">
-        <img src={oldProfile?.items?.avatar} alt="user" />
+        { (oldProfile?.items?.avatar)?
+            <img src={oldProfile?.items?.avatar} alt="user" />:
+            <></>
+        }
         <div className="photo-overlay">
           <div className="edit-cont" onClick={showModalAvatarChange}>
             <p>Change Avatar</p>
           </div>
         </div>
       </div>
+      { (oldProfile.loading === false)?
+      <>
       <h1>{oldProfile.items?.name}</h1>
       <div className="location-setting">
         <p>{oldProfile.items?.location?.city}</p>
@@ -128,6 +133,36 @@ const ProfileSetting = () => {
           </div>
         ))}
       </div>
+      </>
+      :
+      <>
+      <div className="lazy-load-setting"
+        style = {{
+          width: "12rem",
+          height: "3rem",
+          borderRadius:"1.5rem"
+        }}
+      ></div>
+      <div className="lazy-load-setting"
+        style = {{
+          width: "6rem",
+          height: "2rem",
+          borderRadius:"0.8rem"
+        }}></div>
+      <div className="lazy-load-setting"
+        style = {{
+          width: "14rem",
+          height: "1.4rem",
+          borderRadius:"0.8rem"
+        }}></div>
+      <div className="lazy-load-setting"
+        style = {{
+          width: "18rem",
+          height: "2rem",
+          borderRadius:"0.8rem"
+        }}></div>
+      </>
+      }
     </>
     )
   }
