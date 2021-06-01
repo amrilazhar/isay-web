@@ -4,7 +4,7 @@ import { authHeader } from '../../helpers'
 import { alertActions, statusInterest } from '../../redux/actions'
 import './style/DeleteStatus.css'
 
-const DeleteStatus = (dariFeedBox) => {
+const DeleteComment = (dariFeedBox) => {
   const statusId = dariFeedBox.statusId
   const ourId = dariFeedBox.ourId
   const statusOwnerId = dariFeedBox.statusOwnerId
@@ -106,4 +106,4 @@ const DeleteStatus = (dariFeedBox) => {
   )
 }
 
-export default DeleteStatus
+export default DeleteComment

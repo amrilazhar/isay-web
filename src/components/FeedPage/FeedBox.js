@@ -91,7 +91,7 @@ const FeedBox = (fromFeedPage) => {
                 <>{
                   user?.media?.map(media =>(
                     <div className="image-cont">
-                      <img src={`${media}`} alt="PostMage" />
+                      <img src={`${media}`} alt="PostMage"/>
                     </div>
                   ))
                 }</>

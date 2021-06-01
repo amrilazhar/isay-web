@@ -35,6 +35,16 @@
   .profile-right-content
   .realtime-feed-act
   .isay-status-box
+  .isay-status-rec
+  .no-status-ava {
+  font-size: 0.8rem;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
   .user-status {
   margin-bottom: 1rem;
 }
@@ -218,7 +228,7 @@
   .user-status
   .upper-prop
   .location
-  img {
+  svg {
   width: 10px;
   margin-right: 0.3rem;
 }

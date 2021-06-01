@@ -1,8 +1,10 @@
+import Pagination from '@material-ui/lab/Pagination'
 import axios from 'axios'
 import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { authHeader } from '../../helpers'
+import { scrollToTop } from '../../helpers/scrollToTop'
 import './style/UserAct.css'
 import UserActMap from './UserActMap'
 
@@ -12,6 +14,16 @@ const UserAct = (fromUserPage) => {
   const userName = fromUserPage.userName
 
   const [dataActivity, setDataActivity] = useState(null)
+  const pageCount = dataActivity?.totalPages
+
+
+  const [page, setPage] = useState(1)
+
+  const clickPage = (event, value) => {
+    setPage(value)
+    dispatch(scrollToTop)
+  }
+
 
   const dispatch = useDispatch()
   
@@ -25,7 +37,7 @@ const UserAct = (fromUserPage) => {
     };
 
     axios
-      .get (`https://isay.gabatch11.my.id/profile/an/Activities/${userId}`, requestOptions)
+      .get (`https://isay.gabatch11.my.id/profile/an/Activities/${userId}?page=${page}`, requestOptions)
       .then (response => {
         setTimeout(() => {
           dispatch({type: "GET_ACTIVITY_SUCCESS", payload: response.data})
@@ -36,7 +48,7 @@ const UserAct = (fromUserPage) => {
         dispatch({type: "GET_ACTIVITY_FAILURE", error})
       })
 
-  },[])
+  },[page])
 
   return (
     <div className="realtime-feed-act">
@@ -48,8 +60,8 @@ const UserAct = (fromUserPage) => {
           <UserActMap
           userName = {userName}
           type = {act.type}
+          valueOfStatus = {act.status_id}
           ownerId = {act.status_id?.owner?.id}
-          statusId = {act.status_id?._id}
           interest = {act.status_id?.interest[0]?.interest}
           statusOwner = {act.status_id?.owner?.name}
           avatar = {act.status_id?.owner?.avatar}
@@ -63,10 +75,15 @@ const UserAct = (fromUserPage) => {
           />
           )
         }
+        <Pagination
+          count={`${pageCount}`}
+          page={page}
+          color="primary"
+          className="pagination" 
+          onChange={clickPage}
+        />
         </>
       }
-
-      <div className="pagination" />
     </div>
   )
 }
