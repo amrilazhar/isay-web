@@ -152,6 +152,7 @@ const LeftSideMessage = () => {
 	}, []);
 
 	return (
+		<>
 		<div className="left-message-container">
 			<div className="left-message-wrapper">
 				<div className="search-meassage">
@@ -170,6 +171,7 @@ const LeftSideMessage = () => {
 				{displayRoomList()}
 			</div>
 		</div>
+		</>
 	);
 };
 

@@ -83,13 +83,15 @@ const UserPost = (dariUserPage) => {
               ownerId={status?.owner?._id}
             />
           </div>)}
-          <Pagination
-            count={`${pageCount}`}
-            page={page}
-            color="primary"
-            className="pagination" 
-            onChange={clickPage}
-          />
+          <div style={{display: "flex", justifyContent:"center"}}>
+            <Pagination
+              count={`${pageCount}`}
+              page={page}
+              color="primary"
+              className="pagination" 
+              onChange={clickPage}
+            />
+          </div>
         </>
       }
     </div>

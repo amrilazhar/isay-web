@@ -15,13 +15,13 @@
 
 .topic-container .topic-wrapper h3 {
   color: var(--text);
-  font-size: 0.9em;
+  /* font-size: 0.9em; */
   font-weight: 600;
 }
 
 .topic-container .topic-wrapper p {
   color: var(--text);
-  font-size: 0.7em;
+  font-size: 0.9em;
 }
 
 .topic-container .topic-wrapper ul {

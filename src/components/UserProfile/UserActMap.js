@@ -40,9 +40,13 @@ const UserActMap = (fromAct) => {
         <div className="header-line-one">
           <p>{userName}</p>
           <p>{type}</p>
-          <div className="status-interest">
-            <p>{interest}</p>
-          </div>
+          { valueOfStatus === null ?
+            <></>
+            :
+            <div className="status-interest">
+              <p>{interest}</p>
+            </div>
+          }
         </div>
         <p>{actDate}</p>
       </div>

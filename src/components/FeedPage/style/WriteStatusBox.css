@@ -9,6 +9,25 @@
   margin-bottom: 2rem;
 }
 
+.status-submit .profile-icon-load {
+  width: 60px;
+  height: 60px;
+  background-image: linear-gradient(
+    89deg,
+    var(--colorLazyPrime),
+    var(--colorLazyDouble)
+  );
+  animation: 4s ease-in-out 1ms infinite normal backwards running
+    animation-loading;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.status-submit .profile-icon-load img {
+  display: none;
+}
+
 .status-submit .user-active-profile {
   width: 60px;
   height: 60px;
@@ -384,6 +403,10 @@
     flex-grow: 1;
   }
 
+  .status-submit .profile-icon-load {
+    margin-right: 1rem;
+  }
+
   .status-submit .user-active-profile {
     margin-right: 1rem;
   }
@@ -407,5 +430,14 @@
 @media screen and (min-width: 1080px) {
   .status-submit form textarea {
     width: 93%;
+  }
+}
+
+@keyframes animation-loading {
+  0% {
+    background-position: -300px center;
+  }
+  100% {
+    background-position: 300px center;
   }
 }

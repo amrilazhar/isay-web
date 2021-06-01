@@ -278,55 +278,60 @@ const ContentNotification = () => {
             <div className="notif-container">
               {notificationUpdate?.notification?.data.map((data) => (
                 <>
-                  {data.status_id === null ? (
-                    ""
-                  ) : (
-                    <>
-                      <div className="notif-wrapper">
-                        <div className="notif-header">
-                          <div className="head-upper">
-                            <div className="head-upper-bg">
-                              <img src={data.from.avatar} alt="content" />
-                            </div>
-                            <h4>{data.from.name}</h4>
-                          </div>
-                          <div className="head-bottom">
-                            <p>{data.type}</p>
-                            <p>
-                              {data?.created_at === undefined
-                                ? "not found"
-                                : convertDate(data?.created_at)}
-                            </p>
-                          </div>
+                  <div className="notif-wrapper">
+                    <div className="notif-header">
+                      <div className="head-upper">
+                        <div className="head-upper-bg">
+                          <img src={data.from.avatar} alt="content" />
                         </div>
-                        <div className="sub-container">
-                          <div className="sub-wrapper">
-                            <div className="sub-header">
-                              <div>
-                                <div className="img-sub-notif">
-                                  <img src={data.to.avatar} alt="sub-content" />
-                                </div>
-                                <h4>{data.to.name}</h4>
-                              </div>
-                              <div className="target">
-                                <p>
-                                  {data.status_id?.created_at === undefined
-                                    ? "not found"
-                                    : convertDate(data?.status_id?.created_at)}
-                                </p>
-                                <p>{data.status_id.interest[0].interest}</p>
-                              </div>
-                            </div>
-                            <div className="sub-content">
-                              <p>{data.status_id.content}</p>
-                            </div>
-                          </div>
-                        </div>
+                        <h4>{data.from.name}</h4>
                       </div>
-                      <Divider variant="middle" style={{backgroundColor:'var(--border)', height:'2px'}}/>
-                      {data.readed._id ? "" : notifReaded()}
-                    </>
-                  )}
+                      <div className="head-bottom">
+                        <p>{data.type}</p>
+                        <p>
+                          {data?.created_at === undefined
+                            ? "not found"
+                            : convertDate(data?.created_at)}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="sub-container">
+                      {data.status_id === null ? (
+                        <div className="sub-wrapper">
+                          <div className="sub-content">
+                            <p>You have delete your status</p>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="sub-wrapper">
+                          <div className="sub-header">
+                            <div>
+                              <div className="img-sub-notif">
+                                <img src={data.to.avatar} alt="sub-content" />
+                              </div>
+                              <h4>{data.to.name}</h4>
+                            </div>
+                            <div className="target">
+                              <p>
+                                {data.status_id?.created_at === undefined
+                                  ? "not found"
+                                  : convertDate(data?.status_id?.created_at)}
+                              </p>
+                              <p>{data.status_id.interest[0].interest}</p>
+                            </div>
+                          </div>
+                          <div className="sub-content">
+                            <p>{data.status_id?.content}</p>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <Divider
+                    variant="middle"
+                    style={{ backgroundColor: "var(--border)", height: "2px" }}
+                  />
+                  {data.readed._id ? "" : notifReaded()}
                 </>
               ))}
             </div>

@@ -75,13 +75,15 @@ const UserAct = (fromUserPage) => {
           />
           )
         }
-        <Pagination
-          count={`${pageCount}`}
-          page={page}
-          color="primary"
-          className="pagination" 
-          onChange={clickPage}
-        />
+        <div style={{display: "flex", justifyContent:"center"}}>
+          <Pagination
+            count={`${pageCount}`}
+            page={page}
+            color="primary"
+            className="pagination" 
+            onChange={clickPage}
+          />
+        </div>
         </>
       }
     </div>
