@@ -31,7 +31,7 @@ const CommentBox = (fromFeedBox) => {
             setHadLike(1)
   },[])
 
-    function statusLike() {
+  function statusLike() {
     if(hadLike === 1) {  
       dispatch (requestLike())
       setHadLike(0)
@@ -74,7 +74,7 @@ const CommentBox = (fromFeedBox) => {
         <div className="button" onClick={statusLike}>
           {
             (hadLike === 1)?
-            <FontAwesomeIcon  icon={["fas", "thumbs-up"]} size="1x" color="#4f4f4f"/>:
+            <FontAwesomeIcon  icon={["fas", "thumbs-up"]} size="1x" color="#8a62fb"/>:
             <FontAwesomeIcon  icon={["far", "thumbs-up"]} size="1x" color="#4f4f4f"/>
           }
           <p>Like</p>
@@ -84,7 +84,7 @@ const CommentBox = (fromFeedBox) => {
           {
             (show === false)?
             <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>:
-            <FontAwesomeIcon icon={["fas", "comment"]} size="1x" color="#4f4f4f"/>
+            <FontAwesomeIcon icon={["fas", "comment"]} size="1x" color="#8a62fb"/>
 
           }
           <p>Comments</p>

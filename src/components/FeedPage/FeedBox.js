@@ -165,6 +165,9 @@ const FeedBox = (fromFeedPage) => {
                         <img src={`${media}`} alt={`${user?.content}`} style={{cursor:"pointer"}} onClick={() =>
                           (showLight === false)? (setShowLight(true), setShowMed(media)) : setShowLight(false)
                         }/>
+                        <div className="media-overlay" style={{cursor:"pointer"}}>
+                          <p style={{fontSize: "1rem", cursor:"pointer"}}>preview</p>
+                        </div>
                       </div>
                     ))
                   )

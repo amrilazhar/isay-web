@@ -44,6 +44,8 @@ const Navbar = () => {
 				path: "/socket",
 				upgrade: false,
 			});
+			// emit that user online
+			socketRefNav.current.emit("online:"+decodedToken.profile, true);
 
 			socketRefNav.current.on("chat:" + decodedToken.profile, (data) => {
 				counterChat = counterChat + 1;

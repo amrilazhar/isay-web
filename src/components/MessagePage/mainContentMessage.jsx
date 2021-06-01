@@ -30,7 +30,7 @@ const MainContentMessage = () => {
   const [scrollPos, setScrollPos] = useState(""); // handle scroll
   const [scrollActive, setScrollActive] = useState(true); // handle scroll
 
-  const [receiverOnlineStatus, setReceiverOnlineStatus] = useState(false);
+  const [receiverOnlineStatus, setReceiverOnlineStatus] = useState(null);
   let lastMessage = "";
   const dispatch = useDispatch();
 

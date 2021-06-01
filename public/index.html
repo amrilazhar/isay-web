@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!-- Primary Meta Tags -->
     <title>I-Say || Talk Anonimously.</title>
     <meta name="title" content="I-Say || Talk Anonimously.">
@@ -23,9 +22,16 @@
     <meta property="twitter:title" content="I-Say || Talk Anonimously.">
     <meta property="twitter:description" content="See Life From A Different Perspective.">
     <meta property="twitter:image" content="https://ik.imagekit.io/alfianpur/Final_Project/Meta_ISay__NF0kTf6-vs">
+    <link rel="manifest" href="/manifest.webmanifest" />
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(function () { console.log("Service worker registered"); });
+      }
+    </script>
   </body>
 </html>

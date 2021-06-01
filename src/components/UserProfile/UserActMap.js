@@ -1,9 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { history } from '../../helpers'
 import { alertActions } from '../../redux/actions'
 import FlashMessage from '../FlashMessage'
+import Lightbox from "react-awesome-lightbox";
+import "react-awesome-lightbox/build/style.css";
 
 const UserActMap = (fromAct) => {
 
@@ -21,6 +23,9 @@ const UserActMap = (fromAct) => {
   const commentLength = fromAct.commentLength
   const actDate = fromAct.actDate
   const statusDate = fromAct.statusDate
+
+  const [showLight, setShowLight] = useState(false)
+  const [showMed, setShowMed] = useState("")
 
   const dispatch = useDispatch()
   const alert = useSelector ((state) => state.alert)
@@ -69,19 +74,29 @@ const UserActMap = (fromAct) => {
               <div className="lower-prop">
                 <p>{content}</p>
                 <div className="image-post">
-                  {
-                    (!media)? <div></div> :
-                    <>{
-                      media?.map(media =>(
-                        <div className="image-cont">
-                          <img src={`${media}`} alt="PostMage" />
+                {
+                  (!media)? <div></div> :
+                  (
+                    media?.map(media =>(
+                      <div className="image-cont">
+                        <img src={`${media}`} alt={`${content}`} style={{cursor:"pointer"}} onClick={() =>
+                          (showLight === false)? (setShowLight(true), setShowMed(media)) : setShowLight(false)
+                        }/>
+                        <div className="media-overlay" style={{cursor:"pointer"}}>
+                          <p style={{fontSize: "1rem", cursor:"pointer"}}>preview</p>
                         </div>
-                      ))
-                    }</>
-                  }
+                      </div>
+                    ))
+                  )
+                }
                 </div>
               </div>
             </div>
+            {
+              showLight === false ? "" :
+              <Lightbox image={showMed} title={`${content}`} onClose={() =>
+                (showLight === false)? setShowLight(true) : setShowLight(false)}></Lightbox>
+            }
             <div className="do-at-status">
               <div className="button-collect">
                 <div className="button">
