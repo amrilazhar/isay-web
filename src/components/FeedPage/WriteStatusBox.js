@@ -87,7 +87,7 @@ const removeFile = (index) => {
   }
 
   const submitStatus = (e) => {
-
+    e.preventDefault()
     setOldStatus(statusUpdate?.status?.data)
     setPage (1)
     setParamInterest ({
@@ -115,7 +115,9 @@ const removeFile = (index) => {
 
       setFiles("")
 
-    } 
+    } else {
+      dispatch(alertActions.error("content or interest was empty"))
+    }
   }
 
   const [show, setShow] = useState(false)
