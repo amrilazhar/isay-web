@@ -30,7 +30,7 @@ test_stagging:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
-    - dpl --provider=heroku --app=i-say-stag --api-key=$HEROKU_API_KEY
+    - dpl --provider=heroku --app=isaybatch11 --api-key=$HEROKU_API_KEY
   only:
     - stagging-area
 
