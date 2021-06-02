@@ -3,13 +3,13 @@ import "./style/leftSideMessage.css";
 import SearchIcon from "@material-ui/icons/Search";
 import Input from "@material-ui/core/Input";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import { formatRelative } from "date-fns";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useRef } from "react";
 import socketIOClient from "socket.io-client";
 import { getRoomListAct } from "../../redux/actions";
 import jwt_decode from "jwt-decode";
 import { authHeader } from "../../helpers";
+import moment from "moment";
 
 const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
 
@@ -71,10 +71,7 @@ const LeftSideMessage = () => {
 			".room-list-message-" + dataMessage.chatRoom
 		);
 		if (chatContent !== null) {
-			chatTime.innerHTML = formatRelative(
-				new Date(dataMessage.created_at),
-				new Date()
-			);
+			chatTime.innerHTML = moment(new Date(dataMessage.created_at)).fromNow();
 			let dispName =
 				dataMessage.from._id === decodedToken.profile
 					? "You"
@@ -106,7 +103,7 @@ const LeftSideMessage = () => {
 						}
 					>
 						<div className="message-head">
-							<div>
+							<div className="avatar-container">
 								<img
 									src={
 										item.from._id === item.chatOwner
@@ -116,26 +113,26 @@ const LeftSideMessage = () => {
 									alt="avatar"
 								/>
 							</div>
-							<p>
-								{item.from._id === item.chatOwner
-									? item.to.name
-									: item.from.name}
-							</p>
-							<p className={`room-list-created-at-${item.chatRoom}`}>
-								{formatRelative(new Date(item.created_at), new Date())}
-							</p>
+							<div className="head-detail-wrapper">
+								<p>
+									{item.from._id === item.chatOwner
+										? item.to.name
+										: item.from.name}
+								</p>
+								<p className={`room-list-created-at-${item.chatRoom}`}>
+									<p>{moment(new Date(item.created_at)).fromNow()}</p>
+								</p>
+							</div>
 						</div>
 						<div className="message-peak">
-							<p>
-								<i className={`room-list-message-${item.chatRoom}`}>
+								<p className={`room-list-message-${item.chatRoom}`}>
 									{item.from._id === item.chatOwner
 										? "You : "
 										: `${item.from.name} : `}
 									{item.message_type === "text"
 										? item.message.substring(0, 15) + "..."
 										: displayMessageImageLink(item.message)}
-								</i>
-							</p>
+								</p>
 						</div>
 					</div>
 				</a>
@@ -152,24 +149,19 @@ const LeftSideMessage = () => {
 	}, []);
 
 	return (
+		<>
 		<div className="left-message-container">
 			<div className="left-message-wrapper">
 				<div className="search-meassage">
-					<Input
-						onChange={searchName}
-						type="search"
-						fullWidth={true}
-						placeholder="search name..."
-						startAdornment={
-							<InputAdornment position="start">
-								<SearchIcon />
-							</InputAdornment>
-						}
-					/>
+					<SearchIcon />
+					<form>
+						<input/>
+					</form>
 				</div>
 				{displayRoomList()}
 			</div>
 		</div>
+		</>
 	);
 };
 

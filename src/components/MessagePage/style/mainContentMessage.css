@@ -1,7 +1,11 @@
+.content-message-page {
+  flex-grow: 1;
+  max-width: 582.28px;
+}
+
 .main-message-container {
-  border: 1px solid #c9c9c9;
-  width: fit-content;
-  border-radius: 10px;
+  border: 2px solid var(--border);
+  border-radius: 1rem;
 }
 
 .main-message-container .main-message-wrapper .content-message-wrapper {
@@ -34,7 +38,7 @@
 .main-message-container .main-message-wrapper .empty-line {
   height: 10rem;
   border-bottom: 1px solid #c9c9c9;
-  width: 70vw;
+  width: 100%;
 }
 
 .main-message-container
@@ -75,8 +79,8 @@
   padding: 0.6rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: white;
-  background-color: rgba(138, 98, 251, 1);
+  color: var(--white);
+  background-color: var(--mainPurple);
   border-radius: 0.8rem;
   border: none;
 }
@@ -86,7 +90,7 @@
   .content-message-wrapper
   .each-message-public-wrapper {
   padding: 1.2rem;
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid var(--border);
 }
 
 .main-message-container
@@ -96,25 +100,9 @@
   .each-message-public-container
   .each-message-public-head {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 1.5rem;
-  color: #4f4f4f;
-}
-.main-message-container
-  .main-message-wrapper
-  .content-message-wrapper
-  .each-message-public-wrapper
-  .each-message-public-container
-  .each-message-public-head
-  div {
-  background-color: #8a62fb;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  overflow: hidden;
-  border: 0.7rem solid #8a62fb;
-  border-radius: 50%;
-  transform: translateY(1rem);
+  color: var(--text);
 }
 
 .main-message-container
@@ -123,7 +111,22 @@
   .each-message-public-wrapper
   .each-message-public-container
   .each-message-public-head
-  div
+  .avatar-wrapper {
+  background-color: var(--mainPurple);
+  width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.main-message-container
+  .main-message-wrapper
+  .content-message-wrapper
+  .each-message-public-wrapper
+  .each-message-public-container
+  .each-message-public-head
+  .avatar-wrapper
   img {
   position: absolute;
   top: -9999px;
@@ -131,7 +134,7 @@
   left: -9999px;
   right: -9999px;
   margin: auto;
-  max-height: 100%;
+  max-height: 70%;
 }
 
 .main-message-container
@@ -140,9 +143,9 @@
   .each-message-public-wrapper
   .each-message-public-container
   .each-message-public-head
-  p:nth-child(2) {
-  font-weight: 700;
-  font-size: 18px;
+  .context-detail {
+  display: flex;
+  flex-direction: column;
 }
 
 .main-message-container
@@ -151,10 +154,22 @@
   .each-message-public-wrapper
   .each-message-public-container
   .each-message-public-head
-  p:last-child {
-  font-weight: 300;
-  font-size: 14px;
-  padding-bottom: 0.3rem;
+  .context-detail
+  p {
+  font-size: 0.8rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.main-message-container
+  .main-message-wrapper
+  .content-message-wrapper
+  .each-message-public-wrapper
+  .each-message-public-container
+  .each-message-public-head
+  .context-detail
+  p:first-child {
+  font-weight: bold;
 }
 
 .main-message-container
@@ -163,8 +178,63 @@
   .each-message-public-wrapper
   .each-message-public-container
   .each-message-public-content {
-  padding-left: 5.5rem;
-  padding-right: 2rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+
+.main-message-container
+  .main-message-wrapper
+  .content-message-wrapper
+  .each-message-public-wrapper
+  .each-message-public-container
+  .each-message-public-content
+  .image-message-wrapper {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  background: var(--mainPurple);
+  border: 0.1rem solid var(--border);
+  border-radius: 20px;
+}
+
+.main-message-container
+  .main-message-wrapper
+  .content-message-wrapper
+  .each-message-public-wrapper
+  .each-message-public-container
+  .each-message-public-head
+  p {
+  margin-left: auto;
+}
+
+.main-message-container
+  .main-message-wrapper
+  .content-message-wrapper
+  .each-message-public-wrapper
+  .each-message-public-container
+  .each-message-public-head
+  p
+  svg {
+  width: 20px;
+  height: 20px;
+}
+
+.main-message-container
+  .main-message-wrapper
+  .content-message-wrapper
+  .each-message-public-wrapper
+  .each-message-public-container
+  .each-message-public-content
+  .image-message-wrapper
+  img {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 100%;
 }
 
 .main-message-container .main-message-wrapper .textarea-wrapper {
@@ -376,94 +446,71 @@
 
 .textarea-wrapper
   .message-btn
-  .message-btn-upload .notif-modal .notif-modal-content div .upload-notif-img{
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
-  }
+  .message-btn-upload
+  .notif-modal
+  .notif-modal-content
+  div
+  .upload-notif-img {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
 
-  .textarea-wrapper
-  .message-btn
-  .message-btn-upload .notif-modal .notif-modal-content div .upload-notif-img + label {
-    font-weight: 600;
-    font-size: 0.8rem;
-    margin: 0 0.5rem 0.5rem;
-    padding: 0.5rem 1rem;
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    background-color: var(--white);
-    border: 0.13rem solid var(--mainPurple);
-    box-sizing: border-box;
-    color: var(--mainPurple);
-    transition: 0.3s ease;
-  }
-
-  .textarea-wrapper
-  .message-btn
-  .message-btn-upload .notif-modal .notif-modal-content div .upload-notif-img + label:hover{
-    background-color: var(--mainPurple);
-    color: var(--white);
-    outline: none;
-  }
-
-  .textarea-wrapper
+.textarea-wrapper
   .message-btn
   .message-btn-upload
   .notif-modal
   .notif-modal-content
-  .notif-clear-btn button {
-    font-weight: 600;
-    font-size: 0.8rem;
-    margin: 0 0.5rem 0.5rem;
-    padding: 0.3rem 1rem;
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 0.5rem;
-    background-color: var(--white);
-    border: 0.13rem solid var(--mainPurple);
-    box-sizing: border-box;
-    color: var(--mainPurple);
-    transition: 0.3s ease;
+  div
+  .upload-notif-img
+  + label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin: 0 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  border: 0.13rem solid var(--mainPurple);
+  box-sizing: border-box;
+  color: var(--mainPurple);
+  transition: 0.3s ease;
 }
 
-
-
-@media only screen and (min-width: 380px) {
-  .main-message-container .main-message-wrapper .textarea-wrapper textarea {
-    width: 90%;
-  }
+.textarea-wrapper
+  .message-btn
+  .message-btn-upload
+  .notif-modal
+  .notif-modal-content
+  div
+  .upload-notif-img
+  + label:hover {
+  background-color: var(--mainPurple);
+  color: var(--white);
+  outline: none;
 }
 
-@media only screen and (min-width: 500px) {
-  .main-message-container .main-message-wrapper .textarea-wrapper textarea {
-    width: 93%;
-  }
-}
-
-@media only screen and (min-width: 700px) {
-  .main-message-container .main-message-wrapper .textarea-wrapper textarea {
-    width: 90%;
-  }
-}
-
-@media only screen and (min-width: 800px) {
-  .main-message-container .main-message-wrapper .textarea-wrapper textarea {
-    width: 90%;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .main-message-container .main-message-wrapper .textarea-wrapper textarea {
-    width: 94%;
-  }
-}
-
-@media only screen and (min-width: 1300px) {
-  .main-message-container .main-message-wrapper .textarea-wrapper textarea {
-    width: 95%;
-  }
+.textarea-wrapper
+  .message-btn
+  .message-btn-upload
+  .notif-modal
+  .notif-modal-content
+  .notif-clear-btn
+  button {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin: 0 0.5rem 0.5rem;
+  padding: 0.3rem 1rem;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+  border: 0.13rem solid var(--mainPurple);
+  box-sizing: border-box;
+  color: var(--mainPurple);
+  transition: 0.3s ease;
 }

@@ -128,7 +128,7 @@ const ContentNotification = () => {
                   </div>
                 </div>
               </div>
-              <Divider variant="middle"/>
+              <Divider variant="middle" />
             </div>
             <div className="notif-container-load">
               <div className="notif-wrapper-load">
@@ -198,7 +198,7 @@ const ContentNotification = () => {
                   </div>
                 </div>
               </div>
-              <Divider variant="middle"/>
+              <Divider variant="middle" />
             </div>
             <div className="notif-container-load">
               <div className="notif-wrapper-load">
@@ -296,13 +296,13 @@ const ContentNotification = () => {
                       </div>
                     </div>
                     <div className="sub-container">
-                      { data.status_id === null ?
+                      {data.status_id === null ? (
                         <div className="sub-wrapper">
                           <div className="sub-content">
                             <p>You have delete your status</p>
                           </div>
                         </div>
-                        :
+                      ) : (
                         <div className="sub-wrapper">
                           <div className="sub-header">
                             <div>
@@ -324,24 +324,27 @@ const ContentNotification = () => {
                             <p>{data.status_id?.content}</p>
                           </div>
                         </div>
-                      }
+                      )}
                     </div>
                   </div>
-                  <Divider variant="middle"/>
+                  <Divider
+                    variant="middle"
+                    style={{ backgroundColor: "var(--border)", height: "2px" }}
+                  />
                   {data.readed._id ? "" : notifReaded()}
                 </>
               ))}
             </div>
+            <Pagination
+              onChange={handlePagination}
+              count={`${notificationUpdate?.notification?.totalPages}`}
+              page={page}
+              color="primary"
+              className="notification-pagination"
+            />
           </>
         )}
       </div>
-      <Pagination
-        onChange={handlePagination}
-        count={`${notificationUpdate?.notification?.totalPages}`}
-        page={page}
-        color="primary"
-        className="notification-pagination"
-      />
     </>
   );
 };

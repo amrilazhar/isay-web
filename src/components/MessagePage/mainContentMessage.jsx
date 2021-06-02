@@ -9,7 +9,6 @@ import {
   getOlderChatAct,
   alertActions,
 } from "../../redux/actions";
-import { formatRelative } from "date-fns";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import socketIOClient from "socket.io-client";
@@ -19,6 +18,7 @@ import { chatConstant } from "../../redux/type";
 import FlashMessage from "../../components/FlashMessage";
 
 import React from "react";
+import moment from "moment";
 const SOCKET_SERVER_URL = "https://isay.gabatch11.my.id";
 
 const MainContentMessage = () => {
@@ -447,7 +447,7 @@ const MainContentMessage = () => {
         <div className="each-message-public-container">
           <div className="each-message-public-head">
             {/* Avatar */}
-            <div>
+            <div className="avatar-wrapper">
               <img
                 src={item.from.avatar ? item.from.avatar : ""}
                 alt="avatar"
@@ -455,21 +455,23 @@ const MainContentMessage = () => {
             </div>
 
             {/* Nama */}
-            <p>
-              {item.to._id.toString() === receiver.toString()
-                ? "You"
-                : item.from.name}
-            </p>
+            <div className="context-detail">
+              <p>
+                {item.to._id.toString() === receiver.toString()
+                  ? "You"
+                  : item.from.name}
+              </p>
 
-            {/* Tanggal Chat */}
-            <p>{formatRelative(new Date(item.created_at), new Date())}</p>
+              {/* Tanggal Chat */}
+               
+              <p>{moment(new Date(item.created_at)).fromNow()}</p>
+            </div>
 
             {/* Read Status */}
             {item.to._id === receiver ? (
               <p>
                 <ChromeReaderModeIcon
                   className={`readed-${item._id}`}
-                  // style={{ color: purple[400] }}
                   color={item.readed ? "primary" : "disabled"}
                   fontSize="medium"
                 />
@@ -488,7 +490,9 @@ const MainContentMessage = () => {
           <div className="each-message-public-content">
             {/* print Message */}
             {item.message_type == "image" ? (
-              <img width="100%" src={item.message}></img>
+              <div className="image-message-wrapper">
+                <img width="100%" src={item.message}></img>
+              </div>
             ) : (
               item.message
             )}
@@ -583,7 +587,7 @@ const MainContentMessage = () => {
               {displayLoadMoreButton()}
 
               {chatHistory.loading ? (
-                "waiting history chat "
+                ""
               ) : chatHistory.message.length > 0 ? (
                 ""
               ) : (
@@ -595,7 +599,7 @@ const MainContentMessage = () => {
 
               {/* display history message */}
               {chatHistory.loading
-                ? "waiting history chat "
+                ? ""
                 : displayChatMessage(chatHistory.message, "history")}
 
               {/* display new message entered */}
