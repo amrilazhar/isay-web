@@ -43,8 +43,7 @@ const FeedPage = () => {
 		dispatch(statusInterest.getStatus(param, page));
 		dispatch(scrollToTop);
 	};
-	if (interestUser) {
-	}
+
 	useEffect(() => {
 		dispatch(statusInterest.getStatus(param, page));
 	}, []);
@@ -101,7 +100,16 @@ const FeedPage = () => {
 								setParamInterest={setParamInterest}
 							/>
 							{ (newFeedCount > 0) ? (
-								<div onClick={(e) => window.location.reload()} className="new-feed-container">
+								<div
+									onClick={
+									() => {
+										const param = ""
+										const pagin  = 1
+										dispatch(statusInterest.getStatus(param, pagin))
+										setNewFeedCount(0)
+										tempCount=[]
+									}
+									} className="new-feed-container">
 									<p className="new-feed">
 										{`New ${newFeedCount} Status`}
 										
