@@ -11,8 +11,6 @@ import "./style/Navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { notificationCount } from "../redux/actions";
 import { authHeader } from "../helpers";
-import logoWhite from '../assets/isay-white.png';
-import logoBlack from '../assets/isay-black.png';
 import socketIOClient from "socket.io-client";
 import jwt_decode from "jwt-decode";
 
