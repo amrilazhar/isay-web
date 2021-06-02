@@ -100,7 +100,14 @@ const FeedPage = () => {
 								setOldStatus={setOldStatus}
 								setParamInterest={setParamInterest}
 							/>
-							{` New Status FEEDD ${newFeedCount}`}
+							{ (newFeedCount > 0) ? (
+								<div onClick={(e) => window.location.reload()} className="new-feed-container">
+									<p className="new-feed">
+										{`New ${newFeedCount} Status`}
+										
+									</p>
+								</div> ) : ""
+							}
 							<div className="realtime-feed">
 								<FeedBox
 									oldStatus={oldStatus}
