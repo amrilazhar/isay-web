@@ -1,17 +1,19 @@
-.message-page-wrapper{
-    padding: 2rem;
-    display: flex;
-    flex-direction: column-reverse;
+.message-page-wrapper {
+  padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-/* 
-@media only screen and (min-width: 721px){
-    .message-page-wrapper{
-        flex-direction: row;
-        justify-content: center;
-    }
 
-    .message-page-wrapper .content-message-page{
-        margin-left: 2rem;
-    }
+@media screen and (min-width: 660px) {
+  .message-page-wrapper {
+    padding: 2rem 5rem;
+    flex-direction: row;
+  }
+}
 
-} */
+@media screen and (min-width: 980px) {
+  .message-page-wrapper {
+    padding: 2rem 8%;
+  }
+}
