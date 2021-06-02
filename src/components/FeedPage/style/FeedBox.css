@@ -166,6 +166,10 @@
   display: inline;
 }
 
+.isay-status-box .do-at-status .button-collect .personal-text {
+  display: none;
+}
+
 .isay-status-box .do-at-status .button-collect .button p:nth-child(2) {
   margin-right: 0.4rem;
 }
@@ -291,11 +295,25 @@
   .isay-status-box .user-status .upper-prop .status-location {
     margin-left: auto;
   }
+
+  .isay-status-box .do-at-status .button-collect .personal-text {
+    display: block;
+  }
 }
 
 @media screen and (min-width: 600px) {
   .isay-status-box .do-at-status .button-collect .button p:nth-child(2) {
     display: none;
+  }
+
+  .isay-status-box .do-at-status .button-collect .personal-text {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .isay-status-box .do-at-status .button-collect .personal-text {
+    display: block;
   }
 }
 

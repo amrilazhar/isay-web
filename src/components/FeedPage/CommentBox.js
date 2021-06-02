@@ -95,7 +95,7 @@ const CommentBox = (fromFeedBox) => {
           <div className="button">
             <FontAwesomeIcon icon={["far", "comments"]} size="1x" color="#4f4f4f"/>
             <a href ={`/message?to=${ownerId}`}>
-              <p>Personal Chat</p>
+              <p className="personal-text">Personal Chat</p>
             </a>
           </div>
         }

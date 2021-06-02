@@ -194,7 +194,7 @@ const removeFile = (index) => {
         <div className="status-tools">
           <button className="upload" onClick={showModal}>
             { (files === "" || files.length === 0)?
-              "Upload Image"
+              "Image"
              : 
               `${files.length} Images` 
             }

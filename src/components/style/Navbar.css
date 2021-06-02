@@ -229,8 +229,19 @@
     order: -1;
   }
 
-  .navbar-wrapper a .profile-icon img {
+  .navbar-wrapper a .profile-icon {
     margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .navbar-wrapper .nav-icon {
+    margin-left: 1rem;
+  }
+
+  .navbar-wrapper .search input {
+    width: 120px;
+    margin-left: 1rem;
   }
 }
 
