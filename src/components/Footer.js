@@ -11,8 +11,8 @@ const Footer = () => {
       <div className="footer-wrapping">
         <div className="left">
           { (theme === "dark")?
-          <img src={logoBlack} alt="logo"/>:
-          <img src={logoWhite} alt="logo" />
+          <img src="https://i.ibb.co/XbcLxHP/Logo-Black.png" alt="logo" widhth="130px" height="56px"/>:
+          <img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo" widhth="130px" height="56px"/>
           }
         </div>
         <div className="left-middle">

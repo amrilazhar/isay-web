@@ -61,7 +61,7 @@ const FilterBox = (fromFeedPage) => {
           <input
             type="radio"
             name="interest"
-            for={`${fil.interest?.toLowerCase()}`}
+            htmlFor={`${fil.interest?.toLowerCase()}`}
             id={`${fil.interest?.toLowerCase()}`}
             defaultValue={`${fil._id?.toLowerCase()}`}
             onChange={handleChange}
