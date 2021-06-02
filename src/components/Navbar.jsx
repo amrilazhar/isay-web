@@ -11,6 +11,8 @@ import "./style/Navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { notificationCount } from "../redux/actions";
 import { authHeader } from "../helpers";
+import logoWhite from '../assets/isay-white.png';
+import logoBlack from '../assets/isay-black.png';
 import socketIOClient from "socket.io-client";
 import jwt_decode from "jwt-decode";
 
@@ -105,12 +107,9 @@ const Navbar = () => {
 					<a href="/">
 						<div className="nav-logo">
 							{theme === "dark" ? (
-								<img
-									src="https://ik.imagekit.io/alfianpur/Final_Project/Group_1_epmbmXTrw.svg"
-									alt="logo"
-								/>
+								<img src={logoBlack} alt="logo"/>
 							) : (
-								<img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo" />
+								<img src={logoWhite} alt="logo" />
 							)}
 						</div>
 					</a>

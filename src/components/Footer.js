@@ -1,4 +1,6 @@
 import React from 'react'
+import logoWhite from '../assets/isay-white.png';
+import logoBlack from '../assets/isay-black.png';
 import './style/Footer.css'
 
 const Footer = () => {
@@ -9,8 +11,8 @@ const Footer = () => {
       <div className="footer-wrapping">
         <div className="left">
           { (theme === "dark")?
-          <img src="https://ik.imagekit.io/alfianpur/Final_Project/Group_1_epmbmXTrw.svg" alt="logo" />:
-          <img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo" />
+          <img src={logoBlack} alt="logo"/>:
+          <img src={logoWhite} alt="logo" />
           }
         </div>
         <div className="left-middle">

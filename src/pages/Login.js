@@ -5,6 +5,7 @@ import FlashMessage from '../components/FlashMessage';
 import { alertActions, userActions } from '../redux/actions'
 import { googleClient } from '../helpers/google.client'
 import { GoogleLogin } from "react-google-login";
+import logo from '../assets/isay-white.png'
 import './style/login.css'
 
 function Login() {
@@ -54,7 +55,7 @@ function Login() {
       <div className="login-wrapper">
         <div className="left-content-login">
           <div className="logo">
-            <img src="https://i.ibb.co/qsXVjSt/Group-147.png" alt="i say logo" />
+            <img src={logo} alt="i say logo" />
           </div>
           <h2>See life from a different perspective.</h2>
           <div className="download-button">
