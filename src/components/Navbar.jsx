@@ -107,9 +107,9 @@ const Navbar = () => {
 					<a href="/">
 						<div className="nav-logo">
 							{theme === "dark" ? (
-								<img src={logoBlack} alt="logo"/>
+								<img src="https://i.ibb.co/XbcLxHP/Logo-Black.png" alt="logo" widhth="130px" height="56px" />
 							) : (
-								<img src={logoWhite} alt="logo" />
+								<img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo" widhth="130px" height="56px" />
 							)}
 						</div>
 					</a>
@@ -119,7 +119,7 @@ const Navbar = () => {
 					<ul className={sideMenu ? "nav-menu active" : "nav-menu"}>
 						<li className="nav-item">
 							<a href="/">
-								<div className="nav-links" activeClassName="active">
+								<div className="nav-links" activeclassname="active">
 									<Badge badgeContent={0} color="error">
 										<HomeIcon />
 									</Badge>
@@ -129,7 +129,7 @@ const Navbar = () => {
 						</li>
 						<li className="nav-item">
 							<a href="/notification">
-								<div className="nav-links" activeClassName="active">
+								<div className="nav-links" activeclassname="active">
 									<Badge
 										badgeContent={getInitialCountNotif() + newBasicNotif}
 										color="error"
@@ -142,7 +142,7 @@ const Navbar = () => {
 						</li>
 						<li className="nav-item">
 							<a href="/message">
-								<div className="nav-links" activeClassName="active">
+								<div className="nav-links" activeclassname="active">
 									<Badge
 										badgeContent={getInitialCountChat() + newChatNotif}
 										color="error"
