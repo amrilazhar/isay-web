@@ -175,9 +175,12 @@ const removeFile = (index) => {
         </div>
       )
         : (
-      <div className="user-active-profile">
-        <img src={userActive?.items?.avatar} alt="User" />
-      </div>)
+      <a href="/profile">
+        <div className="user-active-profile">
+          <img src={userActive?.items?.avatar} alt="User" />
+        </div>
+      </a>
+      )
       }
       <form onSubmit={submitStatus}>
         <textarea

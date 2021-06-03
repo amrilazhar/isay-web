@@ -145,6 +145,9 @@
   .header-activity
   .header-line-one {
   display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .profile-wrapping
@@ -154,8 +157,23 @@
   .isay-status-box
   .header-activity
   .header-line-one
-  :first-child {
+  .the-name {
   font-weight: bold;
+  margin: 0;
+  /* max-width: 100px; */
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
+  .header-activity
+  .header-line-one
+  .campuran
+  p {
+  /* overflow-wrap: break-word;
+  width: 100%; */
   margin: 0;
 }
 
@@ -166,9 +184,22 @@
   .isay-status-box
   .header-activity
   .header-line-one
-  :nth-child(2) {
+  .campuran {
+  display: flex;
+  align-items: center;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
+  .header-activity
+  .header-line-one
+  .campuran:first-child {
   font-size: 0.9em;
-  margin: 0 0 0 1rem;
+  margin: 1.5rem 0 0;
+  /* margin-left: auto; */
 }
 
 .profile-wrapping
@@ -177,7 +208,7 @@
   .realtime-feed-act
   .isay-status-box
   .status-interest {
-  margin-left: auto;
+  margin: 1.5rem 0 0 0.5rem;
 }
 
 .profile-wrapping
@@ -188,7 +219,7 @@
   .status-interest
   p {
   padding: 0.6rem;
-  margin: 0 0.5rem 1rem;
+  margin: 0;
   font-size: 0.8rem;
   font-weight: 600;
   color: white;
@@ -474,6 +505,19 @@
   p {
   font-size: 0.8rem;
   font-weight: 500;
+}
+
+@media screen and (min-width: 430px) {
+  .profile-wrapping
+    .profile-bottom-content
+    .profile-right-content
+    .realtime-feed-act
+    .isay-status-box
+    .header-activity
+    .header-line-one
+    .campuran {
+    margin-left: auto;
+  }
 }
 
 @media screen and (min-width: 480px) {

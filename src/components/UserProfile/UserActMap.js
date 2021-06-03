@@ -43,15 +43,19 @@ const UserActMap = (fromAct) => {
       }
       <div className="header-activity">
         <div className="header-line-one">
+          <div className="the-name">
           <p>{userName}</p>
+          </div>
+          <div className="campuran">
           <p>{type}</p>
-          { valueOfStatus === null ?
-            <></>
-            :
-            <div className="status-interest">
-              <p>{interest}</p>
-            </div>
-          }
+            { valueOfStatus === null ?
+              <></>
+              :
+              <div className="status-interest">
+                <p>{interest}</p>
+              </div>
+            }
+          </div>
         </div>
         <p>{actDate}</p>
       </div>

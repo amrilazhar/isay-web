@@ -1,6 +1,13 @@
 .profile-wrapping
   .profile-bottom-content
   .profile-right-content
+  .profile-sizing {
+  text-align: center;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
   .profile-sizing
   .bio {
   font-size: 0.8em;
@@ -77,6 +84,15 @@
   );
   animation: 4s ease-in-out 1ms infinite normal backwards running
     animation-loading;
+}
+
+@media screen and (min-width: 720px) {
+  .profile-wrapping
+    .profile-bottom-content
+    .profile-right-content
+    .profile-sizing {
+    text-align: left;
+  }
 }
 
 @keyframes animation-loading {

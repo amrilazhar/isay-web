@@ -686,10 +686,11 @@
 @media screen and (min-width: 600px) {
   .setting-container .setting-wrapping {
     display: flex;
+    justify-content: center;
   }
 
   .setting-container .setting-wrapping .setting-left .setting-left-wrapper {
-    max-width: 385px;
+    max-width: 300px;
     margin-bottom: 0;
   }
 
