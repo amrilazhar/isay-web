@@ -97,9 +97,9 @@ const CommentMap = (fromCommentBox) => {
           );
         }
       )
-      setTimeout(() => {
+      // setTimeout(() => {
         setNewComment(true)
-      }, 2500)
+      // }, 2500)
       e.target.value=""
     }
   }
