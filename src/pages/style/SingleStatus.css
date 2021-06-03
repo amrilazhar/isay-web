@@ -2,6 +2,7 @@
   max-width: 1360px;
   display: flex;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .single-wrapper {
@@ -90,7 +91,7 @@
   font-size: 0.9rem;
   padding: 1rem;
   box-sizing: border-box;
-  background-color: rgb(124, 187, 130);
+  background-color: var(--mainBlue);
   color: white;
   border-radius: 0.5rem;
   display: flex;
@@ -98,14 +99,19 @@
 }
 
 .single-wrapper .bottom-container .left-bottom-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .single-wrapper .bottom-container .left-bottom-container .content {
   padding: 1rem;
+  width: 100%;
   padding-left: 0;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .single-wrapper .bottom-container .left-bottom-container .media {
