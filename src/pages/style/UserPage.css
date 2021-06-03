@@ -253,7 +253,7 @@
 
 /* End of Bottom Content */
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 720px) {
   .profile-wrapping .profile-bottom-content {
     flex-direction: row;
     align-items: flex-start;

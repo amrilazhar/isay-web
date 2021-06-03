@@ -96,7 +96,7 @@
   p {
   color: #4781f8;
   border: 1px solid #4781f8;
-  /* align-self: center; */
+  background-color: #ffffff;
   padding: 0.7rem 1rem 0.7rem 0;
   border-bottom-right-radius: 3rem;
   border-top-right-radius: 3rem;

@@ -78,7 +78,7 @@ const GetAvatar = () => {
                 </div>
                 <div className="avatar-btn">
                   <Link to="/login">
-                    <button>Devine your Avatar</button>
+                    <button>Lets Start Your Journey</button>
                   </Link>
                 </div>
               </>
