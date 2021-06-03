@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
+import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
@@ -46,16 +48,28 @@ const SingleStatus = () => {
       <div className="single-container">
         <div className="single-wrapper">
           <div className="top-container">
-            <div className="short-profile">
-              <div className="avatar">
-                <img src={dataSingleStatus?.owner?.avatar} alt="user" />
-              </div>
-              <div className="location">
-                <p>{dataSingleStatus?.owner?.location?.city}</p>
-              </div>
+            <div className="user-image">
+              <img src={dataSingleStatus?.owner?.avatar} alt="dataSingleStatus" />
             </div>
-            <div className="bio">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <div className="name-and-time">
+              <h2>{dataSingleStatus?.owner?.name}</h2>
+              <p>
+                { (dataSingleStatus?.created_at !== undefined)?
+                  moment(new Date(dataSingleStatus?.created_at)).fromNow():
+                  dataSingleStatus?.created_at
+                }
+              </p>
+            </div>
+            <div className="loc-and-int">
+              <div className="status-interest">
+                <button value={`${dataSingleStatus?.interest[0]?._id}`}>{dataSingleStatus?.interest[0]?.interest}</button>
+              </div>
+              <div className="status-location">
+                <p>
+                  <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#fffff"/>
+                  {dataSingleStatus?.owner?.location?.city}
+                </p>
+              </div>
             </div>
           </div>
           <div className="bottom-container">

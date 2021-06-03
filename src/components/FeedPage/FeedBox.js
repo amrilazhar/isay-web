@@ -74,14 +74,16 @@ const FeedBox = (fromFeedPage) => {
                 }
               </p>
             </div>
-            <div className="status-interest">
-              <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
-            </div>
-            <div className="status-location">
-              <p>
-                <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>
-                {user?.owner?.location?.city}
-              </p>
+            <div className="loc-and-int">
+              <div className="status-interest">
+                <button value={`${user?.interest[0]?._id}`}>{user?.interest[0]?.interest}</button>
+              </div>
+              <div className="status-location">
+                <p>
+                  <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#ffffff"/>
+                  {user?.owner?.location?.city}
+                </p>
+              </div>
             </div>
           </div>
           <div className="lower-prop">

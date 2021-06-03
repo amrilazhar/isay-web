@@ -33,7 +33,7 @@ function Login() {
 
       if (email && password) {
         // get return url from location state or default to home page
-        const { from } = location.state || { from: { pathname: "/" } };
+        const { from } = location.state || { from: { pathname: "/check" } };
         dispatch(userActions.login(email, password, from));
       } else {
         dispatch(alertActions.error("Email and password not accepted"));
