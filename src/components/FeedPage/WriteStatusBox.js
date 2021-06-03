@@ -18,8 +18,6 @@ const WriteStatusBox = (fromFeedPage) => {
     id:"",
   })
 
-  console.log("ini files foto", files)
-
   const statusUpdate = useSelector ((state) => state?.statusInterest)
   const userActive = useSelector ((state) => state?.users)
 

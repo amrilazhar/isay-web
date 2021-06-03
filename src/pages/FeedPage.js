@@ -103,11 +103,7 @@ const FeedPage = () => {
 								<div
 									onClick={
 									() => {
-										const param = ""
-										const pagin  = 1
-										dispatch(statusInterest.getStatus(param, pagin))
-										setNewFeedCount(0)
-										tempCount=[]
+										window.location.reload()
 									}
 									} className="new-feed-container">
 									<p className="new-feed">
