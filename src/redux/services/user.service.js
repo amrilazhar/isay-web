@@ -36,6 +36,7 @@ function logout() {
     localStorage.removeItem('user');
     localStorage.setItem ('theme', 'light')
     localStorage.removeItem('theme');
+    localStorage.removeItem('interest');
 }
 
  function getActive() {

@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { history } from './helpers/history'
 import { alertActions } from './redux/actions'
 import { PrivateRoute } from './redux/PrivateRoute'
+import { PrivateRouteInterest } from './redux/PrivateRouteInterest'
 
 import "./app.css"
 
@@ -23,6 +24,7 @@ import SingleStatus from './pages/SingleStatus';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faComments as fasFaComments, faComment as fasFaComment, faThumbsUp as fasFaThumbsUp, faMapMarkerAlt as fasFaMapMarkerAlt, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
 import { faComments as farFaComments, faComment as farFaComment, faThumbsUp as farFaThumbsUp } from '@fortawesome/free-regular-svg-icons'
+import CheckPage from './pages/CheckPage';
 
 function App() {
 
@@ -56,15 +58,16 @@ function App() {
           <Switch>
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
+              <PrivateRoute path="/check"component={CheckPage} />
               <PrivateRoute path="/signupquest/:id"component={SignupQuest} />
               <PrivateRoute path="/avatar" component={GetAvatar} />
-              <PrivateRoute path="/notification" component={Notification} />
-              <PrivateRoute path="/profile" component={UserPage} />
-              <PrivateRoute path="/user/:userId" component={OtherUserPage} />
-              <PrivateRoute path="/status/:statusId" component={SingleStatus} />
-              <PrivateRoute path="/message" component={Message} />
-              <PrivateRoute path="/setting" component={ProfileSetting} />
-              <PrivateRoute path="/" component={FeedPage} />
+              <PrivateRouteInterest path="/notification" component={Notification} />
+              <PrivateRouteInterest path="/profile" component={UserPage} />
+              <PrivateRouteInterest path="/user/:userId" component={OtherUserPage} />
+              <PrivateRouteInterest path="/status/:statusId" component={SingleStatus} />
+              <PrivateRouteInterest path="/message" component={Message} />
+              <PrivateRouteInterest path="/setting" component={ProfileSetting} />
+              <PrivateRouteInterest path="/" component={FeedPage} />
               <Redirect from="*" to="/" />
           </Switch>
       </Router>

@@ -1,0 +1,45 @@
+.checker-container {
+  background: linear-gradient(
+    97.94deg,
+    #8a62fb -13.16%,
+    #4781f8 52.91%,
+    #009e74 103.6%,
+    #a7f3ce 123.54%
+  );
+}
+.checker-container .checker-zoomify {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.checker-container .checker-zoomify .text-verif {
+  position: absolute;
+  text-align: center;
+  color: #ffffff;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.checker-container .checker-zoomify img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin: -25px 0 0 -25px;
+  animation: zoom-in-zoom-out 5s ease-out infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
