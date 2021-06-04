@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 const GetAvatar = () => {
   const dispatch = useDispatch();
   const autoGenerateProfile = useSelector((state) => state.firstProfileData);
-  console.log("autoGenerateProfile", autoGenerateProfile);
 
   useEffect(() => {
     dispatch(userActions.getActive());

@@ -244,7 +244,6 @@ const MainContentMessage = () => {
     let errorFile = [];
     let fileCont = event.target.files;
     let fileImg = [];
-    console.log("ini newImage onchange", newImages.length);
     for (const el of fileCont) {
       //rules for upload file less than 3MB and type image
       if (
@@ -274,18 +273,13 @@ const MainContentMessage = () => {
       setNewImages(imgCont);
       setDisplayImage(fileImg);
     }
-
-    // console.log("target", event.target.files);
   };
 
-  console.log("luar fungsi", displayImage.length);
   const mapNotifImage = () => {
-    console.log("dalam fungsi", displayImage);
     if (displayImage?.length > 0) {
       return (
         <>
           {displayImage?.map((value, index) => {
-            console.log("value dalam fungsi", value);
             return (
               <div className="notif-img-wrapper" key={index}>
                 <img
@@ -325,13 +319,10 @@ const MainContentMessage = () => {
     };
   };
 
-  console.log("newImage", newImages);
-
   const sendImages = (messageBody) => {
     setLoadMore(false);
     setScrollActive(true);
     messageBody.forEach((item, i) => {
-      console.log("iterasi : ", i);
       socketRef.current.emit(chatConstant.NEW_CHAT_MESSAGE_EVENT, {
         content: item,
         chatRoom: room.roomData._id,

@@ -23,8 +23,6 @@ const InputActivity = ({ ...props }) => {
   const dispatch = useDispatch();
   const inputActivityUpdate = useSelector((state) => state.inputActivityData);
   const firstProfileUpdate = useSelector((state) => state.firstProfileData);
-  console.log("ini", inputActivityUpdate);
-  console.log("createFirstProfile", createFirstProfile);
 
   const { location, activity, interest } = createFirstProfile;
 
@@ -34,11 +32,9 @@ const InputActivity = ({ ...props }) => {
 
   //handle checkbox
   const handleChangeActivity = (event) => {
-    console.log("event", event);
     const index = createFirstProfile[event.target.name].indexOf(
       event.target.value
     );
-    console.log("index", index);
 
     if (event.target.checked && index === -1) {
       return setCreateFirstProfile({
@@ -116,7 +112,6 @@ const InputActivity = ({ ...props }) => {
                 )}
               />
             </div>
-            // console.log('input', input)
           ))}
         </>
       );

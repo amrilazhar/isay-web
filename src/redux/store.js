@@ -8,8 +8,12 @@ import rootReducer from './reducers'
 
 const loggerMiddleware = createLogger()
 
+const devTools =
+  process.env.NODE_ENV === "production"
+    ? applyMiddleware(thunkMiddleware)
+    : composeWithDevTools(applyMiddleware(thunkMiddleware));
+
 export const store = createStore(
   rootReducer,
-  composeWithDevTools (applyMiddleware(thunkMiddleware, loggerMiddleware))
-  
+  devTools  
 );
