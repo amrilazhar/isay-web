@@ -27,11 +27,9 @@ const ContentNotification = () => {
 	//pagination
 	const handlePagination = (event, value) => {
 		const page = value;
-		console.log("page", page);
 		setPage(value);
 		dispatch(notificationData.getNotificationData(page, limit));
 	};
-	console.log("page", page);
 
 	// get notif
 	useEffect(() => {
@@ -57,20 +55,17 @@ const ContentNotification = () => {
 	}, []);
 
 	const notifReaded = (notifID) => {
-		console.log(notifID, " notif id");
 		socketRefNot.current.emit("readNotif", {
 			notif_id: notifID,
 		});
 	};
 
 	const notificationUpdate = useSelector((state) => state.notificationData);
-	console.log("notificationUpdate", notificationUpdate);
 
 	// handle date
 	const convertDate = (dates) => {
 		const newDate = new Date(dates);
 		const today = moment(newDate);
-		console.log("today", today.fromNow());
 		return today.fromNow();
 	};
 

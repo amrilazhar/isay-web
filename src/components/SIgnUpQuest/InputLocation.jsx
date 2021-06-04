@@ -40,7 +40,6 @@ const InputLocation = ({ ...props }) => {
   const handleValueLocation = (e) => {
     const valueloc = e?.target?.innerText?.split(", ")[1];
     const valueCity = valueloc?.split(" ");
-    console.log("valueCity", valueCity);
     const selectedLoc =
       valueCity === undefined
         ? { _id: "0" }
@@ -56,13 +55,7 @@ const InputLocation = ({ ...props }) => {
       ...createFirstProfile,
       location: selectedLoc["_id"],
     });
-    console.log("valueloc2", valueloc);
-    console.log("selectedLoc", selectedLoc);
-    console.log("valueCity", valueCity);
   };
-
-  console.log("createFirstProfile", createFirstProfile);
-  // console.log('windows',id);
 
   const displayLocationData = () => {
     if (inputLocationUpdate.loading === true) {
