@@ -94,7 +94,7 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   border: 0.13rem solid var(--mainHeroBtn);
   box-sizing: border-box;
   color: var(--mainHeroBtn);
@@ -108,14 +108,14 @@
 .status-submit form .status-tools .upload-image:focus + label,
 .status-submit form .status-tools .upload-image + label:hover {
   background-color: var(--hoverHeroBtn);
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
   outline: none;
 }
 
 .status-submit form .status-tools button,
 .status-submit form .status-tools .choose {
   border-radius: 1rem;
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   border: 0.13rem solid var(--mainHeroBtn);
   box-sizing: border-box;
   color: var(--mainHeroBtn);
@@ -125,7 +125,7 @@
 .status-submit form .status-tools .upload:hover {
   background-color: var(--hoverHeroBtn);
   border: 0.13rem solid var(--hoverHeroBtn);
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
 }
 .status-submit form .status-tools .upload:active {
   background-color: var(--activeHeroBtn);
@@ -140,7 +140,7 @@
   border: none;
   border-radius: 0.25rem;
   background-color: var(--mainSecondBtn);
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
   cursor: pointer;
 }
 
@@ -175,7 +175,7 @@
   display: none;
   text-align: center;
   position: absolute;
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   padding: 1rem 1rem 0.5rem;
   border: 2px solid var(--border);
   border-radius: 0.5rem;
@@ -186,7 +186,7 @@
   background-color: var(--mainHeroBtn);
   border: none;
   border-radius: 1rem;
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
 }
 
 .status-submit
@@ -225,7 +225,7 @@
 }
 
 .status-submit form .status-tools .reset-modal .reset-modal-content {
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   margin: 10% auto;
   padding: 20px;
   border: 1px solid var(--border);
@@ -245,7 +245,7 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   border: 0.13rem solid var(--mainHeroBtn);
   box-sizing: border-box;
   color: var(--mainHeroBtn);
@@ -260,7 +260,7 @@
   button:hover {
   border: 0.13rem solid var(--hoverHeroBtn);
   background-color: var(--hoverHeroBtn);
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
   outline: none;
 }
 

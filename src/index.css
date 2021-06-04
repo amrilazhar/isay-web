@@ -6,6 +6,8 @@
 }
 
 :root {
+  --background: #ffffff;
+
   /* for text and paragraf */
   --text: #4f4f4f;
   --textOnContrast: #ffffff;
@@ -15,6 +17,8 @@
   --borderOnContrast: #ffffff;
 
   /* for button */
+  --btnTrans: #ffffff;
+
   --mainGreyBtn: #b7b7b7;
   --hoverGreyBtn: #7e7e7e;
   --activeGreyBtn: #575757;
@@ -62,8 +66,6 @@
   --white: #ffffff;
   --whitePeach: #c2bfbf;
   --whiteShadow: #b1b1b1;
-
-  --background: #ffffff;
 
   --buttonClick: #c2c2c2;
   --secondButtonClick: #b6b6b6;

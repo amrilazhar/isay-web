@@ -1,6 +1,7 @@
 .content-message-page {
   flex-grow: 1;
   max-width: 582.28px;
+  color: var(--text);
 }
 
 .main-message-container {
@@ -79,7 +80,7 @@
   padding: 0.6rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
   background-color: var(--mainHeroBtn);
   border-radius: 0.8rem;
   border: none;
@@ -273,7 +274,7 @@
   .message-btn-upload
   .img-button {
   color: var(--mainHeroBtn);
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   border: 1px solid var(--mainHeroBtn);
   border-radius: 3rem;
   padding: 0.5rem 1.5rem;
@@ -292,7 +293,7 @@
   .message-btn-send
   button {
   padding: 0.4rem 1.1rem;
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
   background-color: var(--mainSecondBtn);
   border-radius: 5px;
   text-align: center;
@@ -307,7 +308,7 @@
   .btn-load-more
   button {
   padding: 0.5rem 1.5rem;
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
   background-color: var(--mainHeroBtn);
   border-radius: 5px;
   text-align: center;
@@ -354,7 +355,7 @@
   .message-btn-upload
   .notif-modal
   .notif-modal-content {
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   margin: 15% auto;
   padding: 20px;
   border: 1px solid var(--border);
@@ -474,7 +475,7 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   border: 0.13rem solid var(--mainHeroBtn);
   box-sizing: border-box;
   color: var(--mainHeroBtn);
@@ -490,7 +491,7 @@
   .upload-notif-img
   + label:hover {
   background-color: var(--mainHeroBtn);
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
   outline: none;
 }
 
@@ -508,7 +509,7 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   border: 0.13rem solid var(--mainHeroBtn);
   box-sizing: border-box;
   color: var(--mainHeroBtn);

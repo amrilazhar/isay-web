@@ -31,6 +31,7 @@
 
 .left-message-container .left-message-wrapper .search-meassage svg {
   margin-right: 1rem;
+  color: var(--text);
 }
 
 .left-message-container .left-message-wrapper .search-meassage input {

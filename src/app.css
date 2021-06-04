@@ -1,4 +1,6 @@
 .dark {
+  --background: #050a0a;
+
   /* for text and paragraf */
   --text: #ffffff;
   --textOnContrast: #4f4f4f;
@@ -8,6 +10,8 @@
   --borderOnContrast: #b7b7b7;
 
   /* for button */
+  --btnTrans: #050a0a;
+
   --mainGreyBtn: #575757;
   --hoverGreyBtn: #7e7e7e;
   --activeGreyBtn: #b7b7b7;
@@ -55,8 +59,6 @@
   --white: #050a0a;
   --whitePeach: #3d4040;
   --whiteShadow: #4e4e4e;
-
-  --background: #050a0a;
 
   --buttonClick: #3d3d3d;
   --secondButtonClick: #222222;

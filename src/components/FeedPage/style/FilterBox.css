@@ -70,7 +70,7 @@
   margin-top: 1rem;
   padding: 0.4rem 0;
   box-sizing: border-box;
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   border-radius: 0.5rem;
   border: 0.13rem solid var(--mainSecondBtn);
   color: var(--mainSecondBtn);
@@ -82,7 +82,7 @@
 .left-content .left-wrapping .filter-box form input:hover {
   background-color: var(--hoverSecondBtn);
   border: 0.13rem solid var(--hoverSecondBtn);
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
 }
 
 .left-content .left-wrapping .filter-box form input:active {

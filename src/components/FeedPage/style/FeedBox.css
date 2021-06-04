@@ -57,7 +57,7 @@
   margin: 0 0.5rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
   background-color: var(--mainHeroBtn);
   border-radius: 0.8rem;
   border: none;
@@ -85,7 +85,7 @@
 .isay-status-box .user-status .lower-prop .image-post .image-cont {
   width: 220px;
   height: 220px;
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   border-radius: 0.5rem;
   margin: 0.5rem;
   position: relative;
@@ -212,7 +212,7 @@
 }
 
 .isay-status-box .do-at-status .comment-expand form textarea:focus {
-  border: 1.5px solid var(--mainHeroBtn);
+  border: 2px solid var(--mainHeroBtn);
   outline: none;
 }
 
@@ -248,7 +248,7 @@
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more:hover {
   background-color: var(--hoverHeroBtn);
-  color: var(--textOnContrast);
+  color: var(--btnTrans);
 }
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more:active {
