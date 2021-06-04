@@ -41,9 +41,10 @@
 
 .feed-wrapping .right-content .right-wrapping .realtime-feed {
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderBig);
   border-radius: 0.5rem;
   box-sizing: border-box;
+  background-color: var(--forTransDiv);
 }
 
 .feed-wrapping .right-content .right-wrapping .realtime-feed .pagination {

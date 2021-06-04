@@ -40,8 +40,10 @@ function App() {
   (function() {
     if(localStorage.getItem('theme') === 'dark') {
       setTheme('dark');
+    } else if(localStorage.getItem('theme') === 'orange') {
+      setTheme('orange');
     } else {
-      setTheme('light');
+      setTheme('light')
     }
   })();
 

@@ -7,6 +7,7 @@
 
   /* for border */
   --border: #ffffff;
+  --borderBig: #ffffff;
   --borderOnContrast: #b7b7b7;
 
   /* for button */
@@ -23,6 +24,97 @@
   --mainSecondBtn: #264b96;
   --hoverSecondBtn: #3664c0;
   --activeSecondBtn: #4781f8;
+
+  --mainGreenBtn: #39885e;
+  --hoverGreenBtn: #4baa77;
+  --activeGreenBtn: #61db99;
+
+  --mainWarnBtn: #7c2222;
+  --hoverWarnBtn: #be3131;
+  --activeWarnBtn: #f84747;
+
+  /* for image container  */
+  --firstImage: #61db99;
+  --secondImage: #8a62fb;
+
+  /* for nav */
+  --searchBoxBg: #ffffff;
+  --colorSearch: #4f4f4f;
+  --avarBg: #8a62fb;
+  --avaBorder: #ffffff;
+  --textColor: #ffffff;
+  --colorInde: #8a62fb;
+
+  /* for footer */
+
+  --footerText: #ffffff;
+
+  /* for block component */
+  --heroBlock: #8a62fb;
+
+  /* for setting page */
+  --blockDisplayProfile: #4781f8;
+  --interestBg: #ffffff;
+  --interestContent: #4781f8;
+
+  --white: #050a0a;
+  --whitePeach: #3d4040;
+  --whiteShadow: #4e4e4e;
+
+  --buttonClick: #3d3d3d;
+  --secondButtonClick: #222222;
+  --shadowBox: #ffffff40;
+
+  --mainPurple: #c438ef;
+  --mainGreen: #23e73c;
+  --mainBlue: #40ddff;
+  --mainRed: #d64f4f;
+
+  --secondPurple: #9a22be;
+  --secondGreen: #19a82c;
+  --secondBlue: #13b1e6;
+
+  --tertierPurple: #8c22ac;
+  --tertierGreen: #196b24;
+  --tertierBlue: #2d426d;
+  --tertierRed: #9b2020;
+
+  --colorLazyPrime: #101010;
+  --colorLazyDouble: #1f1f1f;
+
+  background-color: var(--background);
+}
+
+.orange {
+  --background: #252836;
+  --forTransDiv: #1f1d2b;
+
+  /* for form */
+  --transForm: #2d303e;
+
+  /* for text and paragraf */
+  --text: #ffffff;
+  --textOnContrast: #4f4f4f;
+
+  /* for border */
+  --border: #ea7c69;
+  --borderBig: #252836;
+  --borderOnContrast: #b7b7b7;
+
+  /* for button */
+  --btnTrans: #1f1d2b;
+
+  --mainGreyBtn: #575757;
+  --hoverGreyBtn: #7e7e7e;
+  --activeGreyBtn: #b7b7b7;
+
+  --mainHeroBtn: #ea7c69;
+  --hoverHeroBtn: #f3a395;
+  --activeHeroBtn: #f8c4bb;
+
+  --mainSecondBtn: #ea7c69;
+  --hoverSecondBtn: #f3a395;
+  --activeSecondBtn: #f8c4bb;
 
   --mainGreenBtn: #39885e;
   --hoverGreenBtn: #4baa77;

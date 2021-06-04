@@ -1,12 +1,13 @@
 .status-submit {
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderBig);
   border-radius: 0.5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 2rem;
+  background-color: var(--forTransDiv);
 }
 
 .status-submit .profile-icon-load {
@@ -61,7 +62,7 @@
   border: 2px solid var(--border);
   border-radius: 0.5rem;
   width: 80%;
-  background: transparent;
+  background: var(--transForm);
   color: var(--text);
 }
 

@@ -5,9 +5,10 @@
 
 .left-content .left-wrapping {
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderBig);
   border-radius: 0.5rem;
   box-sizing: border-box;
+  background-color: var(--forTransDiv);
 }
 
 .left-content .left-wrapping h2 {
