@@ -33,8 +33,8 @@
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-left: 2rem;
-  background-color: var(--white);
-  color: var(--text);
+  background-color: var(--searchBoxBg);
+  color: var(--colorSearch);
 }
 .navbar-wrapper .nav-logo {
   align-items: center;
@@ -48,11 +48,11 @@
 .navbar-wrapper a .profile-icon {
   width: 50px;
   height: 50px;
-  background-color: rgba(138, 98, 251, 1);
+  background-color: var(--avarBg);
   border-radius: 25px;
   position: relative;
   overflow: hidden;
-  border: 0.15rem solid var(--white);
+  border: 0.15rem solid var(--avaBorder);
 }
 
 .navbar-wrapper a .profile-icon-load {
@@ -98,7 +98,7 @@
 
 .navbar-wrapper .nav-menu .nav-item .nav-links {
   text-decoration: none;
-  color: var(--white);
+  color: var(--textColor);
   cursor: pointer;
 }
 
@@ -124,14 +124,14 @@
 }
 
 .navbar-wrapper .nav-menu .nav-item:hover:after {
-  background: var(--white);
+  background: var(--textColor);
   width: 100%;
   border-radius: 2rem;
   margin: auto;
 }
 
 .navbar-wrapper .nav-menu .nav-item.active {
-  color: #8a62fb;
+  color: var(--colorInde);
 }
 
 .navbar-wrapper .nav-icon {
@@ -206,7 +206,7 @@
   .navbar-wrapper .nav-icon {
     display: block;
     cursor: pointer;
-    align-items: center;
+    align-items: var(--textColor);
     color: var(--white);
     margin-left: 2rem;
   }

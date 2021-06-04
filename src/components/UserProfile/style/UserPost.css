@@ -109,8 +109,8 @@
   margin: 0 0.5rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--white);
-  background-color: var(--mainPurple);
+  color: var(--textOnContrast);
+  background-color: var(--mainHeroBtn);
   border-radius: 0.8rem;
 }
 
@@ -137,7 +137,7 @@
   .image-cont {
   width: 220px;
   height: 220px;
-  background-color: var(--white);
+  background-color: var(--textOnContrast);
   border-radius: 0.5rem;
   margin: 0.5rem;
   position: relative;

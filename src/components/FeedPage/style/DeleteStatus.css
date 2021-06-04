@@ -31,7 +31,7 @@
   z-index: 1;
   top: -5px;
   right: 70%;
-  background-color: var(--mainPurple);
+  background-color: var(--heroBlock);
   transition: opacity 0.3s ease-out;
   -moz-transition: opacity 0.3s ease-out;
   -webkit-transition: opacity 0.3s ease-out;
@@ -40,7 +40,7 @@
 
 .tooltip-delete .tooltip-content button {
   margin-bottom: 0.5rem;
-  background-color: var(--white);
+  background-color: var(--textOnContrast);
   padding: 0.2rem 0.4rem;
   border: none;
   border-radius: 0.25rem;
@@ -64,7 +64,7 @@
 }
 
 .reset-modal .reset-modal-content {
-  background-color: var(--white);
+  background-color: var(--textOnContrast);
   margin: 15% auto;
   padding: 20px;
   border: 1px solid var(--border);
@@ -103,23 +103,34 @@
   margin: 0 0.5rem;
   border-radius: 0.5rem;
   width: 80px;
-  border: 0.15rem solid var(--mainPurple);
+  border: 0.15rem solid var(--mainHeroBtn);
   background-color: transparent;
   color: var(--text);
   transition: 0.3s ease;
 }
 
 .reset-modal .reset-modal-content .confirm-button button:hover {
-  background-color: var(--secondPurple);
+  background-color: var(--hoverHeroBtn);
+  border: 0.15rem solid var(--hoverHeroBtn);
   color: var(--white);
 }
 
 .reset-modal .reset-modal-content .confirm-button button:active {
-  background-color: var(--tertierPurple);
+  background-color: var(--activeHeroBtn);
+}
+
+.reset-modal .reset-modal-content .confirm-button .first-btn {
+  border: 0.15rem solid var(--mainWarnBtn);
+  color: var(--text);
 }
 
 .reset-modal .reset-modal-content .confirm-button .first-btn:hover {
-  background-color: var(--tertierRed);
-  border: 0.15rem solid var(--tertierRed);
-  color: var(--white);
+  background-color: var(--hoverWarnBtn);
+  border: 0.15rem solid var(--hoverWarnBtn);
+  color: var(--textOnContrast);
+}
+
+.reset-modal .reset-modal-content .confirm-button .first-btn:hover {
+  background-color: var(--activeWarnBtn);
+  border: 0.15rem solid var(--activeWarnBtn);
 }

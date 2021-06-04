@@ -6,7 +6,7 @@
     #009e74 103.6%,
     #a7f3ce 123.54%
   );
-  color: var(--white);
+  color: var(--footerText);
 }
 
 .footer-container .footer-wrapping {

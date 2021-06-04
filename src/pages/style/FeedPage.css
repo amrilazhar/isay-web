@@ -19,11 +19,19 @@
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  background-color: var(--mainPurple);
+  background-color: var(--mainHeroBtn);
   border-radius: 0.4rem;
-  color: var(--white);
+  color: var(--text);
   font-size: 0.8rem;
   cursor: pointer;
+}
+
+.feed-wrapping .right-content .right-wrapping .new-feed-container:hover {
+  background-color: var(--hoverHeroBtn);
+}
+
+.feed-wrapping .right-content .right-wrapping .new-feed-container:active {
+  background-color: var(--activeHeroBtn);
 }
 
 .feed-wrapping .right-content .right-wrapping .new-feed {
