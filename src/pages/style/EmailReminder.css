@@ -1,0 +1,59 @@
+.email-verif-container {
+  background: linear-gradient(
+    97.94deg,
+    #8a62fb -13.16%,
+    #4781f8 52.91%,
+    #009e74 103.6%,
+    #a7f3ce 123.54%
+  );
+}
+.email-verif-container .email-verif-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.email-verif-container .email-verif-wrapper .notif-verif-email {
+  position: absolute;
+  text-align: center;
+  color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.email-verif-container .email-verif-wrapper .notif-verif-email h1 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.email-verif-container .email-verif-wrapper .notif-verif-email p {
+  font-size: 0.8rem;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.email-verif-container .email-verif-wrapper .notif-verif-email :nth-child(3) {
+  margin-bottom: 0rem;
+}
+
+.email-verif-container .email-verif-wrapper .notif-verif-email :nth-child(4),
+.email-verif-container .email-verif-wrapper .notif-verif-email :nth-child(5) {
+  margin-bottom: 1.5rem;
+}
+
+.email-verif-container .email-verif-wrapper .notif-verif-email :nth-child(5) {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.email-verif-container .email-verif-wrapper .notif-verif-email :nth-child(6) {
+  border: none;
+  background-color: var(--white);
+  border-radius: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.email-verif-container .email-verif-wrapper .notif-verif-email img {
+  height: 160.8px;
+  width: 300px;
+}
