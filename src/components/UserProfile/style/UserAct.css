@@ -222,7 +222,7 @@
   margin: 0;
   font-size: 0.8rem;
   font-weight: 600;
-  color: white;
+  color: var(--white);
   background-color: var(--mainPurple);
   border-radius: 0.8rem;
 }

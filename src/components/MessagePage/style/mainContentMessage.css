@@ -16,7 +16,7 @@
 .main-message-container .main-message-wrapper .main-message-head {
   display: flex;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid var(--border);
 }
 
 .main-message-container .main-message-wrapper .main-message-head p:first-child {
@@ -37,7 +37,7 @@
 
 .main-message-container .main-message-wrapper .empty-line {
   height: 10rem;
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid var(--border);
   width: 100%;
 }
 
@@ -46,7 +46,7 @@
   .content-message-wrapper
   .each-message-personal-wrapper {
   padding: 1.2rem;
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid var(--border);
 }
 
 .main-message-container
@@ -54,7 +54,7 @@
   .content-message-wrapper
   .each-message-personal-wrapper
   .each-message-personal-container {
-  border: 1px solid #c9c9c9;
+  border: 1px solid var(--border);
   padding: 1.2rem;
   border-radius: 10px;
 }
@@ -249,7 +249,7 @@
 .main-message-container .main-message-wrapper .textarea-wrapper textarea {
   resize: none;
   width: 85%;
-  border-color: #b7b7b7;
+  border-color: var(--border);
   padding: 1rem;
 }
 
@@ -272,9 +272,9 @@
   .message-btn
   .message-btn-upload
   .img-button {
-  color: #8a62fb;
-  background-color: white;
-  border: 1px solid #8a62fb;
+  color: var(--mainPurple);
+  background-color: var(--white);
+  border: 1px solid var(--mainPurple);
   border-radius: 3rem;
   padding: 0.5rem 1.5rem;
   font-weight: 600;
@@ -292,8 +292,8 @@
   .message-btn-send
   button {
   padding: 0.4rem 1.1rem;
-  color: white;
-  background-color: #4781f8;
+  color: var(--white);
+  background-color: var(--mainBlue);
   border-radius: 5px;
   text-align: center;
   font-weight: 500;
@@ -307,8 +307,8 @@
   .btn-load-more
   button {
   padding: 0.5rem 1.5rem;
-  color: white;
-  background-color: #8a62fb;
+  color: var(--white);
+  background-color: var(--mainPurple);
   border-radius: 5px;
   text-align: center;
   font-weight: 500;

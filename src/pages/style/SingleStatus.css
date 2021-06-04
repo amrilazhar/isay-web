@@ -92,7 +92,7 @@
   padding: 1rem;
   box-sizing: border-box;
   background-color: var(--mainBlue);
-  color: white;
+  color: var(--white);
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -122,7 +122,7 @@
 .single-wrapper .bottom-container .left-bottom-container .media .post-image {
   width: 200px;
   height: 200px;
-  background-color: purple;
+  background-color: var(--mainPurple);
   border-radius: 10px;
   margin: 0 0.5rem 1rem;
   position: relative;
