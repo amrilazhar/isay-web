@@ -1,9 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { authHeader, history } from '../helpers';
-import { userActions } from '../redux/actions';
-import { userConstants } from '../redux/type';
 import './style/CheckPage.css'
 
 const CheckPage = () => {
