@@ -206,7 +206,7 @@
   border: 2px solid var(--border);
   border-radius: 0.5rem;
   box-sizing: border-box;
-  background: transparent;
+  background: var(--transForm);
   color: var(--text);
   overflow: hidden;
 }

@@ -1,10 +1,10 @@
 .navbar-container {
   background: linear-gradient(
     97.94deg,
-    #8a62fb -13.16%,
-    #4781f8 52.91%,
-    #009e74 103.6%,
-    #a7f3ce 123.54%
+    var(--navGradFirst) -13.16%,
+    var(--navGradSecond) 52.91%,
+    var(--navGradThird) 103.6%,
+    var(--navGradFourth) 123.54%
   );
 }
 
@@ -33,8 +33,8 @@
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-left: 2rem;
-  background-color: var(--searchBoxBg);
-  color: var(--colorSearch);
+  background-color: var(--transForm);
+  color: var(--text);
 }
 .navbar-wrapper .nav-logo {
   align-items: center;
@@ -174,10 +174,10 @@
     transition: all 0.5s ease;
     background: linear-gradient(
       97.94deg,
-      #8a62fb -13.16%,
-      #4781f8 52.91%,
-      #009e74 103.6%,
-      #a7f3ce 123.54%
+      var(--navGradFirst) -13.16%,
+      var(--navGradSecond) 52.91%,
+      var(--navGradThird) 103.6%,
+      var(--navGradFourth) 123.54%
     );
   }
 
@@ -188,10 +188,10 @@
     z-index: 1;
     background: linear-gradient(
       97.94deg,
-      #8a62fb -13.16%,
-      #4781f8 52.91%,
-      #009e74 103.6%,
-      #a7f3ce 123.54%
+      var(--navGradFirst) -13.16%,
+      var(--navGradSecond) 52.91%,
+      var(--navGradThird) 103.6%,
+      var(--navGradFourth) 123.54%
     );
   }
 
@@ -206,8 +206,7 @@
   .navbar-wrapper .nav-icon {
     display: block;
     cursor: pointer;
-    align-items: var(--textColor);
-    color: var(--white);
+    color: var(--navHam);
     margin-left: 2rem;
   }
 }

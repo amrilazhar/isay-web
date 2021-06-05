@@ -1,10 +1,10 @@
 .footer-container {
   background: linear-gradient(
     97.94deg,
-    #8a62fb -13.16%,
-    #4781f8 52.91%,
-    #009e74 103.6%,
-    #a7f3ce 123.54%
+    var(--footGradFirst) -13.16%,
+    var(--footGradSecond) 52.91%,
+    var(--footGradThird) 103.6%,
+    var(--footGradFourth) 123.54%
   );
   color: var(--footerText);
 }

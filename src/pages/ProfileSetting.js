@@ -219,6 +219,7 @@ const ProfileSetting = () => {
 
   const switchTheme = (e) => {
     setTheme(e?.target?.defaultValue)
+    window.location.reload()
   }
 
   const alert = useSelector ((state) => state.alert)

@@ -1,6 +1,6 @@
 .main-container {
-  background: var(--white);
-  border: 2px solid var(--border);
+  background: var(--forTransDiv);
+  border: 2px solid var(--borderBig);
   border-radius: 0.5rem;
   box-sizing: border-box;
 }
@@ -30,12 +30,12 @@
 }
 
 .notif-container .notif-wrapper .notif-header .head-upper .head-upper-bg {
-  background-color: var(--mainGreen);
+  background-color: var(--firstImage);
   width: 40px;
   height: 40px;
   position: relative;
   overflow: hidden;
-  border: 0.7rem solid var(--mainGreen);
+  border: 0.7rem solid var(--firstImage);
   border-radius: 50%;
 }
 
@@ -92,12 +92,12 @@
 }
 
 .notif-container .sub-container .sub-wrapper .sub-header .img-sub-notif {
-  background-color: var(--mainPurple);
+  background-color: var(--secondImage);
   width: 30px;
   height: 30px;
   position: relative;
   overflow: hidden;
-  border: 0.7rem solid var(--mainPurple);
+  border: 0.7rem solid var(--secondImage);
   border-radius: 50%;
   /* transform: translateY(1rem); */
 }
@@ -155,8 +155,8 @@
   .target
   p:last-child {
   font-weight: 600;
-  color: var(--white);
-  background-color: var(--mainPurple);
+  color: var(--text);
+  background-color: var(--mainHeroBtn);
   border-radius: 0.8rem;
   font-size: small;
   padding: 0.5rem 0;
@@ -179,7 +179,6 @@
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  background: #ffffff;
   padding: 0.5rem 0;
   border-radius: 0.5rem;
   width: 90%;

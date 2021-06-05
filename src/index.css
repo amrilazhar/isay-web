@@ -7,6 +7,10 @@
 
 :root {
   --background: #ffffff;
+  --forTransDiv: #ffffff;
+
+  /* for form */
+  --transForm: #ffffff;
 
   /* for text and paragraf */
   --text: #4f4f4f;
@@ -45,6 +49,7 @@
   --secondImage: #8a62fb;
 
   /* for nav */
+  --navHam: #ffffff;
   --searchBoxBg: #ffffff;
   --colorSearch: #4f4f4f;
   --avarBg: #8a62fb;
@@ -53,7 +58,6 @@
   --colorInde: #8a62fb;
 
   /* for footer */
-
   --footerText: #ffffff;
 
   /* for block component */
@@ -63,6 +67,28 @@
   --blockDisplayProfile: #4781f8;
   --interestBg: #ffffff;
   --interestContent: #4781f8;
+
+  /* for logo font icon */
+  --faFontAwesome: #4f4f4f;
+
+  /* for pagination */
+  --muiPagination: #8a62fb;
+
+  /* for nav gradation */
+  --navGradFirst: #8a62fb75;
+  --navGradSecond: #4782f8;
+  --navGradThird: #009e7475;
+  --navGradFourth: #a7f3cef5;
+
+  /* for foot gradation */
+  --footGradFirst: #8b62fb;
+  --footGradSecond: #4782f8;
+  --footGradThird: #009373;
+  --footGradFourth: #a7f3ce;
+
+  /* for lazy load */
+  --colorLazyPrime: #efefef;
+  --colorLazyDouble: #e0e0e0;
 
   --white: #ffffff;
   --whitePeach: #c2bfbf;
@@ -86,9 +112,7 @@
   --tertierBlue: #405a8f;
   --tertierRed: #9b2020;
 
-  /* for lazy load */
-  --colorLazyPrime: #efefef;
-  --colorLazyDouble: #e0e0e0;
+  background-color: var(--background);
 }
 
 body {
