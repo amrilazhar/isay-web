@@ -42,6 +42,8 @@ function App() {
       setTheme('dark');
     } else if(localStorage.getItem('theme') === 'orange') {
       setTheme('orange');
+    } else if(localStorage.getItem('theme') === 'coffee') {
+      setTheme('coffee');
     } else {
       setTheme('light')
     }

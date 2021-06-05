@@ -1,18 +1,20 @@
 .dark {
   --background: #070417;
   --forTransDiv: #1f1d2b;
+  --backgroundUnique: #070417;
 
   /* for form */
   --transForm: #2d303e;
+  --transFormUnique: #2d303e;
 
   /* for text and paragraf */
   --text: #ffffff;
-  --textOnContrast: #4f4f4f;
 
   /* for border */
   --border: #c669ea;
   --borderBig: #070417;
   --borderOnContrast: #b7b7b7;
+  --borderUnique: #c669ea;
 
   /* for button */
   --btnTrans: #1f1d2b;
@@ -129,24 +131,29 @@
   --stopColorThird: #8a62fb;
   --stopColorFourth: #00a2f3;
 
+  /* for placeholder */
+  --placeholderCo: #eeeeee;
+
   background-color: var(--background);
 }
 
 .orange {
   --background: #252836;
   --forTransDiv: #1f1d2b;
+  --backgroundUnique: #252836;
 
   /* for form */
   --transForm: #2d303e;
+  --transFormUnique: #2d303e;
 
   /* for text and paragraf */
   --text: #ffffff;
-  --textOnContrast: #4f4f4f;
 
   /* for border */
   --border: #ea7c69;
   --borderBig: #252836;
   --borderOnContrast: #b7b7b7;
+  --borderUnique: #ea7c69;
 
   /* for button */
   --btnTrans: #1f1d2b;
@@ -263,7 +270,153 @@
   --stopColorThird: #ea7c69;
   --stopColorFourth: #f8c4bb;
 
+  /* for placeholder */
+  --placeholderCo: #eeeeee;
+
   background-color: var(--background);
+}
+
+.coffee {
+  --background: #0c0f14;
+  --forTransDiv: #252a32;
+  --backgroundUnique: #9263439d;
+
+  /* for form */
+  --transForm: #151921;
+  --transFormUnique: #bb8967e0;
+
+  /* for text and paragraf */
+  --text: #ffffff;
+
+  /* for border */
+  --border: #d17842;
+  --borderBig: #0c0f14;
+  --borderOnContrast: #b7b7b7;
+  --borderUnique: #d1794200;
+
+  /* for button */
+  --btnTrans: #252a32;
+
+  --mainGreyBtn: #bfbfbf;
+  --mainGreyBorderBtn: #bfbfbf;
+  --hoverGreyBtn: #949494;
+  --hoverGreyBorderBtn: #949494;
+  --activeGreyBtn: #796a6a;
+  --activeGreyBorderBtn: #796a6a;
+
+  --mainGreyInvBtn: #bfbfbf00;
+  --mainGreyInvBorderBtn: #bfbfbf;
+  --hoverGreyInvBtn: #94949400;
+  --hoverGreyInvBorderBtn: #949494;
+  --activeGreyInvBtn: #796a6a00;
+  --activeGreyInvBorderBtn: #796a6a;
+
+  --mainHeroBtn: #ea7c69;
+  --mainHeroBorderBtn: #ea7c69;
+  --hoverHeroBtn: #f3a395;
+  --hoverHeroBorderBtn: #f3a395;
+  --activeHeroBtn: #f8c4bb;
+  --activeHeroBorderBtn: #f8c4bb;
+
+  --mainHeroInvBtn: #ea7c6900;
+  --mainHeroInvBorderBtn: #ea7c69;
+  --hoverHeroInvBtn: #f3a39500;
+  --hoverHeroInvBorderBtn: #f3a395;
+  --activeHeroInvBtn: #f8c4bb00;
+  --activeHeroInvBorderBtn: #f8c4bb;
+
+  --mainSecondBtn: #ea7c69;
+  --mainSecondBorderBtn: #ea7c69;
+  --hoverSecondBtn: #f3a395;
+  --hoverSecondBorderBtn: #f3a395;
+  --activeSecondBtn: #f8c4bb;
+  --activeSecondBorderBtn: #f8c4bb;
+
+  --mainSecondInvBtn: #ea7c6900;
+  --mainSecondInvBorderBtn: #ea7c69;
+  --hoverSecondInvBtn: #f3a39500;
+  --hoverSecondInvBorderBtn: #f3a395;
+  --activeSecondInvBtn: #f8c4bb00;
+  --activeSecondInvBorderBtn: #f8c4bb;
+
+  --mainWarnBtn: #7c2222;
+  --mainWarnBorderBtn: #7c2222;
+  --hoverWarnBtn: #be3131;
+  --hoverWarnBorderBtn: #be3131;
+  --activeWarnBtn: #f84747;
+  --activeWarnBorderBtn: #f84747;
+
+  --mainWarnInvBtn: #7c222200;
+  --mainWarnInvBorderBtn: #7c2222;
+  --hoverWarnInvBtn: #be313100;
+  --hoverWarnInvBorderBtn: #be3131;
+  --activeWarnInvBtn: #f8474700;
+  --activeWarnInvBorderBtn: #f84747;
+
+  /* for image container  */
+  --firstImage: #ea7c69;
+  --secondImage: #f8c4bb;
+
+  /* for nav */
+  --navHam: #ffffff;
+  --searchBoxBg: #ffffff;
+  --colorSearch: #4f4f4f;
+  --avarBg: #ea7c69;
+  --avaBorder: #ffffff;
+  --textNav: #ffffff;
+  --colorInde: #8a62fb;
+
+  /* for footer */
+  --footerText: #ffffff;
+
+  /* for block component */
+  --heroBlock: #ea7c69;
+
+  /* for setting page */
+  --choosenAva: #ea7c69;
+  --blockDisplayProfile: #ea7c69;
+  --textOnBlockProfile: #ffffff;
+  --interestBg: #ffffff;
+  --interestContent: #ea7c69;
+  --fadeOutProfile: #0c0f14;
+
+  /* for logo font icon */
+  --faFontAwesome: #d17842;
+
+  /* for pagination */
+  --muiPagination: #d17842;
+
+  /* for nav gradation */
+  --navGradFirst: #0c0f14;
+  --navGradSecond: #0c0f14;
+  --navGradThird: #0c0f14;
+  --navGradFourth: #0c0f14;
+
+  /* for foot gradation */
+  --footGradFirst: #252a32;
+  --footGradSecond: #252a32;
+  --footGradThird: #252a32;
+  --footGradFourth: #252a32;
+
+  /* for lazy load */
+  --colorLazyPrime: #101010;
+  --colorLazyDouble: #1f1f1f;
+
+  /* for logo svg */
+  --fillMain: #ffffff;
+  --stopColorFirst: #ea7c69;
+  --stopColorSecond: #f8c4bb;
+  --stopColorThird: #ea7c69;
+  --stopColorFourth: #f8c4bb;
+
+  /* for placeholder */
+  --placeholderCo: #eeeeee;
+
+  background-color: var(--background);
+}
+
+::placeholder {
+  color: var(--placeholderCo);
 }
 
 .svg-inline--fa {

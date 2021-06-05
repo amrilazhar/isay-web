@@ -40,7 +40,7 @@
 
 .tooltip-delete .tooltip-content button {
   margin-bottom: 0.5rem;
-  background-color: var(--textOnContrast);
+  background-color: var(--textOnBlockProfile);
   padding: 0.2rem 0.4rem;
   border: none;
   border-radius: 0.25rem;
@@ -112,7 +112,7 @@
 .reset-modal .reset-modal-content .confirm-button button:hover {
   background-color: var(--hoverHeroBtn);
   border: 0.15rem solid var(--hoverHeroBorderBtn);
-  color: var(--textOnContrast);
+  color: var(--textOnBlockProfile);
 }
 
 .reset-modal .reset-modal-content .confirm-button button:active {
@@ -128,7 +128,7 @@
 .reset-modal .reset-modal-content .confirm-button .first-btn:hover {
   background-color: var(--hoverWarnBtn);
   border: 0.15rem solid var(--hoverWarnBorderBtn);
-  color: var(--textOnContrast);
+  color: var(--textOnBlockProfile);
 }
 
 .reset-modal .reset-modal-content .confirm-button .first-btn:hover {

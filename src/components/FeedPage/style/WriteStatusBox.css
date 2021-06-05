@@ -59,7 +59,7 @@
   resize: none;
   margin-bottom: 1rem;
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderUnique);
   border-radius: 0.5rem;
   width: 80%;
   background: var(--transForm);

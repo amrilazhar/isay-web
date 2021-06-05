@@ -8,18 +8,20 @@
 :root {
   --background: #ffffff;
   --forTransDiv: #ffffff;
+  --backgroundUnique: #ffffff;
 
   /* for form */
   --transForm: #ffffff;
+  --transFormUnique: #ffffff;
 
   /* for text and paragraf */
   --text: #4f4f4f;
-  --textOnContrast: #ffffff;
 
   /* for border */
   --border: #b7b7b7;
   --borderBig: #b7b7b7;
   --borderOnContrast: #ffffff;
+  --borderUnique: #b7b7b7;
 
   /* for button */
   --btnTrans: #ffffff;
@@ -135,6 +137,9 @@
   --stopColorSecond: #61db99;
   --stopColorThird: #8a62fb;
   --stopColorFourth: #00a2f3;
+
+  /* for placeholder */
+  --placeholderCo: #a7a7a7;
 
   background-color: var(--background);
 }

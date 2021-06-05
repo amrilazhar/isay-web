@@ -139,7 +139,8 @@
 
 .isay-status-box .do-at-status {
   padding: 0.2rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderUnique);
+  background: var(--backgroundUnique);
   border-radius: 0.5rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
@@ -203,10 +204,10 @@
   height: 3rem;
   resize: none;
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderUnique);
   border-radius: 0.5rem;
   box-sizing: border-box;
-  background: var(--transForm);
+  background: var(--transFormUnique);
   color: var(--text);
   overflow: hidden;
 }

@@ -323,7 +323,7 @@
   .btn
   a:hover {
   border: 0.15rem solid var(--hoverGreyBorderBtn);
-  color: var(--textOnContrast);
+  color: var(--textOnBlockProfile);
   background-color: var(--hoverGreyBtn);
 }
 
@@ -354,7 +354,7 @@
   input:hover {
   background-color: var(--hoverSecondBtn);
   border: 0.15rem solid var(--hoverSecondBorderBtn);
-  color: var(--textOnContrast);
+  color: var(--textOnBlockProfile);
 }
 
 .setting-container
@@ -521,7 +521,7 @@
   button:hover {
   background-color: var(--hoverSecondBtn);
   border: 0.15rem solid var(--hoverSecondBorderBtn);
-  color: var(--textOnContrast);
+  color: var(--textOnBlockProfile);
 }
 
 .setting-container
@@ -668,7 +668,7 @@
   overflow: hidden;
   background-color: var(--mainSecondBtn);
   border-radius: 10px;
-  border: 0.3rem solid var(--textOnContrast);
+  border: 0.3rem solid var(--textOnBlockProfile);
   cursor: pointer;
   transition: 0.3s ease;
 }
