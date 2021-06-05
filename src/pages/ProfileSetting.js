@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import FlashMessage from '../components/FlashMessage'
 import Footer from '../components/Footer'
@@ -6,6 +6,21 @@ import Navbar from '../components/Navbar'
 import { authHeader } from '../helpers'
 import { userActions, listAvatar, alertActions } from '../redux/actions'
 import './style/ProfileSetting.css'
+
+// ===================================
+// CROPPER
+import Cropper from 'react-easy-crop'
+import Slider from '@material-ui/core/Slider'
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
+import { getOrientation } from 'get-orientation/browser'
+import ImgDialog from '../helpers/cropper/cropper.dialog'
+import { getCroppedImg, getRotatedImage } from '../helpers/cropper/cropImages'
+import { styles } from '../helpers/cropper/cropper-style'
+
+
+// ===================================
 
 const ProfileSetting = () => {
 
@@ -224,6 +239,211 @@ const ProfileSetting = () => {
 
   const alert = useSelector ((state) => state.alert)
 
+  const [bioNew, setBioNew] = useState("")
+  const [header, setHeader] = useState(null)
+
+  const [sudahPotong, setSudahPotong] = useState(null)
+
+  const changeBio = (e) => {
+    setBioNew(e?.target?.value)
+  }
+
+  const changeHeader = async (e) => {
+    e.preventDefault()
+    if (
+      (e?.target?.files[0]?.type == "image/jpeg" ||
+        e?.target?.files[0]?.type == "image/jpg" ||
+        e?.target?.files[0]?.type == "image/png") &&
+      e?.target?.files[0]?.size / (1024 * 1024) < 2
+    ){
+      const file = e.target.files[0]
+      let imageDataUrl = await readFile(file)
+
+      // apply rotation if needed
+      const orientation = await getOrientation(file)
+      const rotation = ORIENTATION_TO_ANGLE[orientation]
+      if (rotation) {
+        imageDataUrl = await getRotatedImage(imageDataUrl, rotation)
+      }
+
+      setHeader(imageDataUrl)
+    } else {
+      dispatch(alertActions.error("file exciding maximum size"))
+    }
+  }
+
+  const submitEditBio = (e) => {
+    e.preventDefault()
+    if(bioNew || header) {
+      e.preventDefault()
+
+      dispatch(request(bioNew));
+
+      const formData = new FormData();
+
+      if(bioNew){
+        formData.append('bio', `${bioNew}`);
+      }
+
+      if(header){
+        for (const file of header) {
+            formData.append('media', file)
+        }
+      }
+
+      const requestOptions = {
+          method: 'PUT',
+          headers: authHeader(),
+          body: formData
+      };
+
+      fetch(`https://isay.gabatch11.my.id/profile`, requestOptions)
+      .then (
+        bioNew => dispatch(success(bioNew)),
+        error => dispatch(failure(bioNew, error.toString()))
+      );
+
+      function request(bioNew) { return { type: "EDIT_BIO_LOADING", bioNew} }
+      function success(bioNew) { return { type: "EDIT_BIO_SUCCESS", bioNew } }
+      function failure(bioNew, error) { return { type: "EDIT_BIO_FAILURE", bioNew, error } }
+
+      setTimeout(() => {
+        dispatch(userActions.getActive())
+      }, 2000)
+
+      e.target.reset()
+
+    } else {
+      dispatch(alertActions.error("please fill new bio or input new background images"))
+    }
+  }
+
+
+// ==========================================
+const ORIENTATION_TO_ANGLE = {
+  '3': 180,
+  '6': 90,
+  '8': -90,
+}
+
+const Demo = ({ classes }) => {
+  const [imageSrc, setImageSrc] = React.useState(null)
+  const [crop, setCrop] = useState({ x: 0, y: 0 })
+  const [rotation, setRotation] = useState(0)
+  const [zoom, setZoom] = useState(1)
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
+  const [croppedImage, setCroppedImage] = useState(null)
+
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels)
+  }, [])
+
+  const showCroppedImage = useCallback(async () => {
+    try {
+      const croppedImage = await getCroppedImg(
+        header,
+        croppedAreaPixels,
+        rotation
+      )
+      console.log('donee', { croppedImage })
+      setCroppedImage(croppedImage)
+    } catch (e) {
+      console.error(e)
+    }
+  }, [header, croppedAreaPixels, rotation])
+
+  const onClose = useCallback(() => {
+    setCroppedImage(null)
+  }, [])
+
+  return (
+    <div>
+      {header ? (
+        <React.Fragment>
+          <div className={classes.cropContainer}>
+            <Cropper
+              image={header}
+              crop={crop}
+              rotation={rotation}
+              zoom={zoom}
+              aspect={4 / 1}
+              onCropChange={setCrop}
+              onRotationChange={setRotation}
+              onCropComplete={onCropComplete}
+              onZoomChange={setZoom}
+            />
+          </div>
+          <div className={classes.controls}>
+            <div className={classes.sliderContainer}>
+              <Typography
+                variant="overline"
+                classes={{ root: classes.sliderLabel }}
+              >
+                Zoom
+              </Typography>
+              <Slider
+                value={zoom}
+                min={1}
+                max={3}
+                step={0.1}
+                aria-labelledby="Zoom"
+                classes={{ root: classes.slider }}
+                onChange={(e, zoom) => setZoom(zoom)}
+              />
+            </div>
+            <div className={classes.sliderContainer}>
+              <Typography
+                variant="overline"
+                classes={{ root: classes.sliderLabel }}
+              >
+                Rotation
+              </Typography>
+              <Slider
+                value={rotation}
+                min={0}
+                max={360}
+                step={1}
+                aria-labelledby="Rotation"
+                classes={{ root: classes.slider }}
+                onChange={(e, rotation) => setRotation(rotation)}
+              />
+            </div>
+            <Button
+              onClick={showCroppedImage}
+              variant="contained"
+              color="primary"
+              classes={{ root: classes.cropButton }}
+            >
+              Show Result
+            </Button>
+          </div>
+          <ImgDialog img={croppedImage} onClose={onClose} />
+        </React.Fragment>
+      ) : (
+        <></>
+      )}
+    </div>
+  )
+}
+
+function readFile(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader()
+    reader.addEventListener('load', () => resolve(reader.result), false)
+    reader.readAsDataURL(file)
+  })
+}
+
+const StyledDemo = withStyles(styles)(Demo)
+
+
+
+// ==========================================
+
+
+
+
+
   return (
     <>
     {
@@ -242,23 +462,35 @@ const ProfileSetting = () => {
             <div className="title">
               <h2>Personal Information</h2>
             </div>
-            <form>
+            <form onSubmit={submitEditBio}>
               <label htmlFor="bio">Bio :</label>
-              <textarea wrap="soft" type="text" name="bio" id="bio" placeholder="write your neew bio" defaultValue={""} />
-              <label htmlFor="location">Location :</label>
-              <input type="text" name="location" id="location" placeholder="update your location" />
+              <textarea
+                wrap="soft"
+                type="text"
+                name="bio"
+                id="bio"
+                placeholder="write your neew bio"
+                defaultValue={""}
+                onChange={changeBio}
+              />
+              <p>Background Images :</p>
+              <div className="button-for-upload-header">
+                <input
+                  type="file"
+                  name="backgroundImages"
+                  id="backgroundImages"
+                  className="upload-image"
+                  onChange={changeHeader}
+                />
+                <label for="backgroundImages">Choose Your Images</label>
+              </div>
               <div className="btn">
                 <a href="/profile">
                   cancel
                 </a>
-                <input type="submit" defaultValue="update" />
+                <input type="submit" className="save-changes" defaultValue="update" />
               </div>
             </form>
-            <div className="reset-btn-wrapper">
-              <button onClick={showModalEmailReset} className="reset">Reset Password</button>
-            </div>
-            {modalEmailReset()}
-            {modalAvatarReset()}
             <div className="reset-btn-wrapper">
               <label>
                 <input type="radio" name="mytheme" defaultValue="light" onChange={switchTheme}/>Light
@@ -273,10 +505,16 @@ const ProfileSetting = () => {
                 <input type="radio" name="mytheme" defaultValue="coffee" onChange={switchTheme}/>Coffee
               </label>
             </div>
+            <div className="reset-btn-wrapper">
+              <button onClick={showModalEmailReset} className="reset">Reset Password</button>
+            </div>
+            {modalEmailReset()}
+            {modalAvatarReset()}
           </div>
         </div>
       </div>
     </div>
+    <StyledDemo/>
     <Footer/>
     </>
   )

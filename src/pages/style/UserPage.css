@@ -20,6 +20,20 @@
   overflow: hidden;
 }
 
+.profile-wrapping .profile-top-content .waiting-background {
+  position: absolute;
+  top: -9999px;
+  bottom: -9999px;
+  left: -9999px;
+  right: -9999px;
+  margin: auto;
+  max-height: 100%;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .profile-wrapping .profile-top-content img {
   position: absolute;
   top: -9999px;
