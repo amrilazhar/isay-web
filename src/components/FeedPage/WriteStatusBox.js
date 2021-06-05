@@ -24,12 +24,10 @@ const WriteStatusBox = (fromFeedPage) => {
   const uploadFile = (e) => {
     e.preventDefault()
     if (
-      (e?.target?.files[0].type == "image/jpeg" ||
-        e?.target?.files[0].type == "image/jpg" ||
-        e?.target?.files[0].type == "image/png" ||
-        e?.target?.files[0].type == "image/gif" ||
-        e?.target?.files[0].type == "image/bmp") &&
-      e?.target?.files[0].size / (1024 * 1024) < 1.5
+      (e?.target?.files[0]?.type == "image/jpeg" ||
+        e?.target?.files[0]?.type == "image/jpg" ||
+        e?.target?.files[0]?.type == "image/png") &&
+      e?.target?.files[0]?.size / (1024 * 1024) < 1.5
     ){
       setFiles([...files, e?.target?.files[0]])
     } else {
@@ -140,7 +138,7 @@ const removeFile = (index) => {
             <p>Share your moment to the world!</p>
             <button onClick={showModal} className="close">&times;</button>
           </div>
-          <div>
+          <div className="untuk-upload">
             <input
               type="file"
               name="file"
