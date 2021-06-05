@@ -23,6 +23,7 @@ const UserPost = (dariUserPage) => {
   const [oldStatus, setOldStatus] =  useState(null)
   const [showLight, setShowLight] = useState(false)
   const [showMed, setShowMed] = useState("")
+  const [showContent, setShowContent] = useState("")
 
   const [page, setPage] = useState(1)
 
@@ -73,7 +74,7 @@ const UserPost = (dariUserPage) => {
                       status?.media?.map(media =>(
                         <div className="image-cont">
                           <img src={`${media}`} alt={`${status?.content}`} style={{cursor:"pointer"}} onClick={() =>
-                            (showLight === false)? (setShowLight(true), setShowMed(media)) : setShowLight(false)
+                            (showLight === false)? (setShowLight(true), setShowMed(media), setShowContent(status?.content)) : setShowLight(false)
                           }/>
                           <div className="media-overlay" style={{cursor:"pointer"}}>
                             <p style={{fontSize: "1rem", cursor:"pointer"}}>preview</p>
@@ -87,7 +88,7 @@ const UserPost = (dariUserPage) => {
             </div>
             {
               showLight === false ? "" :
-              <Lightbox image={showMed} title={`${status?.content}`} onClose={() =>
+              <Lightbox image={showMed} title={showContent} onClose={() =>
                 (showLight === false)? setShowLight(true) : setShowLight(false)}></Lightbox>
             }
             <CommentBox

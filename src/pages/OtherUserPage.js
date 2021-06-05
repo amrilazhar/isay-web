@@ -83,9 +83,17 @@ const OtherUserPage = () => {
       <Navbar/>
       <div className="profile-container">
         <div className="profile-wrapping">
-          <div className="profile-top-content">
-            <img src="https://ik.imagekit.io/alfianpur/Final_Project/Rectangle_71_qGauJCjup.png" alt="Hero Profile Banner" />
-          </div>
+            { (userThisPage.loading)?
+              <div className="profile-top-content">
+                <div className="waiting-background">
+                  <p>waiting</p>
+                </div>
+              </div>
+              :
+              <div className="profile-top-content">
+                <img src={userThisPage.items?.backgroundImage} alt="Hero Profile Banner" />
+              </div>
+            }
           <div className="profile-bottom-content">
             <div className="profile-left-content">
               {userDetail()}

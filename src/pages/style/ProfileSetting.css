@@ -215,6 +215,56 @@
   .setting-wrapping
   .setting-right
   .setting-right-wrapper
+  form
+  .untuk-upload {
+  border: none;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .button-for-upload-header {
+  margin: 0 auto 2rem;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .upload-image {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .upload-image
+  + label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin: 0 0.5rem 0.5rem;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  background-color: var(--btnTrans);
+  border: 0.13rem solid var(--mainHeroInvBorderBtn);
+  box-sizing: border-box;
+  color: var(--mainHeroInvBorderBtn);
+  transition: 0.3s ease;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
   .title {
   padding: 1.5rem 0 2rem;
   background-image: linear-gradient(
@@ -256,7 +306,7 @@
   :nth-child(2n-1) {
   font-size: 0.9rem;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem auto;
 }
 
 .setting-container
@@ -264,7 +314,13 @@
   .setting-right
   .setting-right-wrapper
   form
-  :nth-child(2n) {
+  textarea,
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  form
+  .save-changes {
   margin-bottom: 1rem;
   border: 0.13rem solid var(--border);
   border-radius: 0.4rem;
@@ -273,6 +329,7 @@
   resize: none;
   background: transparent;
   color: var(--text);
+  text-align: center;
 }
 
 .setting-container
@@ -283,6 +340,7 @@
   :nth-child(2n):focus {
   border: 0.13rem solid var(--blockDisplayProfile);
   outline: none;
+  text-align: center;
 }
 
 .setting-container

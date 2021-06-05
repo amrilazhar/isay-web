@@ -7,6 +7,7 @@ import { authHeader } from '../helpers'
 import { userActions, listAvatar, alertActions } from '../redux/actions'
 import './style/ProfileSetting.css'
 
+
 const ProfileSetting = () => {
 
   const dispatch = useDispatch()
@@ -224,6 +225,79 @@ const ProfileSetting = () => {
 
   const alert = useSelector ((state) => state.alert)
 
+  const lastBio = useSelector ((state) => state.users?.items?.bio)
+
+  const [bioNew, setBioNew] = useState(lastBio)
+  const [header, setHeader] = useState(null)
+
+  const changeBio = (e) => {
+    setBioNew(e?.target?.value)
+  }
+
+  const changeHeader = (e) => {
+    e.preventDefault()
+    if (
+      (e?.target?.files[0]?.type == "image/jpeg" ||
+        e?.target?.files[0]?.type == "image/jpg" ||
+        e?.target?.files[0]?.type == "image/png") &&
+      e?.target?.files[0]?.size / (1024 * 1024) < 2
+    ){
+      setHeader([e?.target?.files[0]])
+    } else {
+      dispatch(alertActions.error("file exciding maximum size"))
+    }
+  }
+
+  console.log("update", bioNew)
+
+  const submitEditBio = (e) => {
+    e.preventDefault()
+    if(bioNew || header) {
+      e.preventDefault()
+      dispatch(request(bioNew));
+
+      const formData = new FormData();
+
+      if(bioNew !== null){
+        console.log("ini bio", bioNew)
+        formData.append('bio', `${bioNew}`);
+      }
+
+      if(header !== null){
+        for (const file of header) {
+            formData.append('media', file)
+        }
+      }
+
+      const requestOptions = {
+          method: 'PUT',
+          headers: authHeader(),
+          body: formData
+      };
+
+      fetch(`https://isay.gabatch11.my.id/profile`, requestOptions)
+      .then (
+        bioNew => dispatch(success(bioNew)),
+        error => dispatch(failure(bioNew, error.toString()))
+      );
+
+      function request(bioNew) { return { type: "EDIT_BIO_LOADING", bioNew} }
+      function success(bioNew) { return { type: "EDIT_BIO_SUCCESS", bioNew } }
+      function failure(bioNew, error) { return { type: "EDIT_BIO_FAILURE", bioNew, error } }
+
+      setTimeout(() => {
+        dispatch(userActions.getActive())
+      }, 2000)
+
+      e.target.reset()
+      setBioNew(null)
+      setHeader(null)
+
+    } else {
+      dispatch(alertActions.error("please fill new bio or input new background images"))
+    }
+  }
+
   return (
     <>
     {
@@ -242,23 +316,35 @@ const ProfileSetting = () => {
             <div className="title">
               <h2>Personal Information</h2>
             </div>
-            <form>
+            <form onSubmit={submitEditBio}>
               <label htmlFor="bio">Bio :</label>
-              <textarea wrap="soft" type="text" name="bio" id="bio" placeholder="write your neew bio" defaultValue={""} />
-              <label htmlFor="location">Location :</label>
-              <input type="text" name="location" id="location" placeholder="update your location" />
+              <textarea
+                wrap="soft"
+                type="text"
+                name="bio"
+                id="bio"
+                placeholder="write your neew bio"
+                defaultValue={null}
+                onChange={changeBio}
+              />
+              <p>Background Images :</p>
+              <div className="button-for-upload-header">
+                <input
+                  type="file"
+                  name="backgroundImages"
+                  id="backgroundImages"
+                  className="upload-image"
+                  onChange={changeHeader}
+                />
+                <label for="backgroundImages">Choose Your Images</label>
+              </div>
               <div className="btn">
                 <a href="/profile">
                   cancel
                 </a>
-                <input type="submit" defaultValue="update" />
+                <input type="submit" className="save-changes" defaultValue="update" />
               </div>
             </form>
-            <div className="reset-btn-wrapper">
-              <button onClick={showModalEmailReset} className="reset">Reset Password</button>
-            </div>
-            {modalEmailReset()}
-            {modalAvatarReset()}
             <div className="reset-btn-wrapper">
               <label>
                 <input type="radio" name="mytheme" defaultValue="light" onChange={switchTheme}/>Light
@@ -273,6 +359,11 @@ const ProfileSetting = () => {
                 <input type="radio" name="mytheme" defaultValue="coffee" onChange={switchTheme}/>Coffee
               </label>
             </div>
+            <div className="reset-btn-wrapper">
+              <button onClick={showModalEmailReset} className="reset">Reset Password</button>
+            </div>
+            {modalEmailReset()}
+            {modalAvatarReset()}
           </div>
         </div>
       </div>
