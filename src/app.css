@@ -1,86 +1,138 @@
 .dark {
-  --background: #050a0a;
+  --background: #070417;
+  --forTransDiv: #1f1d2b;
+  --backgroundUnique: #070417;
+
+  /* for form */
+  --transForm: #2d303e;
+  --transFormUnique: #2d303e;
 
   /* for text and paragraf */
   --text: #ffffff;
-  --textOnContrast: #4f4f4f;
 
   /* for border */
-  --border: #ffffff;
-  --borderBig: #ffffff;
+  --border: #c669ea;
+  --borderBig: #070417;
   --borderOnContrast: #b7b7b7;
+  --borderUnique: #c669ea;
 
   /* for button */
-  --btnTrans: #050a0a;
+  --btnTrans: #1f1d2b;
 
-  --mainGreyBtn: #575757;
-  --hoverGreyBtn: #7e7e7e;
-  --activeGreyBtn: #b7b7b7;
+  --mainGreyBtn: #bfbfbf;
+  --mainGreyBorderBtn: #bfbfbf;
+  --hoverGreyBtn: #949494;
+  --hoverGreyBorderBtn: #949494;
+  --activeGreyBtn: #796a6a;
+  --activeGreyBorderBtn: #796a6a;
 
-  --mainHeroBtn: #4c3885;
-  --hoverHeroBtn: #6147aa;
-  --activeHeroBtn: #8a62fb;
+  --mainGreyInvBtn: #bfbfbf00;
+  --mainGreyInvBorderBtn: #bfbfbf;
+  --hoverGreyInvBtn: #94949400;
+  --hoverGreyInvBorderBtn: #949494;
+  --activeGreyInvBtn: #796a6a00;
+  --activeGreyInvBorderBtn: #796a6a;
 
-  --mainSecondBtn: #264b96;
-  --hoverSecondBtn: #3664c0;
-  --activeSecondBtn: #4781f8;
+  --mainHeroBtn: #c669ea;
+  --mainHeroBorderBtn: #c669ea;
+  --hoverHeroBtn: #a450c5;
+  --hoverHeroBorderBtn: #a450c5;
+  --activeHeroBtn: #74358d;
+  --activeHeroBorderBtn: #74358d;
 
-  --mainGreenBtn: #39885e;
-  --hoverGreenBtn: #4baa77;
-  --activeGreenBtn: #61db99;
+  --mainHeroInvBtn: #c669ea00;
+  --mainHeroInvBorderBtn: #c669ea;
+  --hoverHeroInvBtn: #a450c500;
+  --hoverHeroInvBorderBtn: #a450c5;
+  --activeHeroInvBtn: #74358d00;
+  --activeHeroInvBorderBtn: #74358d;
+
+  --mainSecondBtn: #c669ea;
+  --mainSecondBorderBtn: #c669ea;
+  --hoverSecondBtn: #a450c5;
+  --hoverSecondBorderBtn: #a450c5;
+  --activeSecondBtn: #74358d;
+  --activeSecondBorderBtn: #74358d;
+
+  --mainSecondInvBtn: #c669ea00;
+  --mainSecondInvBorderBtn: #c669ea;
+  --hoverSecondInvBtn: #a450c500;
+  --hoverSecondInvBorderBtn: #a450c5;
+  --activeSecondInvBtn: #74358d00;
+  --activeSecondInvBorderBtn: #74358d;
 
   --mainWarnBtn: #7c2222;
+  --mainWarnBorderBtn: #7c2222;
   --hoverWarnBtn: #be3131;
+  --hoverWarnBorderBtn: #be3131;
   --activeWarnBtn: #f84747;
+  --activeWarnBorderBtn: #f84747;
+
+  --mainWarnInvBtn: #7c222200;
+  --mainWarnInvBorderBtn: #7c2222;
+  --hoverWarnInvBtn: #be313100;
+  --hoverWarnInvBorderBtn: #be3131;
+  --activeWarnInvBtn: #f8474700;
+  --activeWarnInvBorderBtn: #f84747;
 
   /* for image container  */
-  --firstImage: #61db99;
-  --secondImage: #8a62fb;
+  --firstImage: #c669ea;
+  --secondImage: #d29fe6;
 
   /* for nav */
+  --navHam: #ffffff;
   --searchBoxBg: #ffffff;
   --colorSearch: #4f4f4f;
-  --avarBg: #8a62fb;
+  --avarBg: #c669ea;
   --avaBorder: #ffffff;
-  --textColor: #ffffff;
+  --textNav: #ffffff;
   --colorInde: #8a62fb;
 
   /* for footer */
-
   --footerText: #ffffff;
 
   /* for block component */
-  --heroBlock: #8a62fb;
+  --heroBlock: #c669ea;
 
   /* for setting page */
+  --choosenAva: #61db99;
   --blockDisplayProfile: #4781f8;
+  --textOnBlockProfile: #ffffff;
   --interestBg: #ffffff;
   --interestContent: #4781f8;
+  --fadeOutProfile: #070417;
 
-  --white: #050a0a;
-  --whitePeach: #3d4040;
-  --whiteShadow: #4e4e4e;
+  /* for logo font icon */
+  --faFontAwesome: #c669ea;
 
-  --buttonClick: #3d3d3d;
-  --secondButtonClick: #222222;
-  --shadowBox: #ffffff40;
+  /* for pagination */
+  --muiPagination: #c669ea;
 
-  --mainPurple: #c438ef;
-  --mainGreen: #23e73c;
-  --mainBlue: #40ddff;
-  --mainRed: #d64f4f;
+  /* for nav gradation */
+  --navGradFirst: #070417;
+  --navGradSecond: #070417;
+  --navGradThird: #070417;
+  --navGradFourth: #070417;
 
-  --secondPurple: #9a22be;
-  --secondGreen: #19a82c;
-  --secondBlue: #13b1e6;
+  /* for foot gradation */
+  --footGradFirst: #1f1d2b;
+  --footGradSecond: #1f1d2b;
+  --footGradThird: #1f1d2b;
+  --footGradFourth: #1f1d2b;
 
-  --tertierPurple: #8c22ac;
-  --tertierGreen: #196b24;
-  --tertierBlue: #2d426d;
-  --tertierRed: #9b2020;
-
+  /* for lazy load */
   --colorLazyPrime: #101010;
   --colorLazyDouble: #1f1f1f;
+
+  /* for logo svg */
+  --fillMain: #ffffff;
+  --stopColorFirst: #a7f3ce;
+  --stopColorSecond: #61db99;
+  --stopColorThird: #8a62fb;
+  --stopColorFourth: #00a2f3;
+
+  /* for placeholder */
+  --placeholderCo: #eeeeee;
 
   background-color: var(--background);
 }
@@ -88,41 +140,79 @@
 .orange {
   --background: #252836;
   --forTransDiv: #1f1d2b;
+  --backgroundUnique: #252836;
 
   /* for form */
   --transForm: #2d303e;
+  --transFormUnique: #2d303e;
 
   /* for text and paragraf */
   --text: #ffffff;
-  --textOnContrast: #4f4f4f;
 
   /* for border */
   --border: #ea7c69;
   --borderBig: #252836;
   --borderOnContrast: #b7b7b7;
+  --borderUnique: #ea7c69;
 
   /* for button */
   --btnTrans: #1f1d2b;
 
-  --mainGreyBtn: #575757;
-  --hoverGreyBtn: #7e7e7e;
-  --activeGreyBtn: #b7b7b7;
+  --mainGreyBtn: #bfbfbf;
+  --mainGreyBorderBtn: #bfbfbf;
+  --hoverGreyBtn: #949494;
+  --hoverGreyBorderBtn: #949494;
+  --activeGreyBtn: #796a6a;
+  --activeGreyBorderBtn: #796a6a;
+
+  --mainGreyInvBtn: #bfbfbf00;
+  --mainGreyInvBorderBtn: #bfbfbf;
+  --hoverGreyInvBtn: #94949400;
+  --hoverGreyInvBorderBtn: #949494;
+  --activeGreyInvBtn: #796a6a00;
+  --activeGreyInvBorderBtn: #796a6a;
 
   --mainHeroBtn: #ea7c69;
+  --mainHeroBorderBtn: #ea7c69;
   --hoverHeroBtn: #f3a395;
+  --hoverHeroBorderBtn: #f3a395;
   --activeHeroBtn: #f8c4bb;
+  --activeHeroBorderBtn: #f8c4bb;
+
+  --mainHeroInvBtn: #ea7c6900;
+  --mainHeroInvBorderBtn: #ea7c69;
+  --hoverHeroInvBtn: #f3a39500;
+  --hoverHeroInvBorderBtn: #f3a395;
+  --activeHeroInvBtn: #f8c4bb00;
+  --activeHeroInvBorderBtn: #f8c4bb;
 
   --mainSecondBtn: #ea7c69;
+  --mainSecondBorderBtn: #ea7c69;
   --hoverSecondBtn: #f3a395;
+  --hoverSecondBorderBtn: #f3a395;
   --activeSecondBtn: #f8c4bb;
+  --activeSecondBorderBtn: #f8c4bb;
 
-  --mainGreenBtn: #39885e;
-  --hoverGreenBtn: #4baa77;
-  --activeGreenBtn: #61db99;
+  --mainSecondInvBtn: #ea7c6900;
+  --mainSecondInvBorderBtn: #ea7c69;
+  --hoverSecondInvBtn: #f3a39500;
+  --hoverSecondInvBorderBtn: #f3a395;
+  --activeSecondInvBtn: #f8c4bb00;
+  --activeSecondInvBorderBtn: #f8c4bb;
 
   --mainWarnBtn: #7c2222;
+  --mainWarnBorderBtn: #7c2222;
   --hoverWarnBtn: #be3131;
+  --hoverWarnBorderBtn: #be3131;
   --activeWarnBtn: #f84747;
+  --activeWarnBorderBtn: #f84747;
+
+  --mainWarnInvBtn: #7c222200;
+  --mainWarnInvBorderBtn: #7c2222;
+  --hoverWarnInvBtn: #be313100;
+  --hoverWarnInvBorderBtn: #be3131;
+  --activeWarnInvBtn: #f8474700;
+  --activeWarnInvBorderBtn: #f84747;
 
   /* for image container  */
   --firstImage: #ea7c69;
@@ -134,7 +224,7 @@
   --colorSearch: #4f4f4f;
   --avarBg: #ea7c69;
   --avaBorder: #ffffff;
-  --textColor: #ffffff;
+  --textNav: #ffffff;
   --colorInde: #8a62fb;
 
   /* for footer */
@@ -144,9 +234,12 @@
   --heroBlock: #ea7c69;
 
   /* for setting page */
-  --blockDisplayProfile: #4781f8;
+  --choosenAva: #ea7c69;
+  --blockDisplayProfile: #ea7c69;
+  --textOnBlockProfile: #ffffff;
   --interestBg: #ffffff;
-  --interestContent: #4781f8;
+  --interestContent: #ea7c69;
+  --fadeOutProfile: #252836;
 
   /* for logo font icon */
   --faFontAwesome: #ea7c69;
@@ -170,29 +263,160 @@
   --colorLazyPrime: #101010;
   --colorLazyDouble: #1f1f1f;
 
-  --white: #050a0a;
-  --whitePeach: #3d4040;
-  --whiteShadow: #4e4e4e;
+  /* for logo svg */
+  --fillMain: #ffffff;
+  --stopColorFirst: #ea7c69;
+  --stopColorSecond: #f8c4bb;
+  --stopColorThird: #ea7c69;
+  --stopColorFourth: #f8c4bb;
 
-  --buttonClick: #3d3d3d;
-  --secondButtonClick: #222222;
-  --shadowBox: #ffffff40;
-
-  --mainPurple: #c438ef;
-  --mainGreen: #23e73c;
-  --mainBlue: #40ddff;
-  --mainRed: #d64f4f;
-
-  --secondPurple: #9a22be;
-  --secondGreen: #19a82c;
-  --secondBlue: #13b1e6;
-
-  --tertierPurple: #8c22ac;
-  --tertierGreen: #196b24;
-  --tertierBlue: #2d426d;
-  --tertierRed: #9b2020;
+  /* for placeholder */
+  --placeholderCo: #eeeeee;
 
   background-color: var(--background);
+}
+
+.coffee {
+  --background: #0c0f14;
+  --forTransDiv: #252a32;
+  --backgroundUnique: #9263439d;
+
+  /* for form */
+  --transForm: #151921;
+  --transFormUnique: #bb8967e0;
+
+  /* for text and paragraf */
+  --text: #ffffff;
+
+  /* for border */
+  --border: #d17842;
+  --borderBig: #0c0f14;
+  --borderOnContrast: #b7b7b7;
+  --borderUnique: #d1794200;
+
+  /* for button */
+  --btnTrans: #252a32;
+
+  --mainGreyBtn: #bfbfbf;
+  --mainGreyBorderBtn: #bfbfbf;
+  --hoverGreyBtn: #949494;
+  --hoverGreyBorderBtn: #949494;
+  --activeGreyBtn: #796a6a;
+  --activeGreyBorderBtn: #796a6a;
+
+  --mainGreyInvBtn: #bfbfbf00;
+  --mainGreyInvBorderBtn: #bfbfbf;
+  --hoverGreyInvBtn: #94949400;
+  --hoverGreyInvBorderBtn: #949494;
+  --activeGreyInvBtn: #796a6a00;
+  --activeGreyInvBorderBtn: #796a6a;
+
+  --mainHeroBtn: #ea7c69;
+  --mainHeroBorderBtn: #ea7c69;
+  --hoverHeroBtn: #f3a395;
+  --hoverHeroBorderBtn: #f3a395;
+  --activeHeroBtn: #f8c4bb;
+  --activeHeroBorderBtn: #f8c4bb;
+
+  --mainHeroInvBtn: #ea7c6900;
+  --mainHeroInvBorderBtn: #ea7c69;
+  --hoverHeroInvBtn: #f3a39500;
+  --hoverHeroInvBorderBtn: #f3a395;
+  --activeHeroInvBtn: #f8c4bb00;
+  --activeHeroInvBorderBtn: #f8c4bb;
+
+  --mainSecondBtn: #ea7c69;
+  --mainSecondBorderBtn: #ea7c69;
+  --hoverSecondBtn: #f3a395;
+  --hoverSecondBorderBtn: #f3a395;
+  --activeSecondBtn: #f8c4bb;
+  --activeSecondBorderBtn: #f8c4bb;
+
+  --mainSecondInvBtn: #ea7c6900;
+  --mainSecondInvBorderBtn: #ea7c69;
+  --hoverSecondInvBtn: #f3a39500;
+  --hoverSecondInvBorderBtn: #f3a395;
+  --activeSecondInvBtn: #f8c4bb00;
+  --activeSecondInvBorderBtn: #f8c4bb;
+
+  --mainWarnBtn: #7c2222;
+  --mainWarnBorderBtn: #7c2222;
+  --hoverWarnBtn: #be3131;
+  --hoverWarnBorderBtn: #be3131;
+  --activeWarnBtn: #f84747;
+  --activeWarnBorderBtn: #f84747;
+
+  --mainWarnInvBtn: #7c222200;
+  --mainWarnInvBorderBtn: #7c2222;
+  --hoverWarnInvBtn: #be313100;
+  --hoverWarnInvBorderBtn: #be3131;
+  --activeWarnInvBtn: #f8474700;
+  --activeWarnInvBorderBtn: #f84747;
+
+  /* for image container  */
+  --firstImage: #ea7c69;
+  --secondImage: #f8c4bb;
+
+  /* for nav */
+  --navHam: #ffffff;
+  --searchBoxBg: #ffffff;
+  --colorSearch: #4f4f4f;
+  --avarBg: #ea7c69;
+  --avaBorder: #ffffff;
+  --textNav: #ffffff;
+  --colorInde: #8a62fb;
+
+  /* for footer */
+  --footerText: #ffffff;
+
+  /* for block component */
+  --heroBlock: #ea7c69;
+
+  /* for setting page */
+  --choosenAva: #ea7c69;
+  --blockDisplayProfile: #ea7c69;
+  --textOnBlockProfile: #ffffff;
+  --interestBg: #ffffff;
+  --interestContent: #ea7c69;
+  --fadeOutProfile: #0c0f14;
+
+  /* for logo font icon */
+  --faFontAwesome: #d17842;
+
+  /* for pagination */
+  --muiPagination: #d17842;
+
+  /* for nav gradation */
+  --navGradFirst: #0c0f14;
+  --navGradSecond: #0c0f14;
+  --navGradThird: #0c0f14;
+  --navGradFourth: #0c0f14;
+
+  /* for foot gradation */
+  --footGradFirst: #252a32;
+  --footGradSecond: #252a32;
+  --footGradThird: #252a32;
+  --footGradFourth: #252a32;
+
+  /* for lazy load */
+  --colorLazyPrime: #101010;
+  --colorLazyDouble: #1f1f1f;
+
+  /* for logo svg */
+  --fillMain: #ffffff;
+  --stopColorFirst: #ea7c69;
+  --stopColorSecond: #f8c4bb;
+  --stopColorThird: #ea7c69;
+  --stopColorFourth: #f8c4bb;
+
+  /* for placeholder */
+  --placeholderCo: #eeeeee;
+
+  background-color: var(--background);
+}
+
+::placeholder {
+  color: var(--placeholderCo);
 }
 
 .svg-inline--fa {

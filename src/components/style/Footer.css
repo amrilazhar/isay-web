@@ -72,3 +72,27 @@
     display: block;
   }
 }
+
+.footer-container .footer-wrapping .left svg .path05,
+.footer-container .footer-wrapping .left svg .path06,
+.footer-container .footer-wrapping .left svg .path07,
+.footer-container .footer-wrapping .left svg .path08,
+.footer-container .footer-wrapping .left svg .path09 {
+  fill: var(--fillMain);
+}
+
+.footer-container .footer-wrapping .left svg .stop01 {
+  stop-color: var(--stopColorFirst);
+}
+
+.footer-container .footer-wrapping .left svg .stop02 {
+  stop-color: var(--stopColorSecond);
+}
+
+.footer-container .footer-wrapping .left svg .stop03 {
+  stop-color: var(--stopColorThird);
+}
+
+.footer-container .footer-wrapping .left svg .stop04 {
+  stop-color: var(--stopColorFourth);
+}

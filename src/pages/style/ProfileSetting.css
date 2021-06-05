@@ -14,7 +14,7 @@
   align-items: center;
   text-align: center;
   border-radius: 0 0 1rem 1rem;
-  color: var(--textOnContrast);
+  color: var(--textOnBlockProfile);
   box-sizing: border-box;
   margin-bottom: 1rem;
 }
@@ -45,7 +45,7 @@
   overflow: hidden;
   border-radius: 110px;
   margin: 1.5rem 0 3rem;
-  border: 0.3rem solid var(--borderOnContrast);
+  border: 0.3rem solid var(--textOnBlockProfile);
 }
 
 .setting-container
@@ -106,11 +106,11 @@
   .photo
   .photo-overlay
   .edit-cont {
-  transition: 0.3 ease;
   padding: 0.5rem 1rem;
   background-color: var(--mainSecondBtn);
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .setting-container
@@ -219,7 +219,7 @@
   padding: 1.5rem 0 2rem;
   background-image: linear-gradient(
     var(--blockDisplayProfile) 40%,
-    var(--interestBg) 99%
+    var(--fadeOutProfile) 99%
   );
   margin-bottom: 1.5rem;
   border-radius: 1rem 1rem 0 0;
@@ -233,7 +233,7 @@
   h2 {
   font-size: 1.3rem;
   text-align: center;
-  color: var(--textOnContrast);
+  color: var(--textOnBlockProfile);
   margin-bottom: 1rem;
 }
 
@@ -303,10 +303,10 @@
   form
   .btn
   a {
-  color: var(--mainGreyBtn);
+  color: var(--mainGreyInvBorderBtn);
   text-decoration: none;
   font-weight: normal;
-  border: 0.15rem solid var(--mainGreyBtn);
+  border: 0.15rem solid var(--mainGreyInvBorderBtn);
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -322,8 +322,8 @@
   form
   .btn
   a:hover {
-  border: 0.15rem solid var(--hoverGreyBtn);
-  color: var(--textOnContrast);
+  border: 0.15rem solid var(--hoverGreyBorderBtn);
+  color: var(--textOnBlockProfile);
   background-color: var(--hoverGreyBtn);
 }
 
@@ -335,8 +335,8 @@
   .btn
   input {
   background-color: transparent;
-  color: var(--mainSecondBtn);
-  border: 0.15rem solid var(--mainSecondBtn);
+  color: var(--mainSecondInvBorderBtn);
+  border: 0.15rem solid var(--mainSecondInvBorderBtn);
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -353,8 +353,8 @@
   .btn
   input:hover {
   background-color: var(--hoverSecondBtn);
-  border: 0.15rem solid var(--hoverSecondBtn);
-  color: var(--textOnContrast);
+  border: 0.15rem solid var(--hoverSecondBorderBtn);
+  color: var(--textOnBlockProfile);
 }
 
 .setting-container
@@ -364,7 +364,8 @@
   form
   .btn
   input:active {
-  background-color: var(--mainSecondBtn);
+  background-color: var(--activeSecondBtn);
+  border: 0.15rem solid var(--activeSecondBorderBtn);
 }
 
 .setting-container
@@ -388,7 +389,7 @@
   font-size: 0.8rem;
   padding: 0.8rem 1rem;
   border-radius: 0.5rem;
-  color: var(--textOnContrast);
+  color: var(--textOnBlockProfile);
   background-color: var(--mainWarnBtn);
   transition: 0.3s ease;
 }
@@ -430,7 +431,7 @@
   .setting-right-wrapper
   .reset-modal
   .reset-modal-content {
-  background-color: var(--textOnContrast);
+  background-color: var(--btnTrans);
   margin: 3% auto;
   padding: 20px;
   width: 75%;
@@ -501,11 +502,11 @@
   .reset-modal-content
   .modal-flexin
   button {
-  color: var(--text);
+  color: var(--mainSecondInvBorderBtn);
   width: 50%;
   margin: 1rem auto 0;
   border-radius: 0.5rem;
-  border: 0.15rem solid var(--mainSecondBtn);
+  border: 0.15rem solid var(--mainSecondInvBorderBtn);
   background-color: transparent;
   transition: 0.3s ease;
 }
@@ -519,8 +520,8 @@
   .modal-flexin
   button:hover {
   background-color: var(--hoverSecondBtn);
-  border: 0.15rem solid var(--hoverSecondBtn);
-  color: var(--textOnContrast);
+  border: 0.15rem solid var(--hoverSecondBorderBtn);
+  color: var(--textOnBlockProfile);
 }
 
 .setting-container
@@ -531,6 +532,7 @@
   .reset-modal-content
   .modal-flexin
   button:active {
+  border: 0.15rem solid var(--activeSecondBorderBtn);
   background-color: var(--activeSecondBtn);
 }
 
@@ -572,7 +574,7 @@
   .reset-modal-content
   form
   :first-child:focus {
-  border: 0.13rem solid var(--mainSecondBtn);
+  border: 0.13rem solid var(--mainSecondBorderBtn);
   outline: none;
 }
 
@@ -588,7 +590,7 @@
   margin: 0.5rem 0 0;
   border: none;
   padding: 0.7rem 0;
-  color: var(--textOnContrast);
+  color: var(--textOnBlockProfile);
   background-color: var(--mainWarnBtn);
   transition: 0.3s ease;
 }
@@ -666,7 +668,7 @@
   overflow: hidden;
   background-color: var(--mainSecondBtn);
   border-radius: 10px;
-  border: 0.3rem solid var(--textOnContrast);
+  border: 0.3rem solid var(--textOnBlockProfile);
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -702,7 +704,7 @@
   [type="radio"]:checked
   + label
   .avatar-wrap {
-  background-color: var(--mainGreenBtn);
+  background-color: var(--choosenAva);
 }
 
 .setting-container

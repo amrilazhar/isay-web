@@ -131,6 +131,9 @@ const FeedPage = () => {
 										color="primary"
 										className="pagination"
 										onChange={clickPage}
+										siblingCount={0}
+										boundaryCount={1}
+										size="small"
 									/>
 								)}
 							</div>

@@ -7,6 +7,7 @@ import SmsIcon from "@material-ui/icons/Sms";
 import CloseIcon from "@material-ui/icons/Close";
 import MenuIcon from "@material-ui/icons/Menu";
 import Badge from "@material-ui/core/Badge";
+import IsayLogos from '../assets/isayLogo.js';
 import "./style/Navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { notificationCount } from "../redux/actions";
@@ -104,11 +105,7 @@ const Navbar = () => {
 				<div className="navbar-wrapper">
 					<a href="/">
 						<div className="nav-logo">
-							{theme === "dark" ? (
-								<img src="https://i.ibb.co/XbcLxHP/Logo-Black.png" alt="logo" widhth="130px" height="56px" />
-							) : (
-								<img src="https://i.ibb.co/3fLH5bc/Logo-White.png" alt="logo" widhth="130px" height="56px" />
-							)}
+							{IsayLogos()}
 						</div>
 					</a>
 					<div className="search">
