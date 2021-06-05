@@ -36,6 +36,19 @@ const UserActMap = (fromAct) => {
     dispatch(alertActions.success('user not found, cause they are delete the message'));
   }
 
+  const showType = (type) => {
+		switch (type) {
+			case "post_comment":
+				return "Commented on This Status";
+			case "like_status":
+				return "Like This Status";
+      case "post_status":
+				return "Post A Status";
+			default:
+				return "Doing Something";
+		}
+	};
+
   return (
     <div className="isay-status-box">
       {
@@ -47,7 +60,7 @@ const UserActMap = (fromAct) => {
           <p>{userName}</p>
           </div>
           <div className="campuran">
-          <p>{type}</p>
+          <p>{showType(type)}</p>
             { valueOfStatus === null ?
               <></>
               :
@@ -59,69 +72,69 @@ const UserActMap = (fromAct) => {
         </div>
         <p>{actDate}</p>
       </div>
-      <div onClick={singleStatus} style={{cursor: "pointer"}} className="isay-status-rec">
-        { valueOfStatus !== null ?
-          <>
-            <div className="user-status">
-              <div className="upper-prop">
-                <div className="user-image">
-                  <img src={avatar} alt="User" />
+      <div className="sekut" onClick={singleStatus} style={{cursor: "pointer", position:"relative"}} >
+        <div className="isay-status-rec">
+          { valueOfStatus !== null ?
+            <>
+              <div className="user-status">
+                <div className="upper-prop">
+                  <div className="user-image">
+                    <img src={avatar} alt="User" />
+                  </div>
+                  <div className="name-and-time">
+                    <h2>{statusOwner}</h2>
+                    <p>{statusDate}</p>
+                  </div>
+                  <div className="location">
+                    <p><FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>{location}</p>
+                  </div>
                 </div>
-                <div className="name-and-time">
-                  <h2>{statusOwner}</h2>
-                  <p>{statusDate}</p>
-                </div>
-                <div className="location">
-                  <p><FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="1x" color="#4f4f4f"/>{location}</p>
-                </div>
-              </div>
-              <div className="lower-prop">
-                <p>{content}</p>
-                <div className="image-post">
-                {
-                  (!media)? <div></div> :
-                  (
-                    media?.map(media =>(
-                      <div className="image-cont">
-                        <img src={`${media}`} alt={`${content}`} style={{cursor:"pointer"}} onClick={() =>
-                          (showLight === false)? (setShowLight(true), setShowMed(media)) : setShowLight(false)
-                        }/>
-                        <div className="media-overlay" style={{cursor:"pointer"}}>
-                          <p style={{fontSize: "1rem", cursor:"pointer"}}>preview</p>
+                <div className="lower-prop">
+                  <p>{content}</p>
+                  <div className="image-post">
+                  {
+                    (!media)? <div></div> :
+                    (
+                      media?.map(media =>(
+                        <div className="image-cont">
+                          <img src={`${media}`} alt={`${content}`} style={{cursor:"pointer"}}/>
                         </div>
-                      </div>
-                    ))
-                  )
-                }
+                      ))
+                    )
+                  }
+                  </div>
                 </div>
               </div>
-            </div>
-            {
-              showLight === false ? "" :
-              <Lightbox image={showMed} title={`${content}`} onClose={() =>
-                (showLight === false)? setShowLight(true) : setShowLight(false)}></Lightbox>
-            }
-            <div className="do-at-status">
-              <div className="button-collect">
-                <div className="button">
-                  <FontAwesomeIcon  icon={["far", "thumbs-up"]} size="1x" color="#4f4f4f"/>
-                  <p>Like</p>
-                  <p>{`( ${likeLength} )`}</p>
-                </div>
-                <div className="button">
-                  <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>
-                  <p>Comments</p>
-                  <p>{`( ${commentLength} )`}</p>
-                </div>
-                <div className="button">
-                  <FontAwesomeIcon icon={["far", "comments"]} size="1x" color="#4f4f4f"/>
-                  <p>Personal Chat</p>
+              {
+                showLight === false ? "" :
+                <Lightbox image={showMed} title={`${content}`} onClose={() =>
+                  (showLight === false)? setShowLight(true) : setShowLight(false)}></Lightbox>
+              }
+              <div className="do-at-status">
+                <div className="button-collect">
+                  <div className="button">
+                    <FontAwesomeIcon  icon={["far", "thumbs-up"]} size="1x" color="#4f4f4f"/>
+                    <p>Like</p>
+                    <p>{`( ${likeLength} )`}</p>
+                  </div>
+                  <div className="button">
+                    <FontAwesomeIcon icon={["far", "comment"]} size="1x" color="#4f4f4f"/>
+                    <p>Comments</p>
+                    <p>{`( ${commentLength} )`}</p>
+                  </div>
+                  <div className="button">
+                    <FontAwesomeIcon icon={["far", "comments"]} size="1x" color="#4f4f4f"/>
+                    <p>Personal Chat</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </>:
-          <p className="no-status-ava">Owner of this status has delete his status</p>
-        }
+            </>:
+            <p className="no-status-ava">Owner of this status has delete his status</p>
+          }
+        </div>
+        <div className="rec-cont-overlay">
+          <p>{`Go to ${statusOwner} profile`}</p>
+        </div>
       </div>
     </div>
   )

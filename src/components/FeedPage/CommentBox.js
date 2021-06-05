@@ -93,8 +93,8 @@ const CommentBox = (fromFeedBox) => {
         { (users?.items?._id === ownerId)?
           <div></div>:
           <div className="button">
-            <FontAwesomeIcon icon={["far", "comments"]} size="1x" color="#4f4f4f"/>
             <a href ={`/message?to=${ownerId}`}>
+              <FontAwesomeIcon icon={["far", "comments"]} size="1x" color="#4f4f4f"/>
               <p className="personal-text">Personal Chat</p>
             </a>
           </div>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
@@ -86,6 +86,16 @@ const UserPage = () => {
 
   const alert = useSelector ((state) => state.alert)
 
+  const [widthHeader, setWidthHeader] = useState(null)
+  const [heightHeader, setHeightHeader] = useState(null)
+
+  const img = new Image();
+    img.onload = function() {
+    setWidthHeader(this.width)
+    setHeightHeader(this.height)
+  }
+  img.src = `${userActive.items?.backgroundImage}`;
+
   return (
     <Router>
       {
@@ -102,7 +112,16 @@ const UserPage = () => {
             </div>
             :
             <div className="profile-top-content">
-              <img src={userActive.items?.backgroundImage} alt="Hero Profile Banner" />
+              <img src={userActive.items?.backgroundImage} alt="Hero Profile Banner"
+              
+              style={
+                (widthHeader > heightHeader)?
+                {height: "100%"}
+                :
+                {height: "100%"}
+              }
+              
+              />
             </div>
           }
           <div className="profile-bottom-content">
