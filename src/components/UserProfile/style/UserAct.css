@@ -28,6 +28,43 @@
   padding: 1rem;
   box-sizing: border-box;
   border-radius: 0.5rem;
+  transition: 0.3s ease;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
+  .sekut:hover
+  .isay-status-rec {
+  opacity: 0.1;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
+  .rec-cont-overlay {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.profile-wrapping
+  .profile-bottom-content
+  .profile-right-content
+  .realtime-feed-act
+  .isay-status-box
+  .sekut:hover
+  .rec-cont-overlay {
+  opacity: 1;
 }
 
 .profile-wrapping

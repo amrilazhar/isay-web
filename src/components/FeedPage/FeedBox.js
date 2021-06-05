@@ -17,6 +17,7 @@ const FeedBox = (fromFeedPage) => {
   const setPage = fromFeedPage?.setPage
   const [showLight, setShowLight] = useState(false)
   const [showMed, setShowMed] = useState("")
+  const [showContent, setShowContent] = useState("")
 
   const loadComponent = () => {
     return (
@@ -165,7 +166,7 @@ const FeedBox = (fromFeedPage) => {
                     user?.media?.map(media =>(
                       <div className="image-cont">
                         <img src={`${media}`} alt={`${user?.content}`} style={{cursor:"pointer"}} onClick={() =>
-                          (showLight === false)? (setShowLight(true), setShowMed(media)) : setShowLight(false)
+                          (showLight === false)? (setShowLight(true), setShowMed(media), setShowContent(user?.content)) : setShowLight(false)
                         }/>
                         <div className="media-overlay" style={{cursor:"pointer"}}>
                           <p style={{fontSize: "1rem", cursor:"pointer"}}>preview</p>
@@ -179,7 +180,7 @@ const FeedBox = (fromFeedPage) => {
           </div>
           {
             showLight === false ? "" :
-            <Lightbox image={showMed} title={`${user?.content}`} onClose={() =>
+            <Lightbox image={showMed} title={showContent} onClose={() =>
               (showLight === false)? setShowLight(true) : setShowLight(false)}></Lightbox>
           }
           <CommentBox

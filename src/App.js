@@ -63,9 +63,9 @@ function App() {
           <Switch>
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
-              <PrivateRoute path="/check"component={CheckPage} />
-              <PrivateRoute path="/verify"component={EmailReminder} />
-              <PrivateRoute path="/signupquest/:id"component={SignupQuest} />
+              <PrivateRoute path="/check" component={CheckPage} />
+              <PrivateRoute path="/verify" component={EmailReminder} />
+              <PrivateRoute path="/signupquest/:id" component={SignupQuest} />
               <PrivateRoute path="/avatar" component={GetAvatar} />
               <PrivateRouteInterest path="/notification" component={Notification} />
               <PrivateRouteInterest path="/profile" component={UserPage} />
