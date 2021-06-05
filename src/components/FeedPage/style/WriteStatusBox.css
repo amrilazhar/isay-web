@@ -145,6 +145,7 @@
   background-color: var(--mainSecondBtn);
   color: var(--btnTrans);
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .status-submit form .status-tools input[type="submit"]:hover {

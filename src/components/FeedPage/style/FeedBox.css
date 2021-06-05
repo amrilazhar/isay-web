@@ -165,6 +165,7 @@
 .isay-status-box .do-at-status .button-collect p {
   font-size: 0.8rem;
   display: inline;
+  margin: 1rem 0;
 }
 
 .isay-status-box .do-at-status .button-collect .personal-text {
