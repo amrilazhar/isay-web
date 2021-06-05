@@ -95,6 +95,10 @@
   max-height: 50%;
 }
 
+.profile-wrapping .profile-bottom-content .profile-left-content p {
+  margin: 1rem 0;
+}
+
 .profile-wrapping .profile-bottom-content .profile-left-content h1 {
   font-size: 1.2rem;
 }

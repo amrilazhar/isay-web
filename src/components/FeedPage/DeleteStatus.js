@@ -92,14 +92,14 @@ const DeleteStatus = (dariFeedBox) => {
           <div className="tooltip-circle-button"></div>
           <div className="tooltip-circle-button"></div>
         </div>
-        <div className="tooltip-content">
-          <button>Share</button>
-          {
-            (ourId === statusOwnerId)?
-            <button onClick={showTheModal}>Delete</button>:
+        {
+          (ourId === statusOwnerId)?
+          <div className="tooltip-content">
+            <button onClick={showTheModal}>Delete</button>
+          </div>
+            :
             <></>
-          }
-        </div>
+        }
       </div>
     </div>
     </>
