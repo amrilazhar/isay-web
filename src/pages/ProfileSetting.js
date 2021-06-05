@@ -264,7 +264,7 @@ const ProfileSetting = () => {
                 <input type="radio" name="mytheme" defaultValue="light" onChange={switchTheme}/>Light
               </label>
               <label>
-                <input type="radio" name="mytheme" defaultValue="orange" onChange={switchTheme}/>orange
+                <input type="radio" name="mytheme" defaultValue="orange" onChange={switchTheme}/>Orange
               </label>
               <label>
                 <input type="radio" name="mytheme" defaultValue="dark" onChange={switchTheme}/>Dark

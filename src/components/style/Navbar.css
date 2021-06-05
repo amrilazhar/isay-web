@@ -252,3 +252,27 @@
     background-position: 300px center;
   }
 }
+
+.navbar-wrapper .nav-logo svg .path05,
+.navbar-wrapper .nav-logo svg .path06,
+.navbar-wrapper .nav-logo svg .path07,
+.navbar-wrapper .nav-logo svg .path08,
+.navbar-wrapper .nav-logo svg .path09 {
+  fill: var(--fillMain);
+}
+
+.navbar-wrapper .nav-logo svg .stop01 {
+  stop-color: var(--stopColorFirst);
+}
+
+.navbar-wrapper .nav-logo svg .stop02 {
+  stop-color: var(--stopColorSecond);
+}
+
+.navbar-wrapper .nav-logo svg .stop03 {
+  stop-color: var(--stopColorThird);
+}
+
+.navbar-wrapper .nav-logo svg .stop04 {
+  stop-color: var(--stopColorFourth);
+}

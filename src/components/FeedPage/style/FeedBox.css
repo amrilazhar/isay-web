@@ -128,7 +128,7 @@
   left: -9999px;
   right: -9999px;
   margin: auto;
-  max-width: 100%;
+  max-height: 100%;
 }
 
 .isay-status-box .user-status .lower-prop p {
@@ -263,12 +263,14 @@
 .isay-status-box .do-at-status .comment-expand .comment-box .comment-detail {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box .comment-detail h2 {
   margin: 0 0 0.25rem 0;
   font-weight: 600;
   font-size: 1rem;
+  display: contents;
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box .comment-detail p {
