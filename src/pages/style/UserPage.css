@@ -111,8 +111,8 @@
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content a button {
-  color: var(--mainSecondBtn);
-  border: 0.15rem solid var(--mainSecondBtn);
+  color: var(--mainSecondInvBorderBtn);
+  border: 0.15rem solid var(--mainSecondInvBorderBtn);
   background-color: var(--btnTrans);
   border-radius: 0.75rem;
   padding: 0 1rem;
@@ -125,7 +125,8 @@
 
 .profile-wrapping .profile-bottom-content .profile-left-content a button:hover {
   background-color: var(--hoverSecondBtn);
-  color: var(--btnTrans);
+  border: 0.15rem solid var(--hoverSecondBorderBtn);
+  color: var(--textOnBlockProfile);
 }
 
 .profile-wrapping
@@ -134,7 +135,7 @@
   a
   button:active {
   background-color: var(--activeSecondBtn);
-  color: var(--mainGreyBtn);
+  border: 0.15rem solid var(--activeSecondBorderBtn);
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content a {

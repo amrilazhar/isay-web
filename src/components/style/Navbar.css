@@ -98,7 +98,7 @@
 
 .navbar-wrapper .nav-menu .nav-item .nav-links {
   text-decoration: none;
-  color: var(--textColor);
+  color: var(--textNav);
   cursor: pointer;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .navbar-wrapper .nav-menu .nav-item:hover:after {
-  background: var(--textColor);
+  background: var(--textNav);
   width: 100%;
   border-radius: 2rem;
   margin: auto;

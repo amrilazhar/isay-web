@@ -1,5 +1,5 @@
 .dark {
-  --background: #252836;
+  --background: #070417;
   --forTransDiv: #1f1d2b;
 
   /* for form */
@@ -10,68 +10,107 @@
   --textOnContrast: #4f4f4f;
 
   /* for border */
-  --border: #ea7c69;
-  --borderBig: #252836;
+  --border: #c669ea;
+  --borderBig: #070417;
   --borderOnContrast: #b7b7b7;
 
   /* for button */
   --btnTrans: #1f1d2b;
 
-  --mainGreyBtn: #575757;
-  --hoverGreyBtn: #7e7e7e;
-  --activeGreyBtn: #b7b7b7;
+  --mainGreyBtn: #bfbfbf;
+  --mainGreyBorderBtn: #bfbfbf;
+  --hoverGreyBtn: #949494;
+  --hoverGreyBorderBtn: #949494;
+  --activeGreyBtn: #796a6a;
+  --activeGreyBorderBtn: #796a6a;
 
-  --mainHeroBtn: #ea7c69;
-  --hoverHeroBtn: #f3a395;
-  --activeHeroBtn: #f8c4bb;
+  --mainGreyInvBtn: #bfbfbf00;
+  --mainGreyInvBorderBtn: #bfbfbf;
+  --hoverGreyInvBtn: #94949400;
+  --hoverGreyInvBorderBtn: #949494;
+  --activeGreyInvBtn: #796a6a00;
+  --activeGreyInvBorderBtn: #796a6a;
 
-  --mainSecondBtn: #ea7c69;
-  --hoverSecondBtn: #f3a395;
-  --activeSecondBtn: #f8c4bb;
+  --mainHeroBtn: #c669ea;
+  --mainHeroBorderBtn: #c669ea;
+  --hoverHeroBtn: #a450c5;
+  --hoverHeroBorderBtn: #a450c5;
+  --activeHeroBtn: #74358d;
+  --activeHeroBorderBtn: #74358d;
 
-  --mainGreenBtn: #39885e;
-  --hoverGreenBtn: #4baa77;
-  --activeGreenBtn: #61db99;
+  --mainHeroInvBtn: #c669ea00;
+  --mainHeroInvBorderBtn: #c669ea;
+  --hoverHeroInvBtn: #a450c500;
+  --hoverHeroInvBorderBtn: #a450c5;
+  --activeHeroInvBtn: #74358d00;
+  --activeHeroInvBorderBtn: #74358d;
+
+  --mainSecondBtn: #c669ea;
+  --mainSecondBorderBtn: #c669ea;
+  --hoverSecondBtn: #a450c5;
+  --hoverSecondBorderBtn: #a450c5;
+  --activeSecondBtn: #74358d;
+  --activeSecondBorderBtn: #74358d;
+
+  --mainSecondInvBtn: #c669ea00;
+  --mainSecondInvBorderBtn: #c669ea;
+  --hoverSecondInvBtn: #a450c500;
+  --hoverSecondInvBorderBtn: #a450c5;
+  --activeSecondInvBtn: #74358d00;
+  --activeSecondInvBorderBtn: #74358d;
 
   --mainWarnBtn: #7c2222;
+  --mainWarnBorderBtn: #7c2222;
   --hoverWarnBtn: #be3131;
+  --hoverWarnBorderBtn: #be3131;
   --activeWarnBtn: #f84747;
+  --activeWarnBorderBtn: #f84747;
+
+  --mainWarnInvBtn: #7c222200;
+  --mainWarnInvBorderBtn: #7c2222;
+  --hoverWarnInvBtn: #be313100;
+  --hoverWarnInvBorderBtn: #be3131;
+  --activeWarnInvBtn: #f8474700;
+  --activeWarnInvBorderBtn: #f84747;
 
   /* for image container  */
-  --firstImage: #ea7c69;
-  --secondImage: #f8c4bb;
+  --firstImage: #c669ea;
+  --secondImage: #d29fe6;
 
   /* for nav */
   --navHam: #ffffff;
   --searchBoxBg: #ffffff;
   --colorSearch: #4f4f4f;
-  --avarBg: #ea7c69;
+  --avarBg: #c669ea;
   --avaBorder: #ffffff;
-  --textColor: #ffffff;
+  --textNav: #ffffff;
   --colorInde: #8a62fb;
 
   /* for footer */
   --footerText: #ffffff;
 
   /* for block component */
-  --heroBlock: #ea7c69;
+  --heroBlock: #c669ea;
 
   /* for setting page */
+  --choosenAva: #61db99;
   --blockDisplayProfile: #4781f8;
+  --textOnBlockProfile: #ffffff;
   --interestBg: #ffffff;
   --interestContent: #4781f8;
+  --fadeOutProfile: #070417;
 
   /* for logo font icon */
-  --faFontAwesome: #ea7c69;
+  --faFontAwesome: #c669ea;
 
   /* for pagination */
-  --muiPagination: #ea7c69;
+  --muiPagination: #c669ea;
 
   /* for nav gradation */
-  --navGradFirst: #252836;
-  --navGradSecond: #252836;
-  --navGradThird: #252836;
-  --navGradFourth: #252836;
+  --navGradFirst: #070417;
+  --navGradSecond: #070417;
+  --navGradThird: #070417;
+  --navGradFourth: #070417;
 
   /* for foot gradation */
   --footGradFirst: #1f1d2b;
@@ -112,25 +151,61 @@
   /* for button */
   --btnTrans: #1f1d2b;
 
-  --mainGreyBtn: #575757;
-  --hoverGreyBtn: #7e7e7e;
-  --activeGreyBtn: #b7b7b7;
+  --mainGreyBtn: #bfbfbf;
+  --mainGreyBorderBtn: #bfbfbf;
+  --hoverGreyBtn: #949494;
+  --hoverGreyBorderBtn: #949494;
+  --activeGreyBtn: #796a6a;
+  --activeGreyBorderBtn: #796a6a;
+
+  --mainGreyInvBtn: #bfbfbf00;
+  --mainGreyInvBorderBtn: #bfbfbf;
+  --hoverGreyInvBtn: #94949400;
+  --hoverGreyInvBorderBtn: #949494;
+  --activeGreyInvBtn: #796a6a00;
+  --activeGreyInvBorderBtn: #796a6a;
 
   --mainHeroBtn: #ea7c69;
+  --mainHeroBorderBtn: #ea7c69;
   --hoverHeroBtn: #f3a395;
+  --hoverHeroBorderBtn: #f3a395;
   --activeHeroBtn: #f8c4bb;
+  --activeHeroBorderBtn: #f8c4bb;
+
+  --mainHeroInvBtn: #ea7c6900;
+  --mainHeroInvBorderBtn: #ea7c69;
+  --hoverHeroInvBtn: #f3a39500;
+  --hoverHeroInvBorderBtn: #f3a395;
+  --activeHeroInvBtn: #f8c4bb00;
+  --activeHeroInvBorderBtn: #f8c4bb;
 
   --mainSecondBtn: #ea7c69;
+  --mainSecondBorderBtn: #ea7c69;
   --hoverSecondBtn: #f3a395;
+  --hoverSecondBorderBtn: #f3a395;
   --activeSecondBtn: #f8c4bb;
+  --activeSecondBorderBtn: #f8c4bb;
 
-  --mainGreenBtn: #39885e;
-  --hoverGreenBtn: #4baa77;
-  --activeGreenBtn: #61db99;
+  --mainSecondInvBtn: #ea7c6900;
+  --mainSecondInvBorderBtn: #ea7c69;
+  --hoverSecondInvBtn: #f3a39500;
+  --hoverSecondInvBorderBtn: #f3a395;
+  --activeSecondInvBtn: #f8c4bb00;
+  --activeSecondInvBorderBtn: #f8c4bb;
 
   --mainWarnBtn: #7c2222;
+  --mainWarnBorderBtn: #7c2222;
   --hoverWarnBtn: #be3131;
+  --hoverWarnBorderBtn: #be3131;
   --activeWarnBtn: #f84747;
+  --activeWarnBorderBtn: #f84747;
+
+  --mainWarnInvBtn: #7c222200;
+  --mainWarnInvBorderBtn: #7c2222;
+  --hoverWarnInvBtn: #be313100;
+  --hoverWarnInvBorderBtn: #be3131;
+  --activeWarnInvBtn: #f8474700;
+  --activeWarnInvBorderBtn: #f84747;
 
   /* for image container  */
   --firstImage: #ea7c69;
@@ -142,7 +217,7 @@
   --colorSearch: #4f4f4f;
   --avarBg: #ea7c69;
   --avaBorder: #ffffff;
-  --textColor: #ffffff;
+  --textNav: #ffffff;
   --colorInde: #8a62fb;
 
   /* for footer */
@@ -152,9 +227,12 @@
   --heroBlock: #ea7c69;
 
   /* for setting page */
-  --blockDisplayProfile: #4781f8;
+  --choosenAva: #ea7c69;
+  --blockDisplayProfile: #ea7c69;
+  --textOnBlockProfile: #ffffff;
   --interestBg: #ffffff;
-  --interestContent: #4781f8;
+  --interestContent: #ea7c69;
+  --fadeOutProfile: #252836;
 
   /* for logo font icon */
   --faFontAwesome: #ea7c69;

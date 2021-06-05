@@ -67,7 +67,7 @@
 }
 
 .status-submit form textarea:focus {
-  border: 2px solid var(--mainHeroBtn);
+  border: 2px solid var(--mainHeroInvBorderBtn);
   outline: none;
 }
 
@@ -96,9 +96,9 @@
   cursor: pointer;
   border-radius: 0.5rem;
   background-color: var(--btnTrans);
-  border: 0.13rem solid var(--mainHeroBtn);
+  border: 0.13rem solid var(--mainHeroInvBorderBtn);
   box-sizing: border-box;
-  color: var(--mainHeroBtn);
+  color: var(--mainHeroInvBorderBtn);
   transition: 0.3s ease;
 }
 
@@ -109,6 +109,7 @@
 .status-submit form .status-tools .upload-image:focus + label,
 .status-submit form .status-tools .upload-image + label:hover {
   background-color: var(--hoverHeroBtn);
+  border: 0.13rem solid var(--hoverHeroBorderBtn);
   color: var(--btnTrans);
   outline: none;
 }
@@ -117,19 +118,20 @@
 .status-submit form .status-tools .choose {
   border-radius: 1rem;
   background-color: var(--btnTrans);
-  border: 0.13rem solid var(--mainHeroBtn);
+  border: 0.13rem solid var(--mainHeroBorderBtn);
   box-sizing: border-box;
-  color: var(--mainHeroBtn);
+  color: var(--mainHeroBorderBtn);
   transition: 0.3s ease;
 }
 
 .status-submit form .status-tools .upload:hover {
   background-color: var(--hoverHeroBtn);
-  border: 0.13rem solid var(--hoverHeroBtn);
+  border: 0.13rem solid var(--hoverHeroBorderBtn);
   color: var(--btnTrans);
 }
 .status-submit form .status-tools .upload:active {
   background-color: var(--activeHeroBtn);
+  border: 0.13rem solid var(--activeHeroBorderBtn);
 }
 
 .status-submit form .status-tools .choose {
@@ -168,8 +170,8 @@
 }
 
 .status-submit form .status-tools .interest-dropdown input:hover {
-  border: 0.13rem solid var(--hoverHeroBtn);
-  color: var(--hoverHeroBtn);
+  border: 0.13rem solid var(--hoverHeroInvBorderBtn);
+  color: var(--hoverHeroInvBorderBtn);
 }
 
 .status-submit form .status-tools .interest-dropdown .dropdown-content {
@@ -247,9 +249,9 @@
   cursor: pointer;
   border-radius: 0.5rem;
   background-color: var(--btnTrans);
-  border: 0.13rem solid var(--mainHeroBtn);
+  border: 0.13rem solid var(--mainHeroInvBorderBtn);
   box-sizing: border-box;
-  color: var(--mainHeroBtn);
+  color: var(--mainHeroInvBorderBtn);
   transition: 0.3s ease;
 }
 
@@ -259,7 +261,7 @@
   .reset-modal
   .reset-modal-content
   button:hover {
-  border: 0.13rem solid var(--hoverHeroBtn);
+  border: 0.13rem solid var(--hoverHeroBorderBtn);
   background-color: var(--hoverHeroBtn);
   color: var(--btnTrans);
   outline: none;

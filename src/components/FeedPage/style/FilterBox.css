@@ -73,8 +73,8 @@
   box-sizing: border-box;
   background-color: var(--btnTrans);
   border-radius: 0.5rem;
-  border: 0.13rem solid var(--mainSecondBtn);
-  color: var(--mainSecondBtn);
+  border: 0.13rem solid var(--mainSecondInvBorderBtn);
+  color: var(--mainSecondInvBorderBtn);
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
@@ -82,12 +82,13 @@
 
 .left-content .left-wrapping .filter-box form input:hover {
   background-color: var(--hoverSecondBtn);
-  border: 0.13rem solid var(--hoverSecondBtn);
+  border: 0.13rem solid var(--hoverSecondBorderBtn);
   color: var(--btnTrans);
 }
 
 .left-content .left-wrapping .filter-box form input:active {
   background-color: var(--activeSecondBtn);
+  border: 0.13rem solid var(--activeSecondBorderBtn);
 }
 
 @media screen and (min-width: 600px) {

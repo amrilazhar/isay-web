@@ -212,7 +212,7 @@
 }
 
 .isay-status-box .do-at-status .comment-expand form textarea:focus {
-  border: 2px solid var(--mainHeroBtn);
+  border: 2px solid var(--mainHeroBorderBtn);
   outline: none;
 }
 
@@ -227,11 +227,11 @@
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more {
   padding: 0.5rem 1rem;
-  border: 0.15rem solid var(--mainHeroBtn);
+  border: 0.15rem solid var(--mainHeroInvBorderBtn);
   max-width: 150px;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
-  color: var(--text);
+  color: var(--mainHeroInvBorderBtn);
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -249,10 +249,12 @@
 .isay-status-box .do-at-status .comment-expand .display-comment-more:hover {
   background-color: var(--hoverHeroBtn);
   color: var(--btnTrans);
+  border: 0.15rem solid var(--hoverHeroBorderBtn);
 }
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more:active {
   background-color: var(--activeHeroBtn);
+  border: 0.15rem solid var(--activeHeroBorderBtn);
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box {
