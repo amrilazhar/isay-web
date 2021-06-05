@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import FlashMessage from '../components/FlashMessage'
 import Footer from '../components/Footer'
@@ -7,6 +7,20 @@ import { authHeader } from '../helpers'
 import { userActions, listAvatar, alertActions } from '../redux/actions'
 import './style/ProfileSetting.css'
 
+
+// ==============CROPPER=============
+import Cropper from 'react-easy-crop'
+import Slider from '@material-ui/core/Slider'
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
+import { getOrientation } from 'get-orientation/browser'
+import ImgDialog from '../helpers/cropper/ImgDialog'
+import { getCroppedImg, getRotatedImage } from '../helpers/cropper/canvasUtils'
+import { styles } from '../helpers/cropper/styles'
+import { scrollToTop } from '../helpers/scrollToTop'
+import { scrollToBottom } from '../helpers/scrollToBottom'
+// ==============CROPPER=============
 
 const ProfileSetting = () => {
 
@@ -228,45 +242,212 @@ const ProfileSetting = () => {
   const lastBio = useSelector ((state) => state.users?.items?.bio)
 
   const [bioNew, setBioNew] = useState(lastBio)
-  const [header, setHeader] = useState(null)
-
   const changeBio = (e) => {
     setBioNew(e?.target?.value)
   }
 
-  const changeHeader = (e) => {
+
+// ======================HEADER CHANGE======================
+
+  const [header, setHeader] = useState(null)
+  const [terpotong, setTerpotong] = useState(null)
+
+  async function parseURI(d){
+    var reader = new FileReader();    /* https://developer.mozilla.org/en-US/docs/Web/API/FileReader */
+    reader.readAsDataURL(d);          /* https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL */
+    return new Promise((res,rej)=> {  /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise */
+      reader.onload = (e) => {        /* https://developer.mozilla.org/en-US/docs/Web/API/FileReader/onload */
+        res(e.target.result)
+      }
+    })
+  } 
+
+  async function getDataBlob(url){
+    var res = await fetch(url);
+    var blob = await res.blob();
+    var uri = await parseURI(blob);
+    setTerpotong(uri)
+  }
+
+
+//mnujan safjlksdgs
+
+ function dataURLtoFile(dataurl, filename) { 
+   if(dataurl !== null){  
+     var arr = dataurl.split(','),
+         mime = arr[0].match(/:(.*?);/)[1],
+         bstr = atob(arr[1]), 
+         n = bstr.length, 
+         u8arr = new Uint8Array(n);
+         
+     while(n--){
+         u8arr[n] = bstr.charCodeAt(n);
+     }
+     
+     return new File([u8arr], filename, {type:mime});
+  }
+  }
+  
+  var jadilah = dataURLtoFile(terpotong, "jadilah");
+
+
+  const changeHeader = async (e) => {
     e.preventDefault()
     if (
       (e?.target?.files[0]?.type == "image/jpeg" ||
         e?.target?.files[0]?.type == "image/jpg" ||
         e?.target?.files[0]?.type == "image/png") &&
-      e?.target?.files[0]?.size / (1024 * 1024) < 2
+      e?.target?.files[0]?.size / (1024 * 1024) < 1.5
     ){
-      setHeader([e?.target?.files[0]])
-    } else {
-      dispatch(alertActions.error("file exciding maximum size"))
+        const file = e.target.files[0]
+        let imageDataUrl = await readFile(file)
+
+        // apply rotation if needed
+        const orientation = await getOrientation(file)
+        const rotation = ORIENTATION_TO_ANGLE[orientation]
+        if (rotation) {
+          imageDataUrl = await getRotatedImage(imageDataUrl, rotation)
+        }
+
+        setHeader(imageDataUrl)
+        scrollToBottom()
+      } else {
+        dispatch(alertActions.error("file exciding maximum size"))
     }
   }
 
-  console.log("update", bioNew)
+// =====SI CROPPER
+
+  const ORIENTATION_TO_ANGLE = {
+    '3': 180,
+    '6': 90,
+    '8': -90,
+  }
+
+  const Demo = ({ classes }) => {
+    const [crop, setCrop] = useState({ x: 0, y: 0 })
+    const [rotation, setRotation] = useState(0)
+    const [zoom, setZoom] = useState(1)
+    const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
+    const [croppedImage, setCroppedImage] = useState(null)
+
+    const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+      setCroppedAreaPixels(croppedAreaPixels)
+    }, [])
+
+    const showCroppedImage = useCallback(async () => {
+      try {
+        const croppedImage = await getCroppedImg(
+          header,
+          croppedAreaPixels,
+          rotation
+        )
+        setCroppedImage(croppedImage)
+        getDataBlob(croppedImage)
+        dispatch(alertActions.success("Yeyy. Dont forget to click submit!"))
+        scrollToTop()
+      } catch (e) {
+        console.error(e)
+      }
+    }, [header, croppedAreaPixels, rotation])
+
+    return (
+      <div>
+        {header ? (
+          <React.Fragment>
+            <div className={classes.cropContainer}>
+              <Cropper
+                image={header}
+                crop={crop}
+                rotation={rotation}
+                zoom={zoom}
+                aspect={5.15 / 1}
+                onCropChange={setCrop}
+                onRotationChange={setRotation}
+                onCropComplete={onCropComplete}
+                onZoomChange={setZoom}
+              />
+            </div>
+            <div className={classes.controls}>
+              <div className={classes.sliderContainer}>
+                <Typography
+                  variant="overline"
+                  classes={{ root: classes.sliderLabel }}
+                >
+                  Zoom
+                </Typography>
+                <Slider
+                  value={zoom}
+                  min={1}
+                  max={3}
+                  step={0.1}
+                  aria-labelledby="Zoom"
+                  classes={{ root: classes.slider }}
+                  onChange={(e, zoom) => setZoom(zoom)}
+                />
+              </div>
+              <div className={classes.sliderContainer}>
+                <Typography
+                  variant="overline"
+                  classes={{ root: classes.sliderLabel }}
+                >
+                  Rotation
+                </Typography>
+                <Slider
+                  value={rotation}
+                  min={0}
+                  max={360}
+                  step={1}
+                  aria-labelledby="Rotation"
+                  classes={{ root: classes.slider }}
+                  onChange={(e, rotation) => setRotation(rotation)}
+                />
+              </div>
+              <Button
+                onClick={showCroppedImage}
+                variant="contained"
+                color="primary"
+                classes={{ root: classes.cropButton }}
+              >
+                Crop It
+              </Button>
+            </div>
+            {/* <ImgDialog img={croppedImage} onClose={onClose} /> */}
+          </React.Fragment>
+        ) : (
+          <></>
+        )}
+      </div>
+    )
+  }
+
+  function readFile(file) {
+    return new Promise((resolve) => {
+      const reader = new FileReader()
+      reader.addEventListener('load', () => resolve(reader.result), false)
+      reader.readAsDataURL(file)
+    })
+  }
+
+  const StyledDemo = withStyles(styles)(Demo)
+
+
+// ======================HEADER CHANGE======================
 
   const submitEditBio = (e) => {
     e.preventDefault()
-    if(bioNew || header) {
+    if(bioNew || jadilah) {
       e.preventDefault()
       dispatch(request(bioNew));
 
       const formData = new FormData();
 
       if(bioNew !== null){
-        console.log("ini bio", bioNew)
         formData.append('bio', `${bioNew}`);
       }
 
-      if(header !== null){
-        for (const file of header) {
-            formData.append('media', file)
-        }
+      if(jadilah !== undefined){
+        formData.append('media', jadilah)
       }
 
       const requestOptions = {
@@ -294,7 +475,7 @@ const ProfileSetting = () => {
       setHeader(null)
 
     } else {
-      dispatch(alertActions.error("please fill new bio or input new background images"))
+      dispatch(alertActions.error("maybe its empty or your cropped image are over 2.5Mb, try to zoom in"))
     }
   }
 
@@ -368,6 +549,7 @@ const ProfileSetting = () => {
         </div>
       </div>
     </div>
+    <StyledDemo/>
     <Footer/>
     </>
   )
