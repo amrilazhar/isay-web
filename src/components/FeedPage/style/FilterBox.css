@@ -5,9 +5,10 @@
 
 .left-content .left-wrapping {
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderBig);
   border-radius: 0.5rem;
   box-sizing: border-box;
+  background-color: var(--forTransDiv);
 }
 
 .left-content .left-wrapping h2 {
@@ -70,22 +71,24 @@
   margin-top: 1rem;
   padding: 0.4rem 0;
   box-sizing: border-box;
-  background-color: var(--white);
+  background-color: var(--btnTrans);
   border-radius: 0.5rem;
-  border: 0.13rem solid var(--mainBlue);
-  color: var(--mainBlue);
+  border: 0.13rem solid var(--mainSecondInvBorderBtn);
+  color: var(--mainSecondInvBorderBtn);
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
 .left-content .left-wrapping .filter-box form input:hover {
-  background-color: var(--mainBlue);
-  color: var(--white);
+  background-color: var(--hoverSecondBtn);
+  border: 0.13rem solid var(--hoverSecondBorderBtn);
+  color: var(--btnTrans);
 }
 
 .left-content .left-wrapping .filter-box form input:active {
-  background-color: var(--tertierBlue);
+  background-color: var(--activeSecondBtn);
+  border: 0.13rem solid var(--activeSecondBorderBtn);
 }
 
 @media screen and (min-width: 600px) {

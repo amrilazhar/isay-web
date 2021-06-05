@@ -18,7 +18,7 @@
 .isay-status-box .user-status .upper-prop .user-image {
   width: 60px;
   height: 60px;
-  background-color: var(--mainGreen);
+  background-color: var(--firstImage);
   border-radius: 30px;
   margin: 0 1rem 1rem 0;
   position: relative;
@@ -57,8 +57,8 @@
   margin: 0 0.5rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--white);
-  background-color: var(--mainPurple);
+  color: var(--btnTrans);
+  background-color: var(--mainHeroBtn);
   border-radius: 0.8rem;
   border: none;
 }
@@ -85,7 +85,7 @@
 .isay-status-box .user-status .lower-prop .image-post .image-cont {
   width: 220px;
   height: 220px;
-  background-color: var(--white);
+  background-color: var(--btnTrans);
   border-radius: 0.5rem;
   margin: 0.5rem;
   position: relative;
@@ -128,7 +128,7 @@
   left: -9999px;
   right: -9999px;
   margin: auto;
-  max-width: 100%;
+  max-height: 100%;
 }
 
 .isay-status-box .user-status .lower-prop p {
@@ -139,7 +139,8 @@
 
 .isay-status-box .do-at-status {
   padding: 0.2rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderUnique);
+  background: var(--backgroundUnique);
   border-radius: 0.5rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
@@ -193,7 +194,7 @@
   font-size: 0.9rem;
   background-color: transparent;
   border: none;
-  color: var(--mainPurple);
+  color: var(--mainHeroBtn);
   font-weight: bold;
 }
 
@@ -203,16 +204,16 @@
   height: 3rem;
   resize: none;
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderUnique);
   border-radius: 0.5rem;
   box-sizing: border-box;
-  background: transparent;
+  background: var(--transFormUnique);
   color: var(--text);
   overflow: hidden;
 }
 
 .isay-status-box .do-at-status .comment-expand form textarea:focus {
-  border: 2px solid var(--mainPurple);
+  border: 2px solid var(--mainHeroBorderBtn);
   outline: none;
 }
 
@@ -227,11 +228,11 @@
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more {
   padding: 0.5rem 1rem;
-  border: 0.15rem solid var(--mainPurple);
+  border: 0.15rem solid var(--mainHeroInvBorderBtn);
   max-width: 150px;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
-  color: var(--text);
+  color: var(--mainHeroInvBorderBtn);
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -247,12 +248,14 @@
 }
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more:hover {
-  background-color: var(--secondPurple);
-  color: var(--white);
+  background-color: var(--hoverHeroBtn);
+  color: var(--btnTrans);
+  border: 0.15rem solid var(--hoverHeroBorderBtn);
 }
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more:active {
-  background-color: var(--tertierPurple);
+  background-color: var(--activeHeroBtn);
+  border: 0.15rem solid var(--activeHeroBorderBtn);
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box {
@@ -263,12 +266,14 @@
 .isay-status-box .do-at-status .comment-expand .comment-box .comment-detail {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box .comment-detail h2 {
   margin: 0 0 0.25rem 0;
   font-weight: 600;
   font-size: 1rem;
+  display: contents;
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box .comment-detail p {

@@ -8,8 +8,8 @@
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  background: var(--background);
-  border: 2px solid var(--border);
+  background: var(--forTransDiv);
+  border: 2px solid var(--borderBig);
   box-sizing: border-box;
   border-radius: 0.5rem;
 }
@@ -32,7 +32,7 @@
 }
 
 .topic-container .topic-wrapper ul li {
-  color: var(--mainBlue);
+  color: var(--mainSecondBtn);
   line-height: 2rem;
   font-size: 0.8rem;
 }
@@ -43,8 +43,8 @@
 
 .topic-container .topic-wrapper .left-notif-btn Button {
   margin-top: 10px;
-  color: var(--mainBlue);
-  border: 0.13rem solid var(--mainBlue);
+  color: var(--mainSecondBtn);
+  border: 0.13rem solid var(--mainSecondBtn);
   font-weight: 600;
   border-radius: 0.5rem;
   font-size: 0.7rem;
@@ -56,10 +56,3 @@
     max-width: 100%;
   }
 }
-
-/* @media screen and (min-width: 750px) {
-  .topic-container {
-    width: 250px;
-    max-width: 250px;
-  }
-} */

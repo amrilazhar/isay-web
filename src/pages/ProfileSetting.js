@@ -217,14 +217,9 @@ const ProfileSetting = () => {
     localStorage.setItem ('theme', themeName)
   }
 
-  const toggleTheme = () => {
-    if(localStorage.getItem('theme') === 'dark'){
-      setTheme('light');
-      window.location.reload();
-    } else {
-      setTheme('dark');
-      window.location.reload();
-    }
+  const switchTheme = (e) => {
+    setTheme(e?.target?.defaultValue)
+    window.location.reload()
   }
 
   const alert = useSelector ((state) => state.alert)
@@ -265,7 +260,18 @@ const ProfileSetting = () => {
             {modalEmailReset()}
             {modalAvatarReset()}
             <div className="reset-btn-wrapper">
-              <button onClick={toggleTheme} className="reset">Switch Theme</button>            
+              <label>
+                <input type="radio" name="mytheme" defaultValue="light" onChange={switchTheme}/>Light
+              </label>
+              <label>
+                <input type="radio" name="mytheme" defaultValue="orange" onChange={switchTheme}/>Orange
+              </label>
+              <label>
+                <input type="radio" name="mytheme" defaultValue="dark" onChange={switchTheme}/>Dark
+              </label>
+              <label>
+                <input type="radio" name="mytheme" defaultValue="coffee" onChange={switchTheme}/>Coffee
+              </label>
             </div>
           </div>
         </div>

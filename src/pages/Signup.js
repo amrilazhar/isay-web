@@ -32,7 +32,7 @@ function Signup() {
       e.preventDefault();
 
       if (email && password && confirmPassword) {
-        const { from } = location.state || { from: { pathname: "/signupquest/1" } };
+        const { from } = location.state || { from: { pathname: "/verify" } };
         dispatch(userActions.register(email, password, confirmPassword, from));
       } else {
         dispatch(alertActions.error("Email and password not accepted"));

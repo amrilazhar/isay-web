@@ -25,6 +25,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faComments as fasFaComments, faComment as fasFaComment, faThumbsUp as fasFaThumbsUp, faMapMarkerAlt as fasFaMapMarkerAlt, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
 import { faComments as farFaComments, faComment as farFaComment, faThumbsUp as farFaThumbsUp } from '@fortawesome/free-regular-svg-icons'
 import CheckPage from './pages/CheckPage';
+import EmailReminder from './pages/EmailReminder';
 
 function App() {
 
@@ -39,8 +40,12 @@ function App() {
   (function() {
     if(localStorage.getItem('theme') === 'dark') {
       setTheme('dark');
+    } else if(localStorage.getItem('theme') === 'orange') {
+      setTheme('orange');
+    } else if(localStorage.getItem('theme') === 'coffee') {
+      setTheme('coffee');
     } else {
-      setTheme('light');
+      setTheme('light')
     }
   })();
 
@@ -59,6 +64,7 @@ function App() {
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
               <PrivateRoute path="/check"component={CheckPage} />
+              <PrivateRoute path="/verify"component={EmailReminder} />
               <PrivateRoute path="/signupquest/:id"component={SignupQuest} />
               <PrivateRoute path="/avatar" component={GetAvatar} />
               <PrivateRouteInterest path="/notification" component={Notification} />

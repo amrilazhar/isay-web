@@ -1,10 +1,10 @@
 .navbar-container {
   background: linear-gradient(
     97.94deg,
-    #8a62fb -13.16%,
-    #4781f8 52.91%,
-    #009e74 103.6%,
-    #a7f3ce 123.54%
+    var(--navGradFirst) -13.16%,
+    var(--navGradSecond) 52.91%,
+    var(--navGradThird) 103.6%,
+    var(--navGradFourth) 123.54%
   );
 }
 
@@ -33,7 +33,7 @@
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   margin-left: 2rem;
-  background-color: var(--white);
+  background-color: var(--transForm);
   color: var(--text);
 }
 .navbar-wrapper .nav-logo {
@@ -48,11 +48,11 @@
 .navbar-wrapper a .profile-icon {
   width: 50px;
   height: 50px;
-  background-color: rgba(138, 98, 251, 1);
+  background-color: var(--avarBg);
   border-radius: 25px;
   position: relative;
   overflow: hidden;
-  border: 0.15rem solid var(--white);
+  border: 0.15rem solid var(--avaBorder);
 }
 
 .navbar-wrapper a .profile-icon-load {
@@ -98,7 +98,7 @@
 
 .navbar-wrapper .nav-menu .nav-item .nav-links {
   text-decoration: none;
-  color: var(--white);
+  color: var(--textNav);
   cursor: pointer;
 }
 
@@ -124,14 +124,14 @@
 }
 
 .navbar-wrapper .nav-menu .nav-item:hover:after {
-  background: var(--white);
+  background: var(--textNav);
   width: 100%;
   border-radius: 2rem;
   margin: auto;
 }
 
 .navbar-wrapper .nav-menu .nav-item.active {
-  color: #8a62fb;
+  color: var(--colorInde);
 }
 
 .navbar-wrapper .nav-icon {
@@ -174,10 +174,10 @@
     transition: all 0.5s ease;
     background: linear-gradient(
       97.94deg,
-      #8a62fb -13.16%,
-      #4781f8 52.91%,
-      #009e74 103.6%,
-      #a7f3ce 123.54%
+      var(--navGradFirst) -13.16%,
+      var(--navGradSecond) 52.91%,
+      var(--navGradThird) 103.6%,
+      var(--navGradFourth) 123.54%
     );
   }
 
@@ -188,10 +188,10 @@
     z-index: 1;
     background: linear-gradient(
       97.94deg,
-      #8a62fb -13.16%,
-      #4781f8 52.91%,
-      #009e74 103.6%,
-      #a7f3ce 123.54%
+      var(--navGradFirst) -13.16%,
+      var(--navGradSecond) 52.91%,
+      var(--navGradThird) 103.6%,
+      var(--navGradFourth) 123.54%
     );
   }
 
@@ -206,8 +206,7 @@
   .navbar-wrapper .nav-icon {
     display: block;
     cursor: pointer;
-    align-items: center;
-    color: var(--white);
+    color: var(--navHam);
     margin-left: 2rem;
   }
 }
@@ -252,4 +251,28 @@
   100% {
     background-position: 300px center;
   }
+}
+
+.navbar-wrapper .nav-logo svg .path05,
+.navbar-wrapper .nav-logo svg .path06,
+.navbar-wrapper .nav-logo svg .path07,
+.navbar-wrapper .nav-logo svg .path08,
+.navbar-wrapper .nav-logo svg .path09 {
+  fill: var(--fillMain);
+}
+
+.navbar-wrapper .nav-logo svg .stop01 {
+  stop-color: var(--stopColorFirst);
+}
+
+.navbar-wrapper .nav-logo svg .stop02 {
+  stop-color: var(--stopColorSecond);
+}
+
+.navbar-wrapper .nav-logo svg .stop03 {
+  stop-color: var(--stopColorThird);
+}
+
+.navbar-wrapper .nav-logo svg .stop04 {
+  stop-color: var(--stopColorFourth);
 }

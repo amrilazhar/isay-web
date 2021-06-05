@@ -12,9 +12,6 @@ const InputInterest = ({...props}) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const inputInterestUpdate = useSelector((state) => state.inputInterestData);
-    // console.log("ini",inputInterestUpdate)
-    console.log("ini", inputInterestUpdate);
-    console.log("createFirstProfile", createFirstProfile);
 
     useEffect(() => {
         dispatch(inputInterestData.getInputInterest())
@@ -24,15 +21,8 @@ const InputInterest = ({...props}) => {
         const index = createFirstProfile[event.target.name].indexOf(
             event.target.value
           );
-          console.log('event', event)
       
           if (event.target.checked && index === -1) {
-            // console.log("eventInter", event.target.value);
-            // console.log(
-            //   "inputInterestUpdate.interest.data",
-            //   inputInterestUpdate.interest.data
-            // );
-      
             return setCreateFirstProfile({
               ...createFirstProfile,
               [event.target.name]: [
@@ -46,12 +36,6 @@ const InputInterest = ({...props}) => {
             const newInterest = [...createFirstProfile.interest];
       
             newInterest.splice(index, 1);
-      
-            // console.log("eventInter", event);
-            // console.log(
-            //   "inputInterestUpdate.interest.data",
-            //   inputInterestUpdate.interest.data
-            // );
       
             return setCreateFirstProfile({
               ...createFirstProfile,
@@ -67,8 +51,6 @@ const InputInterest = ({...props}) => {
             return ( 
                 <>
                     {inputInterestUpdate.interest.data.map((input, interest) => {
-                        // console.log('interest', interest)
-                        // console.log('find', createFirstProfile.interest.some(value => value === '6092b557e957671c70e24279'))
                         return (
                             <div>
                                 <FormControlLabel 

@@ -63,7 +63,7 @@
   width: 120px;
   height: 120px;
   border-radius: 60px;
-  background-color: var(--mainGreen);
+  background-color: var(--firstImage);
   position: relative;
   overflow: hidden;
 }
@@ -111,9 +111,9 @@
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content a button {
-  color: var(--mainBlue);
-  border: 0.15rem solid var(--mainBlue);
-  background-color: var(--white);
+  color: var(--mainSecondInvBorderBtn);
+  border: 0.15rem solid var(--mainSecondInvBorderBtn);
+  background-color: var(--btnTrans);
   border-radius: 0.75rem;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -124,8 +124,9 @@
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content a button:hover {
-  background-color: var(--secondBlue);
-  color: var(--white);
+  background-color: var(--hoverSecondBtn);
+  border: 0.15rem solid var(--hoverSecondBorderBtn);
+  color: var(--textOnBlockProfile);
 }
 
 .profile-wrapping
@@ -133,13 +134,13 @@
   .profile-left-content
   a
   button:active {
-  background-color: var(--tertierBlue);
-  color: var(--buttonClick);
+  background-color: var(--activeSecondBtn);
+  border: 0.15rem solid var(--activeSecondBorderBtn);
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content a {
   text-decoration: none;
-  color: var(--mainBlue);
+  color: var(--mainSecondBtn);
   transition: 0.3s ease;
 }
 
@@ -147,9 +148,9 @@
   .profile-bottom-content
   .profile-left-content
   button:nth-child(3) {
-  color: var(--mainBlue);
+  color: var(--mainSecondBtn);
   border: none;
-  background-color: var(--white);
+  background-color: var(--btnTrans);
   border-radius: 0.75rem;
   padding: 0 1rem;
   box-sizing: border-box;
@@ -162,7 +163,7 @@
   .profile-bottom-content
   .profile-left-content
   button:nth-child(3):hover {
-  color: var(--mainRed);
+  color: var(--mainWarnBtn);
 }
 
 /* End of Left Content */
@@ -215,7 +216,7 @@
   .switch-page-btn
   .menu-item:hover
   a {
-  color: var(--mainBlue);
+  color: var(--mainSecondBtn);
 }
 
 .profile-wrapping
@@ -227,7 +228,7 @@
   width: 100%;
   height: 4px;
   border-radius: 5px;
-  background-color: var(--mainBlue);
+  background-color: var(--mainSecondBtn);
   opacity: 0;
   transition: all 200ms ease;
 }

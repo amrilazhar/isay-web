@@ -1,5 +1,5 @@
 .signup-container {
-  color: var(--text);
+  color: #4f4f4f;
   height: 100vh;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .signup-container .signup-wrapper .left-content-signup h2 {
-  color: var(--white);
+  color: #ffffff;
   font-size: 1.5rem;
   line-height: 1.5rem;
   margin-bottom: 3rem;
@@ -67,13 +67,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--white);
+  background-color: #ffffff;
   padding: 1rem 3rem;
   box-sizing: border-box;
   border-radius: 0.5rem;
   text-align: center;
   align-items: center;
-  box-shadow: 0px 70px 100px var(--shadowBox);
+  box-shadow: 0px 70px 100px #b8b8b829;
 }
 
 .signup-container .signup-wrapper .right-content-signup .login-wrapper h2 {
@@ -104,9 +104,9 @@
   padding: 0.75rem 1rem;
   margin: 1rem 0;
   width: 100%;
-  border: 1px solid var(--border);
+  border: 1px solid #b7b7b7;
   box-sizing: border-box;
-  box-shadow: 0px 5px 20px var(--shadowBox);
+  box-shadow: 0px 5px 20px #b8b8b829;
 }
 
 .signup-container
@@ -115,7 +115,7 @@
   .login-wrapper
   form
   input:focus {
-  border: 1px solid var(--mainBlue);
+  border: 1px solid #4781f8;
   outline: none;
 }
 
@@ -128,8 +128,8 @@
   font-weight: bold;
   padding: 0.75rem 0;
   box-sizing: border-box;
-  background-color: var(--mainBlue);
-  color: var(--white);
+  background-color: #4781f8;
+  color: #ffffff;
   cursor: pointer;
 }
 
@@ -139,7 +139,7 @@
   .login-wrapper
   form
   input:last-child:hover {
-  background-color: var(--secondBlue);
+  background-color: #3664c0;
 }
 
 .signup-container
@@ -148,8 +148,8 @@
   .login-wrapper
   form
   input:last-child:active {
-  background-color: var(--tertierBlue);
-  color: var(--white);
+  background-color: #264b96;
+  color: #ffffff;
 }
 
 .signup-container .signup-wrapper .right-content-signup .login-wrapper button {
@@ -161,9 +161,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--white);
+  background-color: #ffffff;
   border-radius: 0.5rem;
-  border: 0.1rem solid var(--border);
+  border: 0.1rem solid #b7b7b7;
 }
 
 .signup-container
@@ -183,7 +183,7 @@
 .signup-container .signup-wrapper .right-content-signup .login-wrapper p a {
   font-size: 0.8rem;
   text-decoration: none;
-  color: var(--mainBlue);
+  color: #4781f8;
   font-weight: bold;
 }
 
@@ -193,7 +193,7 @@
   .login-wrapper
   p
   a:hover {
-  color: var(--secondBlue);
+  color: #3664c0;
 }
 
 .signup-container
@@ -202,7 +202,7 @@
   .login-wrapper
   p
   a:active {
-  color: var(--tertierBlue);
+  color: #264b96;
 }
 
 @media screen and (min-width: 540px) {

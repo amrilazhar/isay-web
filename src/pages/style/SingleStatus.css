@@ -15,8 +15,8 @@
   padding: 1rem;
   box-sizing: border-box;
   border-radius: 0.5rem;
-  background-color: var(--mainBlue);
-  color: var(--white);
+  background-color: var(--mainSecondBtn);
+  color: var(--textColor);
   margin-bottom: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -27,7 +27,7 @@
 .single-wrapper .top-container .user-image {
   width: 60px;
   height: 60px;
-  background-color: var(--mainGreen);
+  background-color: var(--mainGreenBtn);
   border-radius: 30px;
   margin: 0 1rem 1rem 0;
   position: relative;
@@ -70,8 +70,8 @@
   padding: 0.6rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--white);
-  background-color: var(--mainPurple);
+  color: var(--text);
+  background-color: var(--mainHeroBtn);
   border-radius: 0.8rem;
   border: none;
 }
@@ -91,8 +91,8 @@
   font-size: 0.9rem;
   padding: 1rem;
   box-sizing: border-box;
-  background-color: var(--mainBlue);
-  color: white;
+  background-color: var(--mainSecondBtn);
+  color: var(--text);
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
@@ -122,7 +122,7 @@
 .single-wrapper .bottom-container .left-bottom-container .media .post-image {
   width: 200px;
   height: 200px;
-  background-color: purple;
+  background-color: var(--mainHeroBtn);
   border-radius: 10px;
   margin: 0 0.5rem 1rem;
   position: relative;
