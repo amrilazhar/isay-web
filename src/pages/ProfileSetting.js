@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import FlashMessage from '../components/FlashMessage'
 import Footer from '../components/Footer'
@@ -6,7 +6,21 @@ import Navbar from '../components/Navbar'
 import { authHeader } from '../helpers'
 import { userActions, listAvatar, alertActions } from '../redux/actions'
 import './style/ProfileSetting.css'
+
+// ===================================
+// CROPPER
 import Cropper from 'react-easy-crop'
+import Slider from '@material-ui/core/Slider'
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
+import { getOrientation } from 'get-orientation/browser'
+import ImgDialog from '../helpers/cropper/cropper.dialog'
+import { getCroppedImg, getRotatedImage } from '../helpers/cropper/cropImages'
+import { styles } from '../helpers/cropper/cropper-style'
+
+
+// ===================================
 
 const ProfileSetting = () => {
 
@@ -226,46 +240,15 @@ const ProfileSetting = () => {
   const alert = useSelector ((state) => state.alert)
 
   const [bioNew, setBioNew] = useState("")
-  const [header, setHeader] = useState("")
+  const [header, setHeader] = useState(null)
 
-
-  const [crop, setCrop] = useState({ x: 0, y: 0 })
-  const [rotation, setRotation] = useState(0)
-  const [zoom, setZoom] = useState(1)
-  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
-  const [croppedImage, setCroppedImage] = useState(null)
-
-  // const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
-  //   setCroppedAreaPixels(croppedAreaPixels)
-  // }, [])
-
-
-  // const showCroppedImage = useCallback(async () => {
-  //   try {
-  //     const croppedImage = await getCroppedImg(
-  //       header,
-  //       croppedAreaPixels,
-  //       rotation
-  //     )
-  //     console.log('donee', { croppedImage })
-  //     setCroppedImage(croppedImage)
-  //   } catch (e) {
-  //     console.error(e)
-  //   }
-  // }, [croppedAreaPixels, rotation])
-
-  // const onClose = useCallback(() => {
-  //   setCroppedImage(null)
-  // }, [])
-
-
-
+  const [sudahPotong, setSudahPotong] = useState(null)
 
   const changeBio = (e) => {
     setBioNew(e?.target?.value)
   }
 
-  const changeHeader = (e) => {
+  const changeHeader = async (e) => {
     e.preventDefault()
     if (
       (e?.target?.files[0]?.type == "image/jpeg" ||
@@ -273,7 +256,17 @@ const ProfileSetting = () => {
         e?.target?.files[0]?.type == "image/png") &&
       e?.target?.files[0]?.size / (1024 * 1024) < 2
     ){
-      setHeader([e?.target?.files[0]])
+      const file = e.target.files[0]
+      let imageDataUrl = await readFile(file)
+
+      // apply rotation if needed
+      const orientation = await getOrientation(file)
+      const rotation = ORIENTATION_TO_ANGLE[orientation]
+      if (rotation) {
+        imageDataUrl = await getRotatedImage(imageDataUrl, rotation)
+      }
+
+      setHeader(imageDataUrl)
     } else {
       dispatch(alertActions.error("file exciding maximum size"))
     }
@@ -325,7 +318,131 @@ const ProfileSetting = () => {
     }
   }
 
-  console.log("masuk ga", header)
+
+// ==========================================
+const ORIENTATION_TO_ANGLE = {
+  '3': 180,
+  '6': 90,
+  '8': -90,
+}
+
+const Demo = ({ classes }) => {
+  const [imageSrc, setImageSrc] = React.useState(null)
+  const [crop, setCrop] = useState({ x: 0, y: 0 })
+  const [rotation, setRotation] = useState(0)
+  const [zoom, setZoom] = useState(1)
+  const [croppedAreaPixels, setCroppedAreaPixels] = useState(null)
+  const [croppedImage, setCroppedImage] = useState(null)
+
+  const onCropComplete = useCallback((croppedArea, croppedAreaPixels) => {
+    setCroppedAreaPixels(croppedAreaPixels)
+  }, [])
+
+  const showCroppedImage = useCallback(async () => {
+    try {
+      const croppedImage = await getCroppedImg(
+        header,
+        croppedAreaPixels,
+        rotation
+      )
+      console.log('donee', { croppedImage })
+      setCroppedImage(croppedImage)
+    } catch (e) {
+      console.error(e)
+    }
+  }, [header, croppedAreaPixels, rotation])
+
+  const onClose = useCallback(() => {
+    setCroppedImage(null)
+  }, [])
+
+  return (
+    <div>
+      {header ? (
+        <React.Fragment>
+          <div className={classes.cropContainer}>
+            <Cropper
+              image={header}
+              crop={crop}
+              rotation={rotation}
+              zoom={zoom}
+              aspect={4 / 1}
+              onCropChange={setCrop}
+              onRotationChange={setRotation}
+              onCropComplete={onCropComplete}
+              onZoomChange={setZoom}
+            />
+          </div>
+          <div className={classes.controls}>
+            <div className={classes.sliderContainer}>
+              <Typography
+                variant="overline"
+                classes={{ root: classes.sliderLabel }}
+              >
+                Zoom
+              </Typography>
+              <Slider
+                value={zoom}
+                min={1}
+                max={3}
+                step={0.1}
+                aria-labelledby="Zoom"
+                classes={{ root: classes.slider }}
+                onChange={(e, zoom) => setZoom(zoom)}
+              />
+            </div>
+            <div className={classes.sliderContainer}>
+              <Typography
+                variant="overline"
+                classes={{ root: classes.sliderLabel }}
+              >
+                Rotation
+              </Typography>
+              <Slider
+                value={rotation}
+                min={0}
+                max={360}
+                step={1}
+                aria-labelledby="Rotation"
+                classes={{ root: classes.slider }}
+                onChange={(e, rotation) => setRotation(rotation)}
+              />
+            </div>
+            <Button
+              onClick={showCroppedImage}
+              variant="contained"
+              color="primary"
+              classes={{ root: classes.cropButton }}
+            >
+              Show Result
+            </Button>
+          </div>
+          <ImgDialog img={croppedImage} onClose={onClose} />
+        </React.Fragment>
+      ) : (
+        <></>
+      )}
+    </div>
+  )
+}
+
+function readFile(file) {
+  return new Promise((resolve) => {
+    const reader = new FileReader()
+    reader.addEventListener('load', () => resolve(reader.result), false)
+    reader.readAsDataURL(file)
+  })
+}
+
+const StyledDemo = withStyles(styles)(Demo)
+
+
+
+// ==========================================
+
+
+
+
 
   return (
     <>
@@ -357,7 +474,7 @@ const ProfileSetting = () => {
                 onChange={changeBio}
               />
               <p>Background Images :</p>
-              <div>
+              <div className="button-for-upload-header">
                 <input
                   type="file"
                   name="backgroundImages"
@@ -397,6 +514,7 @@ const ProfileSetting = () => {
         </div>
       </div>
     </div>
+    <StyledDemo/>
     <Footer/>
     </>
   )
