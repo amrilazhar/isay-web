@@ -19,11 +19,19 @@
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  background-color: var(--mainPurple);
+  background-color: var(--mainHeroBtn);
   border-radius: 0.4rem;
-  color: var(--white);
+  color: var(--text);
   font-size: 0.8rem;
   cursor: pointer;
+}
+
+.feed-wrapping .right-content .right-wrapping .new-feed-container:hover {
+  background-color: var(--hoverHeroBtn);
+}
+
+.feed-wrapping .right-content .right-wrapping .new-feed-container:active {
+  background-color: var(--activeHeroBtn);
 }
 
 .feed-wrapping .right-content .right-wrapping .new-feed {
@@ -33,16 +41,16 @@
 
 .feed-wrapping .right-content .right-wrapping .realtime-feed {
   padding: 1rem;
-  border: 2px solid var(--border);
+  border: 2px solid var(--borderBig);
   border-radius: 0.5rem;
   box-sizing: border-box;
+  background-color: var(--forTransDiv);
 }
 
 .feed-wrapping .right-content .right-wrapping .realtime-feed .pagination {
   display: flex;
   justify-content: space-evenly;
   box-sizing: border-box;
-  background: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
 }

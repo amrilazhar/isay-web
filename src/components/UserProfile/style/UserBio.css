@@ -32,8 +32,8 @@
   border: none;
   border-radius: 0.5rem;
   margin: 0.2rem;
-  color: var(--white);
-  background-color: var(--mainPurple);
+  color: var(--btnTrans);
+  background-color: var(--mainHeroBtn);
   cursor: auto;
 }
 

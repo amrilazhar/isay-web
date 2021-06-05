@@ -18,7 +18,7 @@
 .isay-status-box .user-status .upper-prop .user-image {
   width: 60px;
   height: 60px;
-  background-color: var(--mainGreen);
+  background-color: var(--firstImage);
   border-radius: 30px;
   margin: 0 1rem 1rem 0;
   position: relative;
@@ -57,8 +57,8 @@
   margin: 0 0.5rem 1rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--white);
-  background-color: var(--mainPurple);
+  color: var(--btnTrans);
+  background-color: var(--mainHeroBtn);
   border-radius: 0.8rem;
   border: none;
 }
@@ -85,7 +85,7 @@
 .isay-status-box .user-status .lower-prop .image-post .image-cont {
   width: 220px;
   height: 220px;
-  background-color: var(--white);
+  background-color: var(--btnTrans);
   border-radius: 0.5rem;
   margin: 0.5rem;
   position: relative;
@@ -193,7 +193,7 @@
   font-size: 0.9rem;
   background-color: transparent;
   border: none;
-  color: var(--mainPurple);
+  color: var(--mainHeroBtn);
   font-weight: bold;
 }
 
@@ -206,13 +206,13 @@
   border: 2px solid var(--border);
   border-radius: 0.5rem;
   box-sizing: border-box;
-  background: transparent;
+  background: var(--transForm);
   color: var(--text);
   overflow: hidden;
 }
 
 .isay-status-box .do-at-status .comment-expand form textarea:focus {
-  border: 2px solid var(--mainPurple);
+  border: 2px solid var(--mainHeroBtn);
   outline: none;
 }
 
@@ -227,7 +227,7 @@
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more {
   padding: 0.5rem 1rem;
-  border: 0.15rem solid var(--mainPurple);
+  border: 0.15rem solid var(--mainHeroBtn);
   max-width: 150px;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
@@ -247,12 +247,12 @@
 }
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more:hover {
-  background-color: var(--secondPurple);
-  color: var(--white);
+  background-color: var(--hoverHeroBtn);
+  color: var(--btnTrans);
 }
 
 .isay-status-box .do-at-status .comment-expand .display-comment-more:active {
-  background-color: var(--tertierPurple);
+  background-color: var(--activeHeroBtn);
 }
 
 .isay-status-box .do-at-status .comment-expand .comment-box {

@@ -48,7 +48,7 @@
 
 .email-verif-container .email-verif-wrapper .notif-verif-email :nth-child(6) {
   border: none;
-  background-color: var(--white);
+  background-color: #ffffff;
   border-radius: 1rem;
   padding: 0.5rem 0.75rem;
 }

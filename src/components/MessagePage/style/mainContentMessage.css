@@ -1,6 +1,7 @@
 .content-message-page {
   flex-grow: 1;
   max-width: 582.28px;
+  color: var(--text);
 }
 
 .main-message-container {
@@ -16,7 +17,7 @@
 .main-message-container .main-message-wrapper .main-message-head {
   display: flex;
   padding: 0.5rem 1rem;
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid var(--border);
 }
 
 .main-message-container .main-message-wrapper .main-message-head p:first-child {
@@ -37,7 +38,7 @@
 
 .main-message-container .main-message-wrapper .empty-line {
   height: 10rem;
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid var(--border);
   width: 100%;
 }
 
@@ -46,7 +47,7 @@
   .content-message-wrapper
   .each-message-personal-wrapper {
   padding: 1.2rem;
-  border-bottom: 1px solid #c9c9c9;
+  border-bottom: 1px solid var(--border);
 }
 
 .main-message-container
@@ -54,7 +55,7 @@
   .content-message-wrapper
   .each-message-personal-wrapper
   .each-message-personal-container {
-  border: 1px solid #c9c9c9;
+  border: 1px solid var(--border);
   padding: 1.2rem;
   border-radius: 10px;
 }
@@ -79,8 +80,8 @@
   padding: 0.6rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--white);
-  background-color: var(--mainPurple);
+  color: var(--btnTrans);
+  background-color: var(--mainHeroBtn);
   border-radius: 0.8rem;
   border: none;
 }
@@ -112,7 +113,7 @@
   .each-message-public-container
   .each-message-public-head
   .avatar-wrapper {
-  background-color: var(--mainPurple);
+  background-color: var(--secondImage);
   width: 40px;
   height: 40px;
   position: relative;
@@ -193,7 +194,7 @@
   height: 200px;
   position: relative;
   overflow: hidden;
-  background: var(--mainPurple);
+  background: var(--mainHeroBtn);
   border: 0.1rem solid var(--border);
   border-radius: 20px;
 }
@@ -249,7 +250,7 @@
 .main-message-container .main-message-wrapper .textarea-wrapper textarea {
   resize: none;
   width: 85%;
-  border-color: #b7b7b7;
+  border-color: var(--border);
   padding: 1rem;
 }
 
@@ -272,9 +273,9 @@
   .message-btn
   .message-btn-upload
   .img-button {
-  color: #8a62fb;
-  background-color: white;
-  border: 1px solid #8a62fb;
+  color: var(--mainHeroBtn);
+  background-color: var(--btnTrans);
+  border: 1px solid var(--mainHeroBtn);
   border-radius: 3rem;
   padding: 0.5rem 1.5rem;
   font-weight: 600;
@@ -292,8 +293,8 @@
   .message-btn-send
   button {
   padding: 0.4rem 1.1rem;
-  color: white;
-  background-color: #4781f8;
+  color: var(--btnTrans);
+  background-color: var(--mainSecondBtn);
   border-radius: 5px;
   text-align: center;
   font-weight: 500;
@@ -307,8 +308,8 @@
   .btn-load-more
   button {
   padding: 0.5rem 1.5rem;
-  color: white;
-  background-color: #8a62fb;
+  color: var(--btnTrans);
+  background-color: var(--mainHeroBtn);
   border-radius: 5px;
   text-align: center;
   font-weight: 500;
@@ -354,7 +355,7 @@
   .message-btn-upload
   .notif-modal
   .notif-modal-content {
-  background-color: var(--white);
+  background-color: var(--btnTrans);
   margin: 15% auto;
   padding: 20px;
   border: 1px solid var(--border);
@@ -384,7 +385,7 @@
   .notif-modal-content
   .upper
   .close-modal {
-  color: var(--buttonClick);
+  color: var(--mainGreyBtn);
   font-size: 28px;
   font-weight: bold;
   background-color: transparent;
@@ -474,10 +475,10 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: var(--white);
-  border: 0.13rem solid var(--mainPurple);
+  background-color: var(--btnTrans);
+  border: 0.13rem solid var(--mainHeroBtn);
   box-sizing: border-box;
-  color: var(--mainPurple);
+  color: var(--mainHeroBtn);
   transition: 0.3s ease;
 }
 
@@ -489,8 +490,8 @@
   div
   .upload-notif-img
   + label:hover {
-  background-color: var(--mainPurple);
-  color: var(--white);
+  background-color: var(--mainHeroBtn);
+  color: var(--btnTrans);
   outline: none;
 }
 
@@ -508,9 +509,9 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: var(--white);
-  border: 0.13rem solid var(--mainPurple);
+  background-color: var(--btnTrans);
+  border: 0.13rem solid var(--mainHeroBtn);
   box-sizing: border-box;
-  color: var(--mainPurple);
+  color: var(--mainHeroBtn);
   transition: 0.3s ease;
 }
