@@ -315,7 +315,7 @@ const MainContentMessage = () => {
       cb(reader.result);
     };
     reader.onerror = function (error) {
-      console.log("Error: ", error);
+      // console.log("Error: ", error);
     };
   };
 
@@ -523,9 +523,9 @@ const MainContentMessage = () => {
             <p>Offline</p>
             <p>...</p>
           </div>
-          <div className="empty-line"></div>
+          <div className="empty-line" style={{paddingTop:"2rem", display:"inline-flex", justifyContent:"center", fontWeight:600}}>Choose a stranger and start the conversation!</div>
 
-          <form className="textarea-wrapper" method="post">
+          {/* <form className="textarea-wrapper" method="post">
             <textarea
               wrap="soft"
               type="text"
@@ -557,7 +557,7 @@ const MainContentMessage = () => {
                 <Button endIcon={<SendIcon>send</SendIcon>}>Send</Button>
               </div>
             </div>
-          </form>
+          </form> */}
         </div>
       </div>
     );
