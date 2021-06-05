@@ -248,10 +248,12 @@
 }
 
 .main-message-container .main-message-wrapper .textarea-wrapper textarea {
-  resize: none;
-  width: 85%;
+  width: 100%;
   border-color: var(--border);
   padding: 1rem;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
 }
 
 .main-message-container .main-message-wrapper .textarea-wrapper .message-btn {

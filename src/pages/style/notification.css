@@ -8,7 +8,7 @@
   flex-direction: column;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 800px) {
   .notification-container .notification-wrapper {
     flex-direction: row;
     justify-content: center;
@@ -16,12 +16,18 @@
   }
 
   .notification-container .notification-wrapper .right-container {
-    width: 50%;
+    width: 55%;
   }
 }
 
 @media only screen and (min-width: 950px) {
   .notification-container .notification-wrapper {
     padding: 0 2rem;
+  }
+}
+
+@media only screen and (min-width: 800px){
+  .notification-container .notification-wrapper .right-container {
+    width: 60%;
   }
 }
