@@ -443,6 +443,53 @@
   .setting-wrapping
   .setting-right
   .setting-right-wrapper
+  .reset-btn-wrapper
+  [type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-btn-wrapper
+  label {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  background: var(--mainHeroBtn);
+  border-radius: 0.5rem;
+  color: var(--mainHeroText);
+  font-size: 0.8rem;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-btn-wrapper
+  label:hover {
+  background: var(--hoverHeroBtn);
+  color: var(--text);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
+  .reset-btn-wrapper
+  label:active {
+  background: var(--activeHeroBtn);
+}
+
+.setting-container
+  .setting-wrapping
+  .setting-right
+  .setting-right-wrapper
   .reset {
   max-width: 300px;
   border: none;
