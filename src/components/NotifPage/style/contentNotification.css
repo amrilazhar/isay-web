@@ -146,7 +146,7 @@
   .target
   p:last-child {
   font-weight: 600;
-  color: var(--white);
+  color: var(--btnTrans);
   background-color: var(--secondImage);
   border-radius: 0.8rem;
   font-size: small;
