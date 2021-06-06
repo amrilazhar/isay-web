@@ -255,10 +255,10 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: var(--btnTrans);
+  background-color: var(--mainHeroInvBtn);
   border: 0.13rem solid var(--mainHeroInvBorderBtn);
   box-sizing: border-box;
-  color: var(--mainHeroInvBorderBtn);
+  color: var(--mainHeroText);
   transition: 0.3s ease;
 }
 
@@ -393,8 +393,8 @@
   form
   .btn
   input {
-  background-color: transparent;
-  color: var(--mainSecondInvBorderBtn);
+  background-color: var(--mainSecondInvBtn);
+  color: var(--mainSecondText);
   border: 0.15rem solid var(--mainSecondInvBorderBtn);
   font-size: 0.8rem;
   padding: 0.5rem 1rem;
@@ -434,6 +434,7 @@
   .reset-btn-wrapper {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   padding: 2rem 2rem;
   border-top: 0.15rem solid var(--border);
 }
@@ -561,12 +562,12 @@
   .reset-modal-content
   .modal-flexin
   button {
-  color: var(--mainSecondInvBorderBtn);
+  color: var(--mainSecondText);
   width: 50%;
   margin: 1rem auto 0;
   border-radius: 0.5rem;
   border: 0.15rem solid var(--mainSecondInvBorderBtn);
-  background-color: transparent;
+  background-color: var(--mainSecondInvBtn);
   transition: 0.3s ease;
 }
 
@@ -727,7 +728,7 @@
   overflow: hidden;
   background-color: var(--mainSecondBtn);
   border-radius: 10px;
-  border: 0.3rem solid var(--textOnBlockProfile);
+  border: 0.3rem solid var(--btnTrans);
   cursor: pointer;
   transition: 0.3s ease;
 }

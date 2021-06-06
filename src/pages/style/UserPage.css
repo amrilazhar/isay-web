@@ -128,9 +128,9 @@
 }
 
 .profile-wrapping .profile-bottom-content .profile-left-content a button {
-  color: var(--mainSecondInvBorderBtn);
+  color: var(--mainSecondText);
   border: 0.15rem solid var(--mainSecondInvBorderBtn);
-  background-color: var(--btnTrans);
+  background-color: var(--mainSecondInvBtn);
   border-radius: 0.75rem;
   padding: 0 1rem;
   box-sizing: border-box;

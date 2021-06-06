@@ -71,10 +71,10 @@
   margin-top: 1rem;
   padding: 0.4rem 0;
   box-sizing: border-box;
-  background-color: var(--btnTrans);
+  background-color: var(--mainSecondInvBtn);
   border-radius: 0.5rem;
   border: 0.13rem solid var(--mainSecondInvBorderBtn);
-  color: var(--mainSecondInvBorderBtn);
+  color: var(--mainSecondText);
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s ease;

@@ -26,6 +26,11 @@
   /* for button */
   --btnTrans: #ffffff;
 
+  --mainGreyText: #b7b7b7;
+  --mainHeroText: #8a62fb;
+  --mainSecondText: #4781f8;
+  --mainWarnText: #f84747;
+
   --mainGreyBtn: #b7b7b7;
   --mainGreyBorderBtn: #b7b7b7;
   --hoverGreyBtn: #7e7e7e;

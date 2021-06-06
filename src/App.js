@@ -44,6 +44,14 @@ function App() {
       setTheme('orange');
     } else if(localStorage.getItem('theme') === 'coffee') {
       setTheme('coffee');
+    } else if(localStorage.getItem('theme') === 'sweet') {
+      setTheme('sweet');
+    } else if(localStorage.getItem('theme') === 'sky') {
+      setTheme('sky');
+    } else if(localStorage.getItem('theme') === 'autumn') {
+      setTheme('autumn');
+    } else if(localStorage.getItem('theme') === 'latern') {
+      setTheme('latern');
     } else {
       setTheme('light')
     }
