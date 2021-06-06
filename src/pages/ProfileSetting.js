@@ -527,29 +527,37 @@ const ProfileSetting = () => {
               </div>
             </form>
             <div className="reset-btn-wrapper">
-              <label>
-                <input type="radio" name="mytheme" defaultValue="light" onChange={switchTheme}/>Light
+                <input type="radio" name="mytheme" for="light" id="light" defaultValue="light" onChange={switchTheme}/>
+              <label htmlFor="light" id="light">
+                Light
               </label>
-              <label>
-                <input type="radio" name="mytheme" defaultValue="orange" onChange={switchTheme}/>Orange
+                <input type="radio" name="mytheme" for="orange" id="orange" defaultValue="orange" onChange={switchTheme}/>
+              <label htmlFor="orange" id="orange">
+                Orange
               </label>
-              <label>
-                <input type="radio" name="mytheme" defaultValue="dark" onChange={switchTheme}/>Dark
+                <input type="radio" name="mytheme" for="dark" id="dark" defaultValue="dark" onChange={switchTheme}/>
+              <label htmlFor="dark" id="dark">
+                Dark
               </label>
-              <label>
-                <input type="radio" name="mytheme" defaultValue="coffee" onChange={switchTheme}/>Coffee
+                <input type="radio" name="mytheme" for="coffee" id="coffee" defaultValue="coffee" onChange={switchTheme}/>
+              <label htmlFor="coffee" id="coffee">
+                Coffee
               </label>
-              <label>
-                <input type="radio" name="mytheme" defaultValue="sweet" onChange={switchTheme}/>Sweet
+                <input type="radio" name="mytheme" for="sweet" id="sweet" defaultValue="sweet" onChange={switchTheme}/>
+              <label htmlFor="sweet" id="sweet">
+                Sweet
               </label>
-              <label>
-                <input type="radio" name="mytheme" defaultValue="sky" onChange={switchTheme}/>Sky
+                <input type="radio" name="mytheme" for="sky" id="sky" defaultValue="sky" onChange={switchTheme}/>
+              <label htmlFor="sky" id="sky">
+                Sky
               </label>
-              <label>
-                <input type="radio" name="mytheme" defaultValue="autumn" onChange={switchTheme}/>Autumn
+                <input type="radio" name="mytheme" for="autumn" id="autumn" defaultValue="autumn" onChange={switchTheme}/>
+              <label htmlFor="autumn" id="autumn">
+                Autumn
               </label>
-              <label>
-                <input type="radio" name="mytheme" defaultValue="latern" onChange={switchTheme}/>Latern
+                <input type="radio" name="mytheme" for="latern" id="latern" defaultValue="latern" onChange={switchTheme}/>
+              <label htmlFor="latern" id="latern">
+                Latern
               </label>
             </div>
             <div className="reset-btn-wrapper">
