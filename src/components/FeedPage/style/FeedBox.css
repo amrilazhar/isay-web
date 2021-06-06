@@ -230,10 +230,11 @@
 .isay-status-box .do-at-status .comment-expand .display-comment-more {
   padding: 0.5rem 1rem;
   border: 0.15rem solid var(--mainHeroInvBorderBtn);
+  background: var(--mainHeroInvBtn);
   max-width: 150px;
   border-radius: 0.5rem;
   margin-top: 0.5rem;
-  color: var(--mainHeroInvBorderBtn);
+  color: var(--mainHeroText);
   cursor: pointer;
   transition: 0.3s ease;
 }

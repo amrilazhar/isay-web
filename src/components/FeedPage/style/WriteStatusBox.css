@@ -32,7 +32,7 @@
 .status-submit .user-active-profile {
   width: 60px;
   height: 60px;
-  background-color: var(--mainHeroBtn);
+  background-color: var(--firstImage);
   border-radius: 30px;
   margin-bottom: 1rem;
   position: relative;
@@ -95,10 +95,10 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: var(--btnTrans);
+  background-color: var(--mainHeroInvBtn);
   border: 0.13rem solid var(--mainHeroInvBorderBtn);
   box-sizing: border-box;
-  color: var(--mainHeroInvBorderBtn);
+  color: var(--mainHeroText);
   transition: 0.3s ease;
 }
 
@@ -117,10 +117,10 @@
 .status-submit form .status-tools button,
 .status-submit form .status-tools .choose {
   border-radius: 1rem;
-  background-color: var(--btnTrans);
-  border: 0.13rem solid var(--mainHeroBorderBtn);
+  background-color: var(--mainHeroInvBtn);
+  border: 0.13rem solid var(--mainHeroInvBorderBtn);
   box-sizing: border-box;
-  color: var(--mainHeroBorderBtn);
+  color: var(--mainHeroText);
   transition: 0.3s ease;
 }
 
@@ -249,10 +249,10 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 0.5rem;
-  background-color: var(--btnTrans);
+  background-color: var(--mainHeroInvBtn);
   border: 0.13rem solid var(--mainHeroInvBorderBtn);
   box-sizing: border-box;
-  color: var(--mainHeroInvBorderBtn);
+  color: var(--mainHeroText);
   transition: 0.3s ease;
 }
 

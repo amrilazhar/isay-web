@@ -539,6 +539,18 @@ const ProfileSetting = () => {
               <label>
                 <input type="radio" name="mytheme" defaultValue="coffee" onChange={switchTheme}/>Coffee
               </label>
+              <label>
+                <input type="radio" name="mytheme" defaultValue="sweet" onChange={switchTheme}/>Sweet
+              </label>
+              <label>
+                <input type="radio" name="mytheme" defaultValue="sky" onChange={switchTheme}/>Sky
+              </label>
+              <label>
+                <input type="radio" name="mytheme" defaultValue="autumn" onChange={switchTheme}/>Autumn
+              </label>
+              <label>
+                <input type="radio" name="mytheme" defaultValue="latern" onChange={switchTheme}/>Latern
+              </label>
             </div>
             <div className="reset-btn-wrapper">
               <button onClick={showModalEmailReset} className="reset">Reset Password</button>
