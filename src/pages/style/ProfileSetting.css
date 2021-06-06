@@ -459,7 +459,7 @@
   label {
   padding: 0.5rem 1rem;
   margin: 0.5rem;
-  background: var(--mainHeroBtn);
+  background: var(--mainHeroInvBtn);
   border-radius: 0.5rem;
   color: var(--mainHeroText);
   font-size: 0.8rem;
