@@ -9,7 +9,6 @@
 }
 
 .signup-container .signup-wrapper .left-content-signup {
-  background-image: url(https://i.ibb.co/nzvPCvw/left-img-isay-png.png);
   background-size: cover;
   text-align: center;
   display: flex;
@@ -55,7 +54,6 @@
 }
 
 .signup-container .signup-wrapper .right-content-signup {
-  background-image: url(https://i.ibb.co/mG6Vfmt/right-img-isay.png);
   background-size: cover;
   display: flex;
   justify-content: center;

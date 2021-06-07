@@ -1,5 +1,4 @@
 .background-activity {
-  background-image: url("https://i.ibb.co/Lg01Zy2/group-img-isay-png.png");
   background-size: cover;
   min-height: 100vh;
 }
@@ -7,7 +6,6 @@
 .background-activity .activity-wrapper {
   padding: 2rem;
   box-sizing: border-box;
-
 }
 
 .background-activity .activity-wrapper .activity-sub-container {
@@ -19,14 +17,18 @@
   /* color: #4f4f4f; */
 }
 
-.background-activity .activity-wrapper .activity-sub-container .activity-sub-wrapper {
+.background-activity
+  .activity-wrapper
+  .activity-sub-container
+  .activity-sub-wrapper {
   display: flex;
   flex-direction: column;
   line-height: 1.8em;
   padding: 0 1rem;
 }
 
-.background-activity .activity-wrapper
+.background-activity
+  .activity-wrapper
   .activity-sub-container
   .activity-sub-wrapper
   .checklist-activity {
@@ -39,52 +41,62 @@
   font-size: 14px;
 }
 
-.background-activity .activity-wrapper
-.activity-sub-container
-.activity-sub-wrapper
-.information .activity-info-sign-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 800;
-
-  }
-
-  .background-activity .activity-wrapper
+.background-activity
+  .activity-wrapper
   .activity-sub-container
   .activity-sub-wrapper
-  .information .activity-info-sign-content p:first-child{
-    background-color: #4781f8;
-    border: 7px solid #4781f8;
-    border-radius: 100%;
-    text-align: center;
-    color: #ffffff;
-  }
+  .information
+  .activity-info-sign-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+}
 
-  .background-activity .activity-wrapper
+.background-activity
+  .activity-wrapper
   .activity-sub-container
   .activity-sub-wrapper
-  .information .activity-info-sign-content p:last-child{
+  .information
+  .activity-info-sign-content
+  p:first-child {
+  background-color: #4781f8;
+  border: 7px solid #4781f8;
+  border-radius: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.background-activity
+  .activity-wrapper
+  .activity-sub-container
+  .activity-sub-wrapper
+  .information
+  .activity-info-sign-content
+  p:last-child {
   font-size: 12px;
   padding-left: 0.5rem;
-  }
+}
 
-  .background-activity .activity-wrapper
+.background-activity
+  .activity-wrapper
   .activity-sub-container
   .activity-sub-wrapper
   .information
-  .btn-activity-next-back{
-    display: flex;
-    flex-direction: column ;
-    justify-content: center;
-    padding: 0 1rem 1.5rem;
-  }
+  .btn-activity-next-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem 1.5rem;
+}
 
-.background-activity .activity-wrapper
+.background-activity
+  .activity-wrapper
   .activity-sub-container
   .activity-sub-wrapper
   .information
-  .btn-activity-next-back button{
+  .btn-activity-next-back
+  button {
   background-color: #4681f7ff;
   border-radius: 3px;
   font-size: 1rem;
@@ -95,11 +107,13 @@
   margin-top: 0.5rem;
 }
 
-.background-activity .activity-wrapper
+.background-activity
+  .activity-wrapper
   .activity-sub-container
   .activity-sub-wrapper
   .information
-  .btn-activity-next-back button:hover {
+  .btn-activity-next-back
+  button:hover {
   background-color: rgb(67, 116, 216);
 }
 
@@ -108,64 +122,79 @@
 }
 
 /* media query start here */
-@media only screen and (min-width: 700px){
+@media only screen and (min-width: 700px) {
   .background-activity .activity-wrapper {
     padding: 4rem;
   }
 
-  .background-activity .activity-wrapper .activity-sub-container .activity-sub-wrapper {
+  .background-activity
+    .activity-wrapper
+    .activity-sub-container
+    .activity-sub-wrapper {
     padding: 2rem;
   }
 
-  .background-activity .activity-wrapper .activity-sub-container .activity-sub-wrapper .information {
+  .background-activity
+    .activity-wrapper
+    .activity-sub-container
+    .activity-sub-wrapper
+    .information {
     display: flex;
     align-items: baseline;
   }
 
-  .background-activity .activity-wrapper
-  .activity-sub-container
-  .activity-sub-wrapper
-  .information
-  .btn-activity-next-back{
+  .background-activity
+    .activity-wrapper
+    .activity-sub-container
+    .activity-sub-wrapper
+    .information
+    .btn-activity-next-back {
     flex-direction: row-reverse;
     margin-left: auto;
     column-gap: 5px;
   }
 
-  .background-activity .activity-wrapper
-  .activity-sub-container
-  .activity-sub-wrapper
-  .information
-  .btn-activity-next-back button{
+  .background-activity
+    .activity-wrapper
+    .activity-sub-container
+    .activity-sub-wrapper
+    .information
+    .btn-activity-next-back
+    button {
     padding: 0.5rem 3rem;
   }
 
-  .background-activity .activity-wrapper
-  .activity-sub-container
-  .activity-sub-wrapper
-  .checklist-activity {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  overflow:hidden;
-  justify-content: space-around;
-  height: auto;
-  border:none;
+  .background-activity
+    .activity-wrapper
+    .activity-sub-container
+    .activity-sub-wrapper
+    .checklist-activity {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    overflow: hidden;
+    justify-content: space-around;
+    height: auto;
+    border: none;
   }
 }
 
-@media only screen and (min-width: 800px){
+@media only screen and (min-width: 800px) {
   .background-activity .activity-wrapper {
     padding: 6rem;
   }
 
-  .background-activity .activity-wrapper .activity-sub-container .activity-sub-wrapper {
+  .background-activity
+    .activity-wrapper
+    .activity-sub-container
+    .activity-sub-wrapper {
     padding: 3rem;
   }
 
-  .background-activity .activity-wrapper
-  .activity-sub-container
-  .activity-sub-wrapper
-  .checklist-activity {
-  grid-template-columns: auto auto auto auto;
+  .background-activity
+    .activity-wrapper
+    .activity-sub-container
+    .activity-sub-wrapper
+    .checklist-activity {
+    grid-template-columns: auto auto auto auto;
   }
 }
