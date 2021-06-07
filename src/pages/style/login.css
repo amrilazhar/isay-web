@@ -9,7 +9,6 @@
 }
 
 .login-container .login-wrapper .left-content-login {
-  background-image: url(https://i.ibb.co/nzvPCvw/left-img-isay-png.png);
   background-size: cover;
   text-align: center;
   display: flex;
@@ -55,7 +54,6 @@
 }
 
 .login-container .login-wrapper .right-content-login {
-  background-image: url(https://i.ibb.co/mG6Vfmt/right-img-isay.png);
   background-size: cover;
   display: flex;
   justify-content: center;

@@ -1,5 +1,4 @@
 .background-interest {
-  background-image: url("https://i.ibb.co/Lg01Zy2/group-img-isay-png.png");
   background-size: cover;
   min-height: 100vh;
 }
@@ -7,7 +6,6 @@
 .background-interest .interest-wrapper {
   padding: 2rem;
   box-sizing: border-box;
-
 }
 
 .background-interest .interest-wrapper .interest-sub-container {
@@ -19,14 +17,18 @@
   /* color: #4f4f4f; */
 }
 
-.background-interest .interest-wrapper .interest-sub-container .interest-sub-wrapper {
+.background-interest
+  .interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper {
   display: flex;
   flex-direction: column;
   line-height: 1.8em;
   padding: 0 1rem;
 }
 
-.background-interest .interest-wrapper
+.background-interest
+  .interest-wrapper
   .interest-sub-container
   .interest-sub-wrapper
   .checklist-interest {
@@ -39,52 +41,62 @@
   font-size: 14px;
 }
 
-.background-interest .interest-wrapper
-.interest-sub-container
-.interest-sub-wrapper
-.information .interest-info-sign-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 800;
-
-  }
-
-  .background-interest .interest-wrapper
+.background-interest
+  .interest-wrapper
   .interest-sub-container
   .interest-sub-wrapper
-  .information .interest-info-sign-content p:first-child{
-    background-color: #4781f8;
-    border: 7px solid #4781f8;
-    border-radius: 100%;
-    text-align: center;
-    color: #ffffff;
-  }
+  .information
+  .interest-info-sign-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+}
 
-  .background-interest .interest-wrapper
+.background-interest
+  .interest-wrapper
   .interest-sub-container
   .interest-sub-wrapper
-  .information .interest-info-sign-content p:last-child{
+  .information
+  .interest-info-sign-content
+  p:first-child {
+  background-color: #4781f8;
+  border: 7px solid #4781f8;
+  border-radius: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.background-interest
+  .interest-wrapper
+  .interest-sub-container
+  .interest-sub-wrapper
+  .information
+  .interest-info-sign-content
+  p:last-child {
   font-size: 12px;
   padding-left: 0.5rem;
-  }
+}
 
-  .background-interest .interest-wrapper
+.background-interest
+  .interest-wrapper
   .interest-sub-container
   .interest-sub-wrapper
   .information
-  .btn-interest-next-back{
-    display: flex;
-    flex-direction: column ;
-    justify-content: center;
-    padding: 0 1rem 1.5rem;
-  }
+  .btn-interest-next-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 1rem 1.5rem;
+}
 
-.background-interest .interest-wrapper
+.background-interest
+  .interest-wrapper
   .interest-sub-container
   .interest-sub-wrapper
   .information
-  .btn-interest-next-back button{
+  .btn-interest-next-back
+  button {
   background-color: #4681f7ff;
   border-radius: 3px;
   font-size: 1rem;
@@ -95,11 +107,13 @@
   margin-top: 0.5rem;
 }
 
-.background-interest .interest-wrapper
+.background-interest
+  .interest-wrapper
   .interest-sub-container
   .interest-sub-wrapper
   .information
-  .btn-interest-next-back button:hover {
+  .btn-interest-next-back
+  button:hover {
   background-color: rgb(67, 116, 216);
 }
 
@@ -108,64 +122,79 @@
 }
 
 /* media query start here */
-@media only screen and (min-width: 700px){
+@media only screen and (min-width: 700px) {
   .background-interest .interest-wrapper {
     padding: 4rem;
   }
 
-  .background-interest .interest-wrapper .interest-sub-container .interest-sub-wrapper {
+  .background-interest
+    .interest-wrapper
+    .interest-sub-container
+    .interest-sub-wrapper {
     padding: 2rem;
   }
 
-  .background-interest .interest-wrapper .interest-sub-container .interest-sub-wrapper .information {
+  .background-interest
+    .interest-wrapper
+    .interest-sub-container
+    .interest-sub-wrapper
+    .information {
     display: flex;
     align-items: baseline;
   }
 
-  .background-interest .interest-wrapper
-  .interest-sub-container
-  .interest-sub-wrapper
-  .information
-  .btn-interest-next-back{
+  .background-interest
+    .interest-wrapper
+    .interest-sub-container
+    .interest-sub-wrapper
+    .information
+    .btn-interest-next-back {
     flex-direction: row-reverse;
     margin-left: auto;
     column-gap: 5px;
   }
 
-  .background-interest .interest-wrapper
-  .interest-sub-container
-  .interest-sub-wrapper
-  .information
-  .btn-interest-next-back button{
+  .background-interest
+    .interest-wrapper
+    .interest-sub-container
+    .interest-sub-wrapper
+    .information
+    .btn-interest-next-back
+    button {
     padding: 0.5rem 3rem;
   }
 
-  .background-interest .interest-wrapper
-  .interest-sub-container
-  .interest-sub-wrapper
-  .checklist-interest {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  overflow:hidden;
-  justify-content: space-around;
-  height: auto;
-  border:none;
+  .background-interest
+    .interest-wrapper
+    .interest-sub-container
+    .interest-sub-wrapper
+    .checklist-interest {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    overflow: hidden;
+    justify-content: space-around;
+    height: auto;
+    border: none;
   }
 }
 
-@media only screen and (min-width: 800px){
+@media only screen and (min-width: 800px) {
   .background-interest .interest-wrapper {
     padding: 6rem;
   }
 
-  .background-interest .interest-wrapper .interest-sub-container .interest-sub-wrapper {
+  .background-interest
+    .interest-wrapper
+    .interest-sub-container
+    .interest-sub-wrapper {
     padding: 3rem;
   }
 
-  .background-interest .interest-wrapper
-  .interest-sub-container
-  .interest-sub-wrapper
-  .checklist-interest {
-  grid-template-columns: auto auto auto auto;
+  .background-interest
+    .interest-wrapper
+    .interest-sub-container
+    .interest-sub-wrapper
+    .checklist-interest {
+    grid-template-columns: auto auto auto auto;
   }
 }

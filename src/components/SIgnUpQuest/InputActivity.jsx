@@ -119,7 +119,7 @@ const InputActivity = ({ ...props }) => {
   };
 
   return (
-    <div className="background-activity">
+    <div className="background-activity" style={{backgroundImage:`url(/img/group-img-isay.png)`}}>
       <div className="activity-wrapper">
         <div className="activity-sub-container">
           <div className="activity-sub-wrapper">
