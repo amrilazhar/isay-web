@@ -38,7 +38,7 @@ function App() {
   app.use(sslRedirect());
   
   app.get('/', (req, res) => {
-    res.send('hello world');
+    res.send('hello worlds');
   });
 
   library.add(fasFaComments, fasFaComment, fasFaThumbsUp, farFaComments, farFaComment, farFaThumbsUp, faMapMarkerAlt)
