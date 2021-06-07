@@ -474,7 +474,7 @@
   .reset-btn-wrapper
   label:hover {
   background: var(--hoverHeroBtn);
-  color: var(--text);
+  color: #ffffff;
 }
 
 .setting-container
