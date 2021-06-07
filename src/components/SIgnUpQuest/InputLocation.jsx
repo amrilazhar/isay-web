@@ -90,7 +90,7 @@ const InputLocation = ({ ...props }) => {
     }
   };
   return (
-    <div className="background-location">
+    <div className="background-location" style={{backgroundImage:`url(/img/group-img-isay.png)`}}>
       <div className="location-wrapper">
         <div className="location-container">
           <div className="location-sub-wrapper">

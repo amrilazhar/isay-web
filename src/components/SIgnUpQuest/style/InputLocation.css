@@ -1,5 +1,4 @@
 .background-location {
-  background-image: url("https://i.ibb.co/Lg01Zy2/group-img-isay-png.png");
   background-size: cover;
   min-height: 100vh;
 }
@@ -21,35 +20,58 @@
   word-break: keep-all; */
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper{
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper {
   padding: 1.5rem;
   line-height: 2rem;
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper h1 {
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  h1 {
   line-height: 2rem;
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper h3 {
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  h3 {
   font-weight: lighter;
   font-size: 1rem;
   line-height: 1.5rem;
   /* margin-bottom: 3rem; */
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper .location-line3 {
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  .location-line3 {
   color: #4f4f4f;
   font-size: 1rem;
   display: flex;
   align-items: center;
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper .location-line3 p{
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  .location-line3
+  p {
   padding-left: 1rem;
 }
 
-
-.background-location .location-wrapper .location-container .location-sub-wrapper p{
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  p {
   color: #828282;
   /* font-size: 1rem; */
   padding-left: 2.5rem;
@@ -57,33 +79,56 @@
   margin-bottom: 4rem; */
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper .location-display {
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  .location-display {
   padding: 0 2.5rem;
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper .btn-location{
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  .btn-location {
   display: flex;
-  flex-direction: column ;
+  flex-direction: column;
   justify-content: center;
   padding: 0.5rem 2.5rem 1.5rem;
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper .btn-location button{
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  .btn-location
+  button {
   background-color: #4681f7ff;
   border-radius: 3px;
   color: #ffffff;
   font-weight: bold;
   font-size: 1rem;
   border-color: transparent;
-  margin-top: 1rem ;
+  margin-top: 1rem;
   padding: 0.5rem;
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper .btn-location button:hover {
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  .btn-location
+  button:hover {
   background-color: rgb(67, 116, 216);
 }
 
-.background-location .location-wrapper .location-container .location-sub-wrapper .btn-location button:active {
+.background-location
+  .location-wrapper
+  .location-container
+  .location-sub-wrapper
+  .btn-location
+  button:active {
   background-color: rgb(48, 84, 156);
 }
 
@@ -93,7 +138,11 @@
 }  */
 
 @media only screen and (min-width: 600px) {
-  .background-location .location-wrapper .location-container .location-sub-wrapper .btn-location{
+  .background-location
+    .location-wrapper
+    .location-container
+    .location-sub-wrapper
+    .btn-location {
     padding: 0.5rem 10rem 1.5rem;
   }
 
@@ -103,21 +152,31 @@
     box-sizing: border-box;
   }
 
-  .background-location .location-wrapper .location-container .location-sub-wrapper{
+  .background-location
+    .location-wrapper
+    .location-container
+    .location-sub-wrapper {
     padding: 2.5rem;
     line-height: 2rem;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .background-location .location-wrapper .location-container .location-sub-wrapper .btn-location{
+  .background-location
+    .location-wrapper
+    .location-container
+    .location-sub-wrapper
+    .btn-location {
     padding: 0.5rem 12rem 1.5rem;
   }
-  
 }
 
 @media only screen and (min-width: 1024px) {
-  .background-location .location-wrapper .location-container .location-sub-wrapper .btn-location{
+  .background-location
+    .location-wrapper
+    .location-container
+    .location-sub-wrapper
+    .btn-location {
     padding: 0.5rem 20rem 1.5rem;
     display: flex;
     max-width: 20rem;

@@ -16,7 +16,7 @@ const GetAvatar = () => {
   }, []);
 
   return (
-    <div className="main-avatar-container">
+    <div className="main-avatar-container" style={{backgroundImage: `url(/img/group-img-isay.png)`}}>
       <div className="main-avatar-wrapper">
         <div className="isay-logo">
           <img src="https://i.ibb.co/S0rvLhh/Logo-Only.png" alt="logo" />

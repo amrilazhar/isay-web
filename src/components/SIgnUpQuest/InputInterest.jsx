@@ -72,7 +72,7 @@ const InputInterest = ({...props}) => {
     
     return(
         <>
-            <div className="background-interest">
+            <div className="background-interest" style={{backgroundImage:`url(/img/group-img-isay.png)`}}>
                 <div className="interest-wrapper">
                     <div className="interest-sub-container">
                         <div className="interest-sub-wrapper">

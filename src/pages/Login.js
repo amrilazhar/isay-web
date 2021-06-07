@@ -5,7 +5,9 @@ import FlashMessage from '../components/FlashMessage';
 import { alertActions, userActions } from '../redux/actions'
 import { googleClient } from '../helpers/google.client'
 import { GoogleLogin } from "react-google-login";
-import logo from '../assets/isay-white.png'
+import logo from '../assets/isay-white.png';
+import appstore from '../assets/appstore.png';
+import playstore from '../assets/gplay.png';
 import './style/login.css'
 
 function Login() {
@@ -53,17 +55,17 @@ function Login() {
         alert.alert ? <FlashMessage/> : ""
       }
       <div className="login-wrapper">
-        <div className="left-content-login">
+        <div className="left-content-login" style={{backgroundImage: `url(/img/left-img-isay.png)`}}>
           <div className="logo">
             <img src={logo} alt="i say logo" />
           </div>
           <h2>See life from a different perspective.</h2>
           <div className="download-button">
-            <Link to ="#"><img src="https://www.pngkit.com/png/full/322-3225520_download-the-app-available-on-the-app-store.png" alt="Download on App Store" /></Link>
-            <Link to ="#"><img src="https://www.talkatone.com/wp-content/themes/talkatone/img/get-app-google-play.png" alt="Get it on Google Play" /></Link>
+            <Link to ="#"><img src={appstore} alt="Download on App Store" /></Link>
+            <Link to ="#"><img src={playstore} alt="Get it on Google Play" /></Link>
           </div>
         </div>
-        <div className="right-content-login">
+        <div className="right-content-login" style={{backgroundImage: `url(/img/right-img-isay.png)`}}>
           <div className="login-wrapper">
             <h2>Login</h2>
             <form name="form" onSubmit={handleSubmit}>
