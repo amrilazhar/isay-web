@@ -27,7 +27,19 @@ import { faComments as farFaComments, faComment as farFaComment, faThumbsUp as f
 import CheckPage from './pages/CheckPage';
 import EmailReminder from './pages/EmailReminder';
 
+import sslRedirect from 'heroku-ssl-redirect';
+import express from 'express';
+
 function App() {
+
+  const app = express();
+ 
+  // enable ssl redirect
+  app.use(sslRedirect());
+  
+  app.get('/', (req, res) => {
+    res.send('hello world');
+  });
 
   library.add(fasFaComments, fasFaComment, fasFaThumbsUp, farFaComments, farFaComment, farFaThumbsUp, faMapMarkerAlt)
 
