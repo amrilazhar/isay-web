@@ -1,6 +1,20 @@
 const CACHE_NAME = "version-1";
-const urlsToCache = [ 'index.html', 'offline.html' ];
-const DYNAMIC_CACHE = "dynamic-cache-version-1"
+const urlsToCache = [
+  "/",
+  "/index.html",
+  "/offline.html",
+  "/favicon.ico",
+  "/logo192.png",
+  "/logo512.png",
+  "/manifest.webmanifest",
+  "/static/js/bundle.js",
+  "/static/js/main.chunk.js",
+  "/static/js/vendors~main.chunk.js",
+  "/message",
+  "/notification",
+  "/profile",
+  "/setting",
+];
 
 const self = this;
 
@@ -10,7 +24,6 @@ self.addEventListener('install', (event) =>{
     caches.open(CACHE_NAME)
       .then((cache) => {
         console.log('Opened cache');
-
         return cache.addAll(urlsToCache);
       })
   )
@@ -21,17 +34,12 @@ self.addEventListener('install', (event) =>{
 self.addEventListener('fetch', (event) =>{
   event.respondWith(
     caches.match(event.request)
-      .then((cacheRes)=>{
-        return cacheRes || fetch(event.request).then(fetchRes => {
-          return caches.open(DYNAMIC_CACHE).then(cache => {
-            cache.put(event.request.url, fetchRes.clone());
-            return fetchRes;
-          })
-        }).catch(()=> caches.match('offline.html'));
+      .then(()=>{
+        return fetch(event.request)
+          .catch(()=> caches.match('offline.html'));
       })
   )
 });
-
 
 // activate service workers
 self.addEventListener('activate', (event) =>{
