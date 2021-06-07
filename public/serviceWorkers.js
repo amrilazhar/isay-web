@@ -1,6 +1,6 @@
 const CACHE_NAME = "version-1";
 const urlsToCache = [ 'index.html', 'offline.html' ];
-
+const DYNAMIC_CACHE = "dynamic-cache-version-1"
 
 const self = this;
 
@@ -21,9 +21,13 @@ self.addEventListener('install', (event) =>{
 self.addEventListener('fetch', (event) =>{
   event.respondWith(
     caches.match(event.request)
-      .then(()=>{
-        return fetch(event.request)
-          .catch(()=> caches.match('offline.html'))
+      .then((cacheRes)=>{
+        return cacheRes || fetch(event.request).then(fetchRes => {
+          return caches.open(DYNAMIC_CACHE).then(cache => {
+            cache.put(event.request.url, fetchRes.clone());
+            return fetchRes;
+          })
+        }).catch(()=> caches.match('offline.html'));
       })
   )
 });
